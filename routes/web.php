@@ -12,7 +12,7 @@
 */
 
 Route::get('/', 'PagesController@home');
-Route::resource('developers.projects', 'ProjectsController');
+Route::resource('projects', 'ProjectsController');
 
 Route::group(['middleware' => 'auth', 'prefix' => 'dashboard', 'as' => 'dashboard.'], function() {
 	Route::get('/', ['as' => 'dashboard', 'uses' => 'DashboardController@index']);

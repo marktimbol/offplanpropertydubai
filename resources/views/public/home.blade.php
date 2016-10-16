@@ -53,7 +53,7 @@
 									</div>
 									<div class="Project__content Flex Flex--space-between">
 										<h4 class="Project__title">
-											<a href="{{ route('developers.projects.show', [$project->developer->slug, $project->slug]) }}">
+											<a href="{{ route('projects.show', $project->slug) }}">
 												{{ ucfirst($project->name) }}
 											</a>
 										</h4>
