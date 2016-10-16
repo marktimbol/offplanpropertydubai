@@ -29,7 +29,7 @@ class AnAdminCanManageDeveloperProjectsTest extends TestCase
 
     	$developer->projects()->save($project);
 
-    	$this->visit('/dashboard/developers/'.$project->id)
+    	$this->visit('/dashboard/developers/'.$developer->slug)
     		->see($developer->name)
     		->see($project->name);
     }
@@ -42,7 +42,7 @@ class AnAdminCanManageDeveloperProjectsTest extends TestCase
     		'name'	=> 'Emaar'
     	]);
 
-    	$this->visit('/dashboard/developers/'.$developer->id.'/projects/create')
+    	$this->visit('/dashboard/developers/'.$developer->slug.'/projects/create')
     		->type('Emaar Park Point', 'name')
     		->press('Save')
 
@@ -66,7 +66,7 @@ class AnAdminCanManageDeveloperProjectsTest extends TestCase
 
     	$developer->projects()->save($project);
 
-    	$this->visit(sprintf('/dashboard/developers/%s/projects/%s/edit', $developer->id, $project->id))
+    	$this->visit(sprintf('/dashboard/developers/%s/projects/%s/edit', $developer->slug, $project->slug))
     		->type('Emaar Park Point', 'name')
     		->press('Update')
 
@@ -90,7 +90,7 @@ class AnAdminCanManageDeveloperProjectsTest extends TestCase
 
     	$developer->projects()->save($project);
 
-    	$this->visit(sprintf('/dashboard/developers/%s/projects/%s', $developer->id, $project->id))
+    	$this->visit(sprintf('/dashboard/developers/%s/projects/%s', $developer->slug, $project->slug))
     		->see($project->name)
     		->press('Delete')
 

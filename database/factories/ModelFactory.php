@@ -27,6 +27,7 @@ $factory->define(App\User::class, function (Faker\Generator $faker) {
 $factory->define(App\Developer::class, function (Faker\Generator $faker) {
     return [
         'name' => $faker->word,
+        'slug' => $faker->slug,
     ];
 });
 
@@ -36,6 +37,7 @@ $factory->define(App\Project::class, function (Faker\Generator $faker) {
             return factory(App\Developer::class)->create()->id;
         },
         'name' => $faker->word,
+        'slug' => $faker->slug,
         'description'   => $faker->paragraph,
     ];
 });
