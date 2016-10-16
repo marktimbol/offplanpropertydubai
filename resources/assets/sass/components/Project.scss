@@ -1,0 +1,20 @@
+$eyescreamPink: #EA5E5C;
+
+.Project-page {
+	background: url('/images/project-bg.jpg') no-repeat;
+	background-size: cover;
+	.Project__logo {
+		background: white;
+	}
+
+	.Project__hero {
+	    width: 100%;
+	    height: 75vh;
+	    position: relative;
+
+		background-image: url('/images/video-cover.jpg');
+	    background-size: cover;
+		background-repeat: no-repeat;
+	    background-position: top center;
+	}
+}
