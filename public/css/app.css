@@ -7976,12 +7976,12 @@ body {
   justify-content: space-between; }
 
 .Slide {
-  height: 60vh;
+  height: 65vh;
   background: url("/images/header-bg.jpg") no-repeat;
   background-size: cover; }
 
 .Slide__content {
-  width: 40%; }
+  width: 50%; }
 
 .Slide__title {
   color: white;
@@ -7992,6 +7992,9 @@ body {
 
 .Search {
   position: relative; }
+
+.Search__input {
+  background: rgba(255, 255, 255, 0.9); }
 
 .Search__button {
   color: #333;
