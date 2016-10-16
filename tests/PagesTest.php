@@ -25,4 +25,16 @@ class PagesTest extends TestCase
     	$this->visit('/')
     		->see('Villa Nova');
     }
+
+    public function test_view_all_the_developers_on_the_homepage()
+    {
+        $developers = factory(App\Developer::class, 5)->create();
+
+        $this->visit('/');
+
+        foreach( $developers as $developer )
+        {
+            $this->see($developer->name);  
+        }
+    }
 }
