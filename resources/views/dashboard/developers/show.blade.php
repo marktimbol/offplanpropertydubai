@@ -24,7 +24,7 @@
 		</tbody>
 	</table>
 
-	<form method="POST" action="{{ route('dashboard.developers.destroy', $developer->id) }}">
+	<form method="POST" action="{{ route('dashboard.developers.destroy', $developer->slug) }}">
 		{{ csrf_field() }}
 		{!! method_field('DELETE') !!}
 		<div class="form-group">

@@ -39,10 +39,11 @@ class AnAdminCanManageDeveloperProjectsTest extends TestCase
     	$this->signIn();
 
     	$developer = factory(App\Developer::class)->create([
-    		'name'	=> 'Emaar'
+    		'name'	=> 'Emaar',
+            'slug'  => 'emaar'
     	]);
 
-    	$this->visit('/dashboard/developers/'.$developer->slug.'/projects/create')
+    	$this->visit('/dashboard/developers/emaar/projects/create')
     		->type('Emaar Park Point', 'name')
     		->press('Save')
 
@@ -57,15 +58,17 @@ class AnAdminCanManageDeveloperProjectsTest extends TestCase
     	$this->signIn();
 
     	$developer = factory(App\Developer::class)->create([
-    		'name'	=> 'Emaar'
+    		'name'	=> 'Emaar',
+            'slug'  => 'emaar'
     	]);
 
     	$project = factory(App\Project::class)->make([
-    		'name'	=> 'Emaar Park Points'
+    		'name'	=> 'Emaar Park Points',
+            'slug'  => 'emaar-park-points'
     	]);
 
     	$developer->projects()->save($project);
-
+        
     	$this->visit(sprintf('/dashboard/developers/%s/projects/%s/edit', $developer->slug, $project->slug))
     		->type('Emaar Park Point', 'name')
     		->press('Update')

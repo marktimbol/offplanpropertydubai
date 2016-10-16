@@ -10,6 +10,11 @@ use Illuminate\Http\Request;
 
 class DeveloperProjectsController extends Controller
 {
+    public function index(Developer $developer)
+    {
+        // dd($developer);
+    }
+
 	public function show(Developer $developer, Project $project)
 	{
 		return view('dashboard.projects.show', compact('developer', 'project'));
@@ -24,7 +29,7 @@ class DeveloperProjectsController extends Controller
     {
     	$developer->projects()->create($request->all());
 
-    	return redirect()->route('dashboard.developers.show', $developer->id);
+    	return redirect()->route('dashboard.developers.show', $developer->slug);
     }
 
     public function edit(Developer $developer, Project $project)
@@ -36,14 +41,14 @@ class DeveloperProjectsController extends Controller
     {
         $project->update($request->all());
 
-        return back();
+        return redirect()->route('dashboard.developers.projects.index', $developer->slug);
     }
 
     public function destroy(Developer $developer, Project $project)
     {
     	$project->delete();
 
-    	return redirect()->route('dashboard.developers.show', $developer->id);
+    	return redirect()->route('dashboard.developers.show', $developer->slug);
     }
 
 }

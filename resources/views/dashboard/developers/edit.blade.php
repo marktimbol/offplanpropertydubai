@@ -3,7 +3,7 @@
 @section('content')
 	<h1>Edit Developer</h1>
 
-	<form method="POST" action="{{ route('dashboard.developers.update', $developer->id) }}">
+	<form method="POST" action="{{ route('dashboard.developers.update', $developer->slug) }}">
 		{{ csrf_field() }}
 		{!! method_field('PUT') !!}
 		<div class="form-group">

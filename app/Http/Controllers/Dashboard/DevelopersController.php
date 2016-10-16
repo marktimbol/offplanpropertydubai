@@ -41,7 +41,7 @@ class DevelopersController extends Controller
     {
         $developer->update($request->all());
         // Flash message
-        return back();
+        return redirect()->route('dashboard.developers.index', $developer->slug);
     }
 
     public function destroy(Developer $developer)

@@ -2,14 +2,15 @@
 
 namespace App\Http\Controllers;
 
+use App\Developer;
 use App\Http\Requests;
 use App\Project;
 use Illuminate\Http\Request;
 
 class ProjectsController extends Controller
 {
-    public function show(Project $project)
+    public function show(Developer $developer, Project $project)
     {
-    	return view('public.projects.show', compact('project'));
+    	return view('public.projects.show', compact('developer', 'project'));
     }
 }

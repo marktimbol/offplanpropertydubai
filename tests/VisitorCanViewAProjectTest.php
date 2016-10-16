@@ -10,12 +10,18 @@ class VisitorCanViewAProjectTest extends TestCase
 
     public function test_a_visitor_can_view_a_specific_project()
     {
-    	$project = factory(App\Project::class)->create([
+        $developer = factory(App\Developer::class)->create([
+            'name'  => 'Emaar'
+        ]);
+
+    	$project = factory(App\Project::class)->make([
     		'name'	=> 'Villa Nova',
     		'slug'	=> 'villa-nova'
     	]);
 
-    	$this->visit(sprintf('/projects/%s', $project->slug))
+        $developer->projects()->save($project);
+
+    	$this->visit(sprintf('/developers/%s/projects/%s', $developer->slug, $project->slug))
     		->see('Villa Nova');
     }
 }

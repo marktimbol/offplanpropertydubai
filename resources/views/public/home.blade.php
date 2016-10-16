@@ -52,7 +52,11 @@
 										<img src="/images/projects/project.jpg" alt="{{ $project->name }}" title="{{ $project->name }}" class="img-responsive" />
 									</div>
 									<div class="Project__content Flex Flex--space-between">
-										<h4 class="Project__title">{{ ucfirst($project->name) }}</h4>
+										<h4 class="Project__title">
+											<a href="{{ route('developers.projects.show', [$project->developer->slug, $project->slug]) }}">
+												{{ ucfirst($project->name) }}
+											</a>
+										</h4>
 										<a href="#" class="btn btn-link btn-download">
 											<i class="fa fa-download"></i> Brochure
 										</a>

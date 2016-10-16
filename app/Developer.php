@@ -13,6 +13,12 @@ class Developer extends Model
     public function getRouteKeyName() {
     	return 'slug';
     }
+
+    public function setNameAttribute($name)
+    {
+    	$this->attributes['name'] = $name;
+    	$this->attributes['slug'] = str_slug($name);
+    }
     
     public function projects()
     {

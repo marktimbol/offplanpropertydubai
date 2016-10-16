@@ -3,7 +3,7 @@
 @section('content')
 	<h1>Add Project</h1>
 
-	<form method="POST" action="{{ route('dashboard.developers.projects.store', $developer->id) }}">
+	<form method="POST" action="{{ route('dashboard.developers.projects.store', $developer->slug) }}">
 		{{ csrf_field() }}
 		<div class="form-group">
 			<label for="name">Project Name</label>

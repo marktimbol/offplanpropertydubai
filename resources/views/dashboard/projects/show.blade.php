@@ -5,7 +5,7 @@
 
 	<p>{{ $project->description }}</p>
 
-	<form method="POST" action="{{ route('dashboard.developers.projects.destroy', [$developer->id, $project->id]) }}">
+	<form method="POST" action="{{ route('dashboard.developers.projects.destroy', [$developer->slug, $project->slug]) }}">
 		{{ csrf_field() }}
 		{!! method_field('DELETE') !!}
 		<div class="form-group">

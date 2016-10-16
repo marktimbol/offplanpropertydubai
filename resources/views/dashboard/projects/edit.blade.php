@@ -3,7 +3,7 @@
 @section('content')
 	<h1>Edit Project</h1>
 
-	<form method="POST" action="{{ route('dashboard.developers.projects.update', [$developer->id, $project->id]) }}">
+	<form method="POST" action="{{ route('dashboard.developers.projects.update', [$developer->slug, $project->slug]) }}">
 		{{ csrf_field() }}
 		{!! method_field('PUT') !!}
 		<div class="form-group">

@@ -43,10 +43,11 @@ class AnAdminCanManageDevelopersTest extends TestCase
         $this->signIn();
 
         $developer = factory(App\Developer::class)->create([
-            'name'  => 'Emaars'
+            'name'  => 'Emaars',
+            'slug'  => 'emaar'
         ]);
 
-        $this->visit(sprintf('/dashboard/developers/%s/edit', $developer->id))
+        $this->visit(sprintf('/dashboard/developers/%s/edit', $developer->slug))
             ->type('Emaar', 'name')
             ->press('Update')
 
@@ -62,7 +63,7 @@ class AnAdminCanManageDevelopersTest extends TestCase
 
         $developer = factory(App\Developer::class)->create();
 
-        $this->visit(sprintf('/dashboard/developers/%s', $developer->id))
+        $this->visit(sprintf('/dashboard/developers/%s', $developer->slug))
             ->see($developer->name)
             ->press('Delete')
 
