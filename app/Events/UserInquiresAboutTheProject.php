@@ -3,6 +3,7 @@
 namespace App\Events;
 
 use App\Inquiry;
+use App\Project;
 use Illuminate\Broadcasting\Channel;
 use Illuminate\Broadcasting\InteractsWithSockets;
 use Illuminate\Broadcasting\PresenceChannel;
@@ -16,14 +17,17 @@ class UserInquiresAboutTheProject
     
     public $inquiry;
 
+    public $project;
+
     /**
      * Create a new event instance.
      *
      * @return void
      */
-    public function __construct(Inquiry $inquiry)
+    public function __construct(Inquiry $inquiry, Project $project)
     {
         $this->inquiry = $inquiry;
+        $this->project = $project;
     }
 
     /**

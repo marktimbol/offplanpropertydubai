@@ -10,6 +10,7 @@ window._ = require('lodash');
 window.$ = window.jQuery = require('jquery');
 
 require('bootstrap-sass');
+require('sweetalert');
 
 /**
  * Echo exposes an expressive API for subscribing to channels and listening

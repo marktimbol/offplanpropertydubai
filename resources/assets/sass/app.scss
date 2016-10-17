@@ -7,8 +7,10 @@
 
 // Bootstrap
 @import "node_modules/bootstrap-sass/assets/stylesheets/bootstrap";
-
+// Font Awesome
 @import "node_modules/font-awesome/scss/font-awesome";
+// Sweet Alert
+@import "node_modules/sweetalert/dev/sweetalert";
 
 body {
 	background: white;

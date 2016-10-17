@@ -79,7 +79,7 @@
 					<hr />
 					<div class="Inquiry">
 						<h3 class="Inquiry__title">Inquire Now</h3>
-						<form method="POST" action="{{ route('inquiries.store') }}">
+						<form method="POST" action="{{ route('projects.inquiries.store', $project->slug) }}">
 							{{ csrf_field() }}
 							<div class="form-group {{ $errors->has('name') ? 'has-error' : '' }}">
 								<label for="name">Name *</label>

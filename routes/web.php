@@ -13,7 +13,7 @@
 
 Route::get('/', ['as' => 'home', 'uses' => 'PagesController@home']);
 Route::resource('projects', 'ProjectsController');
-Route::resource('inquiries', 'InquiriesController');
+Route::resource('projects.inquiries', 'InquiriesController');
 
 Auth::routes();
 

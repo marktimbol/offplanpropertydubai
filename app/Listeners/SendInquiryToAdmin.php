@@ -11,16 +11,6 @@ use Illuminate\Support\Facades\Mail;
 class SendInquiryToAdmin
 {
     /**
-     * Create the event listener.
-     *
-     * @return void
-     */
-    public function __construct()
-    {
-        //
-    }
-
-    /**
      * Handle the event.
      *
      * @param  UserInquiresAboutTheProject  $event
@@ -28,6 +18,6 @@ class SendInquiryToAdmin
      */
     public function handle(UserInquiresAboutTheProject $event)
     {
-        Mail::to('mark.timbol@hotmail.com')->send(new ProjectInquiry($event->inquiry));
+        Mail::to('mark.timbol@hotmail.com')->send(new ProjectInquiry($event->inquiry, $event->project));
     }
 }

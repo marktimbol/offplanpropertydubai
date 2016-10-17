@@ -3,6 +3,7 @@
 namespace App\Mail;
 
 use App\Inquiry;
+use App\Project;
 use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Mail\Mailable;
@@ -14,14 +15,17 @@ class ProjectInquiry extends Mailable
 
     public $inquiry;
 
+    public $project;
+
     /**
      * Create a new message instance.
      *
      * @return void
      */
-    public function __construct(Inquiry $inquiry)
+    public function __construct(Inquiry $inquiry, Project $project)
     {
         $this->inquiry = $inquiry;
+        $this->project = $project;
     }
 
     /**
@@ -31,6 +35,7 @@ class ProjectInquiry extends Mailable
      */
     public function build()
     {
-        return $this->view('emails.inquiry');
+        return $this->view('emails.inquiry')
+                    ->subject(sprintf('Off Plan Property Inquiry: %s by %s', $this->project->name, $this->project->developer->name));
     }
 }
