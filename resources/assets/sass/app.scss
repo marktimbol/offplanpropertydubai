@@ -23,6 +23,15 @@ body {
 	margin-bottom: 30px;
 }
 
+.has-border-bottom {
+	border-bottom: 1px solid #ddd;
+}
+
+h3 {
+	font-size: 30px;
+	font-weight: 300;
+}
+
 section {
 	padding: 40px 0;
 }
@@ -114,4 +123,5 @@ footer {
 
 @import 'components/Grid';
 @import 'components/Project';
+@import 'components/Developer';
 @import 'components/Overwrite';

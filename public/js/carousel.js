@@ -1525,9 +1525,9 @@ $(document).ready(function() {
 	let projectCarousel = $('.Project__carousel');
 	projectCarousel.owlCarousel({
 		singleItem: true,
-		navigation: false,
+		navigation: false, 
 		pagination: false,
-		autoPlay: false,
+		autoPlay: false
 		// transitionStyle : "fade"
 	});
 

@@ -1,4 +1,6 @@
-@extends('layouts.home')
+@extends('layouts.app')
+
+@section('pageTitle', 'Home')
 
 @section('header_styles')
 	<link rel="stylesheet" href="{{ elixir('css/carousel.css') }}" />
@@ -7,6 +9,11 @@
 @section('bodyClass', 'Home')
 
 @section('content')
+
+    <header>
+
+    </header>
+
 	<div class="Slide Flex Flex--center">
 		<div class="Slide__content">
 			<h2 class="Slide__title">Invest in the Future</h2>

@@ -8693,6 +8693,13 @@ body {
 .mb-30 {
   margin-bottom: 30px; }
 
+.has-border-bottom {
+  border-bottom: 1px solid #ddd; }
+
+h3 {
+  font-size: 30px;
+  font-weight: 300; }
+
 section {
   padding: 40px 0; }
 
@@ -8884,6 +8891,18 @@ footer {
   font-size: 30px;
   font-weight: 300; }
 
+.Developer {
+  margin-bottom: 40px; }
+
+.Developer__title {
+  margin-bottom: 30px; }
+
+.Developer__image {
+  margin-right: 30px; }
+
+.Developer__info {
+  margin-top: 30px; }
+
 .btn {
   border-radius: 0;
   font-weight: 300; }
@@ -8893,5 +8912,8 @@ footer {
 
 .owl-wrapper .owl-item {
   margin: 0px 10px; }
+
+.navbar {
+  margin-bottom: 0; }
 
 /*# sourceMappingURL=app.css.map */

@@ -13,7 +13,7 @@
 				<div class="col-md-12">
 					<div class="Project__carousel--container">
 						<div class="Project__carousel">
-							@foreach( range(1, 2) as $index )
+							@foreach( range(1, 3) as $index )
 							<div class="item">
 								<img src="/images/projects/project.jpg" alt="{{ $project->name }}" title="{{ $project->name }}" class="img-responsive" />
 							</div>
