@@ -39,7 +39,7 @@
 		</div>
 	</section>
 
-	<section class="LatestProjects">
+	<section class="LatestProjects is-gray-bg">
 		<div class="container">
 			<div class="row">
 				<div class="col-md-12">
@@ -69,27 +69,6 @@
 						<p class="text-center">
 							<a href="/projects" class="btn btn-link">All Projects</a>
 						</p>
-					</div>
-				</div>
-			</div>
-		</div>
-	</section>
-
-	<section class="Developers">
-		<div class="container">
-			<div class="row">
-				<div class="col-md-12">
-					<h3 class="Section__title text-center">Off Plan Developers</h3>
-					<div class="Developers Carousel">
-						@foreach( $developers as $developer )
-						<div class="Developer">
-							<div class="Developer__image">
-								<a href="#">
-									<img src="/images/developers/developer.jpg" alt="{{ $developer->name }}" title="{{ $developer->Name }}" class="img-responsive" />
-								</a>
-							</div>
-						</div>
-						@endforeach
 					</div>
 				</div>
 			</div>

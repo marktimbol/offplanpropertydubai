@@ -12,7 +12,7 @@
 
     <!-- Styles -->
     <link href="{{ elixir('css/app.css') }}" rel="stylesheet">
-
+    @yield('header_styles')
     <!-- Scripts -->
     <script>
         window.Laravel = <?php echo json_encode([
@@ -79,7 +79,11 @@
 
     @yield('content')
 
+    @include('layouts._footer')
+
     <!-- Scripts -->
     <script src="{{ elixir('js/app.js') }}"></script>
+
+    @yield('footer_scripts')
 </body>
 </html>

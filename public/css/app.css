@@ -7956,7 +7956,13 @@ button.close {
 body {
   background: white; }
 
-.Home section {
+.is-gray-bg {
+  background: #ddd; }
+
+.mb-30 {
+  margin-bottom: 30px; }
+
+section {
   padding: 40px 0; }
 
 .Flex {
@@ -8005,9 +8011,6 @@ body {
 .Section__title {
   font-size: 30px;
   margin-bottom: 30px; }
-
-.LatestProjects {
-  background: #ddd; }
 
 .Project {
   margin-bottom: 30px;
@@ -8093,19 +8096,52 @@ footer {
   -webkit-box-pack: justify;
   justify-content: space-between; }
 
-.Project-page {
-  background: url("/images/project-bg.jpg") no-repeat;
-  background-size: cover; }
-  .Project-page .Project__logo {
-    background: white; }
-  .Project-page .Project__hero {
-    width: 100%;
-    height: 75vh;
-    position: relative;
-    background-image: url("/images/video-cover.jpg");
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: top center; }
+.Project__carousel--container {
+  display: -webkit-box;
+  display: flex;
+  position: relative;
+  -webkit-box-align: center;
+  align-items: center;
+  -webkit-box-pack: justify;
+  justify-content: space-between; }
+
+.Project__carousel img {
+  width: 100%;
+  height: auto;
+  display: block; }
+
+.Project__carousel .owl-item {
+  margin: 0 !important; }
+
+.Project__carousel--nav {
+  width: 100%;
+  display: -webkit-box;
+  display: flex;
+  padding: 0 15px;
+  position: absolute;
+  -webkit-box-align: center;
+  align-items: center;
+  -webkit-box-pack: justify;
+  justify-content: space-between; }
+  .Project__carousel--nav a {
+    color: white;
+    font-size: 8rem;
+    cursor: pointer;
+    font-weight: normal; }
+
+.Project__description h3 {
+  margin: 30px 0px; }
+  .Project__description h3:first-child {
+    margin-top: 0;
+    margin-bottom: 30px; }
+
+.RelatedProjects .Project__title {
+  font-size: 17px; }
+  .RelatedProjects .Project__title a {
+    color: #333; }
+
+.btn {
+  border-radius: 0; }
 
 .form-control {
   border-radius: 0; }

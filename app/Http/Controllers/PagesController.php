@@ -11,9 +11,8 @@ class PagesController extends Controller
 {
     public function home()
     {
-    	$developers = Developer::latest()->get();
     	$projects = Project::with('developer')->latest()->take(6)->get();
 
-    	return view('public.home', compact('projects', 'developers'));
+    	return view('public.home', compact('projects'));
     }
 }

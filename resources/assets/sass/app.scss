@@ -14,10 +14,16 @@ body {
 	background: white;
 }
 
-.Home {
-	section {
-		padding: 40px 0;
-	}
+.is-gray-bg {
+	background: #ddd;
+}
+
+.mb-30 {
+	margin-bottom: 30px;
+}
+
+section {
+	padding: 40px 0;
 }
 
 .Flex {
@@ -73,7 +79,7 @@ body {
 }
 
 .LatestProjects {
-	background: #ddd;
+
 }
 
 .Project {

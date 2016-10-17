@@ -14,7 +14,8 @@ elixir(mix => {
     mix.sass('app.scss')
     	.styles([
     		'../../../node_modules/owlcarousel/owl-carousel/owl.carousel.css',
-    		'../../../node_modules/owlcarousel/owl-carousel/owl.theme.css',
+    		'../../../node_modules/owlcarousel/owl-carousel/owl.transitions.css',
+        '../../../node_modules/owlcarousel/owl-carousel/owl.theme.css',
     	], 'public/css/carousel.css')
 
     	.scripts([
@@ -25,6 +26,7 @@ elixir(mix => {
        .webpack('app.js')
 
        .copy('node_modules/font-awesome/fonts', 'public/build/fonts')
+       .copy('node_modules/bootstrap-sass/assets/fonts/bootstrap', 'public/build/fonts')
        .copy('node_modules/owlcarousel/owl-carousel/grabbing.png', 'public/build/css')
        .copy('node_modules/owlcarousel/owl-carousel/AjaxLoader.gif', 'public/build/css')
 

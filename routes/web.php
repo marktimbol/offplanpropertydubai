@@ -11,14 +11,14 @@
 |
 */
 
-Route::get('/', 'PagesController@home');
+Route::get('/', ['as' => 'home', 'uses' => 'PagesController@home']);
 Route::resource('projects', 'ProjectsController');
+Route::resource('inquiries', 'InquiriesController');
+
+Auth::routes();
 
 Route::group(['middleware' => 'auth', 'prefix' => 'dashboard', 'as' => 'dashboard.'], function() {
 	Route::get('/', ['as' => 'dashboard', 'uses' => 'DashboardController@index']);
 	Route::resource('developers', 'Dashboard\DevelopersController');
 	Route::resource('developers.projects', 'Dashboard\DeveloperProjectsController');
 });
-Auth::routes();
-
-Route::get('/home', 'HomeController@index');

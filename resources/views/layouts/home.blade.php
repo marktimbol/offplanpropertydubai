@@ -27,9 +27,7 @@
 
     @yield('content')
 
-    <footer>
-        
-    </footer>
+    @include('layouts._footer')
 
     <!-- Scripts -->
     <script src="{{ elixir('js/app.js') }}"></script>
