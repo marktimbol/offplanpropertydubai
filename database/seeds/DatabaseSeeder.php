@@ -14,7 +14,9 @@ class DatabaseSeeder extends Seeder
     	$developers = factory(App\Developer::class, 10)->create();
     	foreach($developers as $developer)
     	{
-    		$projects = factory(App\Project::class, 10)->make();
+    		$projects = factory(App\Project::class, 10)->make([
+                'developer_id'  => $developer->id
+            ]);
     		$developer->projects()->saveMany($projects);
     	}
     }

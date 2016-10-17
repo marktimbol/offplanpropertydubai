@@ -2,10 +2,13 @@
 
 namespace App;
 
+use Laravel\Scout\Searchable;
 use Illuminate\Database\Eloquent\Model;
 
 class Developer extends Model
 {
+    use Searchable;
+
     protected $fillable = ['name', 'slug'];
 
     protected $with = ['projects'];
@@ -20,6 +23,16 @@ class Developer extends Model
     	$this->attributes['slug'] = str_slug($name);
     }
     
+    /**
+     * Get the index name for the model.
+     *
+     * @return string
+     */
+    public function searchableAs()
+    {
+        return 'offplan_developers';
+    }
+
     public function projects()
     {
     	return $this->hasMany(Project::class);

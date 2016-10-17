@@ -1,6 +1,7 @@
+
 <?php
 
-use Illuminate\Support\Facades\Log;
+use App\Developer;
 
 /*
 |--------------------------------------------------------------------------
@@ -15,6 +16,11 @@ use Illuminate\Support\Facades\Log;
 
 
 Route::get('/', ['as' => 'home', 'uses' => 'PagesController@home']);
+
+Route::get('/search', function() {
+	return Developer::search(request('key'))->get();
+});
+
 Route::resource('developers', 'DevelopersController', [
 	'only'	=> ['index', 'show']
 ]);
