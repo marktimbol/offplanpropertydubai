@@ -15,6 +15,9 @@ use Illuminate\Support\Facades\Log;
 
 
 Route::get('/', ['as' => 'home', 'uses' => 'PagesController@home']);
+Route::resource('developers', 'DevelopersController', [
+	'only'	=> ['index', 'show']
+]);
 Route::resource('projects', 'ProjectsController');
 Route::resource('projects.inquiries', 'InquiriesController');
 

@@ -56,10 +56,8 @@
 											<a href="{{ route('projects.show', $project->slug) }}">
 												{{ ucfirst($project->name) }}
 											</a>
+											<small>by <a href="{{ route('developers.show', $project->developer->slug) }}">{{ $project->developer->name }}</a></small>
 										</h4>
-										<a href="#" class="btn btn-link btn-download">
-											<i class="fa fa-download"></i> Brochure
-										</a>
 									</div>
 								</div>
 							</div>

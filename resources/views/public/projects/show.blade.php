@@ -4,6 +4,8 @@
 	<link rel="stylesheet" href="{{ elixir('css/carousel.css') }}" />
 @endsection
 
+@section('pageTitle', $project->name)
+
 @section('content')
 	<div class="Project">
 		<div class="container">
@@ -11,7 +13,7 @@
 				<div class="col-md-12">
 					<div class="Project__carousel--container">
 						<div class="Project__carousel">
-							@foreach( range(1, 5) as $index )
+							@foreach( range(1, 2) as $index )
 							<div class="item">
 								<img src="/images/projects/project.jpg" alt="{{ $project->name }}" title="{{ $project->name }}" class="img-responsive" />
 							</div>
@@ -32,13 +34,16 @@
 				<div class="col-md-12">
 					<h1 class="Project__title">
 						{{ $project->name }}
-						<small>by <a href="#">{{ $project->developer->name }}</a></small>
+						<small>
+							by <a href="{{ route('developers.show', $project->developer->slug) }}">
+							{{ $project->developer->name }}</a>
+						</small>
 					</h1>
 					<hr />
 				</div>
 				<div class="col-md-9">
 					<div class="Project__description">
-						@foreach( range(1, 3) as $index )
+						@foreach( range(1, 2) as $index )
 						<h3>Villanova Cluster Home Sizes</h3>
 						<p>
 							Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
@@ -132,7 +137,7 @@
 		<div class="container">
 			<div class="row">
 				<div class="col-md-12">
-					<h3 class="mb-30">More Projects</h3>
+					<h3 class="mb-30">More projects from {{ $project->developer->name }}</h3>
 				</div>
 			</div>
 			<div class="row">
@@ -144,7 +149,7 @@
 							</div>
 							<div class="Project__content Flex Flex--space-between">
 								<h4 class="Project__title">
-									<a href="#">
+									<a href="{{ route('projects.show', $developerProject->slug) }}">
 										{{ $developerProject->name }}
 									</a>
 									<small>by <a href="#">{{ $project->developer->name }}</a></small>

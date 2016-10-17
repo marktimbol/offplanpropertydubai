@@ -7,7 +7,7 @@
 					@foreach( $developers as $developer )
 					<div class="Developer">
 						<div class="Developer__image">
-							<a href="#">
+							<a href="{{ route('developers.show', $developer->slug) }}">
 								<img src="/images/developers/developer.jpg" alt="{{ $developer->name }}" title="{{ $developer->Name }}" class="img-responsive" />
 							</a>
 						</div>
