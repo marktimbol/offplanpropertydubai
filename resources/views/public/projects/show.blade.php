@@ -83,7 +83,7 @@
 							{{ csrf_field() }}
 							<div class="form-group {{ $errors->has('name') ? 'has-error' : '' }}">
 								<label for="name">Name *</label>
-								<input type="text" name="name" class="form-control" value="{{ old('name') }}" />
+								<input type="text" name="name" id="name" class="form-control" value="{{ old('name') }}" required/>
 								@if( $errors->has('name') )
 									<span class="help-block">
 										<strong>{{ $errors->first('name') }}</strong>
@@ -91,8 +91,8 @@
 								@endif
 							</div>
 							<div class="form-group {{ $errors->has('email') ? 'has-error' : '' }}">
-								<label for="name">eMail *</label>
-								<input type="email" name="email" id="email" class="form-control" value="{{ old('email') }}" />
+								<label for="email">eMail *</label>
+								<input type="email" name="email" id="email" class="form-control" value="{{ old('email') }}" required />
 								@if( $errors->has('email') )
 									<span class="help-block">
 										<strong>{{ $errors->first('email') }}</strong>
@@ -101,7 +101,7 @@
 							</div>
 							<div class="form-group {{ $errors->has('phone') ? 'has-error' : '' }}">
 								<label for="phone">Phone *</label>
-								<input type="text" name="phone" id="phone" class="form-control" value="{{ old('phone') }}" />
+								<input type="text" name="phone" id="phone" class="form-control" value="{{ old('phone') }}" required />
 								@if( $errors->has('phone') )
 									<span class="help-block">
 										<strong>{{ $errors->first('phone') }}</strong>
@@ -119,7 +119,7 @@
 								</textarea>
 							</div>
 							<div class="form-group">
-								<button type="submit" class="btn btn-block btn-primary">Send Message</button>
+								<button type="submit" class="btn btn-block btn-primary"><i class="fa fa-send"></i> &nbsp; Send Message</button>
 							</div>
 						</form>
 					</div>		
@@ -132,22 +132,22 @@
 		<div class="container">
 			<div class="row">
 				<div class="col-md-12">
-					<h3 class="mb-30">Related Projects</h3>
+					<h3 class="mb-30">More Projects</h3>
 				</div>
 			</div>
 			<div class="row">
-				@foreach( range(1, 4) as $index )
-					<div class="col-md-3">
+				@foreach( $project->developer->projects as $developerProject )
+					<div class="col-md-4">
 						<div class="Project">
 							<div class="Project__image">
-								<img src="/images/projects/project.jpg" alt="" title="{" class="img-responsive" />
+								<img src="/images/projects/project.jpg" alt="{{ $developerProject->name }}" title="{{ $developerProject->name }}" class="img-responsive" />
 							</div>
 							<div class="Project__content Flex Flex--space-between">
 								<h4 class="Project__title">
 									<a href="#">
-										Polo Residence Meydan City
+										{{ $developerProject->name }}
 									</a>
-									<small>by <a href="#">MAG Property Development</a></small>
+									<small>by <a href="#">{{ $project->developer->name }}</a></small>
 								</h4>
 							</div>
 						</div>

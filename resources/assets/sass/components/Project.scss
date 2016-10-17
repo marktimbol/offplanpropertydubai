@@ -32,8 +32,16 @@
 	}
 }
 
+.Project__title {
+	a {
+		color: #636b6f;
+	}
+}
+
 .Project__description {
 	h3 {
+		font-size: 30px;
+		font-weight: 300;
 		&:first-child {
 			margin-top: 0;
 			margin-bottom: 30px;
@@ -43,10 +51,22 @@
 }
 
 .RelatedProjects {
+	h3 {
+		font-weight: 300;
+	}
 	.Project__title {
 		font-size: 17px;
 		a {
 			color: #333;
 		}
 	}
+}
+
+.Inquiry {
+
+}
+
+.Inquiry__title {
+	font-size: 30px;
+	font-weight: 300;
 }

@@ -1,5 +1,7 @@
 <?php
 
+use Illuminate\Support\Facades\Log;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -10,6 +12,7 @@
 | to using a Closure or controller method. Build something great!
 |
 */
+
 
 Route::get('/', ['as' => 'home', 'uses' => 'PagesController@home']);
 Route::resource('projects', 'ProjectsController');

@@ -20,6 +20,7 @@ class InquiriesController extends Controller
     	event( new UserInquiresAboutTheProject($inquiry, $project) );
     	
     	flash()->success('Your inquiry has been successfully submitted. We will get back to you soon. Thank you!');
-    	return redirect()->route('home');
+    	
+    	return back();
     }
 }
