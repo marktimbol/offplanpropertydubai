@@ -18,6 +18,7 @@ class CreateDevelopersTable extends Migration
             $table->string('name');
             $table->string('slug')->unique();
             $table->text('profile');
+            $table->string('photo')->nullable();
             $table->timestamps();
         });
     }

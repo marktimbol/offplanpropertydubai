@@ -11,7 +11,16 @@
 
 	<hr />
 
-	{!! $developer->profile !!}
+	<div class="row">
+		<div class="col-md-3">
+			<form action="{{ route('dashboard.developers.photos.store', $developer->id) }}" class="dropzone" id="my-awesome-dropzone">
+				{{ csrf_field() }}
+			</form>
+		</div>
+		<div class="col-md-9">
+			{!! $developer->profile !!}
+		</div>
+	</div>
 
 	<hr />
 	

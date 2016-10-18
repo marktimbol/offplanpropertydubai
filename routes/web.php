@@ -2,6 +2,7 @@
 <?php
 
 use App\Developer;
+use Illuminate\Support\Facades\Storage;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,7 +14,6 @@ use App\Developer;
 | to using a Closure or controller method. Build something great!
 |
 */
-
 
 Route::get('/', ['as' => 'home', 'uses' => 'PagesController@home']);
 
@@ -33,4 +33,5 @@ Route::group(['middleware' => 'auth', 'prefix' => 'dashboard', 'as' => 'dashboar
 	Route::get('/', ['as' => 'dashboard', 'uses' => 'DashboardController@index']);
 	Route::resource('developers', 'Dashboard\DevelopersController');
 	Route::resource('developers.projects', 'Dashboard\DeveloperProjectsController');
+	Route::resource('developers.photos', 'Dashboard\DeveloperPhotosController');
 });
