@@ -28,7 +28,8 @@ class DevelopersController extends Controller
     public function store(Request $request)
     {
         $this->validate($request, [
-            'name'  => 'required'
+            'name'  => 'required',
+            'website'   => 'url'
         ]);
 
     	$developer = Developer::create($request->all());
@@ -45,7 +46,8 @@ class DevelopersController extends Controller
     public function update(Request $request, $developer)
     {
         $this->validate($request, [
-            'name'  => 'required'
+            'name'  => 'required',
+            'website'   => 'url'
         ]);
         
         $developer->update($request->all());

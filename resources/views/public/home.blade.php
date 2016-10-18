@@ -72,7 +72,7 @@
 					</div>
 					<div class="row">
 						<p class="text-center">
-							<a href="/projects" class="btn btn-link">All Projects</a>
+							{{-- <a href="/projects" class="btn btn-link">All Projects</a> --}}
 						</p>
 					</div>
 				</div>

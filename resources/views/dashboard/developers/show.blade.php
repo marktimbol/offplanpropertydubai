@@ -13,6 +13,16 @@
 
 	<div class="row">
 		<div class="col-md-3">
+			<?php
+				$photo = sprintf('https://s3-%s.amazonaws.com/%s/%s', 
+						config('filesystems.disks.s3.region'), 
+						config('filesystems.disks.s3.bucket'), 
+						$developer->photo
+				);
+			?>
+			<img src="{{ $photo }}" alt="{{ $developer->name }}" title="{{ $developer->title }}" class="img-responsive" />
+
+			<h3>Upload Logo</h3>
 			<form action="{{ route('dashboard.developers.photos.store', $developer->id) }}" class="dropzone" id="my-awesome-dropzone">
 				{{ csrf_field() }}
 			</form>

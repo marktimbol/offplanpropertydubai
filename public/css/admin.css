@@ -8976,4 +8976,7 @@ body {
 table {
   background: white; }
 
+.dropzone {
+  border: 2px dashed rgba(0, 0, 0, 0.3); }
+
 /*# sourceMappingURL=admin.css.map */

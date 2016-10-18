@@ -28,6 +28,7 @@ $factory->define(App\Developer::class, function (Faker\Generator $faker) {
     return [
         'name' => $faker->word,
         'slug' => $faker->slug,
+        'website' => $faker->url,
         'profile' => $faker->paragraph,
     ];
 });

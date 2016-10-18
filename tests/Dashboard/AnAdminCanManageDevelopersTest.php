@@ -31,12 +31,14 @@ class AnAdminCanManageDevelopersTest extends TestCase
 
     	$this->visit('/dashboard/developers/create')
             ->type('Emaar', 'name')
-    		->type('The profile', 'profile')
+            ->type('The profile', 'profile')
+    		->type('http://google.com', 'website')
     		->press('Save')
 
     		->seeInDatabase('developers', [
     			'name'	=> 'Emaar',
-                'profile'   => 'The profile'
+                'profile'   => 'The profile',
+                'website'   => 'http://google.com'
     		]);
     }
 
@@ -45,18 +47,21 @@ class AnAdminCanManageDevelopersTest extends TestCase
         $this->signIn();
 
         $developer = factory(App\Developer::class)->create([
-            'name'  => 'Emaars'
+            'name'  => 'Emaars',
+            'website'   => 'http://googles.com'
         ]);
 
         $this->visit(sprintf('/dashboard/developers/%s/edit', $developer->id))
             ->type('Emaar', 'name')
             ->type('New Profile', 'profile')
+            ->type('http://google.com', 'website')
             ->press('Update')
 
             ->seeInDatabase('developers', [
                 'id'    => $developer->id,
                 'name'  => 'Emaar',
-                'profile'   => 'New Profile'
+                'profile'   => 'New Profile',
+                'website'   => 'http://google.com'
             ]);
     }
 

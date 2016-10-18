@@ -19,6 +19,16 @@
 			@endif
 		</div>
 
+		<div class="form-group {{ $errors->has('website') ? 'has-error' : '' }}">
+			<label for="website" class="control-label">Website URI</label>
+			<input type="text" name="website" id="website" class="form-control" value="{{ old('website') }}" />
+			@if( $errors->has('website') )
+				<span class="help-block">
+					{{ $errors->first('website') }}
+				</span>
+			@endif
+		</div>
+
 		<div class="form-group">
 			<label for="profile" class="control-label">Profile</label>
 			<textarea name="profile" id="editor" class="form-control">
@@ -27,7 +37,7 @@
 		</div>
 
 		<div class="form-group">
-			<button type="submit" class="btn btn-primary">
+			<button type="submit" class="btn btn-lg btn-primary">
 				<i class="fa fa-save"></i> Save
 			</button>
 		</div>
