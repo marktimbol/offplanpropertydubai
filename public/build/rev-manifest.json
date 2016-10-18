@@ -1,6 +1,10 @@
 {
-  "css/app.css": "css/app-800830d883.css",
+  "css/admin.css": "css/admin-caee0adf3c.css",
+  "css/app.css": "css/app-1ef8fcc30d.css",
   "css/carousel.css": "css/carousel-65d6c1959e.css",
-  "js/app.js": "js/app-db1a30186a.js",
-  "js/carousel.js": "js/carousel-5253d40851.js"
+  "css/editor.css": "css/editor-231bebbb25.css",
+  "js/admin.js": "js/admin-716890a536.js",
+  "js/app.js": "js/app-45b61978ba.js",
+  "js/carousel.js": "js/carousel-5253d40851.js",
+  "js/editor.js": "js/editor-0e58fef074.js"
 }

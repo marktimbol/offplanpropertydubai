@@ -22,7 +22,7 @@
 					name="search" 
 					id="search" 
 					class="form-control input-lg Search__input" 
-					placeholder="Search for a project name" />
+					placeholder="Search for a developer" />
 				<button type="submit" class="btn-link Search__button">
 					<i class="fa fa-search"></i>
 				</button>

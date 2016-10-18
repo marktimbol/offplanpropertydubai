@@ -18,25 +18,15 @@
 							title="{{ $developer->name }}" 
 							class="img-responsive" />
 						<div class="Developer__info">
-							<p><strong>CEO / Chairman:</strong> HE Saeed Humaid Al Tayer / Mr PNC Menon</p>
-							<p><strong>Established:</strong> 1976</p>
-							<p>&nbsp;</p>
 							<p>
-								<a href="#" class="btn btn-lg btn-block btn-default" target="_blank">Visit Website</a>
+								<a href="#" class="btn btn-lg btn-block btn-default" target="_blank">
+									Visit Website <i class="fa fa-external-link"></i>
+								</a>
 							</p>
 						</div>
 					</div>
 					<div class="Developer__description Column-8">
-						@foreach( range(1, 7) as $index )
-							<p>
-								Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-								tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-								quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-								consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-								cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-								proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-							</p>
-						@endforeach
+						{!! $developer->profile !!}
 					</div>
 				</div>
 			</div>

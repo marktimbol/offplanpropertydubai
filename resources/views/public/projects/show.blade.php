@@ -43,35 +43,7 @@
 				</div>
 				<div class="col-md-9">
 					<div class="Project__description">
-						@foreach( range(1, 2) as $index )
-						<h3>Villanova Cluster Home Sizes</h3>
-						<p>
-							Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-							tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-							quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-							consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-							cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-							proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-						</p>
-
-						<table class="table table-bordered">
-							<tr>
-								<td>2 Bedroom - Mid Unit</td>
-								<td>Ground Floor</td>
-								<td>Total Area: 1,437 sq.ft</td>
-							</tr>
-							<tr>
-								<td>2 Bedroom - Mid Unit</td>
-								<td>Ground Floor</td>
-								<td>Total Area: 1,437 sq.ft</td>
-							</tr>
-							<tr>
-								<td>2 Bedroom - Mid Unit</td>
-								<td>Ground Floor</td>
-								<td>Total Area: 1,437 sq.ft</td>
-							</tr>
-						</table>
-						@endforeach
+						{!! $project->description !!}
 					</div>
 				</div>
 				<div class="col-md-3">
@@ -137,7 +109,7 @@
 		<div class="container">
 			<div class="row">
 				<div class="col-md-12">
-					<h3 class="mb-30">More projects from {{ $project->developer->name }}</h3>
+					<h3 class="mb-30">More Projects from {{ $project->developer->name }}</h3>
 				</div>
 			</div>
 			<div class="row">
@@ -152,7 +124,9 @@
 									<a href="{{ route('projects.show', $developerProject->slug) }}">
 										{{ $developerProject->name }}
 									</a>
-									<small>by <a href="#">{{ $project->developer->name }}</a></small>
+									<small>by <a href="{{ route('developers.show', $project->developer->slug) }}">
+										{{ $project->developer->name }}
+									</a></small>
 								</h4>
 							</div>
 						</div>

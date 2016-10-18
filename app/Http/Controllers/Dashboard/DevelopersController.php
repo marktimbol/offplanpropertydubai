@@ -15,7 +15,7 @@ class DevelopersController extends Controller
     	return view('dashboard.developers.index', compact('developers'));
     }
 
-    public function show(Developer $developer)
+    public function show($developer)
     {        
         return view('dashboard.developers.show', compact('developer'));
     }
@@ -27,27 +27,39 @@ class DevelopersController extends Controller
 
     public function store(Request $request)
     {
-    	Developer::create($request->all());
+        $this->validate($request, [
+            'name'  => 'required'
+        ]);
 
+    	$developer = Developer::create($request->all());
+
+        flash()->success(sprintf('%s has been successfully saved.', $developer->name));
     	return redirect()->route('dashboard.developers.create');
     }
 
-    public function edit(Developer $developer)
+    public function edit($developer)
     {
         return view('dashboard.developers.edit', compact('developer'));
     }
 
-    public function update(Request $request, Developer $developer)
+    public function update(Request $request, $developer)
     {
+        $this->validate($request, [
+            'name'  => 'required'
+        ]);
+        
         $developer->update($request->all());
-        // Flash message
-        return redirect()->route('dashboard.developers.index', $developer->slug);
+        
+        flash()->success(sprintf('%s has been successfully updated.', $developer->name));
+        return redirect()->route('dashboard.developers.show', $developer->id);
     }
 
-    public function destroy(Developer $developer)
+    public function destroy($developer)
     {
-        $developer->delete();
+        $recordToDelete = $developer;
+        $developer->delete(); 
 
+        flash()->success(sprintf('%s has been successfully deleted.', $recordToDelete->name));
         return redirect()->route('dashboard.developers.index');
     }
 }

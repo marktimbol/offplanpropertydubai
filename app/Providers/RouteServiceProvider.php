@@ -2,8 +2,10 @@
 
 namespace App\Providers;
 
-use Illuminate\Support\Facades\Route;
+use App\Developer;
+use App\Project;
 use Illuminate\Foundation\Support\Providers\RouteServiceProvider as ServiceProvider;
+use Illuminate\Support\Facades\Route;
 
 class RouteServiceProvider extends ServiceProvider
 {
@@ -23,9 +25,21 @@ class RouteServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        //
-
         parent::boot();
+
+        $this->bind('developer',function($key) {
+            if ($this->getCurrentRoute()->getPrefix() === '/dashboard') {
+                return Developer::findOrFail($key);
+            }
+            return Developer::whereSlug($key)->first();
+        });
+
+        $this->bind('project',function($key) {
+            if ($this->getCurrentRoute()->getPrefix() === '/dashboard') {
+                return Project::findOrFail($key);
+            }
+            return Project::whereSlug($key)->first();
+        });
     }
 
     /**

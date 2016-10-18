@@ -15,7 +15,7 @@
     @yield('header_styles')
     <!-- Scripts -->
     <script>
-        window.OffPlanProperty = <?php echo json_encode([
+        window.Laravel = <?php echo json_encode([
             'csrfToken' => csrf_token(),
         ]); ?>
     </script>
@@ -25,8 +25,6 @@
     @include('layouts._nav')
 
     @yield('content')
-
-    @include('layouts._footer')
 
     <!-- Scripts -->
     <script src="{{ elixir('js/app.js') }}"></script>

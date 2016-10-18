@@ -9,7 +9,7 @@ use Illuminate\Http\Request;
 
 class ProjectsController extends Controller
 {
-    public function show(Project $project)
+    public function show($project)
     {
     	$project->load('developer');
     	return view('public.projects.show', compact('project'));

@@ -14,7 +14,7 @@ class DevelopersController extends Controller
     	return view('public.developers.index', compact('developers'));
     }
 
-    public function show(Developer $developer)
+    public function show($developer)
     {
     	return view('public.developers.show', compact('developer'));
     }

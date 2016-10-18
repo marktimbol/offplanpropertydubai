@@ -1,5 +1,6 @@
 <?php
 
+use App\User;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -11,13 +12,10 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-    	$developers = factory(App\Developer::class, 10)->create();
-    	foreach($developers as $developer)
-    	{
-    		$projects = factory(App\Project::class, 10)->make([
-                'developer_id'  => $developer->id
-            ]);
-    		$developer->projects()->saveMany($projects);
-    	}
+        User::create([
+            'name'  => 'Mark Timbol',
+            'email' => 'mark@timbol.com',
+            'password'  => bcrypt('marktimbol')
+        ]);
     }
 }

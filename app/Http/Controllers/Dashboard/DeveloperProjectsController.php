@@ -10,45 +10,57 @@ use Illuminate\Http\Request;
 
 class DeveloperProjectsController extends Controller
 {
-    public function index(Developer $developer)
+    public function index($developer)
     {
         // dd($developer);
     }
 
-	public function show(Developer $developer, Project $project)
+	public function show($developer, $project)
 	{
 		return view('dashboard.projects.show', compact('developer', 'project'));
 	}
 
-	public function create(Developer $developer)
+	public function create($developer)
 	{
 		return view('dashboard.projects.create', compact('developer'));
 	}
 
-    public function store(Request $request, Developer $developer)
+    public function store(Request $request, $developer)
     {
-    	$developer->projects()->create($request->all());
+        $this->validate($request, [
+            'name'  => 'required'
+        ]);
 
-    	return redirect()->route('dashboard.developers.show', $developer->slug);
+    	$project = $developer->projects()->create($request->all());
+
+        flash()->success(sprintf('%s has been successfully saved.', $project->name));
+    	return redirect()->route('dashboard.developers.show', $developer->id);
     }
 
-    public function edit(Developer $developer, Project $project)
+    public function edit($developer, $project)
     {
         return view('dashboard.projects.edit', compact('developer', 'project'));
     }
 
-    public function update(Request $request, Developer $developer, Project $project)
+    public function update(Request $request, $developer, $project)
     {
+        $this->validate($request, [
+            'name'  => 'required'
+        ]);
+        
         $project->update($request->all());
 
-        return redirect()->route('dashboard.developers.projects.index', $developer->slug);
+        flash()->success(sprintf('%s has been successfully saved.', $project->name));
+        return redirect()->route('dashboard.developers.projects.index', $developer->id);
     }
 
-    public function destroy(Developer $developer, Project $project)
+    public function destroy($developer, $project)
     {
+        $recordToDelete = $project;
     	$project->delete();
 
-    	return redirect()->route('dashboard.developers.show', $developer->slug);
+         flash()->success(sprintf('%s has been successfully deleted.', $recordToDelete->name));
+    	return redirect()->route('dashboard.developers.show', $developer->id);
     }
 
 }

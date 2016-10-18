@@ -29,7 +29,7 @@ class AnAdminCanManageDeveloperProjectsTest extends TestCase
 
     	$developer->projects()->save($project);
 
-    	$this->visit('/dashboard/developers/'.$developer->slug)
+    	$this->visit('/dashboard/developers/'.$developer->id)
     		->see($developer->name)
     		->see($project->name);
     }
@@ -39,17 +39,18 @@ class AnAdminCanManageDeveloperProjectsTest extends TestCase
     	$this->signIn();
 
     	$developer = factory(App\Developer::class)->create([
-    		'name'	=> 'Emaar',
-            'slug'  => 'emaar'
+            'name'  => 'Emaar',
     	]);
 
-    	$this->visit('/dashboard/developers/emaar/projects/create')
-    		->type('Emaar Park Point', 'name')
+    	$this->visit('/dashboard/developers/'.$developer->id.'/projects/create')
+            ->type('Emaar Park Point', 'name')
+    		->type('The description', 'description')
     		->press('Save')
 
     		->seeInDatabase('projects', [
     			'developer_id'	=> $developer->id,
-    			'name'	=> 'Emaar Park Point'
+                'name'  => 'Emaar Park Point',
+    			'description'	=> 'The description'
     		]);
     }
 
@@ -64,12 +65,11 @@ class AnAdminCanManageDeveloperProjectsTest extends TestCase
 
     	$project = factory(App\Project::class)->make([
     		'name'	=> 'Emaar Park Points',
-            'slug'  => 'emaar-park-points'
     	]);
 
     	$developer->projects()->save($project);
         
-    	$this->visit(sprintf('/dashboard/developers/%s/projects/%s/edit', $developer->slug, $project->slug))
+    	$this->visit(sprintf('/dashboard/developers/%s/projects/%s/edit', $developer->id, $project->id))
     		->type('Emaar Park Point', 'name')
     		->press('Update')
 
@@ -93,7 +93,7 @@ class AnAdminCanManageDeveloperProjectsTest extends TestCase
 
     	$developer->projects()->save($project);
 
-    	$this->visit(sprintf('/dashboard/developers/%s/projects/%s', $developer->slug, $project->slug))
+    	$this->visit(sprintf('/dashboard/developers/%s/projects/%s', $developer->id, $project->id))
     		->see($project->name)
     		->press('Delete')
 

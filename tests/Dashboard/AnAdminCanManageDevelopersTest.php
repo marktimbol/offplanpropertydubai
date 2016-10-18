@@ -30,11 +30,13 @@ class AnAdminCanManageDevelopersTest extends TestCase
     	$this->signIn();
 
     	$this->visit('/dashboard/developers/create')
-    		->type('Emaar', 'name')
+            ->type('Emaar', 'name')
+    		->type('The profile', 'profile')
     		->press('Save')
 
     		->seeInDatabase('developers', [
-    			'name'	=> 'Emaar'
+    			'name'	=> 'Emaar',
+                'profile'   => 'The profile'
     		]);
     }
 
@@ -43,17 +45,18 @@ class AnAdminCanManageDevelopersTest extends TestCase
         $this->signIn();
 
         $developer = factory(App\Developer::class)->create([
-            'name'  => 'Emaars',
-            'slug'  => 'emaar'
+            'name'  => 'Emaars'
         ]);
 
-        $this->visit(sprintf('/dashboard/developers/%s/edit', $developer->slug))
+        $this->visit(sprintf('/dashboard/developers/%s/edit', $developer->id))
             ->type('Emaar', 'name')
+            ->type('New Profile', 'profile')
             ->press('Update')
 
             ->seeInDatabase('developers', [
                 'id'    => $developer->id,
-                'name'  => 'Emaar'
+                'name'  => 'Emaar',
+                'profile'   => 'New Profile'
             ]);
     }
 
@@ -63,7 +66,7 @@ class AnAdminCanManageDevelopersTest extends TestCase
 
         $developer = factory(App\Developer::class)->create();
 
-        $this->visit(sprintf('/dashboard/developers/%s', $developer->slug))
+        $this->visit(sprintf('/dashboard/developers/%s', $developer->id))
             ->see($developer->name)
             ->press('Delete')
 

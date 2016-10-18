@@ -1,7 +1,6 @@
 <nav class="navbar navbar-default navbar-static-top">
     <div class="container">
         <div class="navbar-header">
-
             <!-- Collapsed Hamburger -->
             <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#app-navbar-collapse">
                 <span class="sr-only">Toggle Navigation</span>
@@ -34,6 +33,9 @@
                         </a>
 
                         <ul class="dropdown-menu" role="menu">
+                            <li>
+                                <a href="/dashboard">Dashboard</a>
+                            </li>
                             <li>
                                 <a href="{{ url('/logout') }}"
                                     onclick="event.preventDefault();

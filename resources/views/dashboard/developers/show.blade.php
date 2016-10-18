@@ -1,8 +1,25 @@
 @extends('layouts.dashboard')
 
 @section('content')
-	<h1>{{ $developer->name }} Projects</h1>
+	<h1>{{ $developer->name }}
+		<small>
+			<a href="{{ route('dashboard.developers.edit', $developer->id) }}">
+				<i class="fa fa-pencil"></i>
+			</a>	
+		</small>
+	</h1>
 
+	<hr />
+
+	{!! $developer->profile !!}
+
+	<hr />
+	
+	<h3>Projects
+		<small>
+			<a href="{{ route('dashboard.developers.projects.create', $developer->id) }}" class="btn btn-default">Add Project</a>
+		</small>
+	</h3>
 	<table class="table table-bordered">
 		<thead>
 			<tr>
@@ -13,7 +30,9 @@
 		<tbody>
 			@forelse( $developer->projects as $project )
 			<tr>
-				<td>{{ $project->name }}</td>
+				<td>
+					<a href="{{ route('dashboard.developers.projects.show', [$developer->id, $project->id]) }}">{{ $project->name }}</a>
+				</td>
 				<td>&nbsp;</td>
 			</tr>
 			@empty
@@ -24,11 +43,13 @@
 		</tbody>
 	</table>
 
-	<form method="POST" action="{{ route('dashboard.developers.destroy', $developer->slug) }}">
+	<form method="POST" action="{{ route('dashboard.developers.destroy', $developer->id) }}">
 		{{ csrf_field() }}
 		{!! method_field('DELETE') !!}
 		<div class="form-group">
-			<button type="submit" class="btn btn-danger">Delete</button>
+			<button type="submit" class="btn btn-danger">
+				<i class="fa fa-remove"></i> Delete Developer
+			</button>
 		</div>
 	</form>
 @endsection

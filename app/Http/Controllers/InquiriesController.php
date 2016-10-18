@@ -12,7 +12,7 @@ use App\Events\UserInquiresAboutTheProject;
 
 class InquiriesController extends Controller
 {
-    public function store(SendInquiryRequest $request, Project $project)
+    public function store(SendInquiryRequest $request, $project)
     {
     	$inquiry = Inquiry::create($request->all());
 
