@@ -1,5 +1,9 @@
 @extends('layouts.dashboard')
 
+@section('header_styles')
+	<link rel="stylesheet" href="{{ elixir('css/editor.css') }}" />
+@endsection
+
 @section('content')
 	<h1>Edit Project</h1>
 
@@ -8,13 +12,13 @@
 		{!! method_field('PUT') !!}
 		<div class="form-group">
 			<label for="name">Project Name</label>
-			<input type="text" name="name" id="name" class="form-control" value="{{ old('name') or $project->name }}" />
+			<input type="text" name="name" id="name" class="form-control" value="{{ $project->name }}" />
 		</div>
 
 		<div class="form-group">
-			<label for="descriptio">Description</label>
-			<textarea name="description" id="description" class="form-control">
-				{{ old('description') or $project->description }}
+			<label for="description">Description</label>
+			<textarea name="description" id="editor" class="form-control">
+				{{ $project->description }}
 			</textarea>
 		</div>
 
@@ -24,4 +28,8 @@
 			</button>
 		</div>
 	</form>
+@endsection
+
+@section('footer_scripts')
+	<script src="{{ elixir('js/editor.js') }}"></script>
 @endsection

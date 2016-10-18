@@ -3,6 +3,7 @@
 namespace App\Providers;
 
 use App\Developer;
+use App\Photo;
 use App\Project;
 use Illuminate\Foundation\Support\Providers\RouteServiceProvider as ServiceProvider;
 use Illuminate\Support\Facades\Route;
@@ -39,6 +40,10 @@ class RouteServiceProvider extends ServiceProvider
                 return Project::findOrFail($key);
             }
             return Project::whereSlug($key)->first();
+        });
+
+        $this->bind('photo', function($key) {
+            return Photo::findOrFail($key);
         });
     }
 

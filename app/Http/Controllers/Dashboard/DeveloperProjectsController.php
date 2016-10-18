@@ -34,7 +34,7 @@ class DeveloperProjectsController extends Controller
     	$project = $developer->projects()->create($request->all());
 
         flash()->success(sprintf('%s has been successfully saved.', $project->name));
-    	return redirect()->route('dashboard.developers.show', $developer->id);
+    	return redirect()->route('dashboard.developers.projects.show', [$developer->id, $project->id]);
     }
 
     public function edit($developer, $project)
@@ -51,7 +51,7 @@ class DeveloperProjectsController extends Controller
         $project->update($request->all());
 
         flash()->success(sprintf('%s has been successfully saved.', $project->name));
-        return redirect()->route('dashboard.developers.projects.index', $developer->id);
+        return redirect()->route('dashboard.developers.projects.show', [$developer->id, $project->id]);
     }
 
     public function destroy($developer, $project)
@@ -60,7 +60,7 @@ class DeveloperProjectsController extends Controller
     	$project->delete();
 
          flash()->success(sprintf('%s has been successfully deleted.', $recordToDelete->name));
-    	return redirect()->route('dashboard.developers.show', $developer->id);
+    	return redirect()->route('dashboard.developers.index', $developer->id);
     }
 
 }

@@ -17,5 +17,14 @@ body {
 	font-family: 'Lato', sans-serif;
 }
 
+.ProjectPhoto {
+	position: relative;
+
+	form {
+	    top: 0;
+	    right: 15px;
+		position: absolute;
+	}
+}
 @import 'components/Dashboard';
 @import 'components/DashboardOverwrite';

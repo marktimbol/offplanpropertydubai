@@ -11,9 +11,17 @@ class DeveloperPhotosController extends Controller
 {
     public function store(Request $request, $developer)
     {
-		$file = Storage::put('developers', $request->file, 'public');
+		$file = Storage::put(sprintf('developers/%s', $developer->slug), $request->file, 'public');
 
 		$developer->photo = $file;
 		$developer->save();
     }
+
+    // public function destroy($developer, $project, $photo)
+    // {
+    // 	Storage::delete($photo->photo);
+    // 	$photo->delete();
+
+    // 	return back();
+    // }
 }

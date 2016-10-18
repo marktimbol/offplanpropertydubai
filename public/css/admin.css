@@ -8953,6 +8953,13 @@ body.stop-scrolling {
 body {
   font-family: 'Lato', sans-serif; }
 
+.ProjectPhoto {
+  position: relative; }
+  .ProjectPhoto form {
+    top: 0;
+    right: 15px;
+    position: absolute; }
+
 .Dashboard h1, .Dashboard h2, .Dashboard h3, .Dashboard h4, .Dashboard h5, .Dashboard h6 {
   font-weight: 300; }
 

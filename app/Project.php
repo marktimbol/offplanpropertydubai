@@ -8,6 +8,8 @@ class Project extends Model
 {
     protected $fillable = ['developer_id', 'name', 'slug', 'description'];
     
+    protected $with = ['photos'];
+
     public function getRouteKeyName() {
     	return 'slug';
     }
@@ -21,5 +23,10 @@ class Project extends Model
     public function developer()
     {
     	return $this->belongsTo(Developer::class);
+    }
+
+    public function photos()
+    {
+        return $this->hasMany(Photo::class);
     }
 }

@@ -13,9 +13,16 @@
 				<div class="col-md-12">
 					<div class="Project__carousel--container">
 						<div class="Project__carousel">
-							@foreach( range(1, 3) as $index )
+							@foreach( $project->photos as $photo )
+							<?php 
+								$photo = sprintf('https://s3-%s.amazonaws.com/%s/%s', 
+										config('filesystems.disks.s3.region'), 
+										config('filesystems.disks.s3.bucket'), 
+										$photo->photo
+								);
+							?>
 							<div class="item">
-								<img src="/images/projects/project.jpg" alt="{{ $project->name }}" title="{{ $project->name }}" class="img-responsive" />
+								<img src="{{ $photo }}" alt="{{ $project->name }}" title="{{ $project->name }}" class="img-responsive" />
 							</div>
 							@endforeach
 						</div>

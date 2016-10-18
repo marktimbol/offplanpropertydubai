@@ -34,7 +34,7 @@ class DevelopersController extends Controller
     	$developer = Developer::create($request->all());
 
         flash()->success(sprintf('%s has been successfully saved.', $developer->name));
-    	return redirect()->route('dashboard.developers.create');
+    	return redirect()->route('dashboard.developers.show', $developer->id);
     }
 
     public function edit($developer)

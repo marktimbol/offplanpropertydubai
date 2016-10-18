@@ -1,18 +1,47 @@
 @extends('layouts.dashboard')
 
 @section('content')
-	<h1>{{ $project->name }}</h1>
+	<h1>{{ $project->name }}
+		<small>
+			<a href="{{ route('dashboard.developers.projects.edit', [$developer->id, $project->id]) }}">
+				<i class="fa fa-pencil"></i>
+			</a>	
+		</small>
+	</h1>
 
-	<p>{{ $project->description }}</p>
-	<p>
-	Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-	tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-	quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-	consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-	cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-	proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-	</p>
+	<p>{!! $project->description !!}</p>
 	
+	<h3>Photos</h3>
+	<div class="row ProjectPhotos">
+		@foreach( $project->photos as $photo )
+			<?php 
+				$path = sprintf('https://s3-%s.amazonaws.com/%s/%s', 
+						config('filesystems.disks.s3.region'), 
+						config('filesystems.disks.s3.bucket'), 
+						$photo->photo
+				);
+			?>
+			<div class="col-md-3 ProjectPhoto">
+				<img src="{{ $path }}" alt="{{ $project->name }}" title="{{ $project->name }}" class="img-responsive" />
+				<form method="POST" action="{{ route('dashboard.developers.projects.photos.destroy', [$developer->id, $project->id, $photo->id]) }}">
+					{{ csrf_field() }}
+					{!! method_field('DELETE') !!}
+					<button type="submit" class="btn btn-sm btn-danger">
+						<i class="fa fa-remove"></i>
+					</button>
+				</form>
+			</div>
+		@endforeach
+	</div>
+
+	<hr />
+
+	<form action="{{ route('dashboard.developers.projects.photos.store', [$developer->id, $project->id]) }}" class="dropzone">
+		{{ csrf_field() }}
+	</form>
+
+	<hr />
+
 	<form method="POST" action="{{ route('dashboard.developers.projects.destroy', [$developer->id, $project->id]) }}">
 		{{ csrf_field() }}
 		{!! method_field('DELETE') !!}
