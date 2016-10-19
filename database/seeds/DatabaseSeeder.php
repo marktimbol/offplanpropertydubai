@@ -17,5 +17,11 @@ class DatabaseSeeder extends Seeder
             'email' => 'mark@timbol.com',
             'password'  => bcrypt('marktimbol')
         ]);
+
+        $developer = factory(App\Developer::class)->create();
+        $project = factory(App\Project::class)->make([
+            'developer_id'  => $developer->id
+        ]);
+        $developer->projects()->save($project);
     }
 }

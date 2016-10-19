@@ -3,9 +3,10 @@
 namespace App\Http\Controllers\Dashboard;
 
 use App\Developer;
-use App\Http\Requests;
-use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Http\Requests;
+use App\Http\Requests\CreateDeveloperRequest;
+use Illuminate\Http\Request;
 
 class DevelopersController extends Controller
 {
@@ -25,13 +26,8 @@ class DevelopersController extends Controller
     	return view('dashboard.developers.create');
     }
 
-    public function store(Request $request)
+    public function store(CreateDeveloperRequest $request)
     {
-        $this->validate($request, [
-            'name'  => 'required',
-            'website'   => 'url'
-        ]);
-
     	$developer = Developer::create($request->all());
 
         flash()->success(sprintf('%s has been successfully saved.', $developer->name));
@@ -43,13 +39,8 @@ class DevelopersController extends Controller
         return view('dashboard.developers.edit', compact('developer'));
     }
 
-    public function update(Request $request, $developer)
+    public function update(CreateDeveloperRequest $request, $developer)
     {
-        $this->validate($request, [
-            'name'  => 'required',
-            'website'   => 'url'
-        ]);
-        
         $developer->update($request->all());
         
         flash()->success(sprintf('%s has been successfully updated.', $developer->name));

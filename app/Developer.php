@@ -7,9 +7,9 @@ use Illuminate\Database\Eloquent\Model;
 
 class Developer extends Model
 {
-    use Searchable;
+    // use Searchable;
 
-    protected $fillable = ['name', 'slug', 'website', 'profile', 'photo'];
+    protected $fillable = ['name', 'slug', 'country', 'website', 'profile', 'photo'];
 
     protected $with = ['projects'];
     

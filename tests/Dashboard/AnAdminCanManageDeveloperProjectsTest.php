@@ -43,13 +43,42 @@ class AnAdminCanManageDeveloperProjectsTest extends TestCase
     	]);
 
     	$this->visit('/dashboard/developers/'.$developer->id.'/projects/create')
+            ->see(sprintf('Add Project to %s', $developer->name))
             ->type('Emaar Park Point', 'name')
+            ->type('The Famous Emaar Park Point', 'title')
+            
+            ->type('UAE', 'country')
+            ->type('Dubai', 'city')
+            ->type('Dubai Marina', 'community')
+
+            ->type('3.1415', 'latitude')
+            ->type('3.1416', 'longitude')
+
+            // ->select('Residential', 'type')
+            // ->type('Tomorrow', 'expected_completion_date')
+            ->type('http://google.com', 'dld_project_completion_link')
+            ->type('http://gmail.com', 'project_escrow_account_details_link')
     		->type('The description', 'description')
     		->press('Save')
 
     		->seeInDatabase('projects', [
     			'developer_id'	=> $developer->id,
                 'name'  => 'Emaar Park Point',
+                'title'  => 'The Famous Emaar Park Point',
+                'slug'  => 'the-famous-emaar-park-point',
+
+                'country'   => 'UAE',
+                'city'      => 'Dubai',
+                'community' => 'Dubai Marina',
+
+                'latitude'  => '3.1415',
+                'longitude' => '3.1416',
+
+                // 'type'  => 'Residential',
+
+                'dld_project_completion_link' => 'http://google.com',
+                'project_escrow_account_details_link'   => 'http://gmail.com',
+
     			'description'	=> 'The description'
     		]);
     }
@@ -65,17 +94,37 @@ class AnAdminCanManageDeveloperProjectsTest extends TestCase
 
     	$project = factory(App\Project::class)->make([
     		'name'	=> 'Emaar Park Points',
+            'title' => 'Famous Emaar'
     	]);
 
     	$developer->projects()->save($project);
         
     	$this->visit(sprintf('/dashboard/developers/%s/projects/%s/edit', $developer->id, $project->id))
-    		->type('Emaar Park Point', 'name')
+            ->type('Emaar Park Point', 'name')
+            ->type('New Title', 'title')
+            ->type('New Country', 'country')
+            ->type('New City', 'city')
+            ->type('New Community', 'community')
+            ->type('3.1', 'latitude')
+            ->type('3.2', 'longitude')
+            ->type('http://google.com', 'dld_project_completion_link')
+            ->type('http://gmail.com', 'project_escrow_account_details_link')
+            ->type('New Description', 'description')
     		->press('Update')
 
     		->seeInDatabase('projects', [
     			'id'	=> $project->id,
-    			'name'	=> 'Emaar Park Point'
+                'name'  => 'Emaar Park Point',
+                'title' => 'New Title',
+                'slug'  => 'new-title',
+                'country'   => 'New Country',
+                'city'   => 'New City',
+                'community' => 'New Community',
+                'latitude'  => '3.1',
+    			'longitude'	=> '3.2',
+                'dld_project_completion_link'   => 'http://google.com',
+                'project_escrow_account_details_link'   => 'http://gmail.com',
+                'description'   => 'New Description'
     		]);	
     }
 

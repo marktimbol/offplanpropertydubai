@@ -6,7 +6,24 @@ use Illuminate\Database\Eloquent\Model;
 
 class Project extends Model
 {
-    protected $fillable = ['developer_id', 'name', 'slug', 'description'];
+    protected $fillable = [
+        'developer_id', 
+        'name', 
+        'title', 
+        'slug',
+
+        'country',
+        'city',
+        'community',
+        
+        'latitude',
+        'longitude',
+        
+        'dld_project_completion_link',
+        'project_escrow_account_details_link',
+        
+        'description'
+    ];
     
     protected $with = ['photos'];
 
@@ -14,10 +31,10 @@ class Project extends Model
     	return 'slug';
     }
 
-    public function setNameAttribute($name)
+    public function setTitleAttribute($title)
     {
-    	$this->attributes['name'] = $name;
-    	$this->attributes['slug'] = str_slug($name);
+    	$this->attributes['title'] = $title;
+    	$this->attributes['slug'] = str_slug($title);
     }
 
     public function developer()

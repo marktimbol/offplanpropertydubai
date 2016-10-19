@@ -31,14 +31,16 @@ class AnAdminCanManageDevelopersTest extends TestCase
 
     	$this->visit('/dashboard/developers/create')
             ->type('Emaar', 'name')
+            ->select('UAE', 'country')
             ->type('The profile', 'profile')
     		->type('http://google.com', 'website')
     		->press('Save')
 
     		->seeInDatabase('developers', [
-    			'name'	=> 'Emaar',
+                'name'  => 'Emaar',
+    			'country'	=> 'UAE',
+                'website'   => 'http://google.com',
                 'profile'   => 'The profile',
-                'website'   => 'http://google.com'
     		]);
     }
 
@@ -53,6 +55,7 @@ class AnAdminCanManageDevelopersTest extends TestCase
 
         $this->visit(sprintf('/dashboard/developers/%s/edit', $developer->id))
             ->type('Emaar', 'name')
+            ->type('Saudi Arabia', 'country')
             ->type('New Profile', 'profile')
             ->type('http://google.com', 'website')
             ->press('Update')
@@ -60,8 +63,9 @@ class AnAdminCanManageDevelopersTest extends TestCase
             ->seeInDatabase('developers', [
                 'id'    => $developer->id,
                 'name'  => 'Emaar',
+                'country'   => 'Saudi Arabia',
+                'website'   => 'http://google.com',
                 'profile'   => 'New Profile',
-                'website'   => 'http://google.com'
             ]);
     }
 

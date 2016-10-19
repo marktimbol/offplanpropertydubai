@@ -54,12 +54,15 @@
 					<div class="row Projects">
 						@foreach( $projects as $project )
 							<?php 
-								$projectPhoto = $project->photos->first();
-								$photo = sprintf('https://s3-%s.amazonaws.com/%s/%s', 
-										config('filesystems.disks.s3.region'), 
-										config('filesystems.disks.s3.bucket'), 
-										$projectPhoto->photo
-								);
+								$photo = '/images/projects/project.jpg';
+								if( $projectPhoto = $project->photos->first() )
+								{								
+									$photo = sprintf('https://s3-%s.amazonaws.com/%s/%s', 
+											config('filesystems.disks.s3.region'), 
+											config('filesystems.disks.s3.bucket'), 
+											$projectPhoto->photo
+									);
+								}
 							?>
 							<div class="col-md-4">
 								<div class="Project">

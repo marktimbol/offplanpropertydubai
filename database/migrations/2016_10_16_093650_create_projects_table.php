@@ -17,7 +17,19 @@ class CreateProjectsTable extends Migration
             $table->increments('id');
             $table->integer('developer_id')->unsigned();
             $table->string('name');
+            $table->string('title');
             $table->string('slug')->unique();
+
+            $table->string('country');
+            $table->string('city');
+            $table->string('community');
+
+            $table->string('latitude');
+            $table->string('longitude');
+
+            $table->string('dld_project_completion_link');
+            $table->string('project_escrow_account_details_link');
+            
             $table->text('description');
             $table->timestamps();
         });

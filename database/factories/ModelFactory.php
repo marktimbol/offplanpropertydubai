@@ -28,6 +28,7 @@ $factory->define(App\Developer::class, function (Faker\Generator $faker) {
     return [
         'name' => $faker->word,
         'slug' => $faker->slug,
+        'country' => $faker->country,
         'website' => $faker->url,
         'profile' => $faker->paragraph,
     ];
@@ -39,7 +40,15 @@ $factory->define(App\Project::class, function (Faker\Generator $faker) {
             return factory(App\Developer::class)->create()->id;
         },
         'name' => $faker->word,
+        'title' => $faker->sentence,
         'slug' => $faker->slug,
+        'country'   => $faker->country,
+        'city'   => $faker->city,
+        'community'   => $faker->state,
+        'latitude'  => $faker->latitude,
+        'longitude' => $faker->longitude,
+        'dld_project_completion_link'   => $faker->url,
+        'project_escrow_account_details_link'   => $faker->url,
         'description'   => $faker->paragraph,
     ];
 });
