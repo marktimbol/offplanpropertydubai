@@ -88,6 +88,72 @@
 
 	<h3>Project Type</h3>
 	<h3>Payment Terms</h3>
+	<table class="table table-bordered">
+		<thead>
+			<th>Title</th>
+			<th>Percentage</th>
+			<th>Date</th>
+			<th>&nbsp;</th>
+			<th>&nbsp;</th>
+		</thead>
+		<tbody>
+			@foreach( $project->payments as $term )
+				<tr>
+					<td>{{ $term->title }}</td>
+					<td>{{ $term->percentage }}</td>
+					<td>{{ $term->date }}</td>
+					<td>
+						&times;
+					</td>
+					<td></td>
+				</tr>
+			@endforeach
+			<form method="POST" action="{{ route('dashboard.developers.projects.payments.store', [$developer->id, $project->id]) }}">
+				{{ csrf_field() }}
+				<tr>		
+					<td>
+						<div class="form-group">
+							<input 
+								type="text" 
+								name="title" 
+								class="input-sm form-control" 
+								placeholder="1st Installment"
+								value="{{ old('title') }}" required />
+						</div>
+					</td>
+					<td>
+						<div class="form-group">
+							<input 
+								type="text" 
+								name="percentage" 
+								class="input-sm form-control"
+								placeholder="10%" 
+								value="{{ old('percentage') }}" required />
+						</div>
+					</td>
+					<td>
+						<div class="form-group">
+							<input 
+								type="text" 
+								name="date" 
+								class="input-sm form-control"
+								placeholder="Purchase Date"
+								value="{{ old('date') }}" required />
+						</div>
+					</td>
+					<td>
+						<div class="form-group">
+							<button type="submit" class="btn btn-sm btn-primary">Save</button>
+						</div>
+					</td>
+					<td>
+						<button class="btn btn-link">&times;</button>
+					</td>
+				</tr>
+			</form>
+		</tbody>
+	</table>
+
 	<h3>External Links</h3>
 	<ul class="list-group">
 		<li class="list-group-item">

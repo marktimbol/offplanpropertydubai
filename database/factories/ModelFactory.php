@@ -52,3 +52,14 @@ $factory->define(App\Project::class, function (Faker\Generator $faker) {
         'description'   => $faker->paragraph,
     ];
 });
+
+$factory->define(App\Payment::class, function (Faker\Generator $faker) {
+    return [
+        'project_id'  => function() {
+            return factory(App\Project::class)->create()->id;
+        },
+        'title' => $faker->sentence,
+        'percentage' => '10%',
+        'date' => 'Purchase Date',
+    ];
+});

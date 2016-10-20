@@ -17,6 +17,7 @@ class DeveloperProjectsController extends Controller
 
 	public function show($developer, $project)
 	{  
+        // dd($project->toArray());
 		return view('dashboard.projects.show', compact('developer', 'project'));
 	}
 

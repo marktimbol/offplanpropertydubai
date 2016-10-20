@@ -33,6 +33,7 @@ Route::group(['middleware' => 'auth', 'prefix' => 'dashboard', 'as' => 'dashboar
 	Route::get('/', ['as' => 'dashboard', 'uses' => 'DashboardController@index']);
 	Route::resource('developers', 'Dashboard\DevelopersController');
 	Route::resource('developers.projects', 'Dashboard\DeveloperProjectsController');
+	Route::resource('developers.projects.payments', 'Dashboard\ProjectPaymentsController');
 	Route::resource('developers.projects.logos', 'Dashboard\ProjectLogosController', [
 		'only' => ['store', 'destroy']
 	]);
