@@ -4,12 +4,12 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class ProjectType extends Model
+class Category extends Model
 {
     protected $fillable = ['name'];
 
-    public function subcategories()
+    public function types()
     {
-    	return $this->hasMany(SubCategory::class);
+    	return $this->hasMany(Type::class);
     }
 }

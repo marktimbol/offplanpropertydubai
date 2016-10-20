@@ -1,6 +1,6 @@
 <?php
 
-use App\ProjectType;
+use App\Category;
 use App\User;
 use Illuminate\Database\Seeder;
 
@@ -31,46 +31,46 @@ class DatabaseSeeder extends Seeder
         ]);
         $developer->projects()->save($project);
 
-        $projectTypes = [
+        $categories = [
             'Residential' => [
                 'name'  => 'Residential',
-                'categories' => [
+                'types' => [
                     'Studio', 'Apartment', 'Villa', 'Townhouse', 'Penthouse', 'Duplex', 'Loft', 'Residential Land'
                 ]
             ],
 
             'Commercial' => [
                 'name'  => 'Commercial',
-                'categories' => [
+                'types' => [
                     'Office', 'Retail', 'Restaurants', 'Commercial Land',
                 ]
             ],
 
             'Hospitality' => [
                 'name'  => 'Hospitality',
-                'categories' => [
+                'types' => [
                     'Serviced Studio', 'Serviced Apartments', 'Hotel Room', 'Hotel Apartment'
                 ]
             ],
 
             'Mixed Use' => [
                 'name'  => 'Mixed Use',
-                'categories' => [
+                'types' => [
                     'Residential', 'Commercial'
                 ]
             ]
         ];
 
-        foreach( $projectTypes as $key => $projectType )
+        foreach( $categories as $category )
         {
-            $type = ProjectType::create([
-                'name'  => $projectType['name']
+            $categoryInstance = Category::create([
+                'name'  => $category['name']
             ]);
 
-            foreach( $projectType['categories'] as $category )
+            foreach( $category['types'] as $key => $type )
             {
-                $type->subcategories()->create([
-                    'name'  => $category
+                $categoryInstance->types()->create([
+                    'name'  => $type
                 ]);
             }
         }

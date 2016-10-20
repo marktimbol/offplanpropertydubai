@@ -68,4 +68,9 @@ class Project extends Model
     {
         return $this->hasMany(Payment::class);
     }
+
+    public function types()
+    {
+        return $this->belongsToMany(Type::class, 'project_types');
+    }
 }
