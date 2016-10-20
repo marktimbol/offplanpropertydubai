@@ -6,16 +6,12 @@
 				<div class="Developers Carousel">
 					@foreach( $developers as $developer )
 					<?php 
-						$photo = sprintf('https://s3-%s.amazonaws.com/%s/%s', 
-								config('filesystems.disks.s3.region'), 
-								config('filesystems.disks.s3.bucket'), 
-								$developer->photo
-						);
+						$path = getPhotoPath('/images/developers/developer.jpg');
 					?>
 					<div class="Developer">
 						<div class="Developer__image">
 							<a href="{{ route('developers.show', $developer->slug) }}">
-								<img src="{{ $photo }}" alt="{{ $developer->name }}" title="{{ $developer->Name }}" class="img-responsive" />
+								<img src="{{ $path }}" alt="{{ $developer->name }}" title="{{ $developer->Name }}" class="img-responsive" />
 							</a>
 						</div>
 					</div>

@@ -14,16 +14,12 @@
 					<div class="Project__carousel--container">
 						<div class="Project__carousel">
 							@foreach( $project->photos as $photo )
-							<?php 
-								$photo = sprintf('https://s3-%s.amazonaws.com/%s/%s', 
-										config('filesystems.disks.s3.region'), 
-										config('filesystems.disks.s3.bucket'), 
-										$photo->photo
-								);
-							?>
-							<div class="item">
-								<img src="{{ $photo }}" alt="{{ $project->name }}" title="{{ $project->name }}" class="img-responsive" />
-							</div>
+								<?php 
+									$photo = getPhotoPath($photo->photo);
+								?>
+								<div class="item">
+									<img src="{{ $photo }}" alt="{{ $project->name }}" title="{{ $project->name }}" class="img-responsive" />
+								</div>
 							@endforeach
 						</div>
 						<div class="Project__carousel--nav">

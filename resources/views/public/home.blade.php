@@ -54,20 +54,15 @@
 					<div class="row Projects">
 						@foreach( $projects as $project )
 							<?php 
-								$photo = '/images/projects/project.jpg';
-								if( $projectPhoto = $project->photos->first() )
-								{								
-									$photo = sprintf('https://s3-%s.amazonaws.com/%s/%s', 
-											config('filesystems.disks.s3.region'), 
-											config('filesystems.disks.s3.bucket'), 
-											$projectPhoto->photo
-									);
+								$path = '/images/projects/project.jpg';
+								if( $projectPhoto = $project->photos->first() ) {								
+									$path = getPhotoPath($projectPhoto->photo );
 								}
 							?>
 							<div class="col-md-4">
 								<div class="Project">
 									<div class="Project__image">
-										<img src="{{ $photo }}" alt="{{ $project->name }}" title="{{ $project->name }}" class="img-responsive" />
+										<img src="{{ $path }}" alt="{{ $project->name }}" title="{{ $project->name }}" class="img-responsive" />
 									</div>
 									<div class="Project__content Flex Flex--space-between">
 										<h4 class="Project__title">

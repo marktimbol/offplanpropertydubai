@@ -14,13 +14,9 @@
 				<div class="Flex">
 					<div class="Developer__image Column-4">
 						<?php
-							$photo = sprintf('https://s3-%s.amazonaws.com/%s/%s', 
-									config('filesystems.disks.s3.region'), 
-									config('filesystems.disks.s3.bucket'), 
-									$developer->photo
-							);
+							$path = getPhotoPath($developer->photo);
 						?>
-						<img src="{{ $photo }}" 
+						<img src="{{ $path }}" 
 							alt="{{ $developer->name }}" 
 							title="{{ $developer->name }}" 
 							class="img-responsive" />

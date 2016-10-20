@@ -8960,11 +8960,29 @@ body {
     right: 15px;
     position: absolute; }
 
+.btn-flexible {
+  display: -webkit-box;
+  display: flex; }
+  .btn-flexible .btn {
+    -webkit-box-flex: 1;
+    flex: 1; }
+    .btn-flexible .btn i {
+      margin-right: 5px; }
+
 .Dashboard h1, .Dashboard h2, .Dashboard h3, .Dashboard h4, .Dashboard h5, .Dashboard h6 {
   font-weight: 300; }
 
 .Dashboard h1 {
-  font-size: 30px; }
+  font-size: 30px;
+  margin-top: 0; }
+
+.is-centered-xy {
+  display: -webkit-box;
+  display: flex;
+  -webkit-box-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  justify-content: center; }
 
 .btn {
   border-radius: 0;
@@ -8977,6 +8995,7 @@ table {
   background: white; }
 
 .dropzone {
+  flex-wrap: wrap;
   border: 2px dashed rgba(0, 0, 0, 0.3); }
 
 /*# sourceMappingURL=admin.css.map */

@@ -1,4 +1,3 @@
 
 require('./bootstrap');
-
-require('dropzone');
+require('./dropzone');

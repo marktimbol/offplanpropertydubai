@@ -11,7 +11,10 @@ class ProjectPhotosController extends Controller
 {
     public function store(Request $request, $developer, $project)
     {
-		$path = Storage::put(sprintf('developers/%s/%s', $developer->slug, $project->slug), $request->file, 'public');
+		// $path = Storage::put(sprintf('developers/%s/%s', $developer->slug, $project->slug), $request->file, 'public');
+        $path = $request->file->store(
+            sprintf('developers/%s/%s/photos', $developer->slug, str_slug($project->name))
+        , 's3');
 
 		$project->photos()->create([
 			'photo'	=> $path
