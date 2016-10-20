@@ -19,7 +19,7 @@ class CreateProjectsTable extends Migration
             $table->string('name');
             $table->string('title');
             $table->string('slug')->unique();
-
+            
             $table->string('country');
             $table->string('city');
             $table->string('community');

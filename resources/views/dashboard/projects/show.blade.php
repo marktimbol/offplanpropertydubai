@@ -3,14 +3,45 @@
 @section('content')
 	<div class="row">
 		<div class="col-md-4">
-			<form method="POST" action="#" class="dropzone is-centered-xy" id="uploadProjectLogoForm">
-				{{ csrf_field() }}
-			</form>
+			@if( count($project->logo) > 0 )
+				<?php
+					$path = getPhotoPath($project->logo->photo);
+				?>
+				<div class="Project__logo">
+					<img src="{{ $path }}" 
+						alt="{{ $project->name }}" 
+						title="{{ $project->name }}" 
+						class="img-responsive img-bordered" />
+
+					<a class="camera" 
+						data-toggle="modal" 
+						data-target="#ChangeProjectLogo"
+					>
+						<i class="fa fa-camera"></i>
+					</a>
+				</div>
+
+				@include('dashboard.projects._upload-logo')
+
+			@else
+				<form 
+					method="POST" 
+					action="{{ route('dashboard.developers.projects.logos.store', [
+						$developer->id, $project->id
+					]) }}"
+					class="dropzone" 
+					id="UploadProjectLogo"
+				>
+					{{ csrf_field() }}
+				</form>
+			@endif
 		</div>
 		<div class="col-md-8">
 			<h1>{{ $project->name }}: {{ $project->title }}
 				<small>
-					<a href="{{ route('dashboard.developers.projects.edit', [$developer->id, $project->id]) }}">
+					<a href="{{ route('dashboard.developers.projects.edit', [
+						$developer->id, $project->id
+					]) }}">
 						<i class="fa fa-pencil"></i>
 					</a>	
 				</small>
@@ -31,18 +62,20 @@
 		</div>
 	</div>
 
+	<hr />
+
 	<div class="btn-group btn-flexible">
 		<button class="btn btn-default" data-toggle="modal" data-target="#UploadProjectPhotosModal">
-			<i class="fa fa-upload"></i> Manage Photos
+			<i class="fa fa-file-photo-o"></i> Manage Photos
 		</button>
 		<button class="btn btn-default" data-toggle="modal" data-target="#UploadProjectBrochureModal">
-			<i class="fa fa-upload"></i> Manage Brochure
+			<i class="fa fa-file-pdf-o"></i> Manage Brochure
 		</button>
 		<button class="btn btn-default" data-toggle="modal" data-target="#UploadProjectFloorPlanModal">
-			<i class="fa fa-upload"></i> Manage Floor Plan
+			<i class="fa fa-file-photo-o"></i> Manage Floor Plan
 		</button>
 		<button class="btn btn-default">
-			<i class="fa fa-upload"></i> Manage Video
+			<i class="fa fa-file-video-o"></i> Manage Video
 		</button>
 	</div>
 
@@ -71,7 +104,7 @@
 			</a>
 		</li>
 	</ul>
-	
+
 	<h3>Project Description</h3>
 	<p>{!! $project->description !!}</p>
 

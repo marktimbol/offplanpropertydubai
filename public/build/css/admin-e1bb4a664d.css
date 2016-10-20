@@ -8984,6 +8984,15 @@ body {
   -webkit-box-pack: center;
   justify-content: center; }
 
+.Project__logo {
+  position: relative; }
+  .Project__logo .camera {
+    color: white;
+    top: 10px;
+    right: 10px;
+    cursor: pointer;
+    position: absolute; }
+
 .btn {
   border-radius: 0;
   font-weight: 300; }

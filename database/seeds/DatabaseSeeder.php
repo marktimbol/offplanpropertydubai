@@ -18,9 +18,15 @@ class DatabaseSeeder extends Seeder
             'password'  => bcrypt('marktimbol')
         ]);
 
-        $developer = factory(App\Developer::class)->create();
+        $developer = factory(App\Developer::class)->create([
+            'name'  => 'Dubai Properties',
+            'slug'  => 'dubai-properties'
+        ]);
         $project = factory(App\Project::class)->make([
-            'developer_id'  => $developer->id
+            'developer_id'  => $developer->id,
+            'name'  => 'Villanova',
+            'title' => 'The Villanova',
+            'slug'  => 'the-villanova'
         ]);
         $developer->projects()->save($project);
     }

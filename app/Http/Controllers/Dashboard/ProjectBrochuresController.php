@@ -15,11 +15,17 @@ class ProjectBrochuresController extends Controller
     		sprintf('developers/%s/%s/brochure', $developer->slug, str_slug($project->name))
 		, 's3');
 
-		$title = explode('.', $request->file->getClientOriginalName());
+        if( count($project->brochure) <= 0 )
+        {
+			return $project->brochure()->create([
+				'photo'	=> $file
+			]);
+        }
 
-		$project->brochure()->create([
-			'title'	=> $title[0],
-			'photo'	=> $file
-		]);
+    	Storage::delete($project->brochure->photo);
+        
+    	return $project->brochure()->update([
+    		'photo'	=> $file
+    	]);
     }
 }

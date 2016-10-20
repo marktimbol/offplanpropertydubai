@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateBrochuresTable extends Migration
+class CreateLogosTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,7 +13,7 @@ class CreateBrochuresTable extends Migration
      */
     public function up()
     {
-        Schema::create('brochures', function (Blueprint $table) {
+        Schema::create('logos', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('project_id')->unsigned();
             $table->string('photo');
@@ -28,6 +28,6 @@ class CreateBrochuresTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('brochures');
+        Schema::dropIfExists('logos');
     }
 }

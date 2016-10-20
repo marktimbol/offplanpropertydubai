@@ -1,6 +1,6 @@
 var Dropzone = require('dropzone');
 
-Dropzone.options.uploadProjectLogoForm = {
+Dropzone.options.UploadProjectLogo = {
 	uploadMultiple: false,
 	maxFilesize: 2, // MB
 	acceptedFiles: 'image/*',
@@ -30,6 +30,7 @@ Dropzone.options.UploadProjectPhotos = {
 	acceptedFiles: 'image/*',
 	dictDefaultMessage: 'Upload Project Photos'
 };
+
 
 
 

@@ -16,7 +16,7 @@ class DeveloperProjectsController extends Controller
     }
 
 	public function show($developer, $project)
-	{
+	{  
 		return view('dashboard.projects.show', compact('developer', 'project'));
 	}
 
