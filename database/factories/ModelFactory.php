@@ -47,6 +47,7 @@ $factory->define(App\Project::class, function (Faker\Generator $faker) {
         'community'   => $faker->state,
         'latitude'  => $faker->latitude,
         'longitude' => $faker->longitude,
+        'expected_completion_date'   => 'February 2019',
         'dld_project_completion_link'   => $faker->url,
         'project_escrow_account_details_link'   => $faker->url,
         'description'   => $faker->paragraph,

@@ -27,6 +27,8 @@ class CreateProjectsTable extends Migration
             $table->string('latitude');
             $table->string('longitude');
 
+            $table->string('expected_completion_date');
+
             $table->string('dld_project_completion_link');
             $table->string('project_escrow_account_details_link');
             

@@ -55,7 +55,7 @@ class AnAdminCanManageDeveloperProjectsTest extends TestCase
             ->type('3.1416', 'longitude')
 
             // ->select('Residential', 'type')
-            // ->type('Tomorrow', 'expected_completion_date')
+            ->type('*February 2019', 'expected_completion_date')
             ->type('http://google.com', 'dld_project_completion_link')
             ->type('http://gmail.com', 'project_escrow_account_details_link')
     		->type('The description', 'description')
@@ -73,6 +73,8 @@ class AnAdminCanManageDeveloperProjectsTest extends TestCase
 
                 'latitude'  => '3.1415',
                 'longitude' => '3.1416',
+                
+                'expected_completion_date' => '*February 2019',
 
                 // 'type'  => 'Residential',
 

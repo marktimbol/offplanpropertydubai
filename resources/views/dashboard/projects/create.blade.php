@@ -46,7 +46,7 @@
 			<div class="col-md-6">
 				<div class="form-group">
 					<label for="expected_completion_date" class="control-label">Expected Completion Date</label>
-					<input type="text" id="expected_completion_date" class="form-control" value="{{ old('expected_completion_date') }}" />
+					<input type="text" name="expected_completion_date" id="expected_completion_date" class="form-control" value="{{ old('expected_completion_date') }}" />
 				</div>
 			</div>
 		</div>
@@ -72,8 +72,6 @@
 				</div>
 			</div>
 		</div>
-
-		<h3>Payment Terms</h3>
 
 		<h3>Location</h3>
 

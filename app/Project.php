@@ -19,6 +19,8 @@ class Project extends Model
         'latitude',
         'longitude',
         
+        'expected_completion_date',
+        
         'dld_project_completion_link',
         'project_escrow_account_details_link',
         
