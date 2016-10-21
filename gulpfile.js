@@ -43,6 +43,8 @@ elixir(mix => {
     	], 'public/js/carousel.js')
 
        .webpack('app.js')
+       .webpack('components/CreateProject.js', 'public/js/CreateProject.js')
+
        .webpack('admin.js', 'public/js/admin.js')
 
        .copy('node_modules/font-awesome/fonts', 'public/build/fonts')
@@ -55,6 +57,7 @@ elixir(mix => {
           'public/js/app.js',
           'public/css/admin.css',
           'public/js/admin.js',
+          'public/js/CreateProject.js',
           'public/css/editor.css',
           'public/js/editor.js',
        		'public/css/carousel.css',

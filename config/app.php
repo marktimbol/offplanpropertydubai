@@ -169,6 +169,7 @@ return [
 
         Laracasts\Flash\FlashServiceProvider::class,
         Laravel\Scout\ScoutServiceProvider::class,
+        Laracasts\Utilities\JavaScript\JavaScriptServiceProvider::class,
 
         /*
          * Application Service Providers...

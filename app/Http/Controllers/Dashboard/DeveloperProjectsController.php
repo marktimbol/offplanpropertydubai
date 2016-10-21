@@ -6,6 +6,7 @@ use App\Developer;
 use App\Http\Controllers\Controller;
 use App\Http\Requests;
 use App\Project;
+use JavaScript;
 use Illuminate\Http\Request;
 
 class DeveloperProjectsController extends Controller
@@ -17,12 +18,17 @@ class DeveloperProjectsController extends Controller
 
 	public function show($developer, $project)
 	{  
-        // dd($project->toArray());
 		return view('dashboard.projects.show', compact('developer', 'project'));
 	}
 
 	public function create($developer)
 	{
+        JavaScript::put([
+            'developer' => $developer
+        ]);
+
+        // $filtered = $collection->only(['product_id', 'name']);
+
 		return view('dashboard.projects.create', compact('developer'));
 	}
 

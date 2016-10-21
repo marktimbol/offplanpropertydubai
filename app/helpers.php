@@ -10,7 +10,6 @@ function getPhotoPath($photo)
 	}
 
 	if( config('filesystems.default') === 'local' ) {
-		// return asset('storage/'.$photo);
 		// return Storage::url('app/public/'.$photo);
 	}
 
