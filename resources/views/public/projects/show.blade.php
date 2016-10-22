@@ -1,62 +1,58 @@
-@extends('layouts.app')
+@extends('layouts.project')
 
 @section('header_styles')
-	<link rel="stylesheet" href="{{ elixir('css/carousel.css') }}" />
+	<link rel="stylesheet" href="/css/carousel.css" />
 @endsection
 
 @section('pageTitle', $project->name)
 
 @section('content')
 	<div class="Project">
-		<div class="container">
-			<div class="row">
-				<div class="col-md-12">
-					<div class="Project__carousel--container">
-						<div class="Project__carousel">
-							@foreach( $project->photos as $photo )
-								<?php 
-									$photo = getPhotoPath($photo->photo);
-								?>
-								<div class="item">
-									<img src="{{ $photo }}" alt="{{ $project->name }}" title="{{ $project->name }}" class="img-responsive" />
-								</div>
-							@endforeach
-						</div>
-						<div class="Project__carousel--nav">
-							<a class="prev">
-								<i class="fa fa-angle-left" aria-hidden="true"></i>
-							</a>
-							<a class="next">
-								<i class="fa fa-angle-right" aria-hidden="true"></i>
-							</a>
-						</div>
-					</div>
+		<div class="Project__carousel--container">
+			<div class="Project__carousel">
+				<div>
+					<img src="/images/header-bg.jpg" alt="" title="" />
+				</div>
+				<div>
+					<img src="/images/header-bg.jpg" alt="" title="" />
 				</div>
 			</div>
+			<div class="Project__carousel__content--container">
+				<h2>
+					{{ $project->title }}
+					<small>by {{ $project->developer->name }}</small>
+				</h2>
+			</div>
+			<div class="Project__carousel--nav">
+				<a class="prev">
+					<i class="fa fa-angle-left" aria-hidden="true"></i>
+				</a>
+				<a class="next">
+					<i class="fa fa-angle-right" aria-hidden="true"></i>
+				</a>
+			</div>
+		</div>
+
+		<div class="container">
 			<div class="row">
-				<div class="col-md-12">
-					<h1 class="Project__title">
-						{{ $project->name }}
-						<small>
-							by <a href="{{ route('developers.show', $project->developer->slug) }}">
-							{{ $project->developer->name }}</a>
-						</small>
-					</h1>
-					<hr />
-				</div>
 				<div class="col-md-9">
+					<h1 class="Project__title">
+						About {{ $project->name }}
+					</h1>
 					<div class="Project__description">
+						<ul class="list-group">
+							<li class="list-group-item">Project Type:</li>
+							<li class="list-group-item">
+								Expected Completion Date: {{ $project->expected_completion_date }}
+							</li>
+							<li class="list-group-item">
+								Location: {{ sprintf('%s &mdash; %s, %s', $project->community, $project->city, $project->country) }}
+							</li>
+						</ul>
 						{!! $project->description !!}
 					</div>
 				</div>
 				<div class="col-md-3">
-					<div class="Download">
-						<a href="#" class="btn btn-lg btn-block btn-success">
-							<i class="fa fa-download"></i>&nbsp;
-							Download Brochure
-						</a>
-					</div>
-					<hr />
 					<div class="Inquiry">
 						<h3 class="Inquiry__title">Inquire Now</h3>
 						<form method="POST" action="{{ route('projects.inquiries.store', $project->slug) }}">
@@ -106,9 +102,83 @@
 				</div>
 			</div>
 		</div>
+
+		<div class="Project__video--container">
+			<button class="btn btn-link" data-toggle="modal" data-target="#">
+				<div class="play-video-icon Flex Flex--center">
+					<span></span>
+				</div>
+			</button>
+		</div>
+
+		<div class="container">
+			<div class="row">
+				<div class="col-md-12">
+					<h3>Floor Plan</h3>
+					<p class="lead">
+						Villas are categorised in two part as Stand Alone Villas & Clustered Villas. In Clustered Villas each unit will have two entry points, a direct secondary access from the car garage and another main entry from the green sikkas.
+					</p>
+				</div>
+				<div class="Floorplans">
+					@foreach( range(1, 4) as $index )
+					<div class="Floorplan col-md-6">
+						<h4>Floorplan Title</h4>
+						<img src="/images/floorplan.jpg" alt="" title="" class="img-responsive" />
+					</div>
+					@endforeach
+				</div>
+			</div>
+
+			<div class="row">
+				<div class="col-md-12">
+					<h3>Payment Plans</h3>
+
+					<table class="table table-bordered">
+						@foreach( $project->payments as $plan )
+						<tr>
+							<td>{{ $plan->title }}</td>
+							<td>{{ $plan->percentage }}</td>
+							<td>{{ $plan->date }}</td>
+						</tr>
+						@endforeach
+					</table>
+				</div>
+			</div>
+		</div>
+
+		<div class="Googlemap">
+
+		</div>
+
+		<div class="container">
+			<div class="row">
+				<div class="col-md-12">
+					<h3>About the Developer</h3>
+
+					<div class="row">
+						<div class="col-md-4">
+							<img src="/images/developers/developer.jpg" alt="" title="" class="img-responsive" />
+						</div>
+						<div class="col-md-8">
+							<h3>{{ $project->developer->name }}</h3>
+							<p>
+								{!! str_limit($project->developer->profile, 300) !!}
+							</p>
+							<p>
+								<a href="{{ route('developers.show', $project->developer->slug) }}"
+									class="btn btn-default"
+								>
+									View Developer
+								</a>
+							</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
 	</div>
 
-	<section class="RelatedProjects is-gray-bg">
+	<section class="RelatedProjects is-light-bg">
 		<div class="container">
 			<div class="row">
 				<div class="col-md-12">
@@ -141,5 +211,5 @@
 @endsection
 
 @section('footer_scripts')
-	<script src="{{ elixir('js/carousel.js') }}"></script>
+	<script src="/js/carousel.js"></script>
 @endsection

@@ -14,9 +14,10 @@
     <link href="/css/app.css" rel="stylesheet">
 
     @yield('header_styles')
+
     <!-- Scripts -->
     <script>
-        window.OffPlanProperty = <?php echo json_encode([
+        window.OffPlan = <?php echo json_encode([
             'csrfToken' => csrf_token(),
         ]); ?>
     </script>

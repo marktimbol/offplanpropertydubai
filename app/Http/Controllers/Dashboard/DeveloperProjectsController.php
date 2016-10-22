@@ -75,7 +75,7 @@ class DeveloperProjectsController extends Controller
     	$project->delete();
 
          flash()->success(sprintf('%s has been successfully deleted.', $recordToDelete->name));
-    	return redirect()->route('dashboard.developers.index', $developer->id);
+    	return redirect()->route('dashboard.developers.show', $developer->id);
     }
 
 }

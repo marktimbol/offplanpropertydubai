@@ -1,3 +1,4 @@
+<?php /*
 <section class="Developers">
 	<div class="container">
 		<div class="row">
@@ -21,5 +22,6 @@
 		</div>
 	</div>
 </section>
+*/ ?>
 
 <footer></footer>
