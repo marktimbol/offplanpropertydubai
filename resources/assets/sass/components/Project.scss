@@ -72,6 +72,10 @@
 }
 
 .Project__description {
+	ul.list-group {
+		padding-left: 0
+	}
+
 	h3 {
 		font-size: 30px;
 		font-weight: 300;
@@ -84,11 +88,29 @@
 }
 
 .Project__video--container {
+	height: 450px;
 	background: #ddd;
-	height: 500px;
+	margin: 40px 0px;
 	display: flex;
 	align-items: center;
 	justify-content: center;
+}
+
+.video-js {
+	width: 100% !important;
+    height: 100% !important;
+}
+
+.PlayButton {
+	position: absolute;
+}
+
+.vjs-big-play-button {
+	display: none !important;
+}
+
+.vjs-poster {
+	background-size: cover !important;
 }
 
 .RelatedProjects {

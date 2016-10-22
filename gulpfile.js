@@ -42,6 +42,16 @@ elixir(mix => {
     		'owl-carousel.js'
     	], 'public/js/carousel.js')
 
+      .styles([
+        modulesPath + 'video.js/dist/video-js.css',
+      ], 'public/css/video.css')
+
+      .scripts([
+        modulesPath + 'video.js/dist/ie8/videojs-ie8.js',
+        modulesPath + 'video.js/dist/video.js',
+        'video.js',
+      ], 'public/js/video.js')
+
        .webpack('app.js')
        .webpack('components/CreateProject.js', 'public/js/CreateProject.js')
 

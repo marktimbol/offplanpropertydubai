@@ -2,6 +2,7 @@
 
 @section('header_styles')
 	<link rel="stylesheet" href="/css/carousel.css" />
+	<link rel="stylesheet" href="/css/video.css" />
 @endsection
 
 @section('pageTitle', $project->name)
@@ -11,7 +12,7 @@
 		<div class="Project__carousel--container">
 			<div class="Project__carousel">
 				<div>
-					<img src="/images/header-bg.jpg" alt="" title="" />
+					<img src="/images/video-cover.jpg" alt="" title="" />
 				</div>
 				<div>
 					<img src="/images/header-bg.jpg" alt="" title="" />
@@ -41,12 +42,19 @@
 					</h1>
 					<div class="Project__description">
 						<ul class="list-group">
-							<li class="list-group-item">Project Type:</li>
 							<li class="list-group-item">
+								<i class="fa fa-home"></i> &nbsp; Project Type: 
+								@foreach( $project->types as $type )
+									{{ $type->name . ' ' }}
+								@endforeach
+							</li>
+							<li class="list-group-item">
+								<i class="fa fa-calendar"></i> &nbsp; 
 								Expected Completion Date: {{ $project->expected_completion_date }}
 							</li>
 							<li class="list-group-item">
-								Location: {{ sprintf('%s &mdash; %s, %s', $project->community, $project->city, $project->country) }}
+								<i class="fa fa-map-marker"></i> &nbsp; 
+								{{ sprintf('%s &mdash; %s, %s', $project->community, $project->city, $project->country) }}
 							</li>
 						</ul>
 						{!! $project->description !!}
@@ -104,7 +112,19 @@
 		</div>
 
 		<div class="Project__video--container">
-			<button class="btn btn-link" data-toggle="modal" data-target="#">
+			<video id="Project__video" 
+				class="video-js" 
+				controls muted 
+				preload="auto"
+				poster="/images/header-bg.jpg"
+			>
+				<source src="http://vjs.zencdn.net/v/oceans.mp4" type='video/mp4'>
+				<p class="vjs-no-js">
+					To view this video please enable JavaScript, and consider upgrading to a web browser that
+					<a href="http://videojs.com/html5-video-support/" target="_blank">supports HTML5 video</a>
+				</p>
+			</video>
+			<button class="btn btn-link PlayButton">
 				<div class="play-video-icon Flex Flex--center">
 					<span></span>
 				</div>
@@ -212,4 +232,5 @@
 
 @section('footer_scripts')
 	<script src="/js/carousel.js"></script>
+	<script src="/js/video.js"></script>
 @endsection
