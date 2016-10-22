@@ -64,3 +64,18 @@ $factory->define(App\Payment::class, function (Faker\Generator $faker) {
         'date' => 'Purchase Date',
     ];
 });
+
+$factory->define(App\Category::class, function (Faker\Generator $faker) {
+    return [
+        'name' => $faker->word,
+    ];
+});
+
+$factory->define(App\Type::class, function (Faker\Generator $faker) {
+    return [
+        'category_id'  => function() {
+            return factory(App\Category::class)->create()->id;
+        },
+        'name' => $faker->word,
+    ];
+});

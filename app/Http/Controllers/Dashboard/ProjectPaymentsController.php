@@ -16,4 +16,10 @@ class ProjectPaymentsController extends Controller
     	flash()->success('Payment plan has been successfully saved.');
     	return back();
     }
+
+    public function destroy($developer, $project, $payment)
+    {
+    	$payment->delete();
+    	return back();
+    }
 }

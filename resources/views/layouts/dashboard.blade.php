@@ -11,13 +11,14 @@
     <title>{{ config('app.name', 'Laravel') }}</title>
 
     <!-- Styles -->
-    <link href="{{ elixir('css/admin.css') }}" rel="stylesheet">
+    {{-- <link href="{{ elixir('css/admin.css') }}" rel="stylesheet"> --}}
+    <link href="/css/admin.css" rel="stylesheet">
 
     @yield('header_styles')
 
     <!-- Scripts -->
     <script>
-        window.Laravel = <?php echo json_encode([
+        window.OffPlan = <?php echo json_encode([
             'csrfToken' => csrf_token(),
         ]); ?>
     </script>

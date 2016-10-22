@@ -2,9 +2,12 @@
 
 namespace App\Providers;
 
+use App\Category;
 use App\Developer;
+use App\Payment;
 use App\Photo;
 use App\Project;
+use App\Type;
 use Illuminate\Foundation\Support\Providers\RouteServiceProvider as ServiceProvider;
 use Illuminate\Support\Facades\Route;
 
@@ -44,6 +47,18 @@ class RouteServiceProvider extends ServiceProvider
 
         $this->bind('photo', function($key) {
             return Photo::findOrFail($key);
+        });
+
+        $this->bind('category', function($id) {
+            return Category::findOrFail($id);
+        });
+
+        $this->bind('type', function($id) {
+            return Type::findOrFail($id);
+        });
+
+        $this->bind('payment', function($id) {
+            return Payment::findOrFail($id);
         });
     }
 

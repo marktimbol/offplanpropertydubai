@@ -47,20 +47,20 @@ elixir(mix => {
 
        .webpack('admin.js', 'public/js/admin.js')
 
-       .copy('node_modules/font-awesome/fonts', 'public/build/fonts')
-       .copy('node_modules/bootstrap-sass/assets/fonts/bootstrap', 'public/build/fonts')
+       .copy('node_modules/font-awesome/fonts', 'public/fonts')
+       .copy('node_modules/bootstrap-sass/assets/fonts/bootstrap', 'public/fonts')
        .copy('node_modules/owlcarousel/owl-carousel/grabbing.png', 'public/build/css')
-       .copy('node_modules/owlcarousel/owl-carousel/AjaxLoader.gif', 'public/build/css')
+       .copy('node_modules/owlcarousel/owl-carousel/AjaxLoader.gif', 'public/build/css');
 
-       .version([
-          'public/css/app.css',
-          'public/js/app.js',
-          'public/css/admin.css',
-          'public/js/admin.js',
-          'public/js/CreateProject.js',
-          'public/css/editor.css',
-          'public/js/editor.js',
-       		'public/css/carousel.css',
-       		'public/js/carousel.js'
-       	]);
+       // .version([
+       //    'public/css/app.css',
+       //    'public/js/app.js',
+       //    'public/css/admin.css',
+       //    'public/js/admin.js',
+       //    'public/js/CreateProject.js',
+       //    'public/css/editor.css',
+       //    'public/js/editor.js',
+       // 		'public/css/carousel.css',
+       // 		'public/js/carousel.js'
+       // 	]);
 });

@@ -15,4 +15,11 @@ class ProjectTypesController extends Controller
 
     	return back();
     }
+
+    public function destroy($developer, $project, $type)
+    {
+    	$project->types()->detach($type);
+
+    	return back();
+    }
 }

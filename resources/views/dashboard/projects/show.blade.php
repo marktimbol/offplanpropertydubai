@@ -56,13 +56,15 @@
 				</li>
 
 				<li class="list-group-item">
-					Expected Completion Date: {{ $developer->expected_completion_date }}
+					Expected Completion Date: {{ $project->expected_completion_date }}
+				</li>
+
+				<li class="list-group-item">
+					Location: {{ sprintf('%s &mdash; %s, %s', $project->community, $project->city, $project->country) }}
 				</li>
 			</ul>
 		</div>
 	</div>
-
-	<hr />
 
 	<div class="btn-group btn-flexible">
 		<button class="btn btn-default" data-toggle="modal" data-target="#UploadProjectPhotosModal">
@@ -79,21 +81,36 @@
 		</button>
 	</div>
 
-	<h3>Project Location</h3>
-	<ul class="list-group">
-		<li class="list-group-item">Country: {{ $project->country }}</li>
-		<li class="list-group-item">City: {{ $project->city }}</li>
-		<li class="list-group-item">Community: {{ $project->community }}</li>
-	</ul>
-
 	<h3>Project Type</h3>
+	<table class="table table-bordered">
+		<tbody>
+			@foreach( $project->types as $type )
+			<tr>
+				<td>{{ $type->name }}</td>
+				<td>
+					<form method="POST" 
+						action="{{ route('dashboard.developers.projects.types.destroy', [
+							$developer->id, $project->id, $type->id
+						]) }}"
+					>
+						{{ csrf_field() }}
+						{{ method_field('DELETE') }}
+						<button type="submit" class="btn btn-sm btn-link">
+							<i class="fa fa-close"></i>
+						</button>
+					</form>
+				</td>
+			</tr>
+			@endforeach
+		</tbody>
+	</table>
+
 	<h3>Payment Terms</h3>
 	<table class="table table-bordered">
 		<thead>
 			<th>Title</th>
 			<th>Percentage</th>
 			<th>Date</th>
-			<th>&nbsp;</th>
 			<th>&nbsp;</th>
 		</thead>
 		<tbody>
@@ -103,9 +120,18 @@
 					<td>{{ $term->percentage }}</td>
 					<td>{{ $term->date }}</td>
 					<td>
-						&times;
+						<form method="POST" 
+							action="{{ route('dashboard.developers.projects.payments.destroy', [
+								$developer->id, $project->id, $term->id
+							]) }}"
+						>
+							{{ csrf_field() }}
+							{!! method_field('DELETE') !!}
+							<button type="submit" class="btn btn-sm btn-link">
+								<i class="fa fa-close"></i>
+							</button>
+						</form>
 					</td>
-					<td></td>
 				</tr>
 			@endforeach
 			<form method="POST" action="{{ route('dashboard.developers.projects.payments.store', [$developer->id, $project->id]) }}">
@@ -145,9 +171,6 @@
 						<div class="form-group">
 							<button type="submit" class="btn btn-sm btn-primary">Save</button>
 						</div>
-					</td>
-					<td>
-						<button class="btn btn-link">&times;</button>
 					</td>
 				</tr>
 			</form>

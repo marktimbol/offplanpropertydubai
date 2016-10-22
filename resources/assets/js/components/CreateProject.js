@@ -8,6 +8,7 @@ class CreateProject extends React.Component
 		super(props);
 
 		this.state = {
+			isSubmitted: false,
 			name: '',
 			title: '',
 			expected_completion_date: '',
@@ -18,11 +19,40 @@ class CreateProject extends React.Component
 			longitude: '',
 			dld_project_completion_link: '',
 			project_escrow_account_details_link: '',
-			description: ''
+			description: '',
+			category_id: '',
+			types: [],
+			type_ids: [],
 		};
 
 		this.handleChange = this.handleChange.bind(this);
+		this.handleCategoryChange = this.handleCategoryChange.bind(this);
 		// this.onSubmit = this.onSubmit.bind(this);
+	}
+
+	componentDidMount()
+	{
+		this.fetchCategories(1);
+	}
+
+	handleCategoryChange(e) {
+		let category_id = e.target.value;
+
+		this.fetchCategories(category_id);
+
+		this.setState({ category_id });
+	}
+
+	fetchCategories(category_id)
+	{
+		let url = '/dashboard/categories/'+category_id;
+
+		$.get(url, function(response) {
+			this.setState({
+				types: response.types
+			});
+		}.bind(this))
+
 	}
 
 	handleChange(e) {
@@ -34,20 +64,57 @@ class CreateProject extends React.Component
 	onSubmit(e) {
 		e.preventDefault();
 
-		console.log(this.state.name);
+		this.setState({
+			isSubmitted: true
+		});
+
+		let url = '/dashboard/developers/'+OffPlan.developer.id+'/projects';
+
+		$.ajax({
+			url: url,
+			type: 'POST',
+			data: $('#CreateProjectForm').serialize(),
+			headers: { 'X-CSRF-Token': OffPlan.csrfToken },
+			success: function(response) {
+				console.log(response);
+
+				swal({
+					title: "OffPlan Property Dubai",  
+					text: "You have successfully saved new Project",
+					type: "success", 
+					showConfirmButton: true
+				});
+			}
+		});
 	}
 
 	render()
 	{
+		let categories = OffPlan.categories.map((category) => {
+			return (
+				<option value={category.id} key={category.id}>
+					{category.name}
+				</option>
+			)
+		})
+
+		let types = this.state.types.map((type) => {
+			return (
+				<option value={type.id} key={type.id}>
+					{type.name}
+				</option>
+			)
+		})
+
 		return (
-			<form method="POST" onSubmit={this.onSubmit.bind(this)}>
+			<form method="POST" id="CreateProjectForm" onSubmit={this.onSubmit.bind(this)}>
 				<h3>Project Details</h3>
 
 				<div className="form-group">
 					<label className="control-label">Developer</label>
 					<input type="text" 
 						className="form-control" 
-						value={OffPlan.name} 
+						value={OffPlan.developer.name} 
 						disabled />
 				</div>
 
@@ -70,7 +137,8 @@ class CreateProject extends React.Component
 								name="title" 
 								id="title" 
 								className="form-control" 
-								value="" />
+								onChange={this.handleChange}
+								value={this.state.title} />
 						</div>
 					</div>
 				</div>
@@ -84,7 +152,8 @@ class CreateProject extends React.Component
 								name="expected_completion_date" 
 								id="expected_completion_date" 
 								className="form-control" 
-								value="" />
+								onChange={this.handleChange}
+								value={this.state.expected_completion_date} />
 						</div>
 					</div>
 				</div>
@@ -94,19 +163,20 @@ class CreateProject extends React.Component
 				<div className="row">
 					<div className="col-md-6">
 						<div className="form-group">
-							<label htmlFor="project_type">Types</label>
-							<select className="form-control">
-								<option value=""></option>
-								<option value="residential">Residential</option>
-								<option value="commercial">Commercial</option>
-								<option value="mixed-use">Mixed Use</option>
+							<label htmlFor="project_type">Category</label>
+							<select className="form-control" onChange={this.handleCategoryChange}>
+								{ categories }
 							</select>
 						</div>
 					</div>
 					<div className="col-md-6">
 						<div className="form-group">
-							<label htmlFor="types">Sub Categories</label>
-							<input type="text" id="types" className="form-control" />
+							<label htmlFor="types">Types</label>
+							{ this.state.types.length <= 0 ? <p>Please select Category</p> : 
+								<select name="type_ids[]" className="form-control" multiple>
+									{types}
+								</select>
+							}
 						</div>
 					</div>
 				</div>
@@ -121,7 +191,8 @@ class CreateProject extends React.Component
 								name="country" 
 								id="country" 
 								className="form-control" 
-								value="" />
+								onChange={this.handleChange}
+								value={this.state.country} />
 						</div>
 					</div>
 					<div className="col-md-4">
@@ -131,7 +202,8 @@ class CreateProject extends React.Component
 								name="city" 
 								id="city" 
 								className="form-control" 
-								value="" />
+								onChange={this.handleChange}
+								value={this.state.city} />
 						</div>
 					</div>
 					<div className="col-md-4">
@@ -141,7 +213,8 @@ class CreateProject extends React.Component
 								name="community" 
 								id="community" 
 								className="form-control" 
-								value="" />
+								onChange={this.handleChange}
+								value={this.state.community} />
 						</div>
 					</div>
 				</div>
@@ -156,7 +229,8 @@ class CreateProject extends React.Component
 								name="latitude" 
 								id="latitude" 
 								className="form-control" 
-								value="" />
+								onChange={this.handleChange}
+								value={this.state.latitude} />
 						</div>
 					</div>
 					<div className="col-md-6">
@@ -166,7 +240,8 @@ class CreateProject extends React.Component
 								name="longitude" 
 								id="longitude" 
 								className="form-control" 
-								value="" />
+								onChange={this.handleChange}
+								value={this.state.longitude} />
 						</div>
 					</div>
 				</div>
@@ -181,7 +256,8 @@ class CreateProject extends React.Component
 								name="dld_project_completion_link" 
 								id="dld_project_completion_link" 
 								className="form-control" 
-								value="" />
+								onChange={this.handleChange}
+								value={this.state.dld_project_completion_link} />
 						</div>
 					</div>
 					<div className="col-md-6">
@@ -191,7 +267,8 @@ class CreateProject extends React.Component
 								name="project_escrow_account_details_link" 
 								id="project_escrow_account_details_link" 
 								className="form-control" 
-								value="" />
+								onChange={this.handleChange}
+								value={this.state.project_escrow_account_details_link} />
 						</div>
 					</div>
 				</div>
@@ -200,8 +277,12 @@ class CreateProject extends React.Component
 
 				<div className="form-group">
 					<label htmlFor="description">&nbsp;</label>
-					<textarea name="description" id="editor" className="form-control">
-						
+					<textarea name="description" 
+						id="editor" 
+						className="form-control"
+						onChange={this.handleChange}
+						defaultValue={this.state.description}
+					>
 					</textarea>
 				</div>
 

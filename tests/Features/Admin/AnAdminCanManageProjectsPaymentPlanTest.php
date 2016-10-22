@@ -49,4 +49,28 @@ class AnAdminCanManageProjectsPaymentPlanTest extends TestCase
     			'date'	=> 'Purchase Date'
     		]);
     }
+
+    public function test_an_authenticated_user_can_delete_payment_plan_from_project()
+    {
+        $this->signIn();
+
+        $developer = factory(App\Developer::class)->create([
+            'name'  => 'Emaar',
+        ]);
+
+        $project = factory(App\Project::class)->make([
+            'name'  => 'Emaar Project'
+        ]);
+        $developer->projects()->save($project);
+
+        $payment = factory(App\Payment::class)->make();
+        $project->payments()->save($payment);   
+
+        $url = '/dashboard/developers/'.$developer->id.'/projects/'.$project->id.'/payments/'.$payment->id;
+        $response = $this->delete($url);
+
+        $this->dontSeeInDatabase('payments', [
+            'id'    => $payment->id,
+        ]);
+    }
 }

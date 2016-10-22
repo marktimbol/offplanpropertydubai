@@ -1,11 +1,15 @@
 @extends('layouts.dashboard')
 
 @section('header_styles')
-	<link rel="stylesheet" href="{{ elixir('css/editor.css') }}" />
+	<link rel="stylesheet" href="/css/editor.css" />
 @endsection
 
 @section('content')
-	<h1>Edit Project</h1>
+	<h1>Edit Project: 
+		<a href="{{ route('dashboard.developers.projects.show', [$developer->id, $project->id]) }}">
+			{{ $project->name }}
+		</a>
+	</h1>
 
 	<form method="POST" action="{{ route('dashboard.developers.projects.update', [$developer->id, $project->id]) }}">
 		{{ csrf_field() }}
@@ -47,34 +51,10 @@
 			<div class="col-md-6">
 				<div class="form-group">
 					<label for="expected_completion_date" class="control-label">Expected Completion Date</label>
-					<input type="text" id="expected_completion_date" class="form-control" value="" />
+					<input type="text" id="expected_completion_date" class="form-control" value="{{ $project->expected_completion_date }}" />
 				</div>
 			</div>
 		</div>
-
-		<h3>Project Type</h3>
-
-		<div class="row">
-			<div class="col-md-6">
-				<div class="form-group">
-					<label for="project_type">Types</label>
-					<select class="form-control">
-						<option value=""></option>
-						<option value="residential">Residential</option>
-						<option value="commercial">Commercial</option>
-						<option value="mixed-use">Mixed Use</option>
-					</select>
-				</div>
-			</div>
-			<div class="col-md-6">
-				<div class="form-group">
-					<label for="types">Sub Categories</label>
-					<input type="text" id="types" class="form-control" />
-				</div>
-			</div>
-		</div>
-
-		<h3>Payment Terms</h3>
 
 		<h3>Location</h3>
 
@@ -182,5 +162,5 @@
 @endsection
 
 @section('footer_scripts')
-	<script src="{{ elixir('js/editor.js') }}"></script>
+	<script src="/js/editor.js"></script>
 @endsection

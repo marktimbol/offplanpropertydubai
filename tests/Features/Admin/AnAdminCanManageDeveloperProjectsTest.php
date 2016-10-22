@@ -42,47 +42,41 @@ class AnAdminCanManageDeveloperProjectsTest extends TestCase
             'name'  => 'Emaar',
     	]);
 
-    	$this->visit('/dashboard/developers/'.$developer->id.'/projects/create')
-            ->see(sprintf('Add Project to %s', $developer->name))
-            ->type('Emaar Park Point', 'name')
-            ->type('The Famous Emaar Park Point', 'title')
+        $url = '/dashboard/developers/'.$developer->id.'/projects/';
+        $this->post($url, [
+            'name'  => 'Emaar Park Point',
+            'title' => 'The Famous Emaar Park Point',
+            'country'   => 'UAE',
+            'city'  => 'Dubai',
+            'community' => 'Dubai Marina',
+            'latitude'  => '3.1415',
+            'longitude' => '3.1416',
+            'expected_completion_date' => 'February 2019',
+            'dld_project_completion_link' => 'http://google.com',
+            'project_escrow_account_details_link' => 'http://gmail.com',
+            'description'   => 'The description'
+        ]);
+
+		$this->seeInDatabase('projects', [
+			'developer_id'	=> $developer->id,
+            'name'  => 'Emaar Park Point',
+            'title'  => 'The Famous Emaar Park Point',
+            'slug'  => 'the-famous-emaar-park-point',
+
+            'country'   => 'UAE',
+            'city'      => 'Dubai',
+            'community' => 'Dubai Marina',
+
+            'latitude'  => '3.1415',
+            'longitude' => '3.1416',
             
-            ->type('UAE', 'country')
-            ->type('Dubai', 'city')
-            ->type('Dubai Marina', 'community')
+            'expected_completion_date' => 'February 2019',
 
-            ->type('3.1415', 'latitude')
-            ->type('3.1416', 'longitude')
+            'dld_project_completion_link' => 'http://google.com',
+            'project_escrow_account_details_link'   => 'http://gmail.com',
 
-            // ->select('Residential', 'type')
-            ->type('*February 2019', 'expected_completion_date')
-            ->type('http://google.com', 'dld_project_completion_link')
-            ->type('http://gmail.com', 'project_escrow_account_details_link')
-    		->type('The description', 'description')
-    		->press('Save')
-
-    		->seeInDatabase('projects', [
-    			'developer_id'	=> $developer->id,
-                'name'  => 'Emaar Park Point',
-                'title'  => 'The Famous Emaar Park Point',
-                'slug'  => 'the-famous-emaar-park-point',
-
-                'country'   => 'UAE',
-                'city'      => 'Dubai',
-                'community' => 'Dubai Marina',
-
-                'latitude'  => '3.1415',
-                'longitude' => '3.1416',
-                
-                'expected_completion_date' => '*February 2019',
-
-                // 'type'  => 'Residential',
-
-                'dld_project_completion_link' => 'http://google.com',
-                'project_escrow_account_details_link'   => 'http://gmail.com',
-
-    			'description'	=> 'The description'
-    		]);
+			'description'	=> 'The description'
+		]);
     }
 
     public function test_an_admin_can_update_a_project_information()
@@ -101,33 +95,41 @@ class AnAdminCanManageDeveloperProjectsTest extends TestCase
 
     	$developer->projects()->save($project);
         
-    	$this->visit(sprintf('/dashboard/developers/%s/projects/%s/edit', $developer->id, $project->id))
-            ->type('Emaar Park Point', 'name')
-            ->type('New Title', 'title')
-            ->type('New Country', 'country')
-            ->type('New City', 'city')
-            ->type('New Community', 'community')
-            ->type('3.1', 'latitude')
-            ->type('3.2', 'longitude')
-            ->type('http://google.com', 'dld_project_completion_link')
-            ->type('http://gmail.com', 'project_escrow_account_details_link')
-            ->type('New Description', 'description')
-    		->press('Update')
+        $url = sprintf('/dashboard/developers/%s/projects/%s', $developer->id, $project->id);
+        $this->put($url, [
+            'name'  => 'Emaar Park Point',
+            'title' => 'The Famous Emaar Park Point',
+            'country'   => 'UAE',
+            'city'  => 'Dubai',
+            'community' => 'Dubai Marina',
+            'latitude'  => '3.1415',
+            'longitude' => '3.1416',
+            'expected_completion_date' => 'February 2019',
+            'dld_project_completion_link' => 'http://google.com',
+            'project_escrow_account_details_link' => 'http://gmail.com',
+            'description'   => 'The description'
+        ]);
 
-    		->seeInDatabase('projects', [
-    			'id'	=> $project->id,
-                'name'  => 'Emaar Park Point',
-                'title' => 'New Title',
-                'slug'  => 'new-title',
-                'country'   => 'New Country',
-                'city'   => 'New City',
-                'community' => 'New Community',
-                'latitude'  => '3.1',
-    			'longitude'	=> '3.2',
-                'dld_project_completion_link'   => 'http://google.com',
-                'project_escrow_account_details_link'   => 'http://gmail.com',
-                'description'   => 'New Description'
-    		]);	
+		$this->seeInDatabase('projects', [
+			'id'	=> $project->id,
+            'name'  => 'Emaar Park Point',
+            'title'  => 'The Famous Emaar Park Point',
+            'slug'  => 'the-famous-emaar-park-point',
+
+            'country'   => 'UAE',
+            'city'      => 'Dubai',
+            'community' => 'Dubai Marina',
+
+            'latitude'  => '3.1415',
+            'longitude' => '3.1416',
+            
+            'expected_completion_date' => 'February 2019',
+
+            'dld_project_completion_link' => 'http://google.com',
+            'project_escrow_account_details_link'   => 'http://gmail.com',
+
+            'description'   => 'The description'
+		]);	
     }
 
     public function test_an_admin_can_remove_a_project_from_a_developer()

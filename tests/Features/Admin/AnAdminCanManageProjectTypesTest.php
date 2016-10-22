@@ -36,6 +36,27 @@ class AnAdminCanManageProjectTypesTest extends TestCase
 			'project_id'	=> $project->id,
 			'type_id'	=> '1'
 		]);
+    }
 
+    public function test_an_admin_can_detach_type_to_a_project()
+    {
+    	$this->signIn();
+
+    	$developer = factory(App\Developer::class)->create();
+    	$project = factory(App\Project::class)->make([
+    		'developer_id'	=> $developer->id
+    	]);
+    	$developer->projects()->save($project);
+
+    	$type = factory(App\Type::class)->make();
+    	$project->types()->attach($type);
+
+    	$url = sprintf('/dashboard/developers/%s/projects/%s/types/%s', $developer->id, $project->id, $type->id);
+		$this->delete($url);
+
+		$this->dontSeeInDatabase('project_types', [
+			'project_id'	=> $project->id,
+			'type_id'	=> $type->id
+		]);
     }
 }

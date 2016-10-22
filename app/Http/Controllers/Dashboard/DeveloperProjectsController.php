@@ -6,6 +6,7 @@ use App\Developer;
 use App\Http\Controllers\Controller;
 use App\Http\Requests;
 use App\Project;
+use App\Category;
 use JavaScript;
 use Illuminate\Http\Request;
 
@@ -24,7 +25,8 @@ class DeveloperProjectsController extends Controller
 	public function create($developer)
 	{
         JavaScript::put([
-            'developer' => $developer
+            'developer' => $developer,
+            'categories' => Category::all(),
         ]);
 
         // $filtered = $collection->only(['product_id', 'name']);
@@ -34,14 +36,20 @@ class DeveloperProjectsController extends Controller
 
     public function store(Request $request, $developer)
     {
-        $this->validate($request, [
-            'name'  => 'required'
-        ]);
+        // $this->validate($request, [
+        //     'name'  => 'required'
+        // ]);
 
     	$project = $developer->projects()->create($request->all());
 
-        flash()->success(sprintf('%s has been successfully saved.', $project->name));
-    	return redirect()->route('dashboard.developers.projects.show', [$developer->id, $project->id]);
+        if( $request->has('type_ids') ) {
+            $project->types()->attach($request->type_ids);
+        }
+
+        return $project;
+
+        // flash()->success(sprintf('%s has been successfully saved.', $project->name));
+    	// return redirect()->route('dashboard.developers.projects.show', [$developer->id, $project->id]);
     }
 
     public function edit($developer, $project)

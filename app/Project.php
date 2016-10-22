@@ -27,7 +27,7 @@ class Project extends Model
         'description'
     ];
     
-    protected $with = ['logo', 'photos', 'floorplans', 'brochure', 'payments'];
+    protected $with = ['logo', 'photos', 'floorplans', 'brochure', 'payments', 'types'];
 
     public function getRouteKeyName() {
     	return 'slug';
