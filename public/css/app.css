@@ -9008,6 +9008,9 @@ h1, h2, h3, h4, h5, h6 {
 .owl-wrapper .Developer__image {
   margin-right: 0; }
 
+.Floorplans .owl-item {
+  margin: 0; }
+
 .navbar {
   margin-bottom: 0; }
 

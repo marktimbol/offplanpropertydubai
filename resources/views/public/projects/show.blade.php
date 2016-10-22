@@ -138,14 +138,23 @@
 					<p class="lead">
 						Villas are categorised in two part as Stand Alone Villas & Clustered Villas. In Clustered Villas each unit will have two entry points, a direct secondary access from the car garage and another main entry from the green sikkas.
 					</p>
-				</div>
-				<div class="Floorplans">
-					@foreach( range(1, 4) as $index )
-					<div class="Floorplan col-md-6">
-						<h4>Floorplan Title</h4>
-						<img src="/images/floorplan.jpg" alt="" title="" class="img-responsive" />
+					<div class="Floorplans">
+						@foreach( range(1, 4) as $index )
+						<div class="Floorplan">
+							<h4>Floorplan Title</h4>
+							<img src="/images/floorplan.jpg" alt="" title="" class="img-responsive" />
+						</div>
+						@endforeach
 					</div>
-					@endforeach
+				</div>
+
+				<div class="Floorplan__carousel--nav">
+					<a class="Floorplan__prev">
+						<i class="fa fa-angle-left" aria-hidden="true"></i>
+					</a>
+					<a class="Floorplan__next">
+						<i class="fa fa-angle-right" aria-hidden="true"></i>
+					</a>
 				</div>
 			</div>
 
