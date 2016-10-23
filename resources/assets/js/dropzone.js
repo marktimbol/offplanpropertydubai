@@ -18,7 +18,7 @@ Dropzone.options.UploadProjectFloorplans = {
 Dropzone.options.UploadProjectBrochure = {
 	paramName: 'file',
 	uploadMultiple: false,
-	maxFilesize: 3, // MB
+	maxFilesize: 5, // MB
 	acceptedFiles: 'image/*, application/pdf',
 	dictDefaultMessage: 'Upload Project Brochure'
 };

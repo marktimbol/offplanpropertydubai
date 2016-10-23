@@ -3,7 +3,7 @@
 @section('pageTitle', 'Home')
 
 @section('header_styles')
-	<link rel="stylesheet" href="{{ elixir('css/carousel.css') }}" />
+	<link rel="stylesheet" href="/css/carousel.css" />
 @endsection
 
 @section('bodyClass', 'Home')
@@ -88,5 +88,5 @@
 @endsection
 
 @section('footer_scripts')
-	<script src="{{ elixir('js/carousel.js') }}"></script>
+	<script src="/js/carousel.js"></script>
 @endsection

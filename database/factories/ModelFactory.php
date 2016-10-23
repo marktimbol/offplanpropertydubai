@@ -30,7 +30,7 @@ $factory->define(App\Developer::class, function (Faker\Generator $faker) {
         'slug' => $faker->slug,
         'country' => $faker->country,
         'website' => $faker->url,
-        'profile' => $faker->paragraph,
+        'profile' => $faker->realText,
     ];
 });
 
@@ -50,7 +50,7 @@ $factory->define(App\Project::class, function (Faker\Generator $faker) {
         'expected_completion_date'   => 'February 2019',
         'dld_project_completion_link'   => $faker->url,
         'project_escrow_account_details_link'   => $faker->url,
-        'description'   => $faker->paragraph,
+        'description'   => $faker->realText,
     ];
 });
 

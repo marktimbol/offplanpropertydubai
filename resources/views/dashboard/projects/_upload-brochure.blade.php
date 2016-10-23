@@ -13,7 +13,7 @@
 						<table class="table table-bordered">
 							<thead>
 								<tr>
-									<th>Title</th>
+									<th>Brochure Download Link</th>
 									<th>&nbsp;</th>
 								</tr>
 							</thead>
@@ -25,7 +25,7 @@
 									<tr>
 										<td>
 											<a href="{{ $file }}" target="_blank">
-												{{ $project->brochure->title }}
+												{{ $file }}
 											</a>
 										</td>
 										<td>
@@ -61,7 +61,7 @@
 				<p>&nbsp;</p>
 				<p>
 					Image / PDF only<br />
-					Maximum file size: 3mb
+					Maximum file size: 5mb
 				</p>
 			</div>
 			<div class="modal-footer">

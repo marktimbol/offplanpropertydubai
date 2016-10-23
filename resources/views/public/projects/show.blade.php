@@ -11,12 +11,21 @@
 	<div class="Project">
 		<div class="Project__carousel--container">
 			<div class="Project__carousel">
-				<div>
-					<img src="/images/video-cover.jpg" alt="" title="" />
-				</div>
-				<div>
-					<img src="/images/header-bg.jpg" alt="" title="" />
-				</div>
+				@forelse($project->photos as $photo)
+					<div>
+						<img src="{{ getPhotoPath($photo->photo) }}" 
+							alt="{{ $project->name }}" 
+							title="{{ $project->name }}" 
+							class="img-responsive" />
+					</div>
+				@empty
+					<div>
+						<img src="/images/video-cover.jpg" alt="" title="" />
+					</div>
+					<div>
+						<img src="/images/header-bg.jpg" alt="" title="" />
+					</div>				
+				@endforelse
 			</div>
 			<div class="Project__carousel__content--container">
 				<h2>
@@ -38,7 +47,7 @@
 			<div class="row">
 				<div class="col-md-9">
 					<h1 class="Project__title">
-						About {{ $project->name }}
+						{{ $project->title }}
 					</h1>
 					<div class="Project__description">
 						<ul class="list-group">
@@ -51,6 +60,18 @@
 							<li class="list-group-item">
 								<i class="fa fa-calendar"></i> &nbsp; 
 								Expected Completion Date: {{ $project->expected_completion_date }}
+							</li>
+							<li class="list-group-item">
+								<i class="fa fa-external-link"></i> &nbsp; 
+								<a href="{{ $project->dld_project_completion_link }}" target="_blank">
+									DLD Project Completion %
+								</a> 
+							</li>
+							<li class="list-group-item">
+								<i class="fa fa-external-link"></i> &nbsp; 
+								<a href="{{ $project->project_escrow_account_details_link }}" target="_blank">
+									Escrow Account Details %
+								</a>
 							</li>
 							<li class="list-group-item">
 								<i class="fa fa-map-marker"></i> &nbsp; 
@@ -135,26 +156,17 @@
 			<div class="row">
 				<div class="col-md-12">
 					<h3>Floor Plan</h3>
-					<p class="lead">
-						Villas are categorised in two part as Stand Alone Villas & Clustered Villas. In Clustered Villas each unit will have two entry points, a direct secondary access from the car garage and another main entry from the green sikkas.
-					</p>
 					<div class="Floorplans">
-						@foreach( range(1, 4) as $index )
+						@foreach( $project->floorplans as $floorplan )
 						<div class="Floorplan">
-							<h4>Floorplan Title</h4>
-							<img src="/images/floorplan.jpg" alt="" title="" class="img-responsive" />
+							<h4>{{ $floorplan->title }}</h4>
+							<img src="{{ getPhotoPath($floorplan->photo) }}" 
+								alt="{{ $floorplan->title }}" 
+								title="{{ $floorplan->title }}" 
+								class="img-responsive" />
 						</div>
 						@endforeach
 					</div>
-				</div>
-
-				<div class="Floorplan__carousel--nav">
-					<a class="Floorplan__prev">
-						<i class="fa fa-angle-left" aria-hidden="true"></i>
-					</a>
-					<a class="Floorplan__next">
-						<i class="fa fa-angle-right" aria-hidden="true"></i>
-					</a>
 				</div>
 			</div>
 
@@ -162,11 +174,11 @@
 				<div class="col-md-12">
 					<h3>Payment Plans</h3>
 
-					<table class="table table-bordered">
+					<table class="table table-bordered table-striped">
 						@foreach( $project->payments as $plan )
 						<tr>
-							<td>{{ $plan->title }}</td>
-							<td>{{ $plan->percentage }}</td>
+							<td width="200">{{ $plan->title }}</td>
+							<td width="100">{{ $plan->percentage }}</td>
 							<td>{{ $plan->date }}</td>
 						</tr>
 						@endforeach
@@ -177,33 +189,6 @@
 
 		<div class="Googlemap">
 
-		</div>
-
-		<div class="container">
-			<div class="row">
-				<div class="col-md-12">
-					<h3>About the Developer</h3>
-
-					<div class="row">
-						<div class="col-md-4">
-							<img src="/images/developers/developer.jpg" alt="" title="" class="img-responsive" />
-						</div>
-						<div class="col-md-8">
-							<h3>{{ $project->developer->name }}</h3>
-							<p>
-								{!! str_limit($project->developer->profile, 300) !!}
-							</p>
-							<p>
-								<a href="{{ route('developers.show', $project->developer->slug) }}"
-									class="btn btn-default"
-								>
-									View Developer
-								</a>
-							</p>
-						</div>
-					</div>
-				</div>
-			</div>
 		</div>
 	</div>
 

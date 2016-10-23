@@ -11,7 +11,8 @@
     <title>@yield('pageTitle') | {{ config('app.name') }}</title>
 
     <!-- Styles -->
-    <link href="{{ elixir('css/app.css') }}" rel="stylesheet">
+    <link href="/css/app.css" rel="stylesheet">
+
     @yield('header_styles')
     <!-- Scripts -->
     <script>
@@ -27,7 +28,7 @@
     @yield('content')
 
     <!-- Scripts -->
-    <script src="{{ elixir('js/app.js') }}"></script>
+    <script src="/js/app.js"></script>
 
     @yield('footer_scripts')
 

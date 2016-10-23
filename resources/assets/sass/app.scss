@@ -60,8 +60,10 @@ section {
 	background-size: cover;
 }
 
-.Slide__content {
-	width: 50%;
+.Home {
+	.Slide__content {
+		width: 50% !important;
+	}
 }
 
 .Slide__title {

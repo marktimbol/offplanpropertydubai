@@ -4,25 +4,14 @@ $(document).ready(function() {
 		autoPlay: true,
 	});
 
-	let floorplan = $('.Floorplans');
-	floorplan.owlCarousel({
+	$('.Floorplans').owlCarousel({		
 		singleItem: true,
-		pagination: false,
-		navigation: true,
-		autoPlay: true,
+		pagination: true,
+		navigation: false,
+		autoPlay: true
 	});
 
-	$('.Floorplan__next').click(function() {
-		floorplan.trigger('owl.next');
-	});
-
-	$('.Floorplan__prev').click(function() {
-		floorplan.trigger('owl.prev');
-	});
-
-	//
-
-	let projectCarousel = $('.Project__carousel');
+	var projectCarousel = $('.Project__carousel');
 	projectCarousel.owlCarousel({
 		singleItem: true,
 		navigation: false, 
