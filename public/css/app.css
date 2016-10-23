@@ -8841,17 +8841,7 @@ footer {
   justify-content: space-between; }
 
 .Single-project .navbar {
-  border: 0;
-  width: 100%;
-  margin-top: 20px;
-  background: none;
-  position: absolute; }
-  .Single-project .navbar a {
-    color: white !important; }
-    .Single-project .navbar a:focus {
-      color: #333 !important; }
-  .Single-project .navbar .dropdown-menu > li > a {
-    color: #333 !important; }
+  width: 100%; }
 
 .Slide__content {
   width: 100%; }
