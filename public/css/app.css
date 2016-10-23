@@ -8846,11 +8846,12 @@ footer {
     width: 250px;
     height: 300px;
     z-index: -1;
-    top: -120px;
+    top: -123px;
     background: #222;
     position: absolute;
     -webkit-transform: rotate(45deg);
-    transform: rotate(45deg); }
+    transform: rotate(45deg);
+    border-radius: 5%; }
 
 .Slide__content {
   width: 100%; }
