@@ -18,7 +18,8 @@ class CreateInquiriesTable extends Migration
             $table->string('name');
             $table->string('email');
             $table->string('phone');
-            $table->string('passport');
+            $table->string('iam');
+            $table->string('country');
             $table->text('message');
             $table->timestamps();
         });

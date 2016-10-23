@@ -21,7 +21,8 @@ class UserCanInquireAboutTheProjectTest extends TestCase
     		->type('John Doe', 'name')
     		->type('john@example.com', 'email')
     		->type('0563759865', 'phone')
-    		->type('EB6159498', 'passport')
+            ->select('Investor', 'iam')
+    		->type('United Arab Emirates', 'country')
     		->type('The Message', 'message')
 
     		->press('Send Message')
@@ -30,7 +31,8 @@ class UserCanInquireAboutTheProjectTest extends TestCase
     			'name'	=> 'John Doe',
     			'email'	=> 'john@example.com',
     			'phone'	=> '0563759865',
-    			'passport'	=> 'EB6159498',
+                'iam'   => 'Investor',
+    			'country'	=> 'United Arab Emirates',
     			'message'	=> 'The Message'
     		]);
     }

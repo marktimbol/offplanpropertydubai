@@ -17,8 +17,12 @@
 			<td>{{ $inquiry->phone }}</td>
 		</tr>
 		<tr>
-			<td>Passport No.</td>
-			<td>{{ $inquiry->passport }}</td>
+			<td>I Am:</td>
+			<td>{{ $inquiry->iam }}</td>
+		</tr>
+		<tr>
+			<td>Country:</td>
+			<td>{{ $inquiry->country }}</td>
 		</tr>
 		<tr>
 			<td>Message:</td>
