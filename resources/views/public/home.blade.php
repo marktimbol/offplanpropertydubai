@@ -16,13 +16,13 @@
 
 	<div class="Slide Flex Flex--center">
 		<div class="Slide__content">
-			<h2 class="Slide__title">Invest in the Future</h2>
+			<img src="/images/logo.png" alt="{{ config('app.name') }}" title="{{ config('app.name') }}" class="img-responsive" />
 			<form method="GET" class="Search">
 				<input type="text" 
 					name="search" 
 					id="search" 
 					class="form-control input-lg Search__input" 
-					placeholder="Search for a developer" />
+					placeholder="Search for a developer or Project" />
 				<button type="submit" class="btn-link Search__button">
 					<i class="fa fa-search"></i>
 				</button>

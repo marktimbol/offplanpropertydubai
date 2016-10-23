@@ -24,9 +24,7 @@
 </head>
 <body class="@yield('bodyClass')">
 
-    @include('layouts._project-nav', [
-        'logo'  => getPhotoPath($project->logo->photo)
-    ])
+    @include('layouts._project-nav')
 
     @yield('content')
 

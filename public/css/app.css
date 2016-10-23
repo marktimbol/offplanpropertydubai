@@ -8728,6 +8728,9 @@ section {
 
 .Home .Slide__content {
   width: 50% !important; }
+  .Home .Slide__content img {
+    margin: 0 auto;
+    margin-bottom: 20px; }
 
 .Slide__title {
   color: white;

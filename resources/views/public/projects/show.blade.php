@@ -85,7 +85,7 @@
 				</div>
 				<div class="col-md-3">
 					<div class="Inquiry">
-						<h3 class="Inquiry__title">Inquire Now</h3>
+						<h3 class="Inquiry__title">Register your Interest</h3>
 						<form method="POST" action="{{ route('projects.inquiries.store', $project->slug) }}">
 							{{ csrf_field() }}
 							<div class="form-group {{ $errors->has('name') ? 'has-error' : '' }}">
@@ -116,8 +116,17 @@
 								@endif
 							</div>
 							<div class="form-group">
-								<label for="passport">Passport No.</label>
-								<input type="text" name="passport" id="passport" class="form-control" value="{{ old('passport') }}" />
+								<label for="iam">I Am:</label>
+								<select name="iam" class="form-control">
+									<option value=""></option>
+									<option value="Investor">Investor</option>
+									<option value="Agent">Agent</option>
+									<option value="Guest">Guest</option>
+								</select>
+							</div>
+							<div class="form-group">
+								<label for="country">Country</label>
+								<input type="text" name="country" id="country" class="form-control" value="{{ old('country') }}" required />
 							</div>
 							<div class="form-group">
 								<label for="message">Message</label>
@@ -157,18 +166,20 @@
 		<div class="container">
 			<div class="row">
 				<div class="col-md-12">
-					<h3>Floor Plan</h3>
-					<div class="Floorplans">
-						@foreach( $project->floorplans as $floorplan )
-						<div class="Floorplan">
-							<h4>{{ $floorplan->title }}</h4>
-							<img src="{{ getPhotoPath($floorplan->photo) }}" 
-								alt="{{ $floorplan->title }}" 
-								title="{{ $floorplan->title }}" 
-								class="img-responsive" />
+					@if( count($project->floorplans) > 0 )
+						<h3>Floor Plan</h3>
+						<div class="Floorplans">
+							@foreach( $project->floorplans as $floorplan )
+							<div class="Floorplan">
+								<h4>{{ $floorplan->title }}</h4>
+								<img src="{{ getPhotoPath($floorplan->photo) }}" 
+									alt="{{ $floorplan->title }}" 
+									title="{{ $floorplan->title }}" 
+									class="img-responsive" />
+							</div>
+							@endforeach
 						</div>
-						@endforeach
-					</div>
+					@endif
 				</div>
 			</div>
 
