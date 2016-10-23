@@ -6,9 +6,7 @@
         <li><a href="#">Community</a></li>
         <li><a href="#">Developers</a></li>
         <li><a href="#">Compare Projects</a></li>
-        <li><a href="#">Near Me</a></li>
         <li><a href="#">Contact Us</a></li>
-        <li><a href="#">Skype</a></li>
     </ul>
 
     <!-- Right Side Of Navbar -->
