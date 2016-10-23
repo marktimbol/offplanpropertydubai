@@ -20,13 +20,11 @@ class ProjectLogosController extends Controller
 			return $project->logo()->create([
 				'photo'	=> $path
 			]);
+        } else {
+        	Storage::delete($project->logo->photo);
+            return $project->logo()->update([
+    			'photo'	=> $path
+    		]);        
         }
-
-    	Storage::delete($project->logo->photo);
-        
-        return $project->logo()->update([
-			'photo'	=> $path
-		]);
-
     }
 }
