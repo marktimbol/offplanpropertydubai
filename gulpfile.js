@@ -67,8 +67,8 @@ elixir(mix => {
 
        .copy('node_modules/font-awesome/fonts', 'public/fonts')
        .copy('node_modules/bootstrap-sass/assets/fonts/bootstrap', 'public/fonts')
-       .copy('node_modules/owlcarousel/owl-carousel/grabbing.png', 'public/build/css')
-       .copy('node_modules/owlcarousel/owl-carousel/AjaxLoader.gif', 'public/build/css');
+       .copy('node_modules/owlcarousel/owl-carousel/grabbing.png', 'public/css')
+       .copy('node_modules/owlcarousel/owl-carousel/AjaxLoader.gif', 'public/css');
 
        // .version([
        //    'public/css/app.css',
