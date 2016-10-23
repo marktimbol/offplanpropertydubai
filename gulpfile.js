@@ -52,6 +52,14 @@ elixir(mix => {
         'video.js',
       ], 'public/js/video.js')
 
+      .styles([
+        'map.css'
+      ], 'public/css/map.css')
+
+      .scripts([
+        'map.js'
+      ], 'public/js/map.js')
+
        .webpack('app.js')
        .webpack('components/CreateProject.js', 'public/js/CreateProject.js')
 

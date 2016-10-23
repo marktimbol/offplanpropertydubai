@@ -3,6 +3,7 @@
 @section('header_styles')
 	<link rel="stylesheet" href="/css/carousel.css" />
 	<link rel="stylesheet" href="/css/video.css" />
+	<link rel="stylesheet" href="/css/map.css" />
 @endsection
 
 @section('bodyClass', 'Single-project')
@@ -201,7 +202,18 @@
 		</div>
 
 		<div class="Googlemap">
-
+			<div class="container">
+				<div class="row">
+					<div class="col-md-12">
+						<h3>Project Location</h3>
+					</div>
+				</div>
+			</div>
+			<section id="cd-google-map">
+				<div id="google-container"></div>
+				<div id="cd-zoom-in"></div>
+				<div id="cd-zoom-out"></div>
+			</section>
 		</div>
 	</div>
 
@@ -240,4 +252,6 @@
 @section('footer_scripts')
 	<script src="/js/carousel.js"></script>
 	<script src="/js/video.js"></script>
+	<script src="https://maps.googleapis.com/maps/api/js?key={{ config('services.googlemap.key') }}"></script>
+	<script src="/js/map.js"></script>
 @endsection

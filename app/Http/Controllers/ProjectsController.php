@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use JavaScript;
 use App\Developer;
 use App\Http\Requests;
 use App\Project;
@@ -17,6 +18,12 @@ class ProjectsController extends Controller
     	if( count($project->logo) > 0 ) {
     		$logo = getPhotoPath($project->logo->photo);
     	}
+
+    	JavaScript::put([
+    		'latitude'	=> $project->latitude,
+    		'longitude'	=> $project->longitude,
+    	]);
+
     	return view('public.projects.show', compact('project', 'logo'));
     }
 }
