@@ -1,3 +1,23 @@
+.Single-project {
+	.navbar {
+	    border: 0;
+	    width: 100%;
+	    margin-top: 20px;
+	    background: none;
+		position: absolute;
+		a {
+			color: white !important;
+			&:focus {
+				color: #333 !important;
+			}
+		}
+		
+		.dropdown-menu > li > a {
+			color: #333 !important
+		}
+	}
+}
+
 .Slide__content {
 	width: 100%;
 }

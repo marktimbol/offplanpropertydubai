@@ -24,7 +24,9 @@
 </head>
 <body class="@yield('bodyClass')">
 
-    @include('layouts._nav')
+    @include('layouts._project-nav', [
+        'logo'  => '/images/thevilla_logo.png'
+    ])
 
     @yield('content')
 

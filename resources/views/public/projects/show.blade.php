@@ -5,6 +5,8 @@
 	<link rel="stylesheet" href="/css/video.css" />
 @endsection
 
+@section('bodyClass', 'Single-project')
+
 @section('pageTitle', $project->name)
 
 @section('content')
