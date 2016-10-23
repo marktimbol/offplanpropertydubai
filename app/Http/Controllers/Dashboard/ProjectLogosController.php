@@ -12,7 +12,7 @@ class ProjectLogosController extends Controller
     public function store(Request $request, $developer, $project)
     {
     	$path = $request->file->store(
-    	    sprintf('developers/%s/%s', $developer->slug, str_slug($project->name))
+    	    sprintf('developers/%s/%s/logo', $developer->slug, str_slug($project->name))
     	, 's3');
 
         if( count($project->logo) <= 0 )
