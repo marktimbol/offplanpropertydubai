@@ -8842,6 +8842,15 @@ footer {
 
 .Single-project .navbar {
   width: 100%; }
+  .Single-project .navbar .container:before {
+    width: 250px;
+    height: 300px;
+    z-index: -1;
+    top: -120px;
+    background: #222;
+    position: absolute;
+    -webkit-transform: rotate(45deg);
+    transform: rotate(45deg); }
 
 .Slide__content {
   width: 100%; }
