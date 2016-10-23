@@ -11,6 +11,18 @@
 
     <!-- Right Side Of Navbar -->
     <ul class="nav navbar-nav navbar-right">
+
+        <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+                Language <span class="caret"></span>
+            </a>
+
+            <ul class="dropdown-menu" role="menu">
+                <li><a href="#">English</a></li>
+                <li><a href="#">Arabic</a></li>
+            </ul>
+        </li>
+        
         <!-- Authentication Links -->
         @if (Auth::guest())
             <li><a href="{{ url('/login') }}">Login</a></li>
@@ -38,16 +50,5 @@
                 </ul>
             </li>
         @endif
-
-        <li class="dropdown">
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-                Language <span class="caret"></span>
-            </a>
-
-            <ul class="dropdown-menu" role="menu">
-                <li><a href="#">English</a></li>
-                <li><a href="#">Arabic</a></li>
-            </ul>
-        </li>
     </ul>
 </div>
