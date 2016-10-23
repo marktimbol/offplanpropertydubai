@@ -25,7 +25,7 @@
 <body class="@yield('bodyClass')">
 
     @include('layouts._project-nav', [
-        'logo'  => '/images/thevilla_logo.png'
+        'logo'  => getPhotoPath($project->logo->photo)
     ])
 
     @yield('content')
