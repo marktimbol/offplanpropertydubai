@@ -17,6 +17,7 @@
 
 #cd-google-map {
   position: relative;
+  padding: 0;
 }
 #cd-google-map address {
   position: absolute;
