@@ -24,7 +24,7 @@
 </head>
 <body class="@yield('bodyClass')">
 
-    @include('layouts._project-nav')
+    @include('layouts.nav._project')
 
     @yield('content')
 

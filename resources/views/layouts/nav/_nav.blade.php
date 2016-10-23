@@ -8,13 +8,8 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-
-            <!-- Branding Image -->
-            <a class="navbar-brand" href="{{ url('/') }}">
-                <img src="{{ $logo }}" alt="{{ $project->name }}" title="{{ $project->name }}" class="img-responsive" />
-            </a>
         </div>
 
-        @include('layouts._nav-links')
+        @include('layouts.nav._links')
     </div>
 </nav>

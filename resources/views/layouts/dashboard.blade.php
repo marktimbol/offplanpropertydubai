@@ -25,7 +25,7 @@
 </head>
 <body class="Dashboard">
 
-    @include('layouts._dashboard-nav')
+    @include('layouts.nav._dashboard')
 
     <div class="container">
         <div class="row">

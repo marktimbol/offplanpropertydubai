@@ -23,7 +23,7 @@
 </head>
 <body class="@yield('bodyClass')">
 
-    @include('layouts._nav')
+    @include('layouts.nav._nav')
 
     @yield('content')
 
