@@ -1,18 +1,24 @@
-<?php /*
-<section class="Developers">
+
+<section class="DeveloperListings--container">
 	<div class="container">
 		<div class="row">
 			<div class="col-md-12">
 				<h3 class="Section__title text-center">Developers</h3>
-				<div class="Developers Carousel">
+				<div class="DeveloperListings Carousel">
 					@foreach( $developers as $developer )
 					<?php 
-						$path = getPhotoPath('/images/developers/developer.jpg');
+						$path = '/images/developers/developer.jpg';
+						if( $developer->photo !== '' ) {
+							$path = getPhotoPath($developer->photo);
+						}
 					?>
-					<div class="Developer">
-						<div class="Developer__image">
+					<div class="DeveloperListing">
+						<div class="DeveloperListing__image">
 							<a href="{{ route('developers.show', $developer->slug) }}">
-								<img src="{{ $path }}" alt="{{ $developer->name }}" title="{{ $developer->Name }}" class="img-responsive" />
+								<img src="{{ $path }}" 
+									alt="{{ $developer->name }}" 
+									title="{{ $developer->Name }}" 
+									class="img-responsive" />
 							</a>
 						</div>
 					</div>
@@ -22,6 +28,6 @@
 		</div>
 	</div>
 </section>
-*/ ?>
+
 
 <footer></footer>

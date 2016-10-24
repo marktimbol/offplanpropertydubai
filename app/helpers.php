@@ -4,13 +4,8 @@ use Illuminate\Support\Facades\Storage;
 
 function getPhotoPath($photo)
 {
-	if( ! $photo )
-	{
-		return '/images/developers/developer.jpg';
-	}
-
-	if( config('filesystems.default') === 'local' ) {
-		// return Storage::url('app/public/'.$photo);
+	if( ! $photo ) {
+		return null;
 	}
 
 	return sprintf('https://s3-%s.amazonaws.com/%s/%s', 

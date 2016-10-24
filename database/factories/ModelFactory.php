@@ -30,6 +30,7 @@ $factory->define(App\Developer::class, function (Faker\Generator $faker) {
         'slug' => $faker->slug,
         'country' => $faker->country,
         'website' => $faker->url,
+        'photo' => '',
         'profile' => $faker->realText,
     ];
 });

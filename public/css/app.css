@@ -9048,6 +9048,9 @@ footer {
   to {
     box-shadow: 0 0 0 45px rgba(255, 255, 255, 0); } }
 
+.DeveloperListing__image img {
+  border: 1px solid #ddd; }
+
 .Developer {
   margin-bottom: 40px; }
 
