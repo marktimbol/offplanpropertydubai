@@ -83,3 +83,12 @@ $factory->define(App\Type::class, function (Faker\Generator $faker) {
         'name' => $faker->word,
     ];
 });
+
+$factory->define(App\Brochure::class, function (Faker\Generator $faker) {
+    return [
+        'project_id'  => function() {
+            return factory(App\Project::class)->create()->id;
+        },
+        'file' => $faker->url,
+    ];
+});

@@ -13,23 +13,24 @@
 						<table class="table table-bordered">
 							<thead>
 								<tr>
-									<th>Brochure Download Link</th>
+									<th>Brochure Link</th>
 									<th>&nbsp;</th>
 								</tr>
 							</thead>
 							<tbody>
 								@if( count($project->brochure) > 0 )
-									<?php
-										$file  = getPhotoPath($project->brochure->photo);
-									?>
 									<tr>
 										<td>
-											<a href="{{ $file }}" target="_blank">
-												{{ $file }}
+											<a href="{{ $project->brochure->file }}" target="_blank">
+												{{ $project->brochure->file }}
 											</a>
 										</td>
 										<td>
-											<form method="POST" action="#">
+											<form method="POST" 
+												action="{{ route('dashboard.developers.projects.brochures.destroy', [
+													$developer->id, $project->id, $project->brochure->id
+												]) }}"
+											>
 												{{ csrf_field() }}
 												{!! method_field('DELETE') !!}
 												<button type="submit" class="btn btn-sm btn-link">
@@ -40,29 +41,29 @@
 									</tr>
 								@else
 									<tr>
-										<td colspan="2">No uploaded brochure yet.</td>
+										<td colspan="2">No brochure yet.</td>
 									</tr>
 								@endif
 							</tbody>
 						</table>
 					</div>
 				</div>
-				<form 
-					method="POST" 
-					class="dropzone is-centered-xy"
-					id="UploadProjectBrochure"
+				<form method="POST" 
 					action="{{ route('dashboard.developers.projects.brochures.store', [
 					$developer->id, $project->id
 					]) }}" 
 				>
 					{{ csrf_field() }}
-				</form>
+					<div class="input-group">
+						{{-- <label for="file">File Path</label> --}}
+						<input type="text" name="file" id="file" class="form-control" placeholder="Path of the brochure" />
 
-				<p>&nbsp;</p>
-				<p>
-					Image / PDF only<br />
-					Maximum file size: 5mb
-				</p>
+						<div class="input-group-btn">
+							<button type="submit" class="btn btn-primary">
+								<i class="fa fa-save"></i> Save</button>
+						</div>
+					</div>
+				</form>
 			</div>
 			<div class="modal-footer">
 				<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>

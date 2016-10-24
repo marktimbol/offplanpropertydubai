@@ -11,21 +11,29 @@ class ProjectBrochuresController extends Controller
 {
     public function store(Request $request, $developer, $project)
     {    	
-		$file = $request->file->store(
-    		sprintf('developers/%s/%s/brochure', $developer->slug, str_slug($project->name))
-		, 's3');
+        $project->brochure()->create([
+            'file' => $request->file
+        ]);
 
-        if( count($project->brochure) <= 0 )
-        {
-			return $project->brochure()->create([
-				'photo'	=> $file
-			]);
-        }
+        flash()->success('Brochure has been successfully saved.');
+        return back();
+    }
 
-    	Storage::delete($project->brochure->photo);
-        
-    	return $project->brochure()->update([
-    		'photo'	=> $file
-    	]);
+    public function update(Request $request, $developer, $project, $brochure)
+    {       
+        $brochure->update([
+            'file' => $request->file
+        ]);
+
+        flash()->success('Brochure has been successfully updated.');
+        return back();
+    }
+
+    public function destroy($developer, $project, $brochure)
+    {       
+        $brochure->delete();
+
+        flash()->success('Brochure has been successfully removed.');
+        return back();
     }
 }

@@ -2,6 +2,7 @@
 
 namespace App\Providers;
 
+use App\Brochure;
 use App\Category;
 use App\Developer;
 use App\Payment;
@@ -59,6 +60,10 @@ class RouteServiceProvider extends ServiceProvider
 
         $this->bind('payment', function($id) {
             return Payment::findOrFail($id);
+        });
+
+        $this->bind('brochure', function($id) {
+            return Brochure::findOrFail($id);
         });
     }
 

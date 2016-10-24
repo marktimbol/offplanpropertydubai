@@ -16,7 +16,7 @@ class CreateBrochuresTable extends Migration
         Schema::create('brochures', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('project_id')->unsigned();
-            $table->string('photo');
+            $table->string('file');
             $table->timestamps();
         });
     }
