@@ -2,7 +2,7 @@
     <!-- Left Side Of Navbar -->
     <ul class="nav navbar-nav">
         <li><a href="/">Home</a></li>
-        <li><a href="#">Dubai Off Plan Projects</a></li>
+        <li><a href="{{ route('projects.index') }}">Dubai Off Plan Projects</a></li>
         <li><a href="#">Community</a></li>
         <li><a href="#">Developers</a></li>
         <li><a href="#">Compare Projects</a></li>

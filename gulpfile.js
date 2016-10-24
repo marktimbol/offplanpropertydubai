@@ -60,6 +60,10 @@ elixir(mix => {
         'map.js'
       ], 'public/js/map.js')
 
+      .scripts([
+        'MapListings.js'
+      ], 'public/js/MapListings.js')
+
        .webpack('app.js')
        .webpack('components/CreateProject.js', 'public/js/CreateProject.js')
 

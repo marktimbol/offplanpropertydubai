@@ -17,9 +17,18 @@
 	flex: 0.67;
 }
 
+.Column-7 {
+	flex: 0.6;
+}
+
 .Column-6 {
 	flex: 0.5;
 }
+
+.Column-5 {
+	flex: 0.4;
+}
+
 
 .Column-4 {
 	// flex: 0.4;
@@ -51,6 +60,10 @@
 .Flex--center {
 	align-items: center;
 	justify-content: center;
+}
+
+.Flex--wrap {
+	flex-wrap: wrap;
 }
 
 .Flex--center-to-end {

@@ -35,21 +35,24 @@ $factory->define(App\Developer::class, function (Faker\Generator $faker) {
 });
 
 $factory->define(App\Project::class, function (Faker\Generator $faker) {
+    $title = $faker->sentence;
+    $slug = str_slug($title);
+
     return [
         'developer_id'  => function() {
             return factory(App\Developer::class)->create()->id;
         },
         'name' => $faker->word,
-        'title' => $faker->sentence,
-        'slug' => $faker->slug,
-        'country'   => 'United Arab Emirates',
-        'city'   => 'Dubai',
-        'community'   => 'Dubai Marina',
+        'title' => $title,
+        'slug' => $slug,
+        'country'   => $faker->country,
+        'city'   => $faker->city,
+        'community'   => $faker->state,
         'latitude'  => $faker->latitude,
         'longitude' => $faker->longitude,
         'expected_completion_date'   => 'February 2019',
-        'dld_project_completion_link'   => 'http://google.com',
-        'project_escrow_account_details_link'   => 'http://hotmail.com',
+        'dld_project_completion_link'   => $faker->url,
+        'project_escrow_account_details_link'   => $faker->url,
         'description'   => $faker->realText,
     ];
 });

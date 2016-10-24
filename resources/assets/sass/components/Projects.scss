@@ -1,0 +1,36 @@
+.ProjectListings__title {
+	margin: 30px 10px;
+}
+
+.ProjectListings {
+	height: 100vh;
+	display: flex;
+	flex-wrap: wrap;
+
+	#google-container {
+		height: 100vh !important;
+	}
+}
+
+.ProjectListing {
+	margin-bottom: 30px;
+}
+
+.ProjectListing__image {
+	position: relative;
+}
+
+.ProjectListing__developer {
+	bottom: -30px;
+	right: 10px;
+	position: absolute;
+}
+
+.ProjectListing__description {
+	width: 80%;
+	a {
+		color: #333;
+		font-size: 16px;
+		font-weight: 400;
+	}
+}

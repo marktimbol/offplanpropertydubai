@@ -23,6 +23,20 @@ body {
 	background: #f4f4f4;
 }
 
+.img-bordered {
+	border: 3px solid white;
+}
+
+.text-truncate {
+	overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.scroll-y {
+	overflow-y: scroll;
+}
+
 .mb-30 {
 	margin-bottom: 30px;
 }
@@ -133,6 +147,7 @@ footer {
 }
 
 @import 'components/Grid';
+@import 'components/Projects';
 @import 'components/Project';
 @import 'components/Developer';
 @import 'components/Overwrite';

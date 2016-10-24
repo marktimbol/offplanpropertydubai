@@ -10,6 +10,12 @@ use Illuminate\Http\Request;
 
 class ProjectsController extends Controller
 {
+    public function index()
+    {
+        $projects = Project::latest()->get();
+        return view('public.projects.index', compact('projects'));
+    }
+
     public function show($project)
     {    	
     	$project->load('developer');
