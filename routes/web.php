@@ -26,6 +26,7 @@ Route::resource('developers', 'DevelopersController', [
 ]);
 Route::resource('projects', 'ProjectsController');
 Route::resource('projects.inquiries', 'InquiriesController');
+Route::resource('projects.brochures', 'ProjectBrochuresController');
 
 Auth::routes();
 

@@ -85,6 +85,18 @@
 					</div>
 				</div>
 				<div class="col-md-3">
+					<h3>&nbsp;</h3>
+					<p>
+						<button class="btn btn-block btn-primary" data-toggle="modal" data-target="#RegisterYourInterestForm">
+							Register your Interest
+						</button>
+						<button class="btn btn-block btn-default" data-toggle="modal" data-target="#DownloadBrochureForm">
+							Download Brochure
+						</button>
+					</p>
+					<div>
+						<h3>Developer</h3>
+					</div>
 					<div class="Inquiry">
 						<h3 class="Inquiry__title">Register your Interest</h3>
 						<form method="POST" action="{{ route('projects.inquiries.store', $project->slug) }}">
@@ -247,6 +259,10 @@
 			</div>
 		</div>
 	</section>
+
+	@include('public.projects._register-your-interest')
+	@include('public.projects._download-brochure')
+	
 @endsection
 
 @section('footer_scripts')

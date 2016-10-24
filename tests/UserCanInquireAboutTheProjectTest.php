@@ -17,24 +17,25 @@ class UserCanInquireAboutTheProjectTest extends TestCase
     		'name'	=> 'Villa Nova'
     	]);
 
-    	$this->visit(sprintf('/projects/%s', $project->slug))
-    		->type('John Doe', 'name')
-    		->type('john@example.com', 'email')
-    		->type('0563759865', 'phone')
-            ->select('Investor', 'iam')
-    		->type('United Arab Emirates', 'country')
-    		->type('The Message', 'message')
+        $endpoint = sprintf('/projects/%s/inquiries', $project->slug);
 
-    		->press('Send Message')
+        $this->post($endpoint, [
+            'name'  => 'John Doe',
+            'email' => 'john@example.com',
+            'phone' => '0563759865',
+            'iam'   => 'Investor',
+            'country'   => 'United Arab Emirates',
+            'message'   => 'The Message'
+        ])
 
-    		->seeInDatabase('inquiries', [
-    			'name'	=> 'John Doe',
-    			'email'	=> 'john@example.com',
-    			'phone'	=> '0563759865',
-                'iam'   => 'Investor',
-    			'country'	=> 'United Arab Emirates',
-    			'message'	=> 'The Message'
-    		]);
+		->seeInDatabase('inquiries', [
+			'name'	=> 'John Doe',
+			'email'	=> 'john@example.com',
+			'phone'	=> '0563759865',
+            'iam'   => 'Investor',
+			'country'	=> 'United Arab Emirates',
+			'message'	=> 'The Message'
+		]);
     }
 
     public function test_a_user_cannot_submit_inquiry_without_filling_up_all_the_required_fields()

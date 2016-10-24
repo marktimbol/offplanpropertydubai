@@ -15,7 +15,10 @@ class EventServiceProvider extends ServiceProvider
     protected $listen = [
         'App\Events\UserInquiresAboutTheProject' => [
             'App\Listeners\SendInquiryToAdmin',
-        ],
+        ],        
+        'App\Events\UserDownloadedAProjectBrochure' => [
+            'App\Listeners\SendBrochureLinkToUser'
+        ]
     ];
 
     /**
