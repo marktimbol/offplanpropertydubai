@@ -37,4 +37,9 @@ class Developer extends Model
     {
     	return $this->hasMany(Project::class);
     }
+
+    public function country()
+    {
+        return $this->belongsTo(Country::class);
+    }
 }

@@ -25,7 +25,9 @@
 			<label for="country_id" class="control-label">Country</label>
 			<select name="country_id" class="form-control">
 				@foreach( $countries as $country )
-					<option value="{{ $country->id }}">{{ $country->name }}</option>
+					<option value="{{ $country->id }}" {{ $developer->country->id === $country->id ? 'selected' : '' }}>
+						{{ $country->name }}
+					</option>
 				@endforeach
 			</select>
 			@if( $errors->has('country_id') )
