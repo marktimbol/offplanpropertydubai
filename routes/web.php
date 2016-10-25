@@ -39,6 +39,9 @@ Route::group(['middleware' => 'auth', 'prefix' => 'dashboard', 'as' => 'dashboar
 	Route::resource('developers.projects.logos', 'Dashboard\ProjectLogosController', [
 		'only' => ['store', 'destroy']
 	]);
+	Route::resource('developers.projects.videos', 'Dashboard\ProjectVideosController', [
+		'only' => ['store', 'destroy']
+	]);
 	Route::resource('developers.projects.photos', 'Dashboard\ProjectPhotosController', [
 		'only' => ['store', 'destroy']
 	]);

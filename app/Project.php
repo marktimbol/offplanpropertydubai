@@ -27,7 +27,7 @@ class Project extends Model
         'description'
     ];
     
-    protected $with = ['logo', 'photos', 'floorplans', 'brochure', 'payments', 'types'];
+    protected $with = ['logo', 'photos', 'floorplans', 'brochure', 'video', 'payments', 'types'];
 
     public function getRouteKeyName() {
     	return 'slug';
@@ -62,6 +62,11 @@ class Project extends Model
     public function brochure()
     {
         return $this->hasOne(Brochure::class);
+    }
+
+    public function video()
+    {
+        return $this->hasOne(Video::class);
     }
 
     public function payments()
