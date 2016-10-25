@@ -44,6 +44,9 @@
 					]) }}">
 						<i class="fa fa-pencil"></i>
 					</a>	
+					<a href="{{ route('projects.show', $project->slug) }}">
+						<i class="fa fa-eye"></i>
+					</a>	
 				</small>
 			</h1>
 

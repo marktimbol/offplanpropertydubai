@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Dashboard;
 use App\Developer;
 use App\Http\Controllers\Controller;
 use App\Http\Requests;
+use App\Http\Requests\CreateProjectRequest;
 use App\Project;
 use App\Category;
 use JavaScript;
@@ -34,12 +35,8 @@ class DeveloperProjectsController extends Controller
 		return view('dashboard.projects.create', compact('developer'));
 	}
 
-    public function store(Request $request, $developer)
+    public function store(CreateProjectRequest $request, $developer)
     {
-        // $this->validate($request, [
-        //     'name'  => 'required'
-        // ]);
-
     	$project = $developer->projects()->create($request->all());
 
         if( $request->has('type_ids') ) {
@@ -47,7 +44,7 @@ class DeveloperProjectsController extends Controller
         }
 
         return $project;
-
+        
         // flash()->success(sprintf('%s has been successfully saved.', $project->name));
     	// return redirect()->route('dashboard.developers.projects.show', [$developer->id, $project->id]);
     }

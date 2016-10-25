@@ -23,14 +23,15 @@
 					</div>
 				@empty
 					<div>
-						<img src="/images/video-cover.jpg" alt="" title="" />
-					</div>
+						<img src="/images/header-bg.jpg" alt="" title="" />
+					</div>		
 					<div>
 						<img src="/images/header-bg.jpg" alt="" title="" />
 					</div>				
 				@endforelse
 			</div>
-			<div class="Project__carousel__content--container">
+			<div class="Project__carousel__content--container Flex Flex--center Flex--column">
+				<img src="{{ $logo }}" alt="{{ $project->title }}" title="{{ $project->title }}" class="img-responsive" />
 				<h2>
 					{{ $project->title }}
 					<small>by {{ $project->developer->name }}</small>
@@ -57,7 +58,7 @@
 							<li class="list-group-item">
 								<i class="fa fa-home"></i> &nbsp; Project Type: 
 								@foreach( $project->types as $type )
-									{{ $type->name . ' ' }}
+									<span class="label label-success">{{ $type->name }}</span>
 								@endforeach
 							</li>
 							<li class="list-group-item">
@@ -85,14 +86,21 @@
 					</div>
 				</div>
 				<div class="col-md-3">
-					<h3>&nbsp;</h3>
 					<p>
 						<button class="btn btn-block btn-primary" data-toggle="modal" data-target="#RegisterYourInterestForm">
 							Register your Interest
 						</button>
-						<button class="btn btn-block btn-default" data-toggle="modal" data-target="#DownloadBrochureForm">
-							Download Brochure
-						</button>
+						@if( count($project->brochure) > 0 )
+							<button class="btn btn-block btn-default" data-toggle="modal" data-target="#DownloadBrochureForm">
+								Download Brochure
+							</button>
+						@else
+							<a href="{{ route('dashboard.developers.projects.show', [$project->developer->id, $project->id]) }}" 
+								class="btn btn-block btn-default"
+							>
+								<i class="fa fa-plus"></i> Add Project Brochure
+							</a>
+						@endif
 					</p>
 				</div>
 			</div>
@@ -121,8 +129,8 @@
 		<div class="container">
 			<div class="row">
 				<div class="col-md-12">
+					<h3>Floor Plan</h3>
 					@if( count($project->floorplans) > 0 )
-						<h3>Floor Plan</h3>
 						<div class="Floorplans">
 							@foreach( $project->floorplans as $floorplan )
 							<div class="Floorplan">
@@ -134,23 +142,45 @@
 							</div>
 							@endforeach
 						</div>
+					@else
+						<p class="lead">
+							No uploaded floor plan yet.
+							@if( auth()->check() )
+								<a class="btn btn-sm btn-default" 
+									href="{{ route('dashboard.developers.projects.show', [$project->developer->id, $project->id]) }}"
+								>
+									<i class="fa fa-plus"></i> Upload Floor Plan
+								</a>
+							@endif
+						</p>
 					@endif
 				</div>
 			</div>
 
 			<div class="row">
 				<div class="col-md-12">
-					<h3>Payment Plans</h3>
-
-					<table class="table table-bordered table-striped">
-						@foreach( $project->payments as $plan )
-						<tr>
-							<td width="200">{{ $plan->title }}</td>
-							<td width="100">{{ $plan->percentage }}</td>
-							<td>{{ $plan->date }}</td>
-						</tr>
-						@endforeach
-					</table>
+					<h3>Payment Terms</h3>
+					@if( count($project->payments) > 0 )
+						<table class="table table-bordered table-striped">
+							@foreach( $project->payments as $plan )
+							<tr>
+								<td width="200">{{ $plan->title }}</td>
+								<td width="100">{{ $plan->percentage }}</td>
+								<td>{{ $plan->date }}</td>
+							</tr>
+							@endforeach
+						</table>
+					@else
+						<p class="lead">No payment plan specified yet.
+							@if( auth()->check() )
+								<a class="btn btn-sm btn-default" 
+									href="{{ route('dashboard.developers.projects.show', [$project->developer->id, $project->id]) }}"
+								>
+									<i class="fa fa-plus"></i> Add Payment Plan
+								</a>
+							@endif
+						</p>
+					@endif
 				</div>
 			</div>
 		</div>

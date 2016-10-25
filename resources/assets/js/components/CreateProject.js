@@ -8,6 +8,7 @@ class CreateProject extends React.Component
 		super(props);
 
 		this.state = {
+			buttonText: 'Save Project',
 			isSubmitted: false,
 			name: '',
 			title: '',
@@ -23,6 +24,7 @@ class CreateProject extends React.Component
 			category_id: '',
 			types: [],
 			type_ids: [],
+			errorMessages: [],
 		};
 
 		this.handleChange = this.handleChange.bind(this);
@@ -65,7 +67,8 @@ class CreateProject extends React.Component
 		e.preventDefault();
 
 		this.setState({
-			isSubmitted: true
+			isSubmitted: true,
+			buttonText: 'Saving Project'
 		});
 
 		let url = '/dashboard/developers/'+OffPlan.developer.id+'/projects';
@@ -76,15 +79,29 @@ class CreateProject extends React.Component
 			data: $('#CreateProjectForm').serialize(),
 			headers: { 'X-CSRF-Token': OffPlan.csrfToken },
 			success: function(response) {
-				console.log(response);
-
 				swal({
 					title: "OffPlan Property Dubai",  
 					text: "You have successfully saved new Project",
 					type: "success", 
 					showConfirmButton: true
 				});
-			}
+
+				this.setState({
+					buttonText: 'Save',
+					isSubmitted: false
+				})
+
+				// Sets the new location of the current window.
+				window.location = '/dashboard/developers/' + OffPlan.developer.id + '/projects/' + response.id;
+				
+			}.bind(this),
+			error: function(message) {
+				console.log(message.responseJSON);
+
+				this.setState({
+					errorMessages: message.responseJSON
+				});
+			}.bind(this)
 		});
 	}
 
@@ -106,10 +123,14 @@ class CreateProject extends React.Component
 			)
 		})
 
+		// let errorMessages = Object.keys(this.state.errorMessages).forEach(function(key) {
+		// 	console.log('key', key)
+		// 	console.log('key array', this.state.errorMessages[key])
+		// }.bind(this))
+
 		return (
 			<form method="POST" id="CreateProjectForm" onSubmit={this.onSubmit.bind(this)}>
 				<h3>Project Details</h3>
-
 				<div className="form-group">
 					<label className="control-label">Developer</label>
 					<input type="text" 
@@ -288,7 +309,8 @@ class CreateProject extends React.Component
 
 				<div className="form-group">
 					<button type="submit" className="btn btn-lg btn-primary" onClick={this.onSubmit.bind(this)}>
-						<i className="fa fa-save"></i> Save
+						{ this.state.buttonText } <span>&nbsp;</span>
+						{ this.state.isSubmitted ? <i className="fa fa-spinner fa-spin"></i> : <span></span> }
 					</button>
 				</div>
 			</form>
