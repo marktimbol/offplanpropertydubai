@@ -9,7 +9,7 @@ class Developer extends Model
 {
     // use Searchable;
 
-    protected $fillable = ['name', 'slug', 'country', 'website', 'profile', 'photo'];
+    protected $fillable = ['country_id', 'name', 'slug', 'website', 'profile', 'photo'];
 
     protected $with = ['projects'];
     

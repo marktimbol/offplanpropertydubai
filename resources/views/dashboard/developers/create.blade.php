@@ -9,6 +9,20 @@
 
 	<form method="POST" action="{{ route('dashboard.developers.store') }}">
 		{{ csrf_field() }}
+		<div class="form-group {{ $errors->has('country_id') ? 'has-error' : '' }}">
+			<label for="country_id" class="control-label">Country</label>
+			<select name="country_id" class="form-control">
+				@foreach( $countries as $country )
+					<option value="{{ $country->id }}">{{ $country->name }}</option>
+				@endforeach
+			</select>
+			@if( $errors->has('country_id') )
+				<span class="help-block">
+					{{ $errors->first('country_id') }}
+				</span>
+			@endif
+		</div>
+
 		<div class="form-group {{ $errors->has('name') ? 'has-error' : '' }}">
 			<label for="name" class="control-label">Developer Name</label>
 			<input type="text" name="name" id="name" class="form-control" value="{{ old('name') }}" />

@@ -38,12 +38,16 @@ class AnAdminCanManageDeveloperProjectsTest extends TestCase
     {
     	$this->signIn();
 
+        $community = factory(App\Community::class)->create();
+
     	$developer = factory(App\Developer::class)->create([
+            'country_id'    => $community->city->country->id,
             'name'  => 'Emaar',
     	]);
 
         $url = '/dashboard/developers/'.$developer->id.'/projects/';
         $this->post($url, [
+            'community_id'  => $community->id,
             'name'  => 'Emaar Park Point',
             'title' => 'The Famous Emaar Park Point',
             'country'   => 'UAE',
@@ -58,7 +62,8 @@ class AnAdminCanManageDeveloperProjectsTest extends TestCase
         ]);
 
 		$this->seeInDatabase('projects', [
-			'developer_id'	=> $developer->id,
+            'developer_id'  => $developer->id,
+			'community_id'	=> $community->id,
             'name'  => 'Emaar Park Point',
             'title'  => 'The Famous Emaar Park Point',
             'slug'  => 'the-famous-emaar-park-point',
@@ -83,10 +88,13 @@ class AnAdminCanManageDeveloperProjectsTest extends TestCase
     {
     	$this->signIn();
 
-    	$developer = factory(App\Developer::class)->create([
-    		'name'	=> 'Emaar',
+        $community = factory(App\Community::class)->create();
+
+        $developer = factory(App\Developer::class)->create([
+            'country_id'    => $community->city->country->id,
+            'name'  => 'Emaar',
             'slug'  => 'emaar'
-    	]);
+        ]);
 
     	$project = factory(App\Project::class)->make([
     		'name'	=> 'Emaar Park Points',

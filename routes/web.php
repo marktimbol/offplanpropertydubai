@@ -32,6 +32,7 @@ Auth::routes();
 
 Route::group(['middleware' => 'auth', 'prefix' => 'dashboard', 'as' => 'dashboard.'], function() {
 	Route::get('/', ['as' => 'dashboard', 'uses' => 'DashboardController@index']);
+	Route::resource('countries', 'Dashboard\CountriesController');
 	Route::resource('developers', 'Dashboard\DevelopersController');
 	Route::resource('developers.projects', 'Dashboard\DeveloperProjectsController');
 	Route::resource('developers.projects.payments', 'Dashboard\ProjectPaymentsController');

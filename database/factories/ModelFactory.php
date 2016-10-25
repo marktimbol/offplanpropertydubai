@@ -23,12 +23,43 @@ $factory->define(App\User::class, function (Faker\Generator $faker) {
     ];
 });
 
+$factory->define(App\Country::class, function (Faker\Generator $faker) {
+    $name = $faker->country;
+    $slug = str_slug($name);
+
+    return [
+        'name' => $name,
+        'slug'  => $slug,
+    ];
+});
+
+$factory->define(App\City::class, function (Faker\Generator $faker) {
+    return [
+        'country_id'    => function() {
+            return factory(App\Country::class)->create()->id;
+        },
+        'name' => $faker->city,
+        'slug'  => $faker->slug,
+    ];
+});
+
+$factory->define(App\Community::class, function (Faker\Generator $faker) {
+    return [
+        'city_id'    => function() {
+            return factory(App\City::class)->create()->id;
+        },
+        'name' => $faker->city,
+        'slug'  => $faker->slug,
+    ];
+});
 
 $factory->define(App\Developer::class, function (Faker\Generator $faker) {
     return [
+        'country_id'    => function() {
+            return factory(App\Country::class)->create()->id;
+        },
         'name' => $faker->word,
         'slug' => $faker->slug,
-        'country' => $faker->country,
         'website' => $faker->url,
         'photo' => '',
         'profile' => $faker->realText,
@@ -42,6 +73,9 @@ $factory->define(App\Project::class, function (Faker\Generator $faker) {
     return [
         'developer_id'  => function() {
             return factory(App\Developer::class)->create()->id;
+        },
+        'community_id'  => function() {
+            return factory(App\Community::class)->create()->id;
         },
         'name' => $faker->word,
         'title' => $title,

@@ -21,12 +21,16 @@
 			@endif
 		</div>
 
-		<div class="form-group {{ $errors->has('country') ? 'has-error' : '' }}">
-			<label for="country" class="control-label">Country</label>
-			<input type="text" name="country" id="country" class="form-control" value="{{ $developer->country }}" />
-			@if( $errors->has('country') )
+		<div class="form-group {{ $errors->has('country_id') ? 'has-error' : '' }}">
+			<label for="country_id" class="control-label">Country</label>
+			<select name="country_id" class="form-control">
+				@foreach( $countries as $country )
+					<option value="{{ $country->id }}">{{ $country->name }}</option>
+				@endforeach
+			</select>
+			@if( $errors->has('country_id') )
 				<span class="help-block">
-					{{ $errors->first('country') }}
+					{{ $errors->first('country_id') }}
 				</span>
 			@endif
 		</div>

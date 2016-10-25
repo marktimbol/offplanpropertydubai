@@ -21,6 +21,7 @@ class DatabaseSeeder extends Seeder
 
         $this->call(CategoriesTableSeeder::class);
         $this->call(DeveloperProjectsTableSeeder::class);
+        $this->call(CountriesTableSeeder::class);
         
         factory(App\Project::class, 20)->create();
     }

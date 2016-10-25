@@ -24,8 +24,8 @@ class CreateDeveloperRequest extends FormRequest
     public function rules()
     {
         return [
+            'country_id'  => 'required',
             'name'  => 'required',
-            'country'   => 'required',
             'website'   => 'url'
         ];
     }

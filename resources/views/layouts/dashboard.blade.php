@@ -34,7 +34,8 @@
                     <h3>Navigation</h3>
                     <ul class="list-group">
                         <a href="/dashboard" class="list-group-item">Home</a>
-                        <a href="/dashboard/developers" class="list-group-item">Developers</a>                            
+                        <a href="/dashboard/developers" class="list-group-item">Developers</a>
+                        <a href="/dashboard/countries" class="list-group-item">Countries</a>
                     </ul>
                 </aside>
             </div>

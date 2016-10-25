@@ -29,7 +29,10 @@ class AnAdminCanManageDevelopersTest extends TestCase
     {
     	$this->signIn();
 
+        $country = factory(App\Country::class)->create();
+
     	$this->visit('/dashboard/developers/create')
+            ->select($country->id, 'country_id')
             ->type('Emaar', 'name')
             ->select('UAE', 'country')
             ->type('The profile', 'profile')
@@ -37,8 +40,8 @@ class AnAdminCanManageDevelopersTest extends TestCase
     		->press('Save')
 
     		->seeInDatabase('developers', [
+                'country_id'  => 1,
                 'name'  => 'Emaar',
-    			'country'	=> 'UAE',
                 'website'   => 'http://google.com',
                 'profile'   => 'The profile',
     		]);
@@ -48,22 +51,30 @@ class AnAdminCanManageDevelopersTest extends TestCase
     {
         $this->signIn();
 
+        $uae = factory(App\Country::class)->create([
+            'name'  => 'UAE'
+        ]);
+        $usa = factory(App\Country::class)->create([
+            'name'  => 'USA'
+        ]);
+
         $developer = factory(App\Developer::class)->create([
+            'country_id'    => $uae->id,
             'name'  => 'Emaars',
             'website'   => 'http://googles.com'
         ]);
 
         $this->visit(sprintf('/dashboard/developers/%s/edit', $developer->id))
+            ->select($usa->id, 'country_id')
             ->type('Emaar', 'name')
-            ->type('Saudi Arabia', 'country')
             ->type('New Profile', 'profile')
             ->type('http://google.com', 'website')
             ->press('Update')
 
             ->seeInDatabase('developers', [
                 'id'    => $developer->id,
+                'country_id'    => $usa->id,
                 'name'  => 'Emaar',
-                'country'   => 'Saudi Arabia',
                 'website'   => 'http://google.com',
                 'profile'   => 'New Profile',
             ]);

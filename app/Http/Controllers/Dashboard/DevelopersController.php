@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Dashboard;
 
+use App\Country;
 use App\Developer;
 use App\Http\Controllers\Controller;
 use App\Http\Requests;
@@ -23,7 +24,8 @@ class DevelopersController extends Controller
 
     public function create()
     {
-    	return view('dashboard.developers.create');
+        $countries = Country::orderBy('name', 'asc')->get();
+    	return view('dashboard.developers.create', compact('countries'));
     }
 
     public function store(CreateDeveloperRequest $request)
@@ -36,7 +38,8 @@ class DevelopersController extends Controller
 
     public function edit($developer)
     {
-        return view('dashboard.developers.edit', compact('developer'));
+        $countries = Country::orderBy('name', 'asc')->get();
+        return view('dashboard.developers.edit', compact('developer', 'countries'));
     }
 
     public function update(CreateDeveloperRequest $request, $developer)
