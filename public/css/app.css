@@ -8801,6 +8801,38 @@ footer {
     .DeveloperListing__content h4 a:hover {
       text-decoration: underline; }
 
+.CommunityListing {
+  width: 250px;
+  height: 250px;
+  margin: 10px;
+  display: -webkit-box;
+  display: flex;
+  -webkit-box-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  justify-content: center;
+  position: relative; }
+  .CommunityListing a {
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: block;
+    position: absolute; }
+
+.CommunityListing__content {
+  padding: 20px; }
+  .CommunityListing__content p {
+    margin: 0;
+    color: white;
+    font-size: 20px; }
+
+.full-height {
+  height: auto !important; }
+
+.full-width {
+  width: 100% !important; }
+
 .Row {
   display: -webkit-box;
   display: flex; }
@@ -8875,16 +8907,8 @@ footer {
   -webkit-box-pack: justify;
   justify-content: space-between; }
 
-.ProjectListings__title {
-  margin: 30px 10px; }
-
 .ProjectListings {
-  height: 100vh;
-  display: -webkit-box;
-  display: flex;
-  flex-wrap: wrap; }
-  .ProjectListings #google-container {
-    height: 100vh !important; }
+  padding: 40px 0px; }
 
 .ProjectListing {
   margin-bottom: 30px; }
@@ -9066,6 +9090,34 @@ footer {
 
 .Developer__info {
   margin-top: 30px; }
+
+.dubai-marina-community {
+  background: url("/images/communities/dubai-marina.jpeg") no-repeat;
+  background-size: cover; }
+
+.difc-community {
+  background: url("/images/communities/difc.jpeg") no-repeat;
+  background-size: cover; }
+
+.downtown-dubai-community {
+  background: url("/images/communities/downtown-dubai.jpeg") no-repeat;
+  background-size: cover; }
+
+.jumeirah-lakes-towers-community {
+  background: url("/images/communities/jumeirah-lakes-towers.jpeg") no-repeat;
+  background-size: cover; }
+
+.sheikh-zayed-road-community {
+  background: url("/images/communities/sheikh-zayed-road.jpeg") no-repeat;
+  background-size: cover; }
+
+.business-bay-community {
+  background: url("/images/communities/difc.jpeg") no-repeat;
+  background-size: cover; }
+
+.palm-jumeirah-community {
+  background: url("/images/communities/palm-jumeirah.jpeg") no-repeat;
+  background-size: cover; }
 
 h1, h2, h3, h4, h5, h6 {
   font-weight: 300; }

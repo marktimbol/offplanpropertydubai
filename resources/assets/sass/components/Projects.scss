@@ -1,15 +1,9 @@
 .ProjectListings__title {
-	margin: 30px 10px;
+	// margin: 30px 10px;
 }
 
 .ProjectListings {
-	height: 100vh;
-	display: flex;
-	flex-wrap: wrap;
-
-	#google-container {
-		height: 100vh !important;
-	}
+	padding: 40px 0px;
 }
 
 .ProjectListing {

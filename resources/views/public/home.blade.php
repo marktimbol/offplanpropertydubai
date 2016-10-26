@@ -12,7 +12,7 @@
 
 	<div class="Slide Flex Flex--center">
 		<div class="Slide__content">
-			<img src="/images/logo.png" alt="{{ config('app.name') }}" title="{{ config('app.name') }}" class="img-responsive" />
+			{{-- <img src="/images/logo.png" alt="{{ config('app.name') }}" title="{{ config('app.name') }}" class="img-responsive" /> --}}
 			<form method="GET" class="Search">
 				<input type="text" 
 					name="search" 
@@ -81,6 +81,75 @@
 									</div>
 								</div>
 						@endforeach
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<section class="CommunityListings--container">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-12">
+					<h2 class="text-center">Explore Communities</h2>
+					<p class="lead text-center">
+						Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+					</p>
+				</div>
+				<div class="col-md-12">
+					<div class="CommunityListings">
+						<div class="Row">
+							<div class="CommunityListing Column-6 full-height dubai-marina-community">
+								<a href="#"></a>
+								<div class="CommunityListing__content">
+									<p>Dubai Marina</p>
+								</div>
+							</div>
+							<div class="Flex-1">
+								<div class="Row">
+									<div class="CommunityListing Column-6 difc-community">
+										<a href="#"></a>
+										<div class="CommunityListing__content">
+											<p>DIFC</p>
+										</div>
+									</div>
+									<div class="CommunityListing Column-6 downtown-dubai-community">
+										<a href="#"></a>
+										<div class="CommunityListing__content">
+											<p>Downtown Dubai</p>
+										</div>
+									</div>
+								</div>
+								<div class="Row">
+									<div class="CommunityListing Column-6 jumeirah-lakes-towers-community">
+										<a href="#"></a>
+										<div class="CommunityListing__content">
+											<p>Jumeirah Lakes Towers</p>
+										</div>
+									</div>
+									<div class="CommunityListing Column-6 sheikh-zayed-road-community">
+										<a href="#"></a>
+										<div class="CommunityListing__content">
+											<p>Sheikh Zayed Road</p>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="Row">
+							<div class="CommunityListing Column-6 business-bay-community">
+								<a href="#"></a>
+								<div class="CommunityListing__content">
+									<p>Business Bay</p>
+								</div>
+							</div>
+							<div class="CommunityListing Column-6 palm-jumeirah-community">
+								<a href="#"></a>
+								<div class="CommunityListing__content">
+									<p>Palm Jumeirah</p>
+								</div>
+							</div>
+						</div>
 					</div>
 				</div>
 			</div>
