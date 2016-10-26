@@ -100,7 +100,7 @@
 					<div class="CommunityListings">
 						<div class="Row">
 							<div class="CommunityListing Column-6 full-height dubai-marina-community">
-								<a href="#"></a>
+								<a href="{{ route('communities.show', 'dubai-marina') }}"></a>
 								<div class="CommunityListing__content">
 									<p>Dubai Marina</p>
 								</div>
@@ -108,9 +108,9 @@
 							<div class="Flex-1">
 								<div class="Row">
 									<div class="CommunityListing Column-6 difc-community">
-										<a href="#"></a>
+										<a href="{{ route('communities.show', 'al-barsha') }}"></a>
 										<div class="CommunityListing__content">
-											<p>DIFC</p>
+											<p>Al Barsha</p>
 										</div>
 									</div>
 									<div class="CommunityListing Column-6 downtown-dubai-community">

@@ -13,4 +13,10 @@ class CommunitiesController extends Controller
     	$communities = Community::all();
     	return view('public.communities.index', compact('communities'));
     }
+
+    public function show($community)
+    {
+    	$community->load('projects');
+    	return view('public.communities.show', compact('community'));
+    }
 }

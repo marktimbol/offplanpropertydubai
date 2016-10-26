@@ -15,4 +15,14 @@ class VisitorCanViewAllTheCommunitiesTest extends TestCase
     	$this->visit('/communities')
     		->see($community->name);
     }
+
+    public function test_a_visitor_can_view_projects_per_community()
+    {
+    	$community = factory(App\Community::class)->create();
+    	$project = factory(App\Project::class)->create();
+    	$community->projects()->attach($project);
+    	
+    	$this->visit(sprintf('/communities/%s', $community->slug))
+    		->see($project->name);
+    }
 }

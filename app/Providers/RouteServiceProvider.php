@@ -5,6 +5,7 @@ namespace App\Providers;
 use App\Brochure;
 use App\Category;
 use App\City;
+use App\Community;
 use App\Country;
 use App\Developer;
 use App\Payment;
@@ -46,6 +47,10 @@ class RouteServiceProvider extends ServiceProvider
                 return Project::findOrFail($key);
             }
             return Project::whereSlug($key)->first();
+        });
+
+        $this->bind('community', function($slug) {
+            return Community::whereSlug($slug)->first();
         });
 
         $this->bind('photo', function($key) {
