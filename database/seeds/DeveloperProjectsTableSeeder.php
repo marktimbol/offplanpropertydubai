@@ -1,6 +1,7 @@
 <?php
 
 use App\Community;
+use App\Country;
 use App\Developer;
 use App\Payment;
 use App\Project;
@@ -16,22 +17,23 @@ class DeveloperProjectsTableSeeder extends Seeder
      */
     public function run()
     {
+        $country  = Country::whereSlug('united-arab-emirates')->first();
         $community  = Community::whereSlug('dubai-marina')->first();
 
         $developer = factory(Developer::class)->create([
-            'country_id'   => $community->city->country->id,
+            'country_id'   => $country->id,
             'name'  => 'Dubai Properties',
             'slug'  => 'dubai-properties'
         ]);
 
-        $project = factory(Project::class)->make([
+        $project = factory(Project::class)->create([
             'developer_id'  => $developer->id,
-            'community_id'  => $community->id,
             'name'  => 'Villanova',
             'title' => 'First time Mediterranean styled "Cluster Homes" in Dubailand',
             'slug'  => 'first-time-mediterranean-styled-cluster-homes-in-dubailand'
         ]);
-        $developer->projects()->save($project);
+
+        $community->projects()->attach($project);
 
         $this->addProjectType($project);
 	    $this->addPaymentPlans($project);

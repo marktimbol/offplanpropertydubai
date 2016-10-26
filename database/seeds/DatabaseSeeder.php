@@ -28,13 +28,11 @@ class DatabaseSeeder extends Seeder
         $this->call(DeveloperProjectsTableSeeder::class);
         
         $dubaiMarina = Community::whereSlug('dubai-marina')->first();
-        factory(Project::class, 20)->create([
-            'community_id'  => $dubaiMarina->id
-        ]);
+        $dubaiMarinaProjects = factory(Project::class, 20)->create();
+        $dubaiMarina->projects()->attach($dubaiMarinaProjects);
 
         $alBarsha = Community::whereSlug('al-barsha')->first();
-        factory(Project::class, 20)->create([
-            'community_id'  => $alBarsha->id
-        ]);
+        $alBarshaProjects = factory(Project::class, 20)->create();
+        $alBarsha->projects()->attach($alBarshaProjects);
     }
 }
