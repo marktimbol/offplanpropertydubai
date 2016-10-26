@@ -59,11 +59,14 @@
 				</li>
 
 				<li class="list-group-item">
-					Expected Completion Date: {{ $project->expected_completion_date }}
+					Community: 
+					@foreach( $project->communities as $community )
+						{{ $community->name }}
+					@endforeach
 				</li>
-
+				
 				<li class="list-group-item">
-					Location: {{ sprintf('%s &mdash; %s, %s', $project->community, $project->city, $project->country) }}
+					Expected Completion Date: {{ $project->expected_completion_date }}
 				</li>
 			</ul>
 		</div>

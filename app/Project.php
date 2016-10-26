@@ -19,7 +19,7 @@ class Project extends Model
         'description'
     ];
     
-    protected $with = ['logo', 'photos', 'floorplans', 'brochure', 'video', 'payments', 'types'];
+    protected $with = ['logo', 'photos', 'floorplans', 'brochure', 'video', 'payments', 'types', 'communities'];
 
     public function getRouteKeyName() {
     	return 'slug';
@@ -69,5 +69,10 @@ class Project extends Model
     public function types()
     {
         return $this->belongsToMany(Type::class, 'project_types');
+    }
+
+    public function communities()
+    {
+        return $this->belongsToMany(Community::class, 'community_projects', 'project_id', 'community_id');
     }
 }
