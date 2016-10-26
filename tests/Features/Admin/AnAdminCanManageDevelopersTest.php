@@ -34,7 +34,6 @@ class AnAdminCanManageDevelopersTest extends TestCase
     	$this->visit('/dashboard/developers/create')
             ->select($country->id, 'country_id')
             ->type('Emaar', 'name')
-            ->select('UAE', 'country')
             ->type('The profile', 'profile')
     		->type('http://google.com', 'website')
     		->press('Save')

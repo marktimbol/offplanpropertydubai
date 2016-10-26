@@ -13,17 +13,15 @@
 
 	<div class="row">
 		<div class="col-md-3">
-			<?php
-				$photo = sprintf('https://s3-%s.amazonaws.com/%s/%s', 
-						config('filesystems.disks.s3.region'), 
-						config('filesystems.disks.s3.bucket'), 
-						$developer->photo
-				);
-			?>
-			<img src="{{ $photo }}" alt="{{ $developer->name }}" title="{{ $developer->title }}" class="img-responsive" />
+			@if( getPhotoPath($developer->photo) != '' )
+				<img src="{{ getPhotoPath($developer->photo) }}" alt="{{ $developer->name }}" title="{{ $developer->title }}" class="img-responsive" />
+			@endif
 
-			<h3>Upload Logo</h3>
-			<form action="{{ route('dashboard.developers.photos.store', $developer->id) }}" class="dropzone" id="my-awesome-dropzone">
+			<form 
+				class="dropzone" 
+				action="{{ route('dashboard.developers.photos.store', $developer->id) }}" 
+				id="UploadDeveloperLogo"
+			>
 				{{ csrf_field() }}
 			</form>
 		</div>
@@ -36,7 +34,11 @@
 	
 	<h3>Projects
 		<small>
-			<a href="{{ route('dashboard.developers.projects.create', $developer->id) }}" class="btn btn-default">Add Project</a>
+			<a href="{{ route('dashboard.developers.projects.create', $developer->id) }}" 
+				class="btn btn-sm btn-primary"
+			>
+				Add Project
+			</a>
 		</small>
 	</h3>
 	<table class="table table-bordered">

@@ -77,10 +77,10 @@
 									Escrow Account Details %
 								</a>
 							</li>
-							<li class="list-group-item">
+{{-- 							<li class="list-group-item">
 								<i class="fa fa-map-marker"></i> &nbsp; 
 								{{ sprintf('%s &mdash; %s, %s', $project->community, $project->city, $project->country) }}
-							</li>
+							</li> --}}
 						</ul>
 						{!! $project->description !!}
 					</div>

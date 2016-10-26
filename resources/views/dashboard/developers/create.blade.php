@@ -33,16 +33,6 @@
 			@endif
 		</div>
 
-		<div class="form-group {{ $errors->has('country') ? 'has-error' : '' }}">
-			<label for="country" class="control-label">Country</label>
-			<input type="text" name="country" id="country" class="form-control" value="{{ old('country') }}" />
-			@if( $errors->has('country') )
-				<span class="help-block">
-					{{ $errors->first('country') }}
-				</span>
-			@endif
-		</div>
-
 		<div class="form-group {{ $errors->has('website') ? 'has-error' : '' }}">
 			<label for="website" class="control-label">Website URI</label>
 			<input type="text" name="website" id="website" class="form-control" value="{{ old('website') }}" />

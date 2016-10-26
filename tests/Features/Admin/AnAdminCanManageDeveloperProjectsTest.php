@@ -50,9 +50,6 @@ class AnAdminCanManageDeveloperProjectsTest extends TestCase
             'community_id'  => $community->id,
             'name'  => 'Emaar Park Point',
             'title' => 'The Famous Emaar Park Point',
-            'country'   => 'UAE',
-            'city'  => 'Dubai',
-            'community' => 'Dubai Marina',
             'latitude'  => '3.1415',
             'longitude' => '3.1416',
             'expected_completion_date' => 'February 2019',
@@ -67,19 +64,11 @@ class AnAdminCanManageDeveloperProjectsTest extends TestCase
             'name'  => 'Emaar Park Point',
             'title'  => 'The Famous Emaar Park Point',
             'slug'  => 'the-famous-emaar-park-point',
-
-            'country'   => 'UAE',
-            'city'      => 'Dubai',
-            'community' => 'Dubai Marina',
-
             'latitude'  => '3.1415',
             'longitude' => '3.1416',
-            
             'expected_completion_date' => 'February 2019',
-
             'dld_project_completion_link' => 'http://google.com',
             'project_escrow_account_details_link'   => 'http://gmail.com',
-
 			'description'	=> 'The description'
 		]);
     }
@@ -97,6 +86,7 @@ class AnAdminCanManageDeveloperProjectsTest extends TestCase
         ]);
 
     	$project = factory(App\Project::class)->make([
+            'community_id'  => $community->id,
     		'name'	=> 'Emaar Park Points',
             'title' => 'Famous Emaar'
     	]);
@@ -107,9 +97,6 @@ class AnAdminCanManageDeveloperProjectsTest extends TestCase
         $this->put($url, [
             'name'  => 'Emaar Park Point',
             'title' => 'The Famous Emaar Park Point',
-            'country'   => 'UAE',
-            'city'  => 'Dubai',
-            'community' => 'Dubai Marina',
             'latitude'  => '3.1415',
             'longitude' => '3.1416',
             'expected_completion_date' => 'February 2019',
@@ -123,19 +110,11 @@ class AnAdminCanManageDeveloperProjectsTest extends TestCase
             'name'  => 'Emaar Park Point',
             'title'  => 'The Famous Emaar Park Point',
             'slug'  => 'the-famous-emaar-park-point',
-
-            'country'   => 'UAE',
-            'city'      => 'Dubai',
-            'community' => 'Dubai Marina',
-
             'latitude'  => '3.1415',
             'longitude' => '3.1416',
-            
             'expected_completion_date' => 'February 2019',
-
             'dld_project_completion_link' => 'http://google.com',
             'project_escrow_account_details_link'   => 'http://gmail.com',
-
             'description'   => 'The description'
 		]);	
     }

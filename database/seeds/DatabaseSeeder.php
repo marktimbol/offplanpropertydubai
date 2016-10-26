@@ -1,6 +1,8 @@
 <?php
 
 use App\Category;
+use App\Community;
+use App\Project;
 use App\User;
 use Illuminate\Database\Seeder;
 
@@ -20,9 +22,19 @@ class DatabaseSeeder extends Seeder
         ]);
 
         $this->call(CategoriesTableSeeder::class);
-        $this->call(DeveloperProjectsTableSeeder::class);
         $this->call(CountriesTableSeeder::class);
+        $this->call(CitiesTableSeeder::class);
+        $this->call(CommunitiesTableSeeder::class);
+        $this->call(DeveloperProjectsTableSeeder::class);
         
-        factory(App\Project::class, 20)->create();
+        $dubaiMarina = Community::whereSlug('dubai-marina')->first();
+        factory(Project::class, 20)->create([
+            'community_id'  => $dubaiMarina->id
+        ]);
+
+        $alBarsha = Community::whereSlug('al-barsha')->first();
+        factory(Project::class, 20)->create([
+            'community_id'  => $alBarsha->id
+        ]);
     }
 }

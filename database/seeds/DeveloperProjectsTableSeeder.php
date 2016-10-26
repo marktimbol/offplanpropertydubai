@@ -1,5 +1,9 @@
 <?php
 
+use App\Community;
+use App\Developer;
+use App\Payment;
+use App\Project;
 use App\Type;
 use Illuminate\Database\Seeder;
 
@@ -12,15 +16,15 @@ class DeveloperProjectsTableSeeder extends Seeder
      */
     public function run()
     {
-        $community  = factory(App\Community::class)->create();
+        $community  = Community::whereSlug('dubai-marina')->first();
 
-        $developer = factory(App\Developer::class)->create([
+        $developer = factory(Developer::class)->create([
             'country_id'   => $community->city->country->id,
             'name'  => 'Dubai Properties',
             'slug'  => 'dubai-properties'
         ]);
 
-        $project = factory(App\Project::class)->make([
+        $project = factory(Project::class)->make([
             'developer_id'  => $developer->id,
             'community_id'  => $community->id,
             'name'  => 'Villanova',
@@ -42,7 +46,7 @@ class DeveloperProjectsTableSeeder extends Seeder
 
     protected function addPaymentPlans($project)
     {
-    	$payment = factory(App\Payment::class)->make([
+    	$payment = factory(Payment::class)->make([
 	        'project_id'	=> $project->id,
 	        'title'	=> '1st Installment',
 	        'percentage'	=> '10%',
@@ -51,7 +55,7 @@ class DeveloperProjectsTableSeeder extends Seeder
 
 	    $project->payments()->save($payment);
 
-        $payment = factory(App\Payment::class)->make([
+        $payment = factory(Payment::class)->make([
 	        'project_id'	=> $project->id,
 	        'title'	=> '2nd Installment',
 	        'percentage'	=> '5%',
@@ -60,7 +64,7 @@ class DeveloperProjectsTableSeeder extends Seeder
 
         $project->payments()->save($payment);
 
-        $payment = factory(App\Payment::class)->make([
+        $payment = factory(Payment::class)->make([
  	    	'project_id'	=> $project->id,
  	    	'title'	=> '3rd Installment',
  	        'percentage'	=> '5%',
@@ -69,7 +73,7 @@ class DeveloperProjectsTableSeeder extends Seeder
         
         $project->payments()->save($payment);
 
-        $payment = factory(App\Payment::class)->make([
+        $payment = factory(Payment::class)->make([
  	        'project_id'	=> $project->id,
  	        'title'	=> '4th Installment',
  	        'percentage'	=> '5%',

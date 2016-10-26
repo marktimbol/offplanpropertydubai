@@ -9,23 +9,14 @@ class Project extends Model
     protected $fillable = [
         'developer_id', 
         'community_id', 
-        
         'name', 
         'title', 
         'slug',
-
-        'country',
-        'city',
-        'community',
-        
         'latitude',
         'longitude',
-        
         'expected_completion_date',
-        
         'dld_project_completion_link',
         'project_escrow_account_details_link',
-        
         'description'
     ];
     

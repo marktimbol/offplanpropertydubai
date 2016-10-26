@@ -20,8 +20,8 @@ class Country extends Model
     	return $this->hasMany(City::class);
     }
 
-    public function projects()
+    public function developers()
     {
-        return $this->hasMany(Project::class);
+        return $this->hasMany(Developer::class);
     }
 }

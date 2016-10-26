@@ -31,6 +31,15 @@ Dropzone.options.UploadProjectPhotos = {
 	dictDefaultMessage: 'Upload Project Photos'
 };
 
+Dropzone.options.UploadDeveloperLogo = {
+	paramName: 'file',
+	uploadMultiple: false,
+	maxFilesize: 2, // MB
+	acceptedFiles: 'image/*',
+	dictDefaultMessage: 'Upload Developer Logo'
+};
+
+
 
 
 
