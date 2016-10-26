@@ -26,9 +26,6 @@ class CreateProjectRequest extends FormRequest
         return [
             'name'  => 'required',
             'title' => 'required',
-            // 'country'   => 'required',
-            // 'city'  => 'required',
-            // 'community' => 'required',
         ];
     }
 }

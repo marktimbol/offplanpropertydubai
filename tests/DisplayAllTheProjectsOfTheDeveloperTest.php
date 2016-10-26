@@ -16,24 +16,14 @@ class DisplayAllTheProjectsOfTheDeveloperTest extends TestCase
             'country_id'    => $country->id,
             'name'  => 'Dubai Properties'
         ]);
-
-        $city = factory(App\City::class)->create([
-            'country_id'    => $country->id
-        ]);
-
-        $community = factory(App\Community::class)->create([
-            'city_id'   => $city->id
-        ]);
-
-    	$project = factory(App\Project::class)->make([
-            'community_id'  => $community->id,
+        
+    	$project = factory(App\Project::class)->create([
+            'developer_id'  => $developer->id,
     		'name'	=> 'Villa Nova'
     	]);
 
-    	$developer->projects()->save($project);
-
     	$moreProjects = factory(App\Project::class, 5)->make([
-            'community_id'  => $community->id,
+            'developer_id'  => $developer->id,
         ]);
     	$developer->projects()->saveMany($moreProjects);
 
@@ -50,7 +40,9 @@ class DisplayAllTheProjectsOfTheDeveloperTest extends TestCase
             'name'  => 'Dubai Properties'
         ]);
 
-        $moreProjects = factory(App\Project::class, 5)->make();
+        $moreProjects = factory(App\Project::class, 5)->make([
+            'developer_id'   => $developer->id
+        ]);
         $developer->projects()->saveMany($moreProjects);
 
         $this->visit(sprintf('/developers/%s', $developer->slug));

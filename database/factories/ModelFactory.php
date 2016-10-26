@@ -74,9 +74,6 @@ $factory->define(App\Project::class, function (Faker\Generator $faker) {
         'developer_id'  => function() {
             return factory(App\Developer::class)->create()->id;
         },
-        'community_id'  => function() {
-            return factory(App\Community::class)->create()->id;
-        },
         'name' => $faker->word,
         'title' => $title,
         'slug' => $slug,

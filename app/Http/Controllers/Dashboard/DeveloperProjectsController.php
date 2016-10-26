@@ -2,14 +2,16 @@
 
 namespace App\Http\Controllers\Dashboard;
 
+use App\Category;
+use App\Community;
+use App\Country;
 use App\Developer;
 use App\Http\Controllers\Controller;
 use App\Http\Requests;
 use App\Http\Requests\CreateProjectRequest;
 use App\Project;
-use App\Category;
-use JavaScript;
 use Illuminate\Http\Request;
+use JavaScript;
 
 class DeveloperProjectsController extends Controller
 {
@@ -28,6 +30,7 @@ class DeveloperProjectsController extends Controller
         JavaScript::put([
             'developer' => $developer,
             'categories' => Category::all(),
+            'countries' => Country::orderBy('name', 'asc')->get(),
         ]);
 
         // $filtered = $collection->only(['product_id', 'name']);
@@ -38,9 +41,14 @@ class DeveloperProjectsController extends Controller
     public function store(CreateProjectRequest $request, $developer)
     {
     	$project = $developer->projects()->create($request->all());
-
+        
         if( $request->has('type_ids') ) {
             $project->types()->attach($request->type_ids);
+        }
+
+        if( $request->has('community_id') ) {
+            $community = Community::findOrFail($request->community_id);
+            $community->projects()->attach($project);
         }
 
         return $project;

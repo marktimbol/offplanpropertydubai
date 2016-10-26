@@ -18,8 +18,9 @@
 
     <!-- Scripts -->
     <script>
-        window.OffPlan = <?php echo json_encode([
+        window.App = <?php echo json_encode([
             'csrfToken' => csrf_token(),
+            'name'  => config('app.name')
         ]); ?>
     </script>
 </head>

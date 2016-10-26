@@ -24,25 +24,52 @@ class CreateProject extends React.Component
 			category_id: '',
 			types: [],
 			type_ids: [],
+			cities: [],
+			communities: [],
+			community_id: '',
 			errorMessages: [],
 		};
 
 		this.handleChange = this.handleChange.bind(this);
 		this.handleCategoryChange = this.handleCategoryChange.bind(this);
+		this.handleCountryChange = this.handleCountryChange.bind(this);
+		this.handleCityChange = this.handleCityChange.bind(this);
+		this.handleCommunityChange = this.handleCommunityChange.bind(this);
 		// this.onSubmit = this.onSubmit.bind(this);
 	}
 
-	componentDidMount()
-	{
-		this.fetchCategories(1);
+	clearCommunities() {
+		this.setState({
+			communities: []
+		})
+	}
+
+	clearCities() {
+		this.setState({
+			cities: []
+		})
 	}
 
 	handleCategoryChange(e) {
 		let category_id = e.target.value;
 
 		this.fetchCategories(category_id);
-
 		this.setState({ category_id });
+	}
+
+	handleCountryChange(e) {
+		let country_id = e.target.value;
+		this.fetchCities(country_id);
+	}
+
+	handleCityChange(e) {
+		let city_id = e.target.value;
+		this.fetchCommunities(city_id);
+	}
+
+	handleCommunityChange(e) {
+		let community_id = e.target.value;
+		this.setState({ community_id });
 	}
 
 	fetchCategories(category_id)
@@ -54,7 +81,48 @@ class CreateProject extends React.Component
 				types: response.types
 			});
 		}.bind(this))
+	}
 
+	fetchCities(country_id)
+	{
+		if( country_id == '' )
+		{
+			this.clearCities();
+			this.clearCommunities();
+		} else {		
+			let url = '/api/countries/'+country_id+'/cities';
+			$.get(url, function(response) {
+				this.setState({
+					cities: response
+				});
+				if( this.state.cities.length <= 0 ) {
+					swal({
+						title: App.name,  
+						text: "No cities found.",
+						type: "error", 
+						showConfirmButton: true
+					});
+					this.clearCities();
+					this.clearCommunities();
+				}
+			}.bind(this))
+		}
+	}
+
+	fetchCommunities(city_id)
+	{
+		if( city_id == '' )
+		{
+			this.clearCommunities();
+		} else {		
+			let url = '/api/cities/'+city_id+'/communities';
+
+			$.get(url, function(response) {
+				this.setState({
+					communities: response
+				});
+			}.bind(this))
+		}
 	}
 
 	handleChange(e) {
@@ -63,24 +131,27 @@ class CreateProject extends React.Component
 		});
 	}
 
-	onSubmit(e) {
-		e.preventDefault();
-
+	isSubmitting() {
 		this.setState({
 			isSubmitted: true,
 			buttonText: 'Saving Project'
 		});
+	}
 
-		let url = '/dashboard/developers/'+OffPlan.developer.id+'/projects';
+	onSubmit(e) {
+		e.preventDefault();
+		this.isSubmitting();
+
+		let url = '/dashboard/developers/'+window.developer.id+'/projects';
 
 		$.ajax({
 			url: url,
 			type: 'POST',
 			data: $('#CreateProjectForm').serialize(),
-			headers: { 'X-CSRF-Token': OffPlan.csrfToken },
+			headers: { 'X-CSRF-Token': App.csrfToken },
 			success: function(response) {
 				swal({
-					title: "OffPlan Property Dubai",  
+					title: App.name,  
 					text: "You have successfully saved new Project",
 					type: "success", 
 					showConfirmButton: true
@@ -92,12 +163,10 @@ class CreateProject extends React.Component
 				})
 
 				// Sets the new location of the current window.
-				window.location = '/dashboard/developers/' + OffPlan.developer.id + '/projects/' + response.id;
-				
+				window.location = '/dashboard/developers/' + window.developer.id + '/projects/' + response.id;
+			
 			}.bind(this),
 			error: function(message) {
-				console.log(message.responseJSON);
-
 				this.setState({
 					errorMessages: message.responseJSON
 				});
@@ -107,45 +176,52 @@ class CreateProject extends React.Component
 
 	render()
 	{
-		let categories = OffPlan.categories.map((category) => {
+		let categories = window.categories.map((category) => {
 			return (
-				<option value={category.id} key={category.id}>
-					{category.name}
-				</option>
+				<option value={category.id} key={category.id}>{category.name}</option>
 			)
 		})
 
 		let types = this.state.types.map((type) => {
 			return (
-				<option value={type.id} key={type.id}>
-					{type.name}
-				</option>
+				<option value={type.id} key={type.id}>{type.name}</option>
 			)
 		})
 
-		// let errorMessages = Object.keys(this.state.errorMessages).forEach(function(key) {
-		// 	console.log('key', key)
-		// 	console.log('key array', this.state.errorMessages[key])
-		// }.bind(this))
+		let countries = window.countries.map((country) => {
+			return (
+				<option value={country.id} key={country.id}>{country.name}</option>
+			)	
+		})
+
+		let cities = this.state.cities.map((city) => {
+			return (
+				<option value={city.id} key={city.id}>{city.name}</option>
+			)
+		})
+
+		let communities = this.state.communities.map((community) => {
+			return (
+				<option value={community.id} key={community.id}>{community.name}</option>
+			)
+		})
 
 		return (
 			<form method="POST" id="CreateProjectForm" onSubmit={this.onSubmit.bind(this)}>
 				<h3>Project Details</h3>
 				<div className="form-group">
-					<label className="control-label">Developer</label>
+					<label>Developer</label>
 					<input type="text" 
 						className="form-control" 
-						value={OffPlan.developer.name} 
-						disabled />
+						defaultValue={window.developer.name} disabled />
 				</div>
 
 				<div className="row">
 					<div className="col-md-6">
 						<div className="form-group">
-							<label htmlFor="name" className="control-label">Project Name*</label>
+							<label>Project Name*</label>
 							<input type="text" 
 								name="name" 
-								id="name" 
 								className="form-control" 
 								onChange={this.handleChange}
 								value={this.state.name} />
@@ -153,10 +229,9 @@ class CreateProject extends React.Component
 					</div>
 					<div className="col-md-6">
 						<div className="form-group">
-							<label htmlFor="title" className="control-label">Marketing Title*</label>
+							<label>Marketing Title*</label>
 							<input type="text" 
 								name="title" 
-								id="title" 
 								className="form-control" 
 								onChange={this.handleChange}
 								value={this.state.title} />
@@ -167,11 +242,10 @@ class CreateProject extends React.Component
 				<div className="row">
 					<div className="col-md-6">
 						<div className="form-group">
-							<label htmlFor="expected_completion_date" className="control-label">Expected Completion Date</label>
+							<label>Expected Completion Date</label>
 							<input 
 								type="text" 
 								name="expected_completion_date" 
-								id="expected_completion_date" 
 								className="form-control" 
 								onChange={this.handleChange}
 								value={this.state.expected_completion_date} />
@@ -184,15 +258,16 @@ class CreateProject extends React.Component
 				<div className="row">
 					<div className="col-md-6">
 						<div className="form-group">
-							<label htmlFor="project_type">Category</label>
+							<label>Category</label>
 							<select className="form-control" onChange={this.handleCategoryChange}>
+								<option value=""></option>
 								{ categories }
 							</select>
 						</div>
 					</div>
 					<div className="col-md-6">
 						<div className="form-group">
-							<label htmlFor="types">Types</label>
+							<label>Types</label>
 							{ this.state.types.length <= 0 ? <p>Please select Category</p> : 
 								<select name="type_ids[]" className="form-control" multiple>
 									{types}
@@ -207,35 +282,29 @@ class CreateProject extends React.Component
 				<div className="row">
 					<div className="col-md-4">
 						<div className="form-group">
-							<label htmlFor="country" className="control-label">Country*</label>
-							<input type="text" 
-								name="country" 
-								id="country" 
-								className="form-control" 
-								onChange={this.handleChange}
-								value={this.state.country} />
+							<label>Country</label>
+							<select className="form-control" onChange={this.handleCountryChange}>
+								<option value=""></option>
+								{ countries }
+							</select>
 						</div>
 					</div>
 					<div className="col-md-4">
 						<div className="form-group">
-							<label htmlFor="city" className="control-label">City*</label>
-							<input type="text" 
-								name="city" 
-								id="city" 
-								className="form-control" 
-								onChange={this.handleChange}
-								value={this.state.city} />
+							<label>City</label>
+							<select className="form-control" onChange={this.handleCityChange}>
+								<option value=""></option>
+								{ cities }
+							</select>
 						</div>
 					</div>
 					<div className="col-md-4">
 						<div className="form-group">
-							<label htmlFor="community" className="control-label">Community*</label>
-							<input type="text" 
-								name="community" 
-								id="community" 
-								className="form-control" 
-								onChange={this.handleChange}
-								value={this.state.community} />
+							<label>Community*</label>
+							<select className="form-control" name="community_id" onChange={this.handleCommunityChange}>
+								<option value=""></option>
+								{ communities }
+							</select>
 						</div>
 					</div>
 				</div>
@@ -245,10 +314,9 @@ class CreateProject extends React.Component
 				<div className="row">
 					<div className="col-md-6">
 						<div className="form-group">
-							<label htmlFor="latitude" className="control-label">Latitude</label>
+							<label>Latitude</label>
 							<input type="text" 
 								name="latitude" 
-								id="latitude" 
 								className="form-control" 
 								onChange={this.handleChange}
 								value={this.state.latitude} />
@@ -256,10 +324,9 @@ class CreateProject extends React.Component
 					</div>
 					<div className="col-md-6">
 						<div className="form-group">
-							<label htmlFor="longitude" className="control-label">Longitude</label>
+							<label>Longitude</label>
 							<input type="text" 
 								name="longitude" 
-								id="longitude" 
 								className="form-control" 
 								onChange={this.handleChange}
 								value={this.state.longitude} />
@@ -272,10 +339,9 @@ class CreateProject extends React.Component
 				<div className="row">
 					<div className="col-md-6">
 						<div className="form-group">
-							<label htmlFor="dld_project_completion_link" className="control-label">DLD Project Completion %</label>
+							<label>DLD Project Completion %</label>
 							<input type="text" 
 								name="dld_project_completion_link" 
-								id="dld_project_completion_link" 
 								className="form-control" 
 								onChange={this.handleChange}
 								value={this.state.dld_project_completion_link} />
@@ -283,10 +349,9 @@ class CreateProject extends React.Component
 					</div>
 					<div className="col-md-6">
 						<div className="form-group">
-							<label htmlFor="project_escrow_account_details_link" className="control-label">Escrow Account Details Link</label>
+							<label>Escrow Account Details Link</label>
 							<input type="text" 
 								name="project_escrow_account_details_link" 
-								id="project_escrow_account_details_link" 
 								className="form-control" 
 								onChange={this.handleChange}
 								value={this.state.project_escrow_account_details_link} />
@@ -297,13 +362,12 @@ class CreateProject extends React.Component
 				<h3>Project Description</h3>
 
 				<div className="form-group">
-					<label htmlFor="description">&nbsp;</label>
+					<label>&nbsp;</label>
 					<textarea name="description" 
 						id="editor" 
 						className="form-control"
 						onChange={this.handleChange}
-						defaultValue={this.state.description}
-					>
+						defaultValue={this.state.description}>
 					</textarea>
 				</div>
 

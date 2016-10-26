@@ -4,6 +4,8 @@ namespace App\Providers;
 
 use App\Brochure;
 use App\Category;
+use App\City;
+use App\Country;
 use App\Developer;
 use App\Payment;
 use App\Photo;
@@ -64,6 +66,14 @@ class RouteServiceProvider extends ServiceProvider
 
         $this->bind('brochure', function($id) {
             return Brochure::findOrFail($id);
+        });
+
+        $this->bind('country', function($id) {
+            return Country::findOrFail($id);
+        });
+
+        $this->bind('city', function($id) {
+            return City::findOrFail($id);
         });
     }
 

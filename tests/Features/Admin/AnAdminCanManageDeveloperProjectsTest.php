@@ -46,7 +46,7 @@ class AnAdminCanManageDeveloperProjectsTest extends TestCase
     	]);
 
         $url = '/dashboard/developers/'.$developer->id.'/projects/';
-        $this->post($url, [
+        $response = $this->post($url, [
             'community_id'  => $community->id,
             'name'  => 'Emaar Park Point',
             'title' => 'The Famous Emaar Park Point',
@@ -57,10 +57,9 @@ class AnAdminCanManageDeveloperProjectsTest extends TestCase
             'project_escrow_account_details_link' => 'http://gmail.com',
             'description'   => 'The description'
         ]);
-
+        
 		$this->seeInDatabase('projects', [
             'developer_id'  => $developer->id,
-			'community_id'	=> $community->id,
             'name'  => 'Emaar Park Point',
             'title'  => 'The Famous Emaar Park Point',
             'slug'  => 'the-famous-emaar-park-point',
@@ -70,23 +69,26 @@ class AnAdminCanManageDeveloperProjectsTest extends TestCase
             'dld_project_completion_link' => 'http://google.com',
             'project_escrow_account_details_link'   => 'http://gmail.com',
 			'description'	=> 'The description'
-		]);
+		])
+        ->seeInDatabase('community_projects', [
+            'community_id'  => $community->id,
+            'project_id'    => 1
+        ]);
     }
 
     public function test_an_admin_can_update_a_project_information()
     {
     	$this->signIn();
 
-        $community = factory(App\Community::class)->create();
+        $country = factory(App\Country::class)->create();
 
         $developer = factory(App\Developer::class)->create([
-            'country_id'    => $community->city->country->id,
+            'country_id'    => $country->id,
             'name'  => 'Emaar',
             'slug'  => 'emaar'
         ]);
 
     	$project = factory(App\Project::class)->make([
-            'community_id'  => $community->id,
     		'name'	=> 'Emaar Park Points',
             'title' => 'Famous Emaar'
     	]);
