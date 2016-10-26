@@ -29,6 +29,9 @@ Route::resource('communities', 'CommunitiesController', [
 Route::resource('projects', 'ProjectsController');
 Route::resource('projects.inquiries', 'InquiriesController');
 Route::resource('projects.brochures', 'ProjectBrochuresController');
+Route::resource('compares', 'ComparesController', [
+	'only' => ['index', 'store', 'destroy']
+]);
 
 Auth::routes();
 

@@ -8913,6 +8913,13 @@ footer {
 .ProjectListing {
   margin-bottom: 30px; }
 
+.ProjectListing_compare {
+  position: absolute;
+  top: 0;
+  right: 0; }
+  .ProjectListing_compare .btn-link {
+    color: rgba(255, 255, 255, 0.8); }
+
 .ProjectListing__image {
   position: relative; }
 
