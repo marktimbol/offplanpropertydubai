@@ -2,7 +2,6 @@
 <?php
 
 use App\Developer;
-use Illuminate\Support\Facades\Storage;
 
 /*
 |--------------------------------------------------------------------------
@@ -23,6 +22,9 @@ Route::get('/search', function() {
 
 Route::resource('developers', 'DevelopersController', [
 	'only'	=> ['index', 'show']
+]);
+Route::resource('communities', 'CommunitiesController', [
+	'only' => ['index', 'show']
 ]);
 Route::resource('projects', 'ProjectsController');
 Route::resource('projects.inquiries', 'InquiriesController');

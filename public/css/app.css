@@ -8687,7 +8687,7 @@ body {
   font-family: 'Lato', sans-serif; }
 
 .is-gray-bg {
-  background: #ddd; }
+  background: #EDEFED; }
 
 .is-light-bg {
   background: #f4f4f4; }
@@ -8788,6 +8788,19 @@ footer {
   background: url("/images/footer-bg.jpg") bottom no-repeat;
   background-size: cover; }
 
+.DeveloperListing {
+  margin-bottom: 20px; }
+
+.DeveloperListing__content h4 {
+  -webkit-box-align: center;
+  align-items: center;
+  font-weight: 400;
+  padding: 0 5px; }
+  .DeveloperListing__content h4 a {
+    color: #333; }
+    .DeveloperListing__content h4 a:hover {
+      text-decoration: underline; }
+
 .Row {
   display: -webkit-box;
   display: flex; }
@@ -8885,7 +8898,13 @@ footer {
   position: absolute; }
 
 .ProjectListing__description {
-  width: 80%; }
+  padding: 15px;
+  background: white;
+  border-bottom-right-radius: 5px;
+  border-bottom-left-radius: 5px; }
+  .ProjectListing__description h4 {
+    margin: 0;
+    width: 80%; }
   .ProjectListing__description a {
     color: #333;
     font-size: 16px;

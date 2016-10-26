@@ -1,7 +1,6 @@
 @extends('layouts.app')
 
 @section('header_styles')
-	<link rel="stylesheet" href="/css/carousel.css" />
 	<link rel="stylesheet" href="/css/map.css" />
 @endsection
 
@@ -11,7 +10,7 @@
 	<h1 class="ProjectListings__title">
 		Dubai Off Plan Projects
 	</h1>
-	<div class="ProjectListings">
+	<div class="ProjectListings is-gray-bg">
 		<div class="Column-7 Flex Flex--wrap scroll-y">
 			@foreach( $projects as $project )
 				<?php
@@ -59,7 +58,6 @@
 @endsection
 
 @section('footer_scripts')
-	<script src="/js/carousel.js"></script>
 	<script src="https://maps.googleapis.com/maps/api/js?key={{ config('services.googlemap.key') }}"></script>
 	<script src="/js/MapListings.js"></script>
 @endsection

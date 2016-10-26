@@ -3,8 +3,8 @@
     <ul class="nav navbar-nav">
         <li><a href="/">Home</a></li>
         <li><a href="{{ route('projects.index') }}">Dubai Off Plan Projects</a></li>
-        <li><a href="#">Community</a></li>
-        <li><a href="#">Developers</a></li>
+        <li><a href="/communities">Community</a></li>
+        <li><a href="/developers">Developers</a></li>
         <li><a href="#">Compare Projects</a></li>
         <li><a href="#">Contact Us</a></li>
     </ul>

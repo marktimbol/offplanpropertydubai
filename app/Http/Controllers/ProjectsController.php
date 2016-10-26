@@ -19,8 +19,8 @@ class ProjectsController extends Controller
 
     public function show($project)
     {    	
-    	$project->load('developer');
-
+    	$project->load('developer', 'communities.city.country');
+        
     	$logo = '/images/logo.png';
     	if( count($project->logo) > 0 ) {
     		$logo = getPhotoPath($project->logo->photo);

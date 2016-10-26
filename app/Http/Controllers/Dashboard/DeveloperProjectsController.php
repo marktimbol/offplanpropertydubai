@@ -21,8 +21,9 @@ class DeveloperProjectsController extends Controller
     }
 
 	public function show($developer, $project)
-	{  
-        // dd($project->toArray());
+	{          
+        $project->load('communities.city.country');
+        
 		return view('dashboard.projects.show', compact('developer', 'project'));
 	}
 

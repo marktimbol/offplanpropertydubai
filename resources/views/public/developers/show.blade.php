@@ -1,9 +1,5 @@
 @extends('layouts.app')
 
-@section('header_styles')
-	<link rel="stylesheet" href="/css/carousel.css" />
-@endsection
-
 @section('pageTitle', $developer->name)
 
 @section('content')
@@ -14,12 +10,17 @@
 				<div class="Flex">
 					<div class="Developer__image Column-4">
 						<?php
-							$path = getPhotoPath($developer->photo);
+							$path = '/images/developers/developer.jpg';
+							if( getPhotoPath($developer->photo) != '' ) {
+								$path = getPhotoPath($developer->photo);
+							}
 						?>
+						
 						<img src="{{ $path }}" 
 							alt="{{ $developer->name }}" 
 							title="{{ $developer->name }}" 
 							class="img-responsive" />
+
 						<div class="Developer__info">
 							<p>
 								<a href="{{ $developer->website }}" class="btn btn-lg btn-block btn-default" target="_blank">
@@ -78,8 +79,4 @@
 			</div>
 		</div>
 	</section>
-@endsection
-
-@section('footer_scripts')
-	<script src="/js/carousel.js"></script>
 @endsection

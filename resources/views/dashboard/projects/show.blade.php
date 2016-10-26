@@ -59,9 +59,9 @@
 				</li>
 
 				<li class="list-group-item">
-					Community: 
+					Location: 
 					@foreach( $project->communities as $community )
-						{{ $community->name }}
+						{{ sprintf('%s %s %s, %s', $community->name, '-' , $community->city->name, $community->city->country->name) }}
 					@endforeach
 				</li>
 				

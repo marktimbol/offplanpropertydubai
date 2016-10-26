@@ -12,12 +12,13 @@
 
     <!-- Styles -->
     <link href="/css/app.css" rel="stylesheet">
+    <link href="/css/carousel.css" rel="stylesheet">
 
     @yield('header_styles')
 
     <!-- Scripts -->
     <script>
-        window.OffPlan = <?php echo json_encode([
+        window.App = <?php echo json_encode([
             'csrfToken' => csrf_token(),
         ]); ?>
     </script>
@@ -32,6 +33,7 @@
 
     <!-- Scripts -->
     <script src="/js/app.js"></script>
+    <script src="/js/carousel.js"></script>
 
     @yield('footer_scripts')
 

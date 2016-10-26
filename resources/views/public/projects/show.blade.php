@@ -1,7 +1,6 @@
 @extends('layouts.project')
 
 @section('header_styles')
-	<link rel="stylesheet" href="/css/carousel.css" />
 	<link rel="stylesheet" href="/css/video.css" />
 	<link rel="stylesheet" href="/css/map.css" />
 @endsection
@@ -79,9 +78,9 @@
 							</li>
 							<li class="list-group-item">
 								<i class="fa fa-map-marker"></i> &nbsp; 
-								Community: 
+								Location: 
 								@foreach( $project->communities as $community )
-									{{ $community->name }}
+									{{ sprintf('%s %s %s, %s', $community->name, '-' , $community->city->name, $community->city->country->name) }}
 								@endforeach
 							</li>
 						</ul>
@@ -204,7 +203,7 @@
 		</div>
 	</div>
 
-	<section class="RelatedProjects is-light-bg">
+	<section class="RelatedProjects is-gray-bg">
 		<div class="container">
 			<div class="row">
 				<div class="col-md-12">
@@ -241,7 +240,6 @@
 @endsection
 
 @section('footer_scripts')
-	<script src="/js/carousel.js"></script>
 	<script src="/js/video.js"></script>
 	<script src="https://maps.googleapis.com/maps/api/js?key={{ config('services.googlemap.key') }}"></script>
 	<script src="/js/map.js"></script>

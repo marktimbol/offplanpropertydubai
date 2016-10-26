@@ -2,10 +2,6 @@
 
 @section('pageTitle', 'Home')
 
-@section('header_styles')
-	<link rel="stylesheet" href="/css/carousel.css" />
-@endsection
-
 @section('bodyClass', 'Home')
 
 @section('content')
@@ -46,47 +42,48 @@
 		</div>
 	</section>
 
-	<section class="LatestProjects is-gray-bg">
+	<section class="ProjectListings--container is-gray-bg">
 		<div class="container">
 			<div class="row">
 				<div class="col-md-12">
 					<h3 class="Section__title text-center">Latest Off Plan Projects</h3>
-					<div class="row Projects">
+					<div class="row ProjectListings">
 						@foreach( $projects as $project )
 							<?php 
+								$avatar = '/images/avatar.jpg';
 								$path = '/images/projects/project.jpg';
 								if( $projectPhoto = $project->photos->first() ) {								
 									$path = getPhotoPath($projectPhoto->photo );
 								}
 							?>
-							<div class="col-md-4">
-								<div class="Project">
-									<div class="Project__image">
-										<img src="{{ $path }}" alt="{{ $project->name }}" title="{{ $project->name }}" class="img-responsive" />
-									</div>
-									<div class="Project__content Flex Flex--space-between">
-										<h4 class="Project__title">
-											<a href="{{ route('projects.show', $project->slug) }}">
-												{{ ucfirst($project->name) }}
+								<div class="ProjectListing col-md-4">
+									<div class="ProjectListing__image">
+										<img src="/images/projects/project.jpg" 
+											alt="{{ $project->name }}" 
+											title="{{ $project->name }}" 
+											class="img-responsive" />
+										<div class="ProjectListing__developer">
+											<a href="{{ route('developers.show', $project->developer->slug) }}">
+												<img src="{{ $avatar }}" 
+													alt="{{ $project->developer->name }}" 
+													title="{{ $project->developer->name }}" 
+													width="68" height="68"
+													class="img-circle img-bordered img-responsive" />
 											</a>
-											<small>by <a href="{{ route('developers.show', $project->developer->slug) }}">{{ $project->developer->name }}</a></small>
+										</div>
+									</div>
+									<div class="ProjectListing__description">
+										<h4 class="text-truncate">
+											<a href="{{ route('projects.show', $project->slug) }}">
+												{{ $project->title }}
+											</a>
 										</h4>
 									</div>
 								</div>
-							</div>
 						@endforeach
-					</div>
-					<div class="row">
-						<p class="text-center">
-							{{-- <a href="/projects" class="btn btn-link">All Projects</a> --}}
-						</p>
 					</div>
 				</div>
 			</div>
 		</div>
 	</section>
-@endsection
-
-@section('footer_scripts')
-	<script src="/js/carousel.js"></script>
 @endsection

@@ -16,7 +16,7 @@ body {
 }
 
 .is-gray-bg {
-	background: #ddd;
+	background: #EDEFED;
 }
 
 .is-light-bg {
@@ -114,10 +114,6 @@ section {
 	margin-bottom: 30px;
 }
 
-.LatestProjects {
-
-}
-
 .Project {
 	margin-bottom: 30px;
 	background: white;
@@ -144,6 +140,24 @@ footer {
 	height: 500px;
     background: url('/images/footer-bg.jpg') bottom no-repeat;
     background-size: cover;
+}
+
+.DeveloperListing {
+	margin-bottom: 20px;
+}
+
+.DeveloperListing__content {
+	h4 {
+		align-items: center;
+		font-weight: 400;
+		padding: 0 5px;
+		a {
+			color: #333;
+			&:hover {
+				text-decoration: underline;
+			}
+		}
+	}
 }
 
 @import 'components/Grid';

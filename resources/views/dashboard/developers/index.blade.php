@@ -7,7 +7,7 @@
 	<table class="table table-bordered">
 		<thead>
 			<tr>
-				<th>Country</th>
+				<th>Country</th>				
 				<th>Name</th>
 				<th>Projects</th>
 				<th>&nbsp;</th>
