@@ -30,7 +30,7 @@
 				@endforelse
 			</div>
 			<div class="Project__carousel__content--container Flex Flex--center Flex--column">
-				<img src="{{ $logo }}" alt="{{ $project->title }}" title="{{ $project->title }}" class="img-responsive" />
+{{-- 				<img src="{{ $logo }}" alt="{{ $project->title }}" title="{{ $project->title }}" class="img-responsive" /> --}}
 				<h2>
 					{{ $project->title }}
 					<small>by {{ $project->developer->name }}</small>
