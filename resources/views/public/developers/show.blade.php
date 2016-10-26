@@ -48,34 +48,53 @@
 				</div>
 			</div>
 			<div class="row">
-				@foreach( $developer->projects as $project )
-					<?php
-						$photo = '/images/projects/project.jpg';
-						if( $projectPhoto = $project->photos->first() )
-						{						
-							$photo = sprintf('https://s3-%s.amazonaws.com/%s/%s', 
-									config('filesystems.disks.s3.region'), 
-									config('filesystems.disks.s3.bucket'), 
-									$projectPhoto->photo
-							);
-						}
-					?>
-					<div class="col-md-4">
-						<div class="Project">
-							<div class="Project__image">
-								<img src="{{ $photo }}" alt="{{ $project->name }}" title="{{ $project->name }}" class="img-responsive" />
+				<div class="ProjectListings">
+					<div class="row">
+						@foreach( $developer->projects as $project )
+							<?php
+								$avatar = '/images/avatar.jpg';
+								if( $project->developer->photo !== '' )
+								{
+									$avatar = getPhotoPath($project->developer->photo);
+								}
+							?>
+							<div class="ProjectListing col-md-4">
+								<div class="ProjectListing__image">
+									<div class="ProjectListing_compare">
+										<form method="POST" action="{{ route('compares.store') }}">
+											{{ csrf_field() }}
+											<input type="hidden" name="project_id" value="{{ $project->id }}" />
+											<button type="submit" class="btn btn-link">
+												<i class="fa fa-heart fa-2x"></i>
+											</button>
+										</form>
+									</div>
+									<img src="/images/projects/project.jpg" 
+										alt="{{ $project->name }}" 
+										title="{{ $project->name }}" 
+										class="img-responsive" />
+
+									<div class="ProjectListing__developer">
+										<a href="{{ route('developers.show', $project->developer->slug) }}">
+											<img src="{{ $avatar }}" 
+												alt="{{ $project->developer->name }}" 
+												title="{{ $project->developer->name }}" 
+												width="68" height="68"
+												class="img-circle img-bordered img-responsive" />
+										</a>
+									</div>
+								</div>
+								<div class="ProjectListing__description">
+									<h4 class="text-truncate">
+										<a href="{{ route('projects.show', $project->slug) }}">
+											{{ $project->title }}
+										</a>
+									</h4>
+								</div>
 							</div>
-							<div class="Project__content Flex Flex--space-between">
-								<h4 class="Project__title">
-									<a href="{{ route('projects.show', $project->slug) }}">
-										{{ $project->name }}
-									</a>
-									<small>by <a href="#">{{ $project->developer->name }}</a></small>
-								</h4>
-							</div>
-						</div>
+						@endforeach
 					</div>
-				@endforeach
+				</div>
 			</div>
 		</div>
 	</section>

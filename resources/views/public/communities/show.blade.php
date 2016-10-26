@@ -26,6 +26,15 @@
 							?>
 							<div class="ProjectListing col-md-4">
 								<div class="ProjectListing__image">
+									<div class="ProjectListing_compare">
+										<form method="POST" action="{{ route('compares.store') }}">
+											{{ csrf_field() }}
+											<input type="hidden" name="project_id" value="{{ $project->id }}" />
+											<button type="submit" class="btn btn-link">
+												<i class="fa fa-heart fa-2x"></i>
+											</button>
+										</form>
+									</div>
 									<img src="/images/projects/project.jpg" 
 										alt="{{ $project->name }}" 
 										title="{{ $project->name }}" 
