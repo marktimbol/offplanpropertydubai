@@ -47,50 +47,9 @@
 			<div class="row">
 				<div class="col-md-12">
 					<h3 class="Section__title text-center">Latest Off Plan Projects</h3>
-					<div class="row ProjectListings">
-						@foreach( $projects as $project )
-							<?php 
-								$avatar = '/images/avatar.jpg';
-								$path = '/images/projects/project.jpg';
-								if( $projectPhoto = $project->photos->first() ) {								
-									$path = getPhotoPath($projectPhoto->photo );
-								}
-							?>
-								<div class="ProjectListing col-md-4">
-									<div class="ProjectListing__image">
-										<div class="ProjectListing_compare">
-											<form method="POST" action="{{ route('compares.store') }}">
-												{{ csrf_field() }}
-												<input type="hidden" name="project_id" value="{{ $project->id }}" />
-												<button type="submit" class="btn btn-link">
-													<i class="fa fa-heart fa-2x"></i>
-												</button>
-											</form>
-										</div>
-										<img src="/images/projects/project.jpg" 
-											alt="{{ $project->name }}" 
-											title="{{ $project->name }}" 
-											class="img-responsive" />
-										<div class="ProjectListing__developer">
-											<a href="{{ route('developers.show', $project->developer->slug) }}">
-												<img src="{{ $avatar }}" 
-													alt="{{ $project->developer->name }}" 
-													title="{{ $project->developer->name }}" 
-													width="68" height="68"
-													class="img-circle img-bordered img-responsive" />
-											</a>
-										</div>
-									</div>
-									<div class="ProjectListing__description">
-										<h4 class="text-truncate">
-											<a href="{{ route('projects.show', $project->slug) }}">
-												{{ $project->title }}
-											</a>
-										</h4>
-									</div>
-								</div>
-						@endforeach
-					</div>
+					@include('public.projects._listings', [
+						'projects' => $projects
+					])
 				</div>
 			</div>
 		</div>

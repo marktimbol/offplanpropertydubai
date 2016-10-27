@@ -97,11 +97,13 @@
 								Download Brochure
 							</button>
 						@else
-							<a href="{{ route('dashboard.developers.projects.show', [$project->developer->id, $project->id]) }}" 
-								class="btn btn-block btn-default"
-							>
-								<i class="fa fa-plus"></i> Add Project Brochure
-							</a>
+							@if( auth()->check() )
+								<a href="{{ route('dashboard.developers.projects.show', [$project->developer->id, $project->id]) }}" 
+									class="btn btn-block btn-default"
+								>
+									<i class="fa fa-plus"></i> Add Project Brochure
+								</a>
+							@endif
 						@endif
 					</p>
 				</div>
@@ -210,27 +212,10 @@
 					<h3 class="mb-30">More Projects from {{ $project->developer->name }}</h3>
 				</div>
 			</div>
-			<div class="row">
-				@foreach( $project->developer->projects as $developerProject )
-					<div class="col-md-4">
-						<div class="Project">
-							<div class="Project__image">
-								<img src="/images/projects/project.jpg" alt="{{ $developerProject->name }}" title="{{ $developerProject->name }}" class="img-responsive" />
-							</div>
-							<div class="Project__content Flex Flex--space-between">
-								<h4 class="Project__title">
-									<a href="{{ route('projects.show', $developerProject->slug) }}">
-										{{ $developerProject->name }}
-									</a>
-									<small>by <a href="{{ route('developers.show', $project->developer->slug) }}">
-										{{ $project->developer->name }}
-									</a></small>
-								</h4>
-							</div>
-						</div>
-					</div>
-				@endforeach
-			</div>
+			
+			@include('public.projects._listings', [
+				'projects' => $project->developer->projects
+			])
 		</div>
 	</section>
 
