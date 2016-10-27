@@ -12,7 +12,6 @@
 
 	<div class="Slide Flex Flex--center">
 		<div class="Slide__content">
-			{{-- <img src="/images/logo.png" alt="{{ config('app.name') }}" title="{{ config('app.name') }}" class="img-responsive" /> --}}
 			<form method="GET" class="Search">
 				<input type="text" 
 					name="search" 
@@ -67,24 +66,23 @@
 				<div class="col-md-12">
 					<div class="CommunityListings">
 						<div class="Row">
-							<div class="CommunityListing Column-6 full-height dubai-marina-community">
-								<a href="{{ route('communities.show', 'dubai-marina') }}"></a>
+							<div class="CommunityListing Column-6 full-height downtown-dubai-community">
 								<div class="CommunityListing__content">
-									<p>Dubai Marina</p>
+									<p>Downtown Dubai</p>
 								</div>
 							</div>
 							<div class="Flex-1">
 								<div class="Row">
-									<div class="CommunityListing Column-6 difc-community">
+									<div class="CommunityListing Column-6 al-barsha-community">
 										<a href="{{ route('communities.show', 'al-barsha') }}"></a>
 										<div class="CommunityListing__content">
 											<p>Al Barsha</p>
 										</div>
 									</div>
-									<div class="CommunityListing Column-6 downtown-dubai-community">
-										<a href="#"></a>
+									<div class="CommunityListing Column-6 dubai-marina-community">
+										<a href="{{ route('communities.show', 'dubai-marina') }}"></a>
 										<div class="CommunityListing__content">
-											<p>Downtown Dubai</p>
+											<p>Dubai Marina</p>
 										</div>
 									</div>
 								</div>
