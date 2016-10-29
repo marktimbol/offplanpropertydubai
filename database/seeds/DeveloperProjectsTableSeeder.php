@@ -33,6 +33,8 @@ class DeveloperProjectsTableSeeder extends Seeder
             'slug'  => 'first-time-mediterranean-styled-cluster-homes-in-dubailand'
         ]);
 
+        $project->searchable();
+
         $community->projects()->attach($project);
 
         $this->addProjectType($project);
