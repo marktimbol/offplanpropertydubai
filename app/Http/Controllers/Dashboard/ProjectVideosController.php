@@ -16,6 +16,8 @@ class ProjectVideosController extends Controller
     		'link'	=> $request->link
     	]);
 
+    	flash()->success('Project video has been successfully saved.');
+
     	return back();
     }
 }

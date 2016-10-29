@@ -82,7 +82,7 @@
 		<button class="btn btn-default" data-toggle="modal" data-target="#UploadProjectFloorPlanModal">
 			<i class="fa fa-file-photo-o"></i> Manage Floor Plan
 		</button>
-		<button class="btn btn-default">
+		<button class="btn btn-default" data-toggle="modal" data-target="#UploadProjectVideosModal">
 			<i class="fa fa-file-video-o"></i> Manage Video
 		</button>
 	</div>
@@ -218,4 +218,5 @@
 	@include('dashboard.projects._upload-floorplan')
 	@include('dashboard.projects._upload-brochure')
 	@include('dashboard.projects._upload-photos')
+	@include('dashboard.projects._upload-videos')
 @endsection

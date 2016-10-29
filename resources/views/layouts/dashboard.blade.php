@@ -36,6 +36,8 @@
                     <ul class="list-group">
                         <a href="/dashboard" class="list-group-item">Home</a>
                         <a href="/dashboard/developers" class="list-group-item">Developers</a>
+                        <a href="/dashboard/inquiries" class="list-group-item">Inquiries</a>
+                        <a href="/dashboard/downloads" class="list-group-item">Downloads</a>
                         <a href="/dashboard/countries" class="list-group-item">Countries</a>
                     </ul>
                 </aside>
