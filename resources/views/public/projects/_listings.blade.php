@@ -22,7 +22,7 @@
 						</form>
 					</div>
 					<a href="{{ route('projects.show', $project->slug) }}">
-						<img src="/images/projects/project.jpg" 
+						<img src="{{ $path }}" 
 							alt="{{ $project->name }}" 
 							title="{{ $project->name }}" 
 							class="img-responsive" />
