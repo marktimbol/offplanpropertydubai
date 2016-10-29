@@ -2,10 +2,13 @@
 
 namespace App;
 
+use Laravel\Scout\Searchable;
 use Illuminate\Database\Eloquent\Model;
 
 class Project extends Model
 {
+    use Searchable;
+
     protected $fillable = [
         'developer_id', 
         'name', 
@@ -29,6 +32,26 @@ class Project extends Model
     {
     	$this->attributes['title'] = $title;
     	$this->attributes['slug'] = str_slug($title);
+    }
+
+    /**
+     * Get the indexable data array for the model.
+     *
+     * @return array
+     */
+    public function toSearchableArray()
+    {
+        $array = $this->toArray();
+
+        $array = [
+            'id'    => $this->id,
+            'name'  => $this->name,
+            'title' => $this->title,
+            'communities'   => $this['communities'][0]['name'],
+            'developer' => $this['developer']['name']
+        ];
+
+        return $array;
     }
 
     public function developer()

@@ -2,6 +2,7 @@
 <?php
 
 use App\Developer;
+use App\Project;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,9 +17,7 @@ use App\Developer;
 
 Route::get('/', ['as' => 'home', 'uses' => 'PagesController@home']);
 
-Route::get('/search', function() {
-	return Developer::search(request('key'))->get();
-});
+Route::get('/search', ['as' => 'search', 'uses' => 'SearchController@index']);
 
 Route::resource('developers', 'DevelopersController', [
 	'only'	=> ['index', 'show']

@@ -12,12 +12,11 @@
 
 	<div class="Slide Flex Flex--center">
 		<div class="Slide__content">
-			<form method="GET" class="Search">
+			<form method="GET" action="{{ route('search') }}" class="Search">
 				<input type="text" 
-					name="search" 
-					id="search" 
+					name="query" 
 					class="form-control input-lg Search__input" 
-					placeholder="Search for a developer or Project" />
+					placeholder="Search for a Project, Communities or Developer" />
 				<button type="submit" class="btn-link Search__button">
 					<i class="fa fa-search"></i>
 				</button>
