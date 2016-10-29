@@ -13,7 +13,8 @@
         "league/flysystem-aws-s3-v3": "~1.0",
         "guzzlehttp/guzzle": "^6.2",
         "laracasts/utilities": "^2.1",
-        "gloudemans/shoppingcart": "^2.2"
+        "gloudemans/shoppingcart": "^2.2",
+        "pda/pheanstalk": "~3.0"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",
