@@ -13,9 +13,19 @@
 				</div>
 			</div>
 
-			@include('public.projects._listings', [
-				'projects' => $projects
-			])
+			@if( count($projects) > 0 )
+				@include('public.projects._listings', [
+					'projects' => $projects
+				])
+			@else
+				<div class="row">
+					<div class="col-md-12">
+						<p class="lead">
+							{{ sprintf('No search results for %s', $query) }}
+						</p>
+					</div>
+				</div>
+			@endif
 		</div>
 	</div>
 @endsection
