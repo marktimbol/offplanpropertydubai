@@ -67,6 +67,7 @@
 					<div class="CommunityListings">
 						<div class="Row">
 							<div class="CommunityListing Column-6 full-height downtown-dubai-community">
+								<a href="#"></a>
 								<div class="CommunityListing__content">
 									<p>Downtown Dubai</p>
 								</div>

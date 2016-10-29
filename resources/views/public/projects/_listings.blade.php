@@ -2,6 +2,9 @@
 	@foreach( $projects as $project )
 		<?php 
 			$avatar = '/images/avatar.jpg';
+			if( $project->developer->photo !== '' ) {
+				$avatar = getPhotoPath($project->developer->photo);
+			}
 			$path = '/images/projects/project.jpg';
 			if( $projectPhoto = $project->photos->first() ) {								
 				$path = getPhotoPath($projectPhoto->photo );
@@ -13,15 +16,17 @@
 						<form method="POST" action="{{ route('compares.store') }}">
 							{{ csrf_field() }}
 							<input type="hidden" name="project_id" value="{{ $project->id }}" />
-							<button type="submit" class="btn btn-link">
+							<button type="submit" class="btn btn-link btn-heart">
 								<i class="fa fa-heart fa-2x"></i>
 							</button>
 						</form>
 					</div>
-					<img src="/images/projects/project.jpg" 
-						alt="{{ $project->name }}" 
-						title="{{ $project->name }}" 
-						class="img-responsive" />
+					<a href="{{ route('projects.show', $project->slug) }}">
+						<img src="/images/projects/project.jpg" 
+							alt="{{ $project->name }}" 
+							title="{{ $project->name }}" 
+							class="img-responsive" />
+					</a>
 					<div class="ProjectListing__developer">
 						<a href="{{ route('developers.show', $project->developer->slug) }}">
 							<img src="{{ $avatar }}" 
@@ -35,7 +40,7 @@
 				<div class="ProjectListing__description">
 					<h4 class="text-truncate">
 						<a href="{{ route('projects.show', $project->slug) }}">
-							{{ $project->title }}
+							{{ sprintf('%s: %s', $project->name, $project->title) }}
 						</a>
 					</h4>
 				</div>

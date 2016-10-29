@@ -2,6 +2,8 @@
 
 namespace App\Providers;
 
+use App\Compare;
+use Illuminate\Support\Facades\View;
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
@@ -13,7 +15,8 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        //
+        $compares_count = Compare::count();
+        view()->share('compares_count', $compares_count);
     }
 
     /**

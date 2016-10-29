@@ -19,4 +19,9 @@ class Compare
 	{
 		Cart::remove($rowId);
 	}
+
+	public static function count()
+	{
+		return Cart::count();
+	}
 }

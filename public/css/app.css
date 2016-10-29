@@ -9134,6 +9134,12 @@ h1, h2, h3, h4, h5, h6 {
   border-radius: 0;
   font-weight: 300; }
 
+.btn-heart:hover {
+  color: white; }
+
+.btn-heart:active, .btn-heart:focus {
+  box-shadow: 0 !important; }
+
 .form-control {
   border-radius: 0; }
 

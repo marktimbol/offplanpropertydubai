@@ -209,7 +209,7 @@
 		<div class="container">
 			<div class="row">
 				<div class="col-md-12">
-					<h3 class="mb-30">More Projects from {{ $project->developer->name }}</h3>
+					<h3 class="mb-30">All Projects of {{ $project->developer->name }}</h3>
 				</div>
 			</div>
 			
