@@ -47,7 +47,7 @@ class Project extends Model
             'id'    => $this->id,
             'name'  => $this->name,
             'title' => $this->title,
-            'communities'   => $this['communities']['name'],
+            'communities'   => $this['communities'],
             'developer' => $this['developer']['name']
         ];
 
