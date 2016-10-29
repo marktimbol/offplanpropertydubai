@@ -2,7 +2,7 @@
 	@foreach( $projects as $project )
 		<?php 
 			$avatar = '/images/avatar.jpg';
-			if( $project->developer->photo !== '' ) {
+			if( $project->developer->photo != '' ) {
 				$avatar = getPhotoPath($project->developer->photo);
 			}
 			$path = '/images/projects/project.jpg';

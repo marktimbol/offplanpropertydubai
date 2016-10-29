@@ -8,7 +8,7 @@
 					@foreach( $developers as $developer )
 					<?php 
 						$path = '/images/developers/developer.jpg';
-						if( $developer->photo !== '' ) {
+						if( $developer->photo != '' ) {
 							$path = getPhotoPath($developer->photo);
 						}
 					?>
