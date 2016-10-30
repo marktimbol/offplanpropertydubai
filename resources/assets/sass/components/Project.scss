@@ -1,0 +1,160 @@
+.Single-project {
+	.navbar {
+	    width: 100%;
+	    // .container {
+	    // 	&:before {
+	    // 		width: 250px;
+	    // 		height: 300px;
+	    // 		z-index: -1;
+	    // 		top: -123px;
+	    // 		background: #222;
+	    // 		position: absolute;
+	    // 		transform: rotate(45deg);
+	    // 		border-radius: 5%;
+	    // 	}
+	    // }
+	}
+}
+
+.Slide__content {
+	width: 100%;
+}
+
+.Slide__title {
+	margin-bottom: 0;
+}
+
+.Project__carousel--container {
+    display: flex;
+	position: relative;
+    align-items: center;
+    margin-bottom: 20px;
+    justify-content: space-between;
+}
+
+.Project__logo--container {
+	position: absolute;
+	top: 20px;
+	left: 50px;
+	z-index: 9999;
+}
+
+.Project__carousel__content--container {
+	width: 100%;
+	position: absolute;
+	h2 {
+	    color: white;
+		font-size: 5rem;
+	    margin-top: 0;
+	    display: flex;
+	    text-align: center;
+	    padding: 0px 50px;
+	    flex-direction: column;
+	    small {
+	    	color: white;
+	    	font-weight: 300;
+	    	margin-top: 30px;
+	    }
+	}
+
+	img {
+		margin-bottom: 30px;
+	}
+}
+
+.Project__carousel {
+	img {
+	    width: 100%;
+	    height: auto;
+	    display: block;
+	}
+	.owl-item {
+		margin: 0 !important;
+	}
+}
+
+.Project__carousel--nav {
+	width: 100%;
+	display: flex;
+	padding: 0 15px;
+	position: absolute;
+	align-items: center;
+	justify-content: space-between;
+
+	a {
+	    color: white;
+		font-size: 8rem;
+		cursor: pointer;
+	    font-weight: normal;
+	}
+}
+
+.Project__title {
+	margin-top: 0;
+	margin-bottom: 30px;
+}
+
+.Project__description {
+	ul.list-group {
+		padding-left: 0
+	}
+
+	h3 {
+		font-size: 30px;
+		font-weight: 300;
+		&:first-child {
+			margin-top: 0;
+			margin-bottom: 30px;
+		}
+		margin: 30px 0px;
+	}
+}
+
+.Project__videos--container {
+	height: 450px;
+	// background: #ddd;
+	margin: 40px 0px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.video-js {
+	width: 100% !important;
+    height: 100% !important;
+}
+
+.PlayButton {
+	position: absolute;
+}
+
+.vjs-big-play-button {
+	display: none !important;
+}
+
+.vjs-poster {
+	background-size: cover !important;
+}
+
+.RelatedProjects {
+	h3 {
+		font-weight: 300;
+	}
+	.Project__title {
+		font-size: 17px;
+		a {
+			color: #333;
+		}
+	}
+}
+
+.Inquiry {
+
+}
+
+.Inquiry__title {
+	font-size: 30px;
+	font-weight: 300;
+}
+
+@import 'PlayButton';

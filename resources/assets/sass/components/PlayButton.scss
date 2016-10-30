@@ -1,0 +1,31 @@
+.play-video-icon {
+    width: 80px;
+    height: 80px;
+    z-index: 2;
+    position: relative;
+    border-radius: 100%;
+    border: 1px solid #fff;
+    box-shadow: 0 0 0 0 rgba(255, 255, 255, .7);
+    animation: shadowPulse 1.25s 3s infinite cubic-bezier(.66, 0, 0, 1);
+}
+
+.play-video-icon > span {
+	width: 0;
+	height: 0;
+	margin-right: -4px;
+	border-top: 10px solid transparent;
+	border-bottom: 10px solid transparent;
+	border-left: 18px solid #fff;
+}
+
+@-webkit-keyframes shadowPulse {
+    to {
+        box-shadow: 0 0 0 45px rgba(255, 255, 255, 0)
+    }
+}
+
+@keyframes shadowPulse {
+    to {
+        box-shadow: 0 0 0 45px rgba(255, 255, 255, 0)
+    }
+}

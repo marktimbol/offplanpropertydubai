@@ -1,0 +1,209 @@
+
+// Fonts
+// @import url(https://fonts.googleapis.com/css?family=Lato:300,400,600);
+// Variables
+@import "variables";
+// Bootstrap
+@import "node_modules/bootstrap-sass/assets/stylesheets/bootstrap";
+// Font Awesome
+@import "node_modules/font-awesome/scss/font-awesome";
+// Sweet Alert
+@import "node_modules/sweetalert/dev/sweetalert";
+
+body {
+	background: white;
+	font-family: 'Lato', sans-serif;
+}
+
+.is-gray-bg {
+	background: #EDEFED;
+}
+
+.is-light-bg {
+	background: #f4f4f4;
+}
+
+.img-bordered {
+	border: 3px solid white;
+}
+
+.text-truncate {
+	overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.scroll-y {
+	overflow-y: scroll;
+}
+
+.mb-30 {
+	margin-bottom: 30px;
+}
+
+.has-border-bottom {
+	border-bottom: 1px solid #ddd;
+}
+
+h3 {
+	font-size: 30px;
+	font-weight: 300;
+}
+
+section {
+	padding: 40px 0;
+}
+
+.Flex {
+	display: flex;
+}
+
+.Flex--center {
+	align-items: center;
+	justify-content: center;
+}
+
+.Flex--space-between {
+	align-items: center;
+	justify-content: space-between;
+}
+
+.Slide {
+	height: 65vh;
+	background: url('/images/header-bg.jpg') no-repeat;
+	background-size: cover;
+}
+
+.Home {
+	.Slide__content {
+		width: 50% !important;
+
+		img {
+			margin: 0 auto;
+			margin-bottom: 20px;
+		}
+	}
+}
+
+.Slide__title {
+    color: white;
+	font-size: 5rem;
+    text-align: center;
+    margin-top: 0;
+    margin-bottom: 40px;
+}
+
+.Search {
+	position: relative;
+}
+
+.Search__input {
+	background: rgba(255,255,255,0.9);
+}
+
+.Search__button {
+	color: #333;
+	top: 10px;
+	right: 10px;
+	position: absolute;
+}
+
+.Section__title {
+	font-size: 30px;
+	font-weight: 300;
+	margin-bottom: 30px;
+}
+
+.Project {
+	margin-bottom: 30px;
+	background: white;
+
+	border-bottom-left-radius: 5px;
+	border-bottom-right-radius: 5px;
+}
+
+.Project__content {
+	padding: 10px 15px;
+}
+
+.btn-download {
+	color: #333;
+	&:hover {
+		text-decoration: none;
+	}
+	i {
+		margin-right: 5px;
+	}
+}
+
+footer {
+	height: 500px;
+    background: url('/images/footer-bg.jpg') bottom no-repeat;
+    background-size: cover;
+}
+
+.DeveloperListing {
+	margin-bottom: 20px;
+}
+
+.DeveloperListing__content {
+	h4 {
+		align-items: center;
+		font-weight: 400;
+		padding: 0 5px;
+		a {
+			color: #333;
+			&:hover {
+				text-decoration: underline;
+			}
+		}
+	}
+}
+
+.CommunityListing {
+	width: 250px;
+	height: 250px;
+	margin: 10px;
+
+	display: flex;
+	align-items: center;
+	justify-content: center;
+
+	position: relative;
+	
+	a {
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		display: block;
+		cursor: pointer;
+		position: absolute;
+	}
+}
+
+.CommunityListing__content {
+	padding: 20px;
+	// border: 2px solid white;
+	p {
+		margin: 0;
+		color: white;
+		font-size: 20px;
+	}
+}
+
+.full-height {
+	height: auto !important;
+}
+
+.full-width {
+	width: 100% !important;
+}
+
+@import 'components/Grid';
+@import 'components/Projects';
+@import 'components/Project';
+@import 'components/Developers';
+@import 'components/Developer';
+@import 'components/Communities';
+@import 'components/Overwrite';

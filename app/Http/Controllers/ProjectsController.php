@@ -1,0 +1,37 @@
+<?php
+
+namespace App\Http\Controllers;
+
+use JavaScript;
+use App\Developer;
+use App\Http\Requests;
+use App\Project;
+use Illuminate\Http\Request;
+
+class ProjectsController extends Controller
+{
+    public function index()
+    {
+        $projects = Project::latest()->get();
+        
+        return view('public.projects.index', compact('projects'));
+    }
+
+    public function show($project)
+    {    	
+    	$project->load('developer', 'communities.city.country');
+        
+    	$logo = '';
+    	if( count($project->logo) > 0 ) {
+    		$logo = getPhotoPath($project->logo->photo);
+    	}
+
+    	JavaScript::put([
+    		'latitude'	=> $project->latitude,
+    		'longitude'	=> $project->longitude,
+            'videos'    => $project->videos->pluck('id')
+    	]);
+
+    	return view('public.projects.show', compact('project', 'logo'));
+    }
+}

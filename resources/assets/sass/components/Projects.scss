@@ -1,0 +1,51 @@
+.ProjectListings__title {
+	// margin: 30px 10px;
+}
+
+.ProjectListings {
+	padding: 40px 0px;
+}
+
+.ProjectListing {
+	margin-bottom: 30px;
+}
+
+.ProjectListing_compare {
+	position: absolute;
+	top: 0;
+	right: 0;
+	.btn-link {
+		color: rgba(255,255,255,0.8);
+		&:active, &:focus {
+			box-shadow: 0;
+			outline: 0;
+			border: 0;
+		}
+	}
+}
+
+.ProjectListing__image {
+	position: relative;
+}
+
+.ProjectListing__developer {
+	bottom: -30px;
+	right: 10px;
+	position: absolute;
+}
+
+.ProjectListing__description {
+    padding: 15px;
+	background: white;
+    border-bottom-right-radius: 5px;
+    border-bottom-left-radius: 5px;
+    h4 {
+    	margin: 0;
+    	width: 80%;
+    }
+	a {
+		color: #333;
+		font-size: 16px;
+		font-weight: 400;
+	}
+}

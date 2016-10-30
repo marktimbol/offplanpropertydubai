@@ -1,0 +1,21 @@
+.btn {
+	border-radius: 0;
+	font-weight: 300;
+}
+
+.form-control {
+	border-radius: 0;
+}
+
+select.form-control {
+	// -webkit-appearance: none;
+}
+
+table {
+	background: white;
+}
+
+.dropzone {
+	flex-wrap: wrap;
+	border: 2px dashed rgba(0, 0, 0, 0.3);
+}

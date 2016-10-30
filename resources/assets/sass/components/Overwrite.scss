@@ -1,0 +1,41 @@
+h1, h2, h3, h4, h5, h6 {
+	font-weight: 300;
+}
+
+.btn {
+	border-radius: 0;
+	font-weight: 300;
+}
+
+.btn-heart {
+	&:hover {
+		color: white;
+	}
+	&:active, &:focus {
+		box-shadow: 0 !important;
+	}
+}
+
+.form-control {
+	border-radius: 0;
+}
+
+.owl-wrapper {
+	.owl-item {
+		margin: 0px 10px;
+	}
+
+	.Developer__image {
+		margin-right: 0;
+	}
+}
+
+.Floorplans {
+	.owl-item {
+		margin: 0;
+	}
+}
+
+.navbar {
+	margin-bottom: 0;
+}
