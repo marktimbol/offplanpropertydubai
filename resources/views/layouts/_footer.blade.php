@@ -1,4 +1,5 @@
 
+@if( count($developers) > 0 )
 <section class="DeveloperListings--container">
 	<div class="container">
 		<div class="row">
@@ -28,6 +29,7 @@
 		</div>
 	</div>
 </section>
+@endif
 
 
 <footer></footer>

@@ -41,18 +41,20 @@
 		</div>
 	</section>
 
-	<section class="ProjectListings--container is-gray-bg">
-		<div class="container">
-			<div class="row">
-				<div class="col-md-12">
-					<h3 class="Section__title text-center">Latest Off Plan Projects</h3>
-					@include('public.projects._listings', [
-						'projects' => $projects
-					])
+	@if( count($projects) > 0 )
+		<section class="ProjectListings--container is-gray-bg">
+			<div class="container">
+				<div class="row">
+					<div class="col-md-12">
+						<h3 class="Section__title text-center">Latest Off Plan Projects</h3>
+						@include('public.projects._listings', [
+							'projects' => $projects
+						])
+					</div>
 				</div>
 			</div>
-		</div>
-	</section>
+		</section>
+	@endif
 
 	<section class="CommunityListings--container">
 		<div class="container">
