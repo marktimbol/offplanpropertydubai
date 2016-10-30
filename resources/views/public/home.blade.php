@@ -12,6 +12,7 @@
 
 	<div class="Slide Flex Flex--center">
 		<div class="Slide__content">
+			<img src="/images/logo.png" alt="{{ config('app.name') }}" title="{{ config('app.name') }}" class="img-responsive" />
 			<form method="GET" action="{{ route('search') }}" class="Search">
 				<input type="text" 
 					name="query" 
