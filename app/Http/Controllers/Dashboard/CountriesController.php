@@ -18,6 +18,10 @@ class CountriesController extends Controller
 
     public function store(Request $request)
     {
+        $this->validate($request, [
+            'name'  => 'required'
+        ]);
+        
     	Country::create($request->all());
 
     	flash()->success('Country has been successfully saved.');

@@ -50,6 +50,7 @@ $factory->define(App\Community::class, function (Faker\Generator $faker) {
         },
         'name' => $faker->city,
         'slug'  => $faker->slug,
+        'description'  => $faker->paragraph,
     ];
 });
 

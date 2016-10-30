@@ -15,14 +15,25 @@ class CommunitiesController extends Controller
     	return view('dashboard.communities.index', compact('city', 'communities'));
     }
 
+    public function show($city, $community)
+    {
+        return view('dashboard.communities.show', compact('city', 'community'));
+    }
+
     public function store(Request $request, $city)
     {
-    	$city->communities()->create([
-    		'name'	=> $request->name
-    	]);
+    	$city->communities()->create($request->all());
 
     	flash()->success('Community has been successfully saved.');
     	return back();
+    }
+
+    public function update(Request $request, $city, $community)
+    {
+        $community->update($request->all());
+
+        flash()->success('Community has been successfully updated.');
+        return back();
     }
 
     public function destroy($city, $community)
