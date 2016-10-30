@@ -1,9 +1,5 @@
 
 <?php
-
-use App\Developer;
-use App\Project;
-
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -16,6 +12,10 @@ use App\Project;
 */
 
 Route::get('/', ['as' => 'home', 'uses' => 'PagesController@home']);
+Route::get('/contact', ['as' => 'contact', 'uses' => 'PagesController@contact']);
+Route::resource('contact', 'ContactsController', [
+	'only'	=> ['store']
+]);
 
 Route::get('/search', ['as' => 'search', 'uses' => 'SearchController@index']);
 

@@ -16,6 +16,9 @@ class EventServiceProvider extends ServiceProvider
         'App\Events\UserInquiresAboutTheProject' => [
             'App\Listeners\SendInquiryToAdmin',
         ],        
+        'App\Events\UserSendsMessageThroughContactForm' => [
+            'App\Listeners\SendContactMessageToAdmin',
+        ],      
         'App\Events\UserDownloadedAProjectBrochure' => [
             'App\Listeners\SendBrochureLinkToUser'
         ]

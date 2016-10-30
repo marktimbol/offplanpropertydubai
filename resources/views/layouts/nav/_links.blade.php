@@ -6,7 +6,7 @@
         <li><a href="/communities">Communities</a></li>
         <li><a href="/developers">Developers</a></li>
         <li><a href="/compares">Compare Projects</span></a></li>
-        <li><a href="#">Contact Us</a></li>
+        <li><a href="/contact">Contact Us</a></li>
     </ul>
 
     <!-- Right Side Of Navbar -->
