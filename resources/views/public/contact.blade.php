@@ -8,19 +8,18 @@
 	<section>
 		<div class="container">
 			<div class="row">
-				<div class="col-md-6">
-					<h3 class="Section__title">Contact Information</h3>
+				<div class="col-md-6 col-md-offset-3">
+					<h3 class="Section__title">Send us a message</h3>
 					<address>
+						<p class="lead">
 						Address: Dubai Off Plan<br />
 						Mobile: +971 55 966 4000<br />
 						eMail:
 							<a href="mailto:info@offplanpropertydubai.com">
 								info@offplanpropertydubai.com
 							</a>
+						</p>
 					</address>
-				</div>
-				<div class="col-md-6">
-					<h3 class="Section__title">Send us a message</h3>
 					<form method="POST" action="{{ route('contact.store') }}">
 						{{ csrf_field() }}
 						<div class="form-group {{ $errors->has('name') ? 'has-error' : '' }}">
