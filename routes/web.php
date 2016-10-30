@@ -63,4 +63,5 @@ Route::group(['middleware' => 'auth', 'prefix' => 'dashboard', 'as' => 'dashboar
 	]);
 	Route::resource('developers.photos', 'Dashboard\DeveloperPhotosController');
 	Route::resource('categories', 'Dashboard\CategoriesController');
+	Route::resource('categories.types', 'Dashboard\CategoryTypesController');
 });

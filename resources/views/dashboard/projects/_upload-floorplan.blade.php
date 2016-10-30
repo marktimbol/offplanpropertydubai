@@ -29,7 +29,7 @@
 											</a>
 										</td>
 										<td>
-											<form method="POST" action="#">
+											<form>
 												{{ csrf_field() }}
 												{!! method_field('DELETE') !!}
 												<a href="#" class="btn btn-link">

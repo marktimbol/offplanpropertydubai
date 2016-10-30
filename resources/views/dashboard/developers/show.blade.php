@@ -13,6 +13,7 @@
 		<div class="col-md-3">
 			@if( getPhotoPath($developer->photo) != '' )
 				<img src="{{ getPhotoPath($developer->photo) }}" alt="{{ $developer->name }}" title="{{ $developer->title }}" class="img-responsive" />
+				<p>&nbsp;</p>
 			@endif
 
 			<form 

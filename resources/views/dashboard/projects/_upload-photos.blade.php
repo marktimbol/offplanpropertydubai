@@ -45,7 +45,7 @@
 				<p>&nbsp;</p>
 				<ul class="list-group">
 					<li class="list-group-item">
-						<strong>Recommended dimensions:</strong> 1366px &times; 769px
+						<strong>Recommended dimensions:</strong> 1370 &times; 913px
 					</li>
 					<li class="list-group-item">
 						<strong>Upload Format:</strong> Images (.jpg, .png) only

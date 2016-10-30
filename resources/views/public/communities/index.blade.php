@@ -15,13 +15,22 @@
 			</div>
 
 			<div class="col-md-12">
-				@foreach( $communities as $community )
-					<li>
-						<a href="{{ route('communities.show', $community->slug) }}">
-							{{ $community->name }}
-						</a>
-					</li>
-				@endforeach
+				<div class="Communities">
+					@foreach( $communities as $community )
+						<div class="Community">
+							<h2>{{ $community->name }}</h2>
+							<p class="lead">
+								{{ $community->description }}
+							</p>
+							@if( count($community->projects) > 0 )
+								<h4>Available in {{ $community->name }}</h4>
+								@include('public.projects._listings', [
+									'projects'	=> $community->projects->take(3)
+								])
+							@endif
+						</div>
+					@endforeach
+				</div>
 			</div>
 		</div>
 	</div>

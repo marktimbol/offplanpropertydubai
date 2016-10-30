@@ -10,16 +10,14 @@
 				<div class="Flex">
 					<div class="Developer__image Column-4">
 						<?php
-							$path = '/images/developers/developer.jpg';
-							if( getPhotoPath($developer->photo) != '' ) {
-								$path = getPhotoPath($developer->photo);
-							}
+							$path = getPhotoPath($developer->photo);
 						?>
-						
-						<img src="{{ $path }}" 
-							alt="{{ $developer->name }}" 
-							title="{{ $developer->name }}" 
-							class="img-responsive" />
+						@if( $developer->photo != '' )
+							<img src="{{ $path }}" 
+								alt="{{ $developer->name }}" 
+								title="{{ $developer->name }}" 
+								class="img-responsive" />
+						@endif
 
 						<div class="Developer__info">
 							<p>
@@ -40,6 +38,7 @@
 		</div>
 	</div>
 
+	@if( count($developer->projects) > 0 )
 	<section class="RelatedProjects is-gray-bg">
 		<div class="container">
 			<div class="row">
@@ -53,4 +52,5 @@
 			])
 		</div>
 	</section>
+	@endif
 @endsection
