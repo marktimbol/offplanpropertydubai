@@ -38,6 +38,7 @@ Route::group(['middleware' => 'auth', 'prefix' => 'dashboard', 'as' => 'dashboar
 	Route::get('/', ['as' => 'dashboard', 'uses' => 'DashboardController@index']);
 	Route::resource('inquiries', 'Dashboard\InquiriesController');
 	Route::resource('downloads', 'Dashboard\DownloadsController');
+	Route::resource('contacts', 'Dashboard\ContactsController');
 	Route::resource('countries', 'Dashboard\CountriesController');
 	Route::resource('countries.cities', 'Dashboard\CitiesController');
 	Route::resource('cities.communities', 'Dashboard\CommunitiesController');
