@@ -29,7 +29,9 @@
 											</a>
 										</td>
 										<td>
-											<form>
+											<form method="POST" action="{{ route('dashboard.developers.projects.floorplans.destroy', [
+												$developer->id, $project->id, $floorplan->id
+											]) }}">
 												{{ csrf_field() }}
 												{!! method_field('DELETE') !!}
 												<a href="#" class="btn btn-link">
@@ -69,6 +71,9 @@
 						<strong>Maximum file size:</strong> 200kb / upload
 					</li>
 				</ul>
+				<div class="alert alert-info">
+					<p>For now, the "Title" will be the filename of the image you will upload.</p>
+				</div>
 			</div>
 			<div class="modal-footer">
 				<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>

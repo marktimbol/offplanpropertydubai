@@ -8,6 +8,7 @@ use App\City;
 use App\Community;
 use App\Country;
 use App\Developer;
+use App\Floorplan;
 use App\Payment;
 use App\Photo;
 use App\Project;
@@ -87,6 +88,10 @@ class RouteServiceProvider extends ServiceProvider
 
         $this->bind('city', function($id) {
             return City::findOrFail($id);
+        });
+
+        $this->bind('floorplan', function($id) {
+            return Floorplan::findOrFail($id);
         });
     }
 
