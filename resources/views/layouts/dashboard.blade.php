@@ -35,11 +35,24 @@
                     <h3>Navigation</h3>
                     <ul class="list-group">
                         <a href="/dashboard" class="list-group-item">Home</a>
-                        <a href="/dashboard/developers" class="list-group-item">Developers</a>
-                        <a href="/dashboard/inquiries" class="list-group-item">Inquiries</a>
-                        <a href="/dashboard/downloads" class="list-group-item">Downloads</a>
+                    </ul>
+                    <ul class="list-group">
+                        <a href="/dashboard/developers" class="list-group-item">Manage Developers</a>
+                        <a href="/dashboard/countries" class="list-group-item">Manage Countries</a>
+                    </ul>
+                    <ul class="list-group">
+                        <a href="/dashboard/inquiries" class="list-group-item">Project Inquiries</a>
+                        <a href="/dashboard/downloads" class="list-group-item">Brochure Downloads</a>
                         <a href="/dashboard/contacts" class="list-group-item">Contact Messages</a>
-                        <a href="/dashboard/countries" class="list-group-item">Countries</a>
+                    </ul>
+
+                    <ul class="list-group">
+                        <a href="{{ url('/logout') }}"
+                            class="list-group-item list-group-item-danger"
+                            onclick="event.preventDefault();
+                                     document.getElementById('logout-form').submit();">
+                            Logout
+                        </a>
                     </ul>
                 </aside>
             </div>

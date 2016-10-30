@@ -7,23 +7,28 @@
 	<table class="table table-bordered">
 		<thead>
 			<tr>
+				<th>Developer Name</th>
 				<th>Country</th>				
-				<th>Name</th>
 				<th>Projects</th>
-				<th>&nbsp;</th>
 			</tr>
 		</thead>
 		<tbody>
 			@forelse($developers as $developer)
 				<tr>
-					<td width="200">{{ $developer->country->name }}</td>
 					<td>
 						<a href="{{ route('dashboard.developers.show', $developer->id) }}">
 							{{ $developer->name }}
 						</a>
 					</td>
-					<td>&nbsp;</td>
-					<td>&nbsp;</td>
+					<td width="200">{{ $developer->country->name }}</td>
+					<td>
+						<ul class="list-group">
+							@forelse( $developer->projects as $project )
+								<li class="list-group-item">{{ $project->name }}</li>
+							@empty
+							@endforelse
+						</ul>
+					</td>
 				</tr>
 			@empty
 				<tr>
