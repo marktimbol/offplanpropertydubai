@@ -66,7 +66,7 @@
 					<div class="CommunityListings">
 						<div class="Row">
 							<div class="CommunityListing Column-6 full-height downtown-dubai-community">
-								<a href="#"></a>
+								<a href="{{ route('communities.show', 'downtown-dubai') }}"></a>
 								<div class="CommunityListing__content">
 									<p>Downtown Dubai</p>
 								</div>
@@ -88,13 +88,13 @@
 								</div>
 								<div class="Row">
 									<div class="CommunityListing Column-6 jumeirah-lakes-towers-community">
-										<a href="#"></a>
+										<a href="{{ route('communities.show', 'jumeirah-lakes-towers') }}"></a>
 										<div class="CommunityListing__content">
 											<p>Jumeirah Lakes Towers</p>
 										</div>
 									</div>
 									<div class="CommunityListing Column-6 sheikh-zayed-road-community">
-										<a href="#"></a>
+										<a href="{{ route('communities.show', 'sheikh-zayed-road') }}"></a>
 										<div class="CommunityListing__content">
 											<p>Sheikh Zayed Road</p>
 										</div>
@@ -104,13 +104,13 @@
 						</div>
 						<div class="Row">
 							<div class="CommunityListing Column-6 business-bay-community">
-								<a href="#"></a>
+								<a href="{{ route('communities.show', 'business-bay') }}"></a>
 								<div class="CommunityListing__content">
 									<p>Business Bay</p>
 								</div>
 							</div>
 							<div class="CommunityListing Column-6 palm-jumeirah-community">
-								<a href="#"></a>
+								<a href="{{ route('communities.show', 'palm-jumeirah') }}"></a>
 								<div class="CommunityListing__content">
 									<p>Palm Jumeirah</p>
 								</div>
