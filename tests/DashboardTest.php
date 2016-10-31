@@ -8,11 +8,14 @@ class DashboardTest extends TestCase
 {
 	use DatabaseMigrations;
 
+    public function setUp()
+    {
+        parent::setUp();
+        $this->signIn();
+    }
+    
     public function test_an_authenticated_user_can_visit_dashboard()
     {
-    	$user = factory(App\User::class)->create();
-    	$this->actingAs($user);
-
     	$this->visit('/dashboard')
     		->see('Dashboard');
     }

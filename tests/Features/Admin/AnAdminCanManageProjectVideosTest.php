@@ -8,11 +8,14 @@ class AnAdminCanManageProjectVideosTest extends TestCase
 {
 	use DatabaseMigrations;
 
+    public function setUp()
+    {
+        parent::setUp();
+        $this->signIn();
+    }
+    
     public function test_an_admin_can_add_video_link_to_a_project()
     {
-    	$user = factory(App\User::class)->create();
-    	$this->actingAs($user);
-
     	$project = factory(App\Project::class)->create();
 
     	$endpoint = sprintf('/dashboard/developers/%s/projects/%s/videos', $project->developer->id, $project->id);
@@ -30,9 +33,6 @@ class AnAdminCanManageProjectVideosTest extends TestCase
 
     public function test_an_admin_can_remove_video_link_from_a_project()
     {
-        $user = factory(App\User::class)->create();
-        $this->actingAs($user);
-
         $project = factory(App\Project::class)->create();
         $video = factory(App\Video::class)->create([
             'project_id'    => $project->id,

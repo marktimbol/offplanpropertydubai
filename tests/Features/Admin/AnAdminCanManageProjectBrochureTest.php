@@ -8,11 +8,14 @@ class AnAdminCanManageProjectBrochureTest extends TestCase
 {
 	use DatabaseMigrations;
 
+    public function setUp()
+    {
+        parent::setUp();
+        $this->signIn();
+    }
+    
     public function test_an_admin_can_add_project_brochure()
     {
-    	$user = factory(App\User::class)->create();
-    	$this->actingAs($user);
-
     	$developer = factory(App\Developer::class)->create([
     		'name'	=> 'Emaar'
     	]);
@@ -35,9 +38,6 @@ class AnAdminCanManageProjectBrochureTest extends TestCase
 
     public function test_an_admin_can_update_project_brochure_file()
     {
-    	$user = factory(App\User::class)->create();
-    	$this->actingAs($user);
-
     	$developer = factory(App\Developer::class)->create([
     		'name'	=> 'Emaar'
     	]);
@@ -65,9 +65,6 @@ class AnAdminCanManageProjectBrochureTest extends TestCase
 
     public function test_an_admin_can_delete_project_brochure_file()
     {
-    	$user = factory(App\User::class)->create();
-    	$this->actingAs($user);
-
     	$developer = factory(App\Developer::class)->create([
     		'name'	=> 'Emaar'
     	]);

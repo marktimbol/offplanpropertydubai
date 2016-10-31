@@ -8,18 +8,14 @@ class AnAdminCanManageCommunitiesTest extends TestCase
 {
 	use DatabaseMigrations;
 
-	protected $user;
-
-	protected function signIn()
-	{
-    	$this->user = factory(App\User::class)->create();
-    	$this->actingAs($this->user);
-	}
+    public function setUp()
+    {
+        parent::setUp();
+        $this->signIn();
+    }
 
 	public function test_an_admin_can_view_community()
 	{
-		$this->signIn();
-
 		$community = factory(App\Community::class)->create();
 		$url = sprintf('/dashboard/cities/%s/communities/%s', $community->city->id, $community->id);
 		$this->visit($url)
@@ -28,8 +24,6 @@ class AnAdminCanManageCommunitiesTest extends TestCase
 
     public function test_an_admin_can_store_community_to_a_city()
     {
-    	$this->signIn();
-
     	$city = factory(App\City::class)->create([
     		'name'	=> 'Dubai',
     		'slug'	=> 'dubai'
@@ -50,8 +44,6 @@ class AnAdminCanManageCommunitiesTest extends TestCase
 
     public function test_an_admin_can_update_community()
     {
-        $this->signIn();
-
         $city = factory(App\City::class)->create([
             'name'  => 'Dubai',
             'slug'  => 'dubai'

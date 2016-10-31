@@ -8,18 +8,14 @@ class AnAdminCanManageDeveloperProjectsTest extends TestCase
 {
 	use DatabaseMigrations;
 
-	protected $user;
-
-	protected function signIn()
-	{
-    	$this->user = factory(App\User::class)->create();
-    	$this->actingAs($this->user);
-	}
-
+    public function setUp()
+    {
+        parent::setUp();
+        $this->signIn();
+    }
+    
     public function test_an_admin_can_view_all_the_projects_of_the_developer()
     {
-    	$this->signIn();
-
     	$developer = factory(App\Developer::class)->create([
     		'name'	=> 'Emaar'
     	]);
@@ -36,8 +32,6 @@ class AnAdminCanManageDeveloperProjectsTest extends TestCase
 
     public function test_an_admin_can_add_a_project_to_a_developer()
     {
-    	$this->signIn();
-
         $community = factory(App\Community::class)->create();
 
     	$developer = factory(App\Developer::class)->create([
@@ -78,8 +72,6 @@ class AnAdminCanManageDeveloperProjectsTest extends TestCase
 
     public function test_an_admin_can_update_a_project_information()
     {
-    	$this->signIn();
-
         $country = factory(App\Country::class)->create();
 
         $developer = factory(App\Developer::class)->create([
@@ -123,8 +115,6 @@ class AnAdminCanManageDeveloperProjectsTest extends TestCase
 
     public function test_an_admin_can_remove_a_project_from_a_developer()
     {
-    	$this->signIn();
-
     	$developer = factory(App\Developer::class)->create([
     		'name'	=> 'Emaar'
     	]);

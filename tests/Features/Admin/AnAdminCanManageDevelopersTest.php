@@ -8,17 +8,14 @@ class AnAdminCanManageDevelopersTest extends TestCase
 {
 	use DatabaseMigrations;
 
-	protected $user;
-
-	protected function signIn()
-	{
-    	$this->user = factory(App\User::class)->create();
-    	$this->actingAs($this->user);
-	}
+    public function setUp()
+    {
+        parent::setUp();
+        $this->signIn();
+    }
 
     public function test_an_admin_can_view_all_the_developers()
     {
-    	$this->signIn();
     	$developer = factory(App\Developer::class)->create();
 
     	$this->visit('/dashboard/developers')
@@ -27,8 +24,6 @@ class AnAdminCanManageDevelopersTest extends TestCase
 
     public function test_an_admin_can_add_a_developer()
     {
-    	$this->signIn();
-
         $country = factory(App\Country::class)->create();
 
     	$this->visit('/dashboard/developers/create')
@@ -48,8 +43,6 @@ class AnAdminCanManageDevelopersTest extends TestCase
 
     public function test_an_admin_can_update_a_developer_information()
     {
-        $this->signIn();
-
         $uae = factory(App\Country::class)->create([
             'name'  => 'UAE'
         ]);
@@ -81,8 +74,6 @@ class AnAdminCanManageDevelopersTest extends TestCase
 
     public function test_an_admin_can_delete_a_developer()
     {
-        $this->signIn();
-
         $developer = factory(App\Developer::class)->create();
 
         $this->visit(sprintf('/dashboard/developers/%s', $developer->id))

@@ -8,6 +8,12 @@ class AnAdminCanManageProjectPhotosTest extends TestCase
 {
 	use DatabaseMigrations;
 
+    public function setUp()
+    {
+        parent::setUp();
+        $this->signIn();
+    }
+    
     public function test_an_admin_can_manage_project_photos()
     {
     	$this->assertTrue(true);

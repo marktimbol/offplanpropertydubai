@@ -8,18 +8,14 @@ class AnAdminCanManageProjectsPaymentPlanTest extends TestCase
 {
 	use DatabaseMigrations;
 
-	protected $user;
-
-	protected function signIn()
-	{
-    	$this->user = factory(App\User::class)->create();
-    	$this->actingAs($this->user);
-	}
-
+    public function setUp()
+    {
+        parent::setUp();
+        $this->signIn();
+    }
+    
     public function test_an_authenticated_user_can_manage_projects_payment_plan()
     {
-    	$this->signIn();
-
     	$developer = factory(App\Developer::class)->create([
     		'name'	=> 'Emaar',
     	]);
@@ -52,8 +48,6 @@ class AnAdminCanManageProjectsPaymentPlanTest extends TestCase
 
     public function test_an_authenticated_user_can_delete_payment_plan_from_project()
     {
-        $this->signIn();
-
         $developer = factory(App\Developer::class)->create([
             'name'  => 'Emaar',
         ]);

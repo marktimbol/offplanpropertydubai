@@ -8,18 +8,14 @@ class AnAdminCanManageProjectTypesTest extends TestCase
 {
 	use DatabaseMigrations;
 
-	protected $user;
-
-	protected function signIn()
-	{
-    	$this->user = factory(App\User::class)->create();
-    	$this->actingAs($this->user);
-	}
-
+    public function setUp()
+    {
+        parent::setUp();
+        $this->signIn();
+    }
+    
     public function test_an_admin_can_attach_type_to_a_project()
     {
-    	$this->signIn();
-
     	$developer = factory(App\Developer::class)->create();
     	$project = factory(App\Project::class)->make([
     		'developer_id'	=> $developer->id
@@ -40,8 +36,6 @@ class AnAdminCanManageProjectTypesTest extends TestCase
 
     public function test_an_admin_can_detach_type_to_a_project()
     {
-    	$this->signIn();
-
     	$developer = factory(App\Developer::class)->create();
     	$project = factory(App\Project::class)->make([
     		'developer_id'	=> $developer->id
