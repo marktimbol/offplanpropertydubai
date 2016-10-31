@@ -60,19 +60,13 @@
 				</form>
 
 				<p>&nbsp;</p>
-				<ul class="list-group">
-					<li class="list-group-item">
-						<strong>Recommended dimensions:</strong> 1366px &times; 769px
-					</li>
-					<li class="list-group-item">
-						<strong>Upload Format:</strong> (.jpg, .png) only
-					</li>
-					<li class="list-group-item">
-						<strong>Maximum file size:</strong> 200kb / upload
-					</li>
-				</ul>
 				<div class="alert alert-info">
-					<p>For now, the "Title" will be the filename of the image you will upload.</p>
+					<ul>
+						<li>Recommended dimensions: 1366px &times; 769px</li>
+						<li>Upload Format: Images (.jpg, .png) only</li>
+						<li>Maximum file size: 200kb / upload</li>
+						<li>For now, the "Title" will be the filename of the image you will upload.</li>
+					</ul>
 				</div>
 			</div>
 			<div class="modal-footer">

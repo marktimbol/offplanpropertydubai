@@ -42,7 +42,6 @@
 						</table>
 					</div>
 				</div>
-				<p>&nbsp;</p>
 				<h3>Add Video</h3>
 				<form 
 					method="POST" 
@@ -78,17 +77,13 @@
 				</form>
 
 				<p>&nbsp;</p>
-				<ul class="list-group">
-					<li class="list-group-item">
-						<strong>Video Cover recommended dimensions:</strong> 1366px &times; 769px
-					</li>
-					<li class="list-group-item">
-						<strong>Video Cover recommended file size:</strong> 200kb
-					</li>
-					<li class="list-group-item">
-						<strong>Video Link:</strong> .mp4 only
-					</li>
-				</ul>
+				<div class="alert alert-info">
+					<ul>
+						<li>Video Cover recommended dimensions: 1366px &times; 769px</li>
+						<li>Video Cover recommended file size: 200kb</li>
+						<li>Video Link: .mp4 only</li>
+					</ul>
+				</div>
 			</div>
 			<div class="modal-footer">
 				<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
