@@ -87,6 +87,23 @@
 						</ul>
 						{!! $project->description !!}
 					</div>
+
+					<div class="row">
+						<div class="col-md-12">
+							@if( count($project->payments) > 0 )
+								<h3>Payment Terms</h3>
+								<table class="table table-bordered">
+									@foreach( $project->payments as $plan )
+									<tr>
+										<td width="200">{{ $plan->title }}</td>
+										<td width="100">{{ $plan->percentage }}</td>
+										<td>{{ $plan->date }}</td>
+									</tr>
+									@endforeach
+								</table>
+							@endif
+						</div>
+					</div>
 				</div>
 				<div class="col-md-3">
 					<p>
@@ -196,23 +213,6 @@
 							</div>
 							@endforeach
 						</div>
-					@endif
-				</div>
-			</div>
-
-			<div class="row">
-				<div class="col-md-12">
-					@if( count($project->payments) > 0 )
-						<h3>Payment Terms</h3>
-						<table class="table table-bordered table-striped">
-							@foreach( $project->payments as $plan )
-							<tr>
-								<td width="200">{{ $plan->title }}</td>
-								<td width="100">{{ $plan->percentage }}</td>
-								<td>{{ $plan->date }}</td>
-							</tr>
-							@endforeach
-						</table>
 					@endif
 				</div>
 			</div>
