@@ -131,3 +131,13 @@ $factory->define(App\Video::class, function (Faker\Generator $faker) {
         'link' => $faker->url,
     ];
 });
+
+$factory->define(App\Floorplan::class, function (Faker\Generator $faker) {
+    return [
+        'project_id'  => function() {
+            return factory(App\Project::class)->create()->id;
+        },
+        'title' => $faker->sentence,
+        'photo' => $faker->url,
+    ];
+});

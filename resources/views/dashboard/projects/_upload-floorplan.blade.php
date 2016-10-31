@@ -19,23 +19,29 @@
 							</thead>
 							<tbody>
 								@foreach( $project->floorplans as $floorplan )
-									<?php 
-										$path = getPhotoPath($floorplan->photo);
-									?>
+									<?php $path = getPhotoPath($floorplan->photo); ?>
 									<tr>
 										<td>
-											<a href="{{ $path }}" target="_blank">
-												{{ $floorplan->title }}
-											</a>
+											<form method="POST" action="{{ route('dashboard.developers.projects.floorplans.update', [$developer->id, $project->id, $floorplan->id]) }}">
+												{{ csrf_field() }}
+												{{ method_field('PUT') }}
+												<div class="input-group">
+													<input type="text" name="title" value="{{ $floorplan->title }}" class="form-control" />
+													<div class="input-group-btn">
+														<button type="submit" class="btn btn-default">Update</button>
+													</div>
+												</div>
+											</form>
 										</td>
 										<td>
-											<form method="POST" action="{{ route('dashboard.developers.projects.floorplans.destroy', [
-												$developer->id, $project->id, $floorplan->id
-											]) }}">
+											<form 
+												method="POST" 
+												action="{{ route('dashboard.developers.projects.floorplans.destroy', [$developer->id, $project->id, $floorplan->id]) }}"
+											>
 												{{ csrf_field() }}
 												{!! method_field('DELETE') !!}
-												<a href="#" class="btn btn-link">
-													<i class="fa fa-pencil"></i>
+												<a href="{{ $path }}">
+													<i class="fa fa-eye"></i>
 												</a>
 												<button type="submit" class="btn btn-sm btn-link">
 													<i class="fa fa-remove"></i>

@@ -57,7 +57,7 @@ Route::group(['middleware' => 'auth', 'prefix' => 'dashboard', 'as' => 'dashboar
 		'only' => ['store', 'destroy']
 	]);
 	Route::resource('developers.projects.floorplans', 'Dashboard\ProjectFloorPlansController', [
-		'only' => ['store', 'destroy']
+		'only' => ['store', 'update', 'destroy']
 	]);
 	Route::resource('developers.projects.brochures', 'Dashboard\ProjectBrochuresController', [
 		'only' => ['store', 'update', 'destroy']

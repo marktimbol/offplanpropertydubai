@@ -188,7 +188,7 @@
 						<div class="Floorplans">
 							@foreach( $project->floorplans as $floorplan )
 							<div class="Floorplan">
-								<h4>{{ $floorplan->title }}</h4>
+								<h4 class="text-center">{{ $floorplan->title }}</h4>
 								<img src="{{ getPhotoPath($floorplan->photo) }}" 
 									alt="{{ $floorplan->title }}" 
 									title="{{ $floorplan->title }}" 

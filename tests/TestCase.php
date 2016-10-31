@@ -30,4 +30,19 @@ abstract class TestCase extends Illuminate\Foundation\Testing\TestCase
         $this->user = factory(App\User::class)->create();
         $this->actingAs($this->user);
     }
+
+    public function createDeveloper($attributes = [])
+    {
+        return factory(App\Developer::class)->create($attributes);
+    }
+
+    public function createProject($attributes = [])
+    {
+        return factory(App\Project::class)->create($attributes);
+    }
+
+    public function createFloorplan($attributes = [])
+    {
+        return factory(App\Floorplan::class)->create($attributes);
+    }
 }
