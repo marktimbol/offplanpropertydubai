@@ -35,12 +35,6 @@
                     <h3>Navigation</h3>
                     <ul class="list-group">
                         <a href="/dashboard" class="list-group-item">Home</a>
-<<<<<<< HEAD
-                        <a href="/dashboard/developers" class="list-group-item">Developers</a>
-                        <a href="/dashboard/inquiries" class="list-group-item">Inquiries</a>
-                        <a href="/dashboard/downloads" class="list-group-item">Downloads</a>
-                        <a href="/dashboard/countries" class="list-group-item">Countries</a>
-=======
                     </ul>
                     <ul class="list-group">
                         <a href="/dashboard/developers" class="list-group-item">Manage Developers</a>
@@ -60,7 +54,6 @@
                                      document.getElementById('logout-form').submit();">
                             Logout
                         </a>
->>>>>>> d442f8544cd7c633002271aa2830201155c4d758
                     </ul>
                 </aside>
             </div>

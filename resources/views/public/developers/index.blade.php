@@ -16,15 +16,15 @@
 				<div class="row">
 					@foreach( $developers as $developer )
 						<?php
-							$avatar = '/images/avatar.jpg';
+							$photo = '/images/no-developer-image.jpg';
 							if( $developer->photo !== '' ) {
-								$avatar = getPhotoPath($developer->photo);
+								$photo = getPhotoPath($developer->photo);
 							}
 						?>
 						<div class="DeveloperListing col-md-3">
 							<div class="DeveloperListing__image">
 								<a href="{{ route('developers.show', $developer->slug) }}">
-									<img src="/images/developers/developer.jpg" 
+									<img src="{{ $photo }}" 
 										alt="{{ $developer->name }}" 
 										title="{{ $developer->name }}" 
 										class="img-responsive" />

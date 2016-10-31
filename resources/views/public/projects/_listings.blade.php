@@ -5,7 +5,7 @@
 			if( $project->developer->photo != '' ) {
 				$avatar = getPhotoPath($project->developer->photo);
 			}
-			$path = '/images/projects/project.jpg';
+			$path = '/images/no-project-image.jpg';
 			if( $projectPhoto = $project->photos->first() ) {								
 				$path = getPhotoPath($projectPhoto->photo );
 			}

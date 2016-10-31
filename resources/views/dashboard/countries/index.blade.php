@@ -3,22 +3,6 @@
 @section('content')
 	<h1>Countries</h1>
 
-<<<<<<< HEAD
-	<table class="table table-bordered table-striped">
-		<thead>
-			<th>Name</th>
-			<th>&nbsp;</th>
-		</thead>
-		<tbody>
-			@foreach( $countries as $country )
-			<tr>
-				<td>{{ $country->name }}</td>
-				<td><a href="#" class="btn btn-default">Manage Cities</a></td>
-			</tr>
-			@endforeach
-		</tbody>
-	</table>
-=======
 	<div class="row">
 		<div class="col-md-4">
 			@include('dashboard.countries._create')
@@ -56,5 +40,4 @@
 			</table>
 		</div>
 	</div>
->>>>>>> d442f8544cd7c633002271aa2830201155c4d758
 @endsection

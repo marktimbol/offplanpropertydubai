@@ -43,12 +43,6 @@
 				</form>
 
 				<p>&nbsp;</p>
-<<<<<<< HEAD
-				<p>
-					Images / PDFs only<br />
-					Maximum file size: 2mb each
-				</p>
-=======
 				<ul class="list-group">
 					<li class="list-group-item">
 						<strong>Recommended dimensions:</strong> 1370 &times; 913px
@@ -60,7 +54,6 @@
 						<strong>Maximum file size:</strong> 200kb / upload
 					</li>
 				</ul>
->>>>>>> d442f8544cd7c633002271aa2830201155c4d758
 			</div>
 			<div class="modal-footer">
 				<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
