@@ -20,8 +20,8 @@ class ProjectsController extends Controller
     public function show($project)
     {    	
     	$project->load('developer', 'communities.city.country');
-        
-    	$logo = '/images/logo.png';
+    	$logo = '';
+
     	if( count($project->logo) > 0 ) {
     		$logo = getPhotoPath($project->logo->photo);
     	}
@@ -29,6 +29,7 @@ class ProjectsController extends Controller
     	JavaScript::put([
     		'latitude'	=> $project->latitude,
     		'longitude'	=> $project->longitude,
+            'videos'    => $project->videos->pluck('id')
     	]);
 
     	return view('public.projects.show', compact('project', 'logo'));

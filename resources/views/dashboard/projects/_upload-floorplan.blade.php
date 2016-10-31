@@ -29,7 +29,13 @@
 											</a>
 										</td>
 										<td>
+<<<<<<< HEAD
 											<form method="POST" action="#">
+=======
+											<form method="POST" action="{{ route('dashboard.developers.projects.floorplans.destroy', [
+												$developer->id, $project->id, $floorplan->id
+											]) }}">
+>>>>>>> d442f8544cd7c633002271aa2830201155c4d758
 												{{ csrf_field() }}
 												{!! method_field('DELETE') !!}
 												<a href="#" class="btn btn-link">
@@ -58,10 +64,27 @@
 				</form>
 
 				<p>&nbsp;</p>
+<<<<<<< HEAD
 				<p>
 					Images / PDFs only<br />
 					Maximum file size: 3mb each
 				</p>
+=======
+				<ul class="list-group">
+					<li class="list-group-item">
+						<strong>Recommended dimensions:</strong> 1366px &times; 769px
+					</li>
+					<li class="list-group-item">
+						<strong>Upload Format:</strong> (.jpg, .png) only
+					</li>
+					<li class="list-group-item">
+						<strong>Maximum file size:</strong> 200kb / upload
+					</li>
+				</ul>
+				<div class="alert alert-info">
+					<p>For now, the "Title" will be the filename of the image you will upload.</p>
+				</div>
+>>>>>>> d442f8544cd7c633002271aa2830201155c4d758
 			</div>
 			<div class="modal-footer">
 				<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>

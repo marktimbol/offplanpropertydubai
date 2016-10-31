@@ -14,9 +14,10 @@ class InquiriesController extends Controller
 {
     public function store(SendInquiryRequest $request, $project)
     {
-    	$inquiry = Inquiry::create($request->all());
-
     	$project->load('developer');
+        $request['project'] = $project->name;
+        $inquiry = Inquiry::create($request->all());
+
     	event( new UserInquiresAboutTheProject($inquiry, $project) );
     	
     	flash()->success('Your inquiry has been successfully submitted. We will get back to you soon. Thank you!');

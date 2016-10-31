@@ -22,16 +22,18 @@ class Project extends Model
         'description'
     ];
     
-    protected $with = ['logo', 'photos', 'floorplans', 'brochure', 'video', 'payments', 'types', 'communities'];
+    protected $with = [
+        'logo', 'photos', 'floorplans', 'brochure', 'videos', 'payments', 'types', 'communities'
+    ];
 
     public function getRouteKeyName() {
     	return 'slug';
     }
 
-    public function setTitleAttribute($title)
+    public function setNameAttribute($name)
     {
-    	$this->attributes['title'] = $title;
-    	$this->attributes['slug'] = str_slug($title);
+    	$this->attributes['name'] = $name;
+    	$this->attributes['slug'] = str_slug($name);
     }
 
     /**
@@ -80,9 +82,9 @@ class Project extends Model
         return $this->hasOne(Brochure::class);
     }
 
-    public function video()
+    public function videos()
     {
-        return $this->hasOne(Video::class);
+        return $this->hasMany(Video::class);
     }
 
     public function payments()

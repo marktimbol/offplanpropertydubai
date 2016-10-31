@@ -18,6 +18,7 @@ class CreateCommunitiesTable extends Migration
             $table->integer('city_id')->unsigned();
             $table->string('name');
             $table->string('slug');
+            $table->text('description')->nullable();
             $table->timestamps();
         });
     }

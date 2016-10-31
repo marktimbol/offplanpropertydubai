@@ -15,4 +15,24 @@ class CountriesController extends Controller
     	$countries = Country::orderBy('name', 'asc')->get();
     	return view('dashboard.countries.index', compact('countries'));
     }
+    
+    public function store(Request $request)
+    {
+        $this->validate($request, [
+            'name'  => 'required'
+        ]);
+        
+    	Country::create($request->all());
+
+    	flash()->success('Country has been successfully saved.');
+    	return back();
+    }
+
+    public function destroy($country)
+    {
+    	$country->delete();
+
+    	flash()->success('Country has been successfully removed.');
+    	return back();
+    }
 }

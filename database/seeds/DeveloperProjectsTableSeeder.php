@@ -30,7 +30,11 @@ class DeveloperProjectsTableSeeder extends Seeder
             'developer_id'  => $developer->id,
             'name'  => 'Villanova',
             'title' => 'First time Mediterranean styled "Cluster Homes" in Dubailand',
+<<<<<<< HEAD
             'slug'  => 'first-time-mediterranean-styled-cluster-homes-in-dubailand'
+=======
+            'slug'  => 'villanova'
+>>>>>>> d442f8544cd7c633002271aa2830201155c4d758
         ]);
 
         $project->searchable();

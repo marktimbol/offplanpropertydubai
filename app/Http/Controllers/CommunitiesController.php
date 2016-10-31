@@ -10,13 +10,14 @@ class CommunitiesController extends Controller
 {
     public function index()
     {
-    	$communities = Community::all();
+    	$communities = Community::take(10)->get();
     	return view('public.communities.index', compact('communities'));
     }
 
     public function show($community)
     {
-    	$community->load('projects');
-    	return view('public.communities.show', compact('community'));
+        $community->load('projects');
+        
+        return view('public.communities.show', compact('community'));
     }
 }

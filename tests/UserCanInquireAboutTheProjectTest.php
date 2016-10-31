@@ -14,7 +14,8 @@ class UserCanInquireAboutTheProjectTest extends TestCase
         $this->expectsEvents(UserInquiresAboutTheProject::class);
 
     	$project = factory(App\Project::class)->create([
-    		'name'	=> 'Villa Nova'
+    		'name'	=> 'Villanova',
+            'slug'  => 'villanova'
     	]);
 
         $endpoint = sprintf('/projects/%s/inquiries', $project->slug);
@@ -33,6 +34,7 @@ class UserCanInquireAboutTheProjectTest extends TestCase
 			'email'	=> 'john@example.com',
 			'phone'	=> '0563759865',
             'iam'   => 'Investor',
+            'project'   => 'Villanova',
 			'country'	=> 'United Arab Emirates',
 			'message'	=> 'The Message'
 		]);
@@ -45,8 +47,7 @@ class UserCanInquireAboutTheProjectTest extends TestCase
     	]);
 
     	$this->visit(sprintf('/projects/%s', $project->slug))
-            ->press('Send Message')
-
+            ->press('Send Inquiry')
             ->see('The name field is required.')
             ->see('The email field is required.')
             ->see('The phone field is required.')

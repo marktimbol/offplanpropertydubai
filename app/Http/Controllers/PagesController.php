@@ -15,4 +15,9 @@ class PagesController extends Controller
 
     	return view('public.home', compact('projects'));
     }
+    
+    public function contact()
+    {
+    	return view('public.contact');	
+    }
 }

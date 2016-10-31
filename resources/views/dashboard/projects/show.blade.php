@@ -29,7 +29,7 @@
 					action="{{ route('dashboard.developers.projects.logos.store', [
 						$developer->id, $project->id
 					]) }}"
-					class="dropzone" 
+					class="dropzone Flex Flex--center" 
 					id="UploadProjectLogo"
 				>
 					{{ csrf_field() }}

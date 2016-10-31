@@ -50,6 +50,7 @@ $factory->define(App\Community::class, function (Faker\Generator $faker) {
         },
         'name' => $faker->city,
         'slug'  => $faker->slug,
+        'description'  => $faker->paragraph,
     ];
 });
 
@@ -67,15 +68,15 @@ $factory->define(App\Developer::class, function (Faker\Generator $faker) {
 });
 
 $factory->define(App\Project::class, function (Faker\Generator $faker) {
-    $title = $faker->sentence;
-    $slug = str_slug($title);
+    $name = $faker->sentence;
+    $slug = str_slug($name);
 
     return [
         'developer_id'  => function() {
             return factory(App\Developer::class)->create()->id;
         },
-        'name' => $faker->word,
-        'title' => $title,
+        'name' => $name,
+        'title' => $faker->sentence,
         'slug' => $slug,
         'latitude'  => $faker->latitude,
         'longitude' => $faker->longitude,
@@ -118,5 +119,15 @@ $factory->define(App\Brochure::class, function (Faker\Generator $faker) {
             return factory(App\Project::class)->create()->id;
         },
         'file' => $faker->url,
+    ];
+});
+
+$factory->define(App\Video::class, function (Faker\Generator $faker) {
+    return [
+        'project_id'  => function() {
+            return factory(App\Project::class)->create()->id;
+        },
+        'cover' => $faker->url,
+        'link' => $faker->url,
     ];
 });

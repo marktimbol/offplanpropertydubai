@@ -26,4 +26,15 @@ $(document).ready(function() {
 	$('.prev').click(function() {
 		projectCarousel.trigger('owl.prev');
 	});
+<<<<<<< HEAD
+=======
+
+	var projectVideos = $('.Project__videos');
+	projectVideos.owlCarousel({
+		singleItem: true,
+		navigation: false, 
+		pagination: false,
+		autoPlay: false
+	});
+>>>>>>> d442f8544cd7c633002271aa2830201155c4d758
 });

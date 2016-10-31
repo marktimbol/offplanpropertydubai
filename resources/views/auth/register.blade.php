@@ -8,6 +8,8 @@
             <div class="col-md-8 col-md-offset-2">
                 <div class="panel panel-default">
                     <div class="panel-heading">Register</div>
+                    <?php /*
+>>>>>>> d442f8544cd7c633002271aa2830201155c4d758
                     <div class="panel-body">
                         <form class="form-horizontal" role="form" method="POST" action="{{ url('/register') }}">
                             {{ csrf_field() }}
@@ -77,6 +79,7 @@
                             </div>
                         </form>
                     </div>
+                    */ ?>
                 </div>
             </div>
         </div>

@@ -56,7 +56,7 @@ return [
     */
 
     'from' => [
-        'address' => 'info@pcasa.ae',
+        'address' => env('MAIL_FROM', 'info@pcasa.ae'),
         'name' => config('app.name'),
     ],
 

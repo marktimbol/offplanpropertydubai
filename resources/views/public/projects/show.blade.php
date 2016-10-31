@@ -12,6 +12,11 @@
 @section('content')
 	<div class="Project">
 		<div class="Project__carousel--container">
+			@if( $logo !== '' )
+				<div class="Project__logo--container">
+					<img src="{{ $logo }}" alt="{{ $project->title }}" title="{{ $project->title }}" class="img-responsive" />
+				</div>
+			@endif
 			<div class="Project__carousel">
 				@forelse($project->photos as $photo)
 					<div>
@@ -24,13 +29,9 @@
 					<div>
 						<img src="/images/header-bg.jpg" alt="" title="" />
 					</div>		
-					<div>
-						<img src="/images/header-bg.jpg" alt="" title="" />
-					</div>				
 				@endforelse
 			</div>
 			<div class="Project__carousel__content--container Flex Flex--center Flex--column">
-{{-- 				<img src="{{ $logo }}" alt="{{ $project->title }}" title="{{ $project->title }}" class="img-responsive" /> --}}
 				<h2>
 					{{ $project->title }}
 					<small>by {{ $project->developer->name }}</small>
@@ -50,7 +51,7 @@
 			<div class="row">
 				<div class="col-md-9">
 					<h1 class="Project__title">
-						{{ $project->title }}
+						{{ $project->name }}
 					</h1>
 					<div class="Project__description">
 						<ul class="list-group">
@@ -89,52 +90,101 @@
 				</div>
 				<div class="col-md-3">
 					<p>
-						<button class="btn btn-block btn-primary" data-toggle="modal" data-target="#RegisterYourInterestForm">
-							Register your Interest
-						</button>
 						@if( count($project->brochure) > 0 )
-							<button class="btn btn-block btn-default" data-toggle="modal" data-target="#DownloadBrochureForm">
-								Download Brochure
+							<button class="btn btn-block btn-lg btn-success" data-toggle="modal" data-target="#DownloadBrochureForm">
+								<i class="fa fa-cloud-download"></i> &nbsp; Download Brochure
 							</button>
-						@else
-							@if( auth()->check() )
-								<a href="{{ route('dashboard.developers.projects.show', [$project->developer->id, $project->id]) }}" 
-									class="btn btn-block btn-default"
-								>
-									<i class="fa fa-plus"></i> Add Project Brochure
-								</a>
-							@endif
 						@endif
 					</p>
+					<h3>Register your Interest</h3>
+					<form method="POST" action="{{ route('projects.inquiries.store', $project->slug) }}">
+						{{ csrf_field() }}
+						<div class="form-group {{ $errors->has('name') ? 'has-error' : '' }}">
+							<label for="name">Name *</label>
+							<input type="text" name="name" id="name" class="form-control" value="{{ old('name') }}" required/>
+							@if( $errors->has('name') )
+								<span class="help-block">
+									<strong>{{ $errors->first('name') }}</strong>
+								</span>
+							@endif
+						</div>
+						<div class="form-group {{ $errors->has('email') ? 'has-error' : '' }}">
+							<label for="email">eMail *</label>
+							<input type="email" name="email" id="email" class="form-control" value="{{ old('email') }}" required />
+							@if( $errors->has('email') )
+								<span class="help-block">
+									<strong>{{ $errors->first('email') }}</strong>
+								</span>
+							@endif
+						</div>
+						<div class="form-group {{ $errors->has('phone') ? 'has-error' : '' }}">
+							<label for="phone">Phone *</label>
+							<input type="text" name="phone" id="phone" class="form-control" value="{{ old('phone') }}" required />
+							@if( $errors->has('phone') )
+								<span class="help-block">
+									<strong>{{ $errors->first('phone') }}</strong>
+								</span>
+							@endif
+						</div>
+						<div class="form-group">
+							<label for="iam">I Am:</label>
+							<select name="iam" class="form-control">
+								<option value=""></option>
+								<option value="Investor">Investor</option>
+								<option value="Agent">Agent</option>
+								<option value="Guest">Guest</option>
+							</select>
+						</div>
+						<div class="form-group">
+							<label for="country">Country</label>
+							<input type="text" name="country" id="country" class="form-control" value="{{ old('country') }}" required />
+						</div>
+						<div class="form-group">
+							<label for="message">Message</label>
+							<textarea name="message" id="message" class="form-control">
+								{{ old('message') }}
+							</textarea>
+						</div>
+						<div class="form-group">
+							<button type="submit" class="btn btn-primary">
+								Send Inquiry
+							</button>
+						</div>
+					</form>
 				</div>
 			</div>
 		</div>
 
-		<div class="Project__video--container">
-			<video id="Project__video" 
-				class="video-js" 
-				controls muted 
-				preload="auto"
-				poster="/images/header-bg.jpg"
-			>
-				<source src="http://vjs.zencdn.net/v/oceans.mp4" type='video/mp4'>
-				<p class="vjs-no-js">
-					To view this video please enable JavaScript, and consider upgrading to a web browser that
-					<a href="http://videojs.com/html5-video-support/" target="_blank">supports HTML5 video</a>
-				</p>
-			</video>
-			<button class="btn btn-link PlayButton">
-				<div class="play-video-icon Flex Flex--center">
-					<span></span>
-				</div>
-			</button>
-		</div>
-
+		@if( count($project->videos) > 0 )
+			<div class="Project__videos--container">
+				<?php
+					$video = $project->videos()->first();
+				?>
+				<video id="Project__video"
+					class="video-js" 
+					controls muted 
+					preload="auto"
+					poster="{{ $video->cover }}"
+				>
+					<source src="{{ $video->link }}" type='video/mp4'>
+					<p class="vjs-no-js">
+						To view this video please enable JavaScript, and consider upgrading to a web browser that
+						<a href="http://videojs.com/html5-video-support/" target="_blank">supports HTML5 video</a>
+					</p>
+				</video>
+				<button class="btn btn-link PlayButton">
+					<div class="play-video-icon Flex Flex--center">
+						<span></span>
+					</div>
+				</button>
+			</div>
+		@endif
+		
 		<div class="container">
 			<div class="row">
 				<div class="col-md-12">
-					<h3>Floor Plan</h3>
 					@if( count($project->floorplans) > 0 )
+						<h3>Floor Plan</h3>
 						<div class="Floorplans">
 							@foreach( $project->floorplans as $floorplan )
 							<div class="Floorplan">
@@ -146,25 +196,14 @@
 							</div>
 							@endforeach
 						</div>
-					@else
-						<p class="lead">
-							No uploaded floor plan yet.
-							@if( auth()->check() )
-								<a class="btn btn-sm btn-default" 
-									href="{{ route('dashboard.developers.projects.show', [$project->developer->id, $project->id]) }}"
-								>
-									<i class="fa fa-plus"></i> Upload Floor Plan
-								</a>
-							@endif
-						</p>
 					@endif
 				</div>
 			</div>
 
 			<div class="row">
 				<div class="col-md-12">
-					<h3>Payment Terms</h3>
 					@if( count($project->payments) > 0 )
+						<h3>Payment Terms</h3>
 						<table class="table table-bordered table-striped">
 							@foreach( $project->payments as $plan )
 							<tr>
@@ -174,16 +213,6 @@
 							</tr>
 							@endforeach
 						</table>
-					@else
-						<p class="lead">No payment plan specified yet.
-							@if( auth()->check() )
-								<a class="btn btn-sm btn-default" 
-									href="{{ route('dashboard.developers.projects.show', [$project->developer->id, $project->id]) }}"
-								>
-									<i class="fa fa-plus"></i> Add Payment Plan
-								</a>
-							@endif
-						</p>
 					@endif
 				</div>
 			</div>
@@ -219,7 +248,6 @@
 		</div>
 	</section>
 
-	@include('public.projects._register-your-interest')
 	@include('public.projects._download-brochure')
 	
 @endsection

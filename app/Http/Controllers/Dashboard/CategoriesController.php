@@ -11,11 +11,28 @@ class CategoriesController extends Controller
 {
     public function index()
     {
-    	return Category::all();
+    	$categories = Category::latest()->get();
+    	return view('dashboard.categories.index', compact('categories'));
+    }
+
+    public function store(Request $request)
+    {
+    	Category::create($request->all());
+
+    	flash()->success($request->name .' has been successfully saved.');
+    	return back();
     }
 
     public function show($category)
     {
     	return $category;
+    }
+
+    public function destroy($category)
+    {
+        $category->delete();
+
+        flash()->success('Category has been successfully removed.');
+        return back(); 
     }
 }

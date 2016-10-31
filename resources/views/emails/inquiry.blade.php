@@ -1,10 +1,21 @@
 @extends('emails.default')
 
 @section('content')
+<<<<<<< HEAD
 	<h3>Project Inquiry</h3>
 
 	<table class="table table-bordered">
 		<tr>
+=======
+	<h3>Off Plan Project Inquiry</h3>
+
+	<table class="table table-bordered">
+		<tr>
+			<td>I Am:</td>
+			<td>{{ $inquiry->iam }}</td>
+		</tr>
+		<tr>
+>>>>>>> d442f8544cd7c633002271aa2830201155c4d758
 			<td width="100">Name:</td>
 			<td>{{ $inquiry->name }}</td>
 		</tr>
@@ -17,8 +28,13 @@
 			<td>{{ $inquiry->phone }}</td>
 		</tr>
 		<tr>
+<<<<<<< HEAD
 			<td>I Am:</td>
 			<td>{{ $inquiry->iam }}</td>
+=======
+			<td>Interested In:</td>
+			<td>{{ $inquiry->project }}</td>
+>>>>>>> d442f8544cd7c633002271aa2830201155c4d758
 		</tr>
 		<tr>
 			<td>Country:</td>

@@ -35,7 +35,12 @@ class ProjectInquiry extends Mailable
      */
     public function build()
     {
+        $subject = sprintf('Off Plan Property Inquiry: %s by %s', 
+                        $this->project->name, 
+                        $this->project->developer->name
+                    );
+        
         return $this->view('emails.inquiry')
-                    ->subject(sprintf('Off Plan Property Inquiry: %s by %s', $this->project->name, $this->project->developer->name));
+                    ->subject($subject);
     }
 }

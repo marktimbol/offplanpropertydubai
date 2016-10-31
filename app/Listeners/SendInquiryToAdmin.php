@@ -18,6 +18,8 @@ class SendInquiryToAdmin
      */
     public function handle(UserInquiresAboutTheProject $event)
     {
-        Mail::to('mark.timbol@hotmail.com')->send(new ProjectInquiry($event->inquiry, $event->project));
+        $to = config('mail.from.address');
+        Mail::to($to)
+            ->send(new ProjectInquiry($event->inquiry, $event->project));
     }
 }

@@ -28,7 +28,7 @@ return [
     |
     */
 
-    'prefix' => env('SCOUT_PREFIX', 'offplan_'),
+    'prefix' => env('SCOUT_PREFIX'),
 
     /*
     |--------------------------------------------------------------------------

@@ -26,8 +26,17 @@ class ProjectFloorPlansController extends Controller
     	}
     }
 
+<<<<<<< HEAD
     public function destroy()
     {
 
+=======
+    public function destroy($developer, $project, $floorplan)
+    {
+        $floorplan->delete();
+
+        flash()->success('Floorplan has been successfully removed.');
+        return back();
+>>>>>>> d442f8544cd7c633002271aa2830201155c4d758
     }
 }

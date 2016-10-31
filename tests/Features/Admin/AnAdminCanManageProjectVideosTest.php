@@ -23,9 +23,30 @@ class AnAdminCanManageProjectVideosTest extends TestCase
 
     	$this->seeInDatabase('videos', [
     		'project_id'	=> $project->id,
+            'cover' => 'http://offplanpropertydubai.dev/images/header-bg.jpg',
     		'link'	=> 'http://vjs.zencdn.net/v/oceans.mp4',
-    		'cover'	=> 'http://offplanpropertydubai.dev/images/header-bg.jpg',
     	]);
+    }
 
+    public function test_an_admin_can_remove_video_link_from_a_project()
+    {
+        $user = factory(App\User::class)->create();
+        $this->actingAs($user);
+
+        $project = factory(App\Project::class)->create();
+        $video = factory(App\Video::class)->create([
+            'project_id'    => $project->id,
+            'cover' => 'http://google.com/header-bg.jpg',
+            'link'  => 'http://google.com/header-bg.mp4'
+        ]);
+
+        $endpoint = sprintf('/dashboard/developers/%s/projects/%s/videos/%s', $project->developer->id, $project->id, $video->id);
+        $this->delete($endpoint);
+
+        $this->dontSeeInDatabase('videos', [
+            'project_id'    => $project->id,
+            'cover' => 'http://google.com/header-bg.jpg',
+            'link'  => 'http://google.com/header-bg.mp4',
+        ]);
     }
 }

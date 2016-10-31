@@ -87,8 +87,7 @@ class AnAdminCanManageDevelopersTest extends TestCase
 
         $this->visit(sprintf('/dashboard/developers/%s', $developer->id))
             ->see($developer->name)
-            ->press('Delete')
-
+            ->press('Delete Developer')
             ->dontSeeInDatabase('developers', [
                 'id'    => $developer->id
             ]);

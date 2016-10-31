@@ -8,10 +8,13 @@ use App\City;
 use App\Community;
 use App\Country;
 use App\Developer;
+use App\Floorplan;
 use App\Payment;
 use App\Photo;
 use App\Project;
 use App\Type;
+use App\Video;
+
 use Illuminate\Foundation\Support\Providers\RouteServiceProvider as ServiceProvider;
 use Illuminate\Support\Facades\Route;
 
@@ -35,26 +38,29 @@ class RouteServiceProvider extends ServiceProvider
     {
         parent::boot();
 
-        $this->bind('developer',function($key) {
+        $this->bind('developer',function($id) {
             if ($this->getCurrentRoute()->getPrefix() === '/dashboard') {
-                return Developer::findOrFail($key);
+                return Developer::findOrFail($id);
             }
-            return Developer::whereSlug($key)->first();
+            return Developer::whereSlug($id)->first();
         });
 
-        $this->bind('project',function($key) {
+        $this->bind('project',function($id) {
             if ($this->getCurrentRoute()->getPrefix() === '/dashboard') {
-                return Project::findOrFail($key);
+                return Project::findOrFail($id);
             }
-            return Project::whereSlug($key)->first();
+            return Project::whereSlug($id)->first();
         });
 
-        $this->bind('community', function($slug) {
-            return Community::whereSlug($slug)->first();
+        $this->bind('community',function($id) {
+            if ($this->getCurrentRoute()->getPrefix() === '/dashboard') {
+                return Community::findOrFail($id);
+            }
+            return Community::whereSlug($id)->first();
         });
 
-        $this->bind('photo', function($key) {
-            return Photo::findOrFail($key);
+        $this->bind('photo', function($id) {
+            return Photo::findOrFail($id);
         });
 
         $this->bind('category', function($id) {
@@ -73,12 +79,20 @@ class RouteServiceProvider extends ServiceProvider
             return Brochure::findOrFail($id);
         });
 
+        $this->bind('video', function($id) {
+            return Video::findOrFail($id);
+        });
+
         $this->bind('country', function($id) {
             return Country::findOrFail($id);
         });
 
         $this->bind('city', function($id) {
             return City::findOrFail($id);
+        });
+        
+        $this->bind('floorplan', function($id) {
+            return Floorplan::findOrFail($id);
         });
     }
 

@@ -1,9 +1,5 @@
 
 <?php
-
-use App\Developer;
-use App\Project;
-
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -16,6 +12,11 @@ use App\Project;
 */
 
 Route::get('/', ['as' => 'home', 'uses' => 'PagesController@home']);
+
+Route::get('/contact', ['as' => 'contact', 'uses' => 'PagesController@contact']);
+Route::resource('contact', 'ContactsController', [
+	'only'	=> ['store']
+]);
 
 Route::get('/search', ['as' => 'search', 'uses' => 'SearchController@index']);
 
@@ -38,7 +39,10 @@ Route::group(['middleware' => 'auth', 'prefix' => 'dashboard', 'as' => 'dashboar
 	Route::get('/', ['as' => 'dashboard', 'uses' => 'DashboardController@index']);
 	Route::resource('inquiries', 'Dashboard\InquiriesController');
 	Route::resource('downloads', 'Dashboard\DownloadsController');
+	Route::resource('contacts', 'Dashboard\ContactsController');
 	Route::resource('countries', 'Dashboard\CountriesController');
+	Route::resource('countries.cities', 'Dashboard\CitiesController');
+	Route::resource('cities.communities', 'Dashboard\CommunitiesController');
 	Route::resource('developers', 'Dashboard\DevelopersController');
 	Route::resource('developers.projects', 'Dashboard\DeveloperProjectsController');
 	Route::resource('developers.projects.payments', 'Dashboard\ProjectPaymentsController');
@@ -60,4 +64,5 @@ Route::group(['middleware' => 'auth', 'prefix' => 'dashboard', 'as' => 'dashboar
 	]);
 	Route::resource('developers.photos', 'Dashboard\DeveloperPhotosController');
 	Route::resource('categories', 'Dashboard\CategoriesController');
+	Route::resource('categories.types', 'Dashboard\CategoryTypesController');
 });

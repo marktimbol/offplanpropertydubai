@@ -32,6 +32,16 @@
     justify-content: space-between;
 }
 
+<<<<<<< HEAD
+=======
+.Project__logo--container {
+	position: absolute;
+	top: 20px;
+	left: 50px;
+	z-index: 9999;
+}
+
+>>>>>>> d442f8544cd7c633002271aa2830201155c4d758
 .Project__carousel__content--container {
 	width: 100%;
 	position: absolute;
@@ -103,9 +113,15 @@
 	}
 }
 
+<<<<<<< HEAD
 .Project__video--container {
 	height: 450px;
 	background: #ddd;
+=======
+.Project__videos--container {
+	height: 450px;
+	// background: #ddd;
+>>>>>>> d442f8544cd7c633002271aa2830201155c4d758
 	margin: 40px 0px;
 	display: flex;
 	align-items: center;

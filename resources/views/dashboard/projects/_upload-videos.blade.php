@@ -13,19 +13,18 @@
 						<table class="table table-bordered">
 							<thead>
 								<tr>
-									<th>ID</th>
 									<th>Cover</th>
 									<th>Link</th>
 									<th>&nbsp;</th>
 								</tr>
 							</thead>
 							<tbody>
-								@if( count($project->video) > 0 )
+								@forelse( $project->videos as $video )
 									<tr>
-										<td>{{ $project->video->cover }}</td>
-										<td>{{ $project->video->link }}</td>
+										<td>{{ $video->cover }}</td>
+										<td>{{ $video->link }}</td>
 										<td>
-											<form method="POST" action="{{ route('dashboard.developers.projects.videos.destroy', [$developer->id, $project->id, $project->video->id]) }}">
+											<form method="POST" action="{{ route('dashboard.developers.projects.videos.destroy', [$developer->id, $project->id, $video->id]) }}">
 												{{ csrf_field() }}
 												{!! method_field('DELETE') !!}
 												<button type="submit" class="btn btn-sm btn-link">
@@ -34,7 +33,11 @@
 											</form>
 										</td>
 									</tr>
-								@endif
+								@empty
+									<tr>
+										<td colspan="3">No video yet.</td>
+									</tr>
+								@endforelse
 							</tbody>
 						</table>
 					</div>
@@ -50,25 +53,41 @@
 
 					<div class="form-group">
 						<label for="cover">Video Cover</label>
-						<input type="text" name="cover" id="cover" class="form-control" value="{{ old('cover') }}" />
+						<input type="text" 
+							name="cover" 
+							id="cover" 
+							class="form-control" 
+							value="{{ old('cover') }}"
+							placeholder="Image path. Should be .jpg format" />
 					</div>
 
 					<div class="form-group">
 						<label for="link">Video Link</label>
-						<input type="text" name="link" id="link" class="form-control" value="{{ old('link') }}" />
+						<input type="text" 
+							name="link" 
+							id="link" 
+							class="form-control" 
+							value="{{ old('link') }}"
+							placeholder="Video path. Should be mp4 format." />
 					</div>
 
 					<div class="form-group">
 						<button type="submit" class="btn btn-primary">Save Video</button>
 					</div>
-
 				</form>
 
 				<p>&nbsp;</p>
-				<p>
-					Images / PDFs only<br />
-					Maximum file size: 2mb each
-				</p>
+				<ul class="list-group">
+					<li class="list-group-item">
+						<strong>Video Cover recommended dimensions:</strong> 1366px &times; 769px
+					</li>
+					<li class="list-group-item">
+						<strong>Video Cover recommended file size:</strong> 200kb
+					</li>
+					<li class="list-group-item">
+						<strong>Video Link:</strong> .mp4 only
+					</li>
+				</ul>
 			</div>
 			<div class="modal-footer">
 				<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>

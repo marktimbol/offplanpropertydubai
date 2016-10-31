@@ -18,6 +18,11 @@ class SendBrochureLinkToUser
      */
     public function handle(UserDownloadedAProjectBrochure $event)
     {
+<<<<<<< HEAD
         Mail::to($event->user)->send(new DownloadBrochureInquiry($event->user, $event->project));
+=======
+        Mail::to($event->user)
+            ->send(new DownloadBrochureInquiry($event->user, $event->project));
+>>>>>>> d442f8544cd7c633002271aa2830201155c4d758
     }
 }

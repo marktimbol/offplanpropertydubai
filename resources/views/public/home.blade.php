@@ -12,6 +12,7 @@
 
 	<div class="Slide Flex Flex--center">
 		<div class="Slide__content">
+			<img src="/images/logo.png" alt="{{ config('app.name') }}" title="{{ config('app.name') }}" class="img-responsive" />
 			<form method="GET" action="{{ route('search') }}" class="Search">
 				<input type="text" 
 					name="query" 
@@ -40,18 +41,20 @@
 		</div>
 	</section>
 
-	<section class="ProjectListings--container is-gray-bg">
-		<div class="container">
-			<div class="row">
-				<div class="col-md-12">
-					<h3 class="Section__title text-center">Latest Off Plan Projects</h3>
-					@include('public.projects._listings', [
-						'projects' => $projects
-					])
+	@if( count($projects) > 0 )
+		<section class="ProjectListings--container is-gray-bg">
+			<div class="container">
+				<div class="row">
+					<div class="col-md-12">
+						<h3 class="Section__title text-center">Latest Off Plan Projects</h3>
+						@include('public.projects._listings', [
+							'projects' => $projects
+						])
+					</div>
 				</div>
 			</div>
-		</div>
-	</section>
+		</section>
+	@endif
 
 	<section class="CommunityListings--container">
 		<div class="container">
@@ -66,7 +69,7 @@
 					<div class="CommunityListings">
 						<div class="Row">
 							<div class="CommunityListing Column-6 full-height downtown-dubai-community">
-								<a href="#"></a>
+								<a href="{{ route('communities.show', 'downtown-dubai') }}"></a>
 								<div class="CommunityListing__content">
 									<p>Downtown Dubai</p>
 								</div>
@@ -88,13 +91,13 @@
 								</div>
 								<div class="Row">
 									<div class="CommunityListing Column-6 jumeirah-lakes-towers-community">
-										<a href="#"></a>
+										<a href="{{ route('communities.show', 'jumeirah-lakes-towers') }}"></a>
 										<div class="CommunityListing__content">
 											<p>Jumeirah Lakes Towers</p>
 										</div>
 									</div>
 									<div class="CommunityListing Column-6 sheikh-zayed-road-community">
-										<a href="#"></a>
+										<a href="{{ route('communities.show', 'sheikh-zayed-road') }}"></a>
 										<div class="CommunityListing__content">
 											<p>Sheikh Zayed Road</p>
 										</div>
@@ -104,13 +107,13 @@
 						</div>
 						<div class="Row">
 							<div class="CommunityListing Column-6 business-bay-community">
-								<a href="#"></a>
+								<a href="{{ route('communities.show', 'business-bay') }}"></a>
 								<div class="CommunityListing__content">
 									<p>Business Bay</p>
 								</div>
 							</div>
 							<div class="CommunityListing Column-6 palm-jumeirah-community">
-								<a href="#"></a>
+								<a href="{{ route('communities.show', 'palm-jumeirah') }}"></a>
 								<div class="CommunityListing__content">
 									<p>Palm Jumeirah</p>
 								</div>
