@@ -56,44 +56,6 @@
 			</div>
 		</div>
 
-		<h3>Location</h3>
-
-		<div class="row">
-			<div class="col-md-4">
-				<div class="form-group {{ $errors->has('country') ? 'has-error' : '' }}">
-					<label for="country" class="control-label">Country*</label>
-					<input type="text" name="country" id="country" class="form-control" value="{{ $project->country }}" />
-					@if( $errors->has('country') )
-						<span class="help-block">
-							{{ $errors->first('country') }}
-						</span>
-					@endif
-				</div>
-			</div>
-			<div class="col-md-4">
-				<div class="form-group {{ $errors->has('city') ? 'has-error' : '' }}">
-					<label for="city" class="control-label">City*</label>
-					<input type="text" name="city" id="city" class="form-control" value="{{ $project->city }}" />
-					@if( $errors->has('city') )
-						<span class="help-block">
-							{{ $errors->first('city') }}
-						</span>
-					@endif
-				</div>
-			</div>
-			<div class="col-md-4">
-				<div class="form-group {{ $errors->has('community') ? 'has-error' : '' }}">
-					<label for="community" class="control-label">Community*</label>
-					<input type="text" name="community" id="community" class="form-control" value="{{ $project->community }}" />
-					@if( $errors->has('community') )
-						<span class="help-block">
-							{{ $errors->first('community') }}
-						</span>
-					@endif
-				</div>
-			</div>
-		</div>
-
 		<h3>Google Map</h3>
 
 		<div class="row">

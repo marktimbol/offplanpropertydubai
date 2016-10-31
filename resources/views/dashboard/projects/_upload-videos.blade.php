@@ -43,6 +43,7 @@
 					</div>
 				</div>
 				<p>&nbsp;</p>
+				<h3>Add Video</h3>
 				<form 
 					method="POST" 
 					action="{{ route('dashboard.developers.projects.videos.store', [
