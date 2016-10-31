@@ -3,17 +3,16 @@
 @section('pageTitle', 'Communities')
 
 @section('content')
+	<div class="Communities">
+		<div class="Communities__bg Flex Flex--center Flex--column">
+			<h1 class="Communities__title is-white">Communities</h1>
+			<p class="lead text-center is-white">
+				Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+			</p>
+		</div>
+	</div>
 	<div class="container">
 		<div class="row">
-			<div class="col-md-12">
-				<h1>Communities</h1>
-				<p class="lead">
-					Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-					tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-					quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-				</p>
-			</div>
-
 			<div class="col-md-12">
 				<div class="Communities">
 					@foreach( $communities as $community )

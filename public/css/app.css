@@ -8686,6 +8686,9 @@ body {
   background: white;
   font-family: 'Lato', sans-serif; }
 
+.is-white {
+  color: white; }
+
 .is-gray-bg {
   background: #EDEFED; }
 
@@ -9110,6 +9113,11 @@ footer {
 
 .Communities .ProjectListings {
   padding: 10px 0px !important; }
+
+.Communities__bg {
+  height: 500px;
+  background: url("/images/community-bg.jpg") no-repeat;
+  padding: 0 50px; }
 
 .dubai-marina-community {
   background: url("/images/communities/dubai-marina.jpg") no-repeat;
