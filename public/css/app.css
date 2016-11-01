@@ -9107,6 +9107,8 @@ footer {
 
 .Developer__image {
   margin-right: 30px; }
+  .Developer__image img {
+    border: 1px solid #ddd; }
 
 .Developer__info {
   margin-top: 30px; }
