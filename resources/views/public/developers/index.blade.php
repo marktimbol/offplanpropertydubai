@@ -17,7 +17,7 @@
 					@foreach( $developers as $developer )
 						<?php
 							$photo = '/images/no-developer-image.jpg';
-							if( $developer->photo !== '' ) {
+							if( $developer->photo != '' ) {
 								$photo = getPhotoPath($developer->photo);
 							}
 						?>
