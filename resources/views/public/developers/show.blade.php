@@ -21,14 +21,6 @@
 							alt="{{ $developer->name }}" 
 							title="{{ $developer->name }}" 
 							class="img-responsive" />
-
-						<div class="Developer__info">
-							<p>
-								<a href="{{ $developer->website }}" class="btn btn-lg btn-block btn-default" target="_blank">
-									Visit Website <i class="fa fa-external-link"></i>
-								</a>
-							</p>
-						</div>
 					</div>
 					<div class="Developer__description Column-8">
 						{!! $developer->profile !!}
