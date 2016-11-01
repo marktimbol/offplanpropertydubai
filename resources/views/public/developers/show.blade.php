@@ -1,3 +1,5 @@
+
+
 @extends('layouts.app')
 
 @section('pageTitle', $developer->name)
@@ -9,15 +11,16 @@
 				<h1 class="Developer__title">{{ $developer->name }}</h1>
 				<div class="Flex">
 					<div class="Developer__image Column-4">
-						<?php
-							$path = getPhotoPath($developer->photo);
+						<?php 
+							$path = '/images/no-developer-image.jpg';
+							if( $developer->photo != '' ) {
+								$path = getPhotoPath($developer->photo);
+							}
 						?>
-						@if( $developer->photo != '' )
-							<img src="{{ $path }}" 
-								alt="{{ $developer->name }}" 
-								title="{{ $developer->name }}" 
-								class="img-responsive" />
-						@endif
+						<img src="{{ $path }}" 
+							alt="{{ $developer->name }}" 
+							title="{{ $developer->name }}" 
+							class="img-responsive" />
 
 						<div class="Developer__info">
 							<p>
