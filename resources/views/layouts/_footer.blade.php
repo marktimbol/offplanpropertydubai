@@ -8,7 +8,7 @@
 					<div class="DeveloperListings Carousel">
 						@foreach( $developers as $developer )
 						<?php 
-							$path = '/images/developers/developer.jpg';
+							$path = '/images/no-developer-image.jpg';
 							if( $developer->photo != '' ) {
 								$path = getPhotoPath($developer->photo);
 							}
