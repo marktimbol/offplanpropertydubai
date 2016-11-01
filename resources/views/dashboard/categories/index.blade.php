@@ -23,7 +23,7 @@
 								{{ csrf_field() }}
 								{{ method_field('DELETE') }}
 								<a href="{{ route('dashboard.categories.types.index', $category->id) }}" 
-									class="btn btn-sm btn-default"
+									class="btn btn-sm btn-success"
 								>
 									Manage Project Types
 								</a>
