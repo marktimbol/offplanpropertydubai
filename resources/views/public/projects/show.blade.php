@@ -7,7 +7,7 @@
 
 @section('bodyClass', 'Single-project')
 
-@section('pageTitle', $project->name)
+@section('pageTitle', sprintf('%s - %s', $project->name, $project->title))
 
 @section('content')
 	<div class="Project">
