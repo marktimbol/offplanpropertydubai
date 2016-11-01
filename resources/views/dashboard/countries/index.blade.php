@@ -23,7 +23,7 @@
 								{{ csrf_field() }}
 								{{ method_field('DELETE') }}
 								<a href="{{ route('dashboard.countries.cities.index', $country->id) }}" 
-									class="btn btn-sm btn-default"
+									class="btn btn-sm btn-success"
 								>
 									Manage Cities
 								</a>
