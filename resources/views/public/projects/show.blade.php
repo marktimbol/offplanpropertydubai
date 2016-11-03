@@ -51,7 +51,8 @@
 			<div class="row">
 				<div class="col-md-9">
 					<h1 class="Project__title">
-						{{ $project->name }}
+						{{ $project->name }} - {{ $project->title }}
+						<small>by {{ $project->developer->name }}</small>
 					</h1>
 					<div class="Project__description">
 						<ul class="list-group">

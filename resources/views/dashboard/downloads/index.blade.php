@@ -13,10 +13,10 @@
 		<tbody>
 			@forelse( $downloads as $download )
 			<tr>
-				<td>{{ $inquiry->name }}</td>
-				<td>{{ $inquiry->email }}</td>
-				<td>{{ $inquiry->phone }}</td>
-				<td>{{ $inquiry->project }}</td>
+				<td>{{ $download->name }}</td>
+				<td>{{ $download->email }}</td>
+				<td>{{ $download->phone }}</td>
+				<td>{{ $download->project }}</td>
 			</tr>
 			@empty
 				<tr>
