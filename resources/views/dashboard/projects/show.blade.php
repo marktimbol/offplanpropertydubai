@@ -59,6 +59,11 @@
 				</li>
 
 				<li class="list-group-item">
+					Price starting from:
+					{{ $project->price }}
+				</li>
+
+				<li class="list-group-item">
 					Location: 
 					@foreach( $project->communities as $community )
 						{{ sprintf('%s %s %s, %s', $community->name, '-' , $community->city->name, $community->city->country->name) }}

@@ -14,6 +14,7 @@ class Project extends Model
         'name', 
         'title', 
         'slug',
+        'price',
         'latitude',
         'longitude',
         'expected_completion_date',

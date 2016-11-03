@@ -62,6 +62,10 @@
 								@endforeach
 							</li>
 							<li class="list-group-item">
+								<i class="fa fa-money"></i> &nbsp; 
+								Price starting from: {{ $project->price }}
+							</li>
+							<li class="list-group-item">
 								<i class="fa fa-calendar"></i> &nbsp; 
 								Expected Completion Date: {{ $project->expected_completion_date }}
 							</li>

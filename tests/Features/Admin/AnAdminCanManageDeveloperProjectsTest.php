@@ -44,6 +44,7 @@ class AnAdminCanManageDeveloperProjectsTest extends TestCase
             'community_id'  => $community->id,
             'name'  => 'Emaar Park Point',
             'title' => 'The Famous Emaar Park Point',
+            'price' => 'AED 2,000,000',
             'latitude'  => '3.1415',
             'longitude' => '3.1416',
             'expected_completion_date' => 'February 2019',
@@ -57,6 +58,7 @@ class AnAdminCanManageDeveloperProjectsTest extends TestCase
             'name'  => 'Emaar Park Point',
             'title'  => 'The Famous Emaar Park Point',
             'slug'  => 'emaar-park-point',
+            'price' => 'AED 2,000,000',
             'latitude'  => '3.1415',
             'longitude' => '3.1416',
             'expected_completion_date' => 'February 2019',
@@ -82,7 +84,8 @@ class AnAdminCanManageDeveloperProjectsTest extends TestCase
 
     	$project = factory(App\Project::class)->make([
     		'name'	=> 'Emaar Park Points',
-            'title' => 'Famous Emaar'
+            'title' => 'Famous Emaar',
+            'price' => 'SAR 2,000,000'
     	]);
 
     	$developer->projects()->save($project);
@@ -91,6 +94,7 @@ class AnAdminCanManageDeveloperProjectsTest extends TestCase
         $this->put($url, [
             'name'  => 'Emaar Park Point',
             'title' => 'The Famous Emaar Park Point',
+            'price' => 'AED 2,000,000',
             'latitude'  => '3.1415',
             'longitude' => '3.1416',
             'expected_completion_date' => 'February 2019',
@@ -104,6 +108,7 @@ class AnAdminCanManageDeveloperProjectsTest extends TestCase
             'name'  => 'Emaar Park Point',
             'title'  => 'The Famous Emaar Park Point',
             'slug'  => 'emaar-park-point',
+            'price'  => 'AED 2,000,000',
             'latitude'  => '3.1415',
             'longitude' => '3.1416',
             'expected_completion_date' => 'February 2019',

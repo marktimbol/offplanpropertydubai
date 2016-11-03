@@ -50,8 +50,15 @@
 		<div class="row">
 			<div class="col-md-6">
 				<div class="form-group">
+					<label for="price" class="control-label">Price</label>
+					<input type="text" name="price" id="price" class="form-control" value="{{ $project->price }}" />
+				</div>
+			</div>
+
+			<div class="col-md-6">
+				<div class="form-group">
 					<label for="expected_completion_date" class="control-label">Expected Completion Date</label>
-					<input type="text" id="expected_completion_date" class="form-control" value="{{ $project->expected_completion_date }}" />
+					<input type="text" name="expected_completion_date" id="expected_completion_date" class="form-control" value="{{ $project->expected_completion_date }}" />
 				</div>
 			</div>
 		</div>

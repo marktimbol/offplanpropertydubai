@@ -12,6 +12,7 @@ class CreateProject extends React.Component
 			isSubmitted: false,
 			name: '',
 			title: '',
+			price: '',
 			expected_completion_date: '',
 			country: '',
 			city: '',
@@ -140,6 +141,7 @@ class CreateProject extends React.Component
 
 	onSubmit(e) {
 		e.preventDefault();
+		
 		this.isSubmitting();
 
 		let url = '/dashboard/developers/'+window.developer.id+'/projects';
@@ -240,6 +242,17 @@ class CreateProject extends React.Component
 				</div>
 
 				<div className="row">
+					<div className="col-md-6">
+						<div className="form-group">
+							<label>Price starting from</label>
+							<input 
+								type="text" 
+								name="price" 
+								className="form-control" 
+								onChange={this.handleChange}
+								value={this.state.price} />
+						</div>
+					</div>
 					<div className="col-md-6">
 						<div className="form-group">
 							<label>Expected Completion Date</label>
