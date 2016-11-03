@@ -44,7 +44,7 @@
 					]) }}">
 						<i class="fa fa-pencil"></i>
 					</a>	
-					<a href="{{ route('projects.show', $project->slug) }}">
+					<a href="{{ route('developers.projects.show', [$developer->slug, $project->slug]) }}">
 						<i class="fa fa-eye"></i>
 					</a>	
 				</small>

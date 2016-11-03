@@ -42,11 +42,18 @@ class UserCanInquireAboutTheProjectTest extends TestCase
 
     public function test_a_user_cannot_submit_inquiry_without_filling_up_all_the_required_fields()
     {
+        $developer = factory(App\Developer::class)->create([
+            'name'  => 'Emaar',
+            'slug'  => 'emaar',
+        ]);
+
     	$project = factory(App\Project::class)->create([
-    		'name'	=> 'Villa Nova'
+            'developer_id'  => $developer->id,
+    		'name'	=> 'Villa Nova',
+            'slug'  => 'villanova'
     	]);
 
-    	$this->visit(sprintf('/projects/%s', $project->slug))
+    	$this->visit('/emaar/villanova')
             ->press('Send Inquiry')
             ->see('The name field is required.')
             ->see('The email field is required.')

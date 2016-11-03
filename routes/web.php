@@ -26,9 +26,12 @@ Route::resource('developers', 'DevelopersController', [
 Route::resource('communities', 'CommunitiesController', [
 	'only' => ['index', 'show']
 ]);
-Route::resource('projects', 'ProjectsController');
+Route::resource('projects', 'ProjectsController', [
+	'only'	=> ['index']
+]);
 Route::resource('projects.inquiries', 'InquiriesController');
 Route::resource('projects.brochures', 'ProjectBrochuresController');
+
 Route::resource('compares', 'ComparesController', [
 	'only' => ['index', 'store', 'destroy']
 ]);
@@ -66,3 +69,8 @@ Route::group(['middleware' => 'auth', 'prefix' => 'dashboard', 'as' => 'dashboar
 	Route::resource('categories', 'Dashboard\CategoriesController');
 	Route::resource('categories.types', 'Dashboard\CategoryTypesController');
 });
+
+Route::get('/{developer}/{project}', [
+	'as' => 'developers.projects.show', 
+	'uses' => 'DeveloperProjectsController@show'
+]);

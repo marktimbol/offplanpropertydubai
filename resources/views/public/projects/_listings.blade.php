@@ -21,7 +21,7 @@
 							</button>
 						</form>
 					</div>
-					<a href="{{ route('projects.show', $project->slug) }}">
+					<a href="{{ route('developers.projects.show', [$project->developer->slug, $project->slug]) }}">
 						<img src="{{ $path }}" 
 							alt="{{ $project->name }}" 
 							title="{{ $project->name }}" 
@@ -39,7 +39,7 @@
 				</div>
 				<div class="ProjectListing__description">
 					<h4 class="text-truncate">
-						<a href="{{ route('projects.show', $project->slug) }}">
+						<a href="{{ route('developers.projects.show', [$project->developer->slug, $project->slug]) }}">
 							{{ sprintf('%s: %s', $project->name, $project->title) }}
 						</a>
 					</h4>

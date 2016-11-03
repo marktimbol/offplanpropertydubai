@@ -14,12 +14,14 @@ class DisplayAllTheProjectsOfTheDeveloperTest extends TestCase
         
         $developer = factory(App\Developer::class)->create([
             'country_id'    => $country->id,
-            'name'  => 'Dubai Properties'
+            'name'  => 'Dubai Properties',
+            'slug'  => 'dubai-properties'
         ]);
         
     	$project = factory(App\Project::class)->create([
             'developer_id'  => $developer->id,
-    		'name'	=> 'Villa Nova'
+    		'name'	=> 'Villa Nova',
+            'slug'  => 'villanova'
     	]);
 
     	$moreProjects = factory(App\Project::class, 5)->make([
@@ -27,7 +29,8 @@ class DisplayAllTheProjectsOfTheDeveloperTest extends TestCase
         ]);
     	$developer->projects()->saveMany($moreProjects);
 
-    	$this->visit(sprintf('/projects/%s', $project->slug));
+        $this->visit('dubai-properties/villanova');
+
     	foreach( $moreProjects as $project )
     	{
     		$this->see($project->name);
