@@ -202,16 +202,27 @@
 				<div class="col-md-12">
 					@if( count($project->floorplans) > 0 )
 						<h3>Floor Plan</h3>
-						<div class="Floorplans">
-							@foreach( $project->floorplans as $floorplan )
-							<div class="Floorplan">
-								<h4 class="text-center">{{ $floorplan->title }}</h4>
-								<img src="{{ getPhotoPath($floorplan->photo) }}" 
-									alt="{{ $floorplan->title }}" 
-									title="{{ $floorplan->title }}" 
-									class="img-responsive" />
+						<div class="Floorplan--container">
+							<div class="Floorplans">
+								@foreach( $project->floorplans as $floorplan )
+								<div class="Floorplan">
+									<h4 class="text-center">{{ $floorplan->title }}</h4>
+									<img src="{{ getPhotoPath($floorplan->photo) }}" 
+										alt="{{ $floorplan->title }}" 
+										title="{{ $floorplan->title }}" 
+										class="img-responsive" />
+								</div>
+								@endforeach
 							</div>
-							@endforeach
+
+							<div class="Floorplan--nav">
+								<a class="prev">
+									<i class="fa fa-angle-left" aria-hidden="true"></i>
+								</a>
+								<a class="next">
+									<i class="fa fa-angle-right" aria-hidden="true"></i>
+								</a>
+							</div>
 						</div>
 					@endif
 				</div>

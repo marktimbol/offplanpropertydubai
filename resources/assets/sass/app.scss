@@ -196,6 +196,27 @@ footer {
 	}
 }
 
+.Floorplan--container {
+	position: relative;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.Floorplan--nav {
+	width: 100%;
+	display: flex;
+	position: absolute;
+	align-items: center;
+	justify-content: space-between;
+	a {
+	    color: #ddd;
+		font-size: 8rem;
+		cursor: pointer;
+	    font-weight: normal;
+	}
+}
+
 .full-height {
 	height: auto !important;
 }

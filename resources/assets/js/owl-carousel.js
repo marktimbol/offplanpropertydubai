@@ -4,12 +4,23 @@ $(document).ready(function() {
 		autoPlay: true,
 	});
 
-	$('.Floorplans').owlCarousel({		
+	var floorplan = $('.Floorplans');
+	floorplan.owlCarousel({
 		singleItem: true,
-		pagination: true,
-		navigation: false,
-		autoPlay: true
+		navigation: false, 
+		pagination: false,
+		autoPlay: false
 	});
+
+	$('.next').click(function() {
+		floorplan.trigger('owl.next');
+	});
+
+	$('.prev').click(function() {
+		floorplan.trigger('owl.prev');
+	});
+
+	//
 
 	var projectCarousel = $('.Project__carousel');
 	projectCarousel.owlCarousel({
