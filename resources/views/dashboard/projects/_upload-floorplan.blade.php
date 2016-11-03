@@ -71,7 +71,6 @@
 						<li>Recommended dimensions: 1366px &times; 769px</li>
 						<li>Upload Format: Images (.jpg, .png) only</li>
 						<li>Maximum file size: 200kb / upload</li>
-						<li>For now, the "Title" will be the filename of the image you will upload.</li>
 					</ul>
 				</div>
 			</div>

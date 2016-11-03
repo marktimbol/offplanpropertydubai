@@ -10,11 +10,7 @@
 			<div class="modal-body">
 				<form 
 					method="POST" 
-<<<<<<< HEAD
-					class="dropzone is-centered-xy"
-=======
 					class="dropzone is-centered-xy Flex Flex--center"
->>>>>>> d442f8544cd7c633002271aa2830201155c4d758
 					id="UploadProjectLogo"
 					action="{{ route('dashboard.developers.projects.logos.store', [
 					$developer->id, $project->id
@@ -24,12 +20,6 @@
 				</form>
 
 				<p>&nbsp;</p>
-<<<<<<< HEAD
-				<p>
-					Image / PDF only<br />
-					Maximum file size: 2mb
-				</p>
-=======
 				<ul class="list-group">
 					<li class="list-group-item">
 						<strong>Recommended dimensions:</strong> 230px &times; 85px
@@ -41,7 +31,6 @@
 						<strong>Maximum file size:</strong> 20kb
 					</li>
 				</ul>
->>>>>>> d442f8544cd7c633002271aa2830201155c4d758
 			</div>
 			<div class="modal-footer">
 				<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
