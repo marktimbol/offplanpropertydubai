@@ -31,12 +31,6 @@
 					</div>		
 				@endforelse
 			</div>
-			<div class="Project__carousel__content--container Flex Flex--center Flex--column">
-				<h2>
-					{{ $project->title }}
-					<small>by {{ $project->developer->name }}</small>
-				</h2>
-			</div>
 			<div class="Project__carousel--nav">
 				<a class="prev">
 					<i class="fa fa-angle-left" aria-hidden="true"></i>
