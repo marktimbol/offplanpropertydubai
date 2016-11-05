@@ -1,0 +1,30 @@
+// Small screens
+@media only screen and (max-width: 40em) {
+	.Project__carousel__content--container {
+		h2 {
+			font-size: 3rem;
+		}
+	}
+
+	.Home {
+		.Slide__content {
+			width: 80% !important;
+		}
+
+		.CommunityListings {
+			.Row {
+				flex-direction: column;
+			}
+
+			.CommunityListing {
+				width: auto;
+				min-height: 250px;
+			}
+
+			.downtown-dubai-community {
+				background-position: center;
+			}
+		}
+	}
+
+}
