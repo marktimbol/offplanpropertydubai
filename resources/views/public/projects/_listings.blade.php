@@ -33,7 +33,7 @@
 								alt="{{ $project->developer->name }}" 
 								title="{{ $project->developer->name }}" 
 								width="68" height="68"
-								class="img-bordered" />
+								class="img-bordered img-responsive" />
 						</a>
 					</div>
 				</div>
