@@ -11,6 +11,6 @@ class CountryCitiesController extends Controller
 {
     public function index($country)
     {
-    	return $country->cities;
+    	return $country->cities()->orderBy('name', 'asc')->get();
     }
 }
