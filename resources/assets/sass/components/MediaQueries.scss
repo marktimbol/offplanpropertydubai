@@ -11,6 +11,12 @@
 			width: 80% !important;
 		}
 
+		.About {
+			.Row {
+				flex-direction: column;
+			}
+		}
+
 		.CommunityListings {
 			.Row {
 				flex-direction: column;
@@ -26,6 +32,7 @@
 			}
 		}
 	}
+
 
 	.owl-wrapper {
 		.owl-item {
