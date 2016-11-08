@@ -20,6 +20,7 @@
 						<th>Name</th>
 						<th>Developer</th>
 						<th>Location</th>
+						<th>Starting From</th>
 						<th>Payment Plan</th>
 						<th>Expected Completion Date</th>
 						<th>&nbsp;</th>
@@ -29,7 +30,7 @@
 							@foreach( $compares as $compare )
 								<tr>
 									<td width="300">
-										<a href="{{ route('projects.show', $compare->options->project->slug) }}">
+										<a href="{{ route('developers.projects.show', [$compare->options->project->developer->slug, $compare->options->project->slug]) }}">
 											{{ sprintf('%s - %s', $compare->options->project->name, $compare->options->project->title) }}
 										</a> 
 										<small>
@@ -47,6 +48,9 @@
 										@foreach( $compare->options->project->communities as $community )
 											{{ $community->name }}
 										@endforeach
+									</td>
+									<td>
+										{{ $compare->options->project->price }}
 									</td>
 									<td>
 										<table class="table table-bordered table-striped">

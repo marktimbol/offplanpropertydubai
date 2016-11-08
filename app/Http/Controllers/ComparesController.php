@@ -12,7 +12,6 @@ class ComparesController extends Controller
 	public function index()
 	{
 		$compares = Compare::all();
-        // dd($compares->toArray());
 
 		return view('public.compares.index', compact('compares'));
 	}
