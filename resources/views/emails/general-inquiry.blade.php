@@ -1,7 +1,7 @@
 @extends('emails.default')
 
 @section('content')
-	<h3>Off Plan Project Inquiry</h3>
+	<h3>Off Plan Project General Inquiry</h3>
 
 	<table class="table table-bordered">
 		<tr>
@@ -19,10 +19,6 @@
 		<tr>
 			<td>Phone:</td>
 			<td>{{ $inquiry->phone }}</td>
-		</tr>
-		<tr>
-			<td>Interested In:</td>
-			<td>{{ $inquiry->project }}</td>
 		</tr>
 		<tr>
 			<td>Country:</td>

@@ -1,6 +1,7 @@
 <?php
 
 use App\Events\UserInquiresAboutTheProject;
+use App\Events\UserSubmitsAGeneralInquiry;
 use Illuminate\Foundation\Testing\DatabaseMigrations;
 use Illuminate\Foundation\Testing\DatabaseTransactions;
 use Illuminate\Foundation\Testing\WithoutMiddleware;
@@ -38,6 +39,31 @@ class UserCanInquireAboutTheProjectTest extends TestCase
 			'country'	=> 'United Arab Emirates',
 			'message'	=> 'The Message'
 		]);
+    }
+
+    public function test_a_user_can_send_general_inquiry_on_the_register_your_intest_form()
+    {
+        $this->expectsEvents(UserSubmitsAGeneralInquiry::class);
+
+        $response = $this->post('/inquiries', [
+            'name'  => 'John Doe',
+            'email' => 'john@example.com',
+            'phone' => '0563759865',
+            'iam'   => 'Investor',
+            'project'   => '',
+            'country'   => 'United Arab Emirates',
+            'message'   => 'The Message'
+        ]);
+
+        $this->seeInDatabase('inquiries', [
+            'name'  => 'John Doe',
+            'email' => 'john@example.com',
+            'phone' => '0563759865',
+            'iam'   => 'Investor',
+            'project'   => 'General Inquiry',
+            'country'   => 'United Arab Emirates',
+            'message'   => 'The Message'
+        ]);
     }
 
     public function test_a_user_cannot_submit_inquiry_without_filling_up_all_the_required_fields()

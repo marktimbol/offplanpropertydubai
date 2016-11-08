@@ -29,6 +29,8 @@ Route::resource('communities', 'CommunitiesController', [
 Route::resource('projects', 'ProjectsController', [
 	'only'	=> ['index']
 ]);
+
+Route::resource('inquiries', 'GeneralInquiriesController');
 Route::resource('projects.inquiries', 'InquiriesController');
 Route::resource('projects.brochures', 'ProjectBrochuresController');
 

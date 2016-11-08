@@ -47,6 +47,10 @@ body {
 	margin-bottom: 30px;
 }
 
+.padding-10 {
+	padding: 10px;
+}
+
 .has-border-bottom {
 	border-bottom: 1px solid #ddd;
 }
@@ -109,7 +113,7 @@ section {
 
 .Search__button {
 	color: #333;
-	top: 10px;
+	top: 5px;
 	right: 10px;
 	position: absolute;
 }
@@ -139,6 +143,12 @@ section {
 	}
 	i {
 		margin-right: 5px;
+	}
+}
+
+.About {
+	.Section__title {
+		margin-top: 0;
 	}
 }
 

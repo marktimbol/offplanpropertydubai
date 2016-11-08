@@ -1,5 +1,28 @@
+
+.DeveloperListings--container {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
 .DeveloperListing__image {
 	img {
 		border: 1px solid #ddd;
+	}
+}
+
+.DeveloperListings--nav {
+	width: 100%;
+	display: flex;
+	padding: 0 15px;
+	position: absolute;
+	align-items: center;
+	justify-content: space-between;
+
+	a {
+	    color: #ddd;
+		font-size: 5rem;
+		cursor: pointer;
+	    font-weight: normal;
 	}
 }

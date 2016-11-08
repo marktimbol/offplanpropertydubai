@@ -11,6 +11,6 @@ class PagesTest extends TestCase
     public function test_a_visitor_can_visit_homepage()
     {
     	$this->visit('/')
-    		->see('Off Plan Properties');
+    		->see('Off Plan Property Dubai');
     }
 }

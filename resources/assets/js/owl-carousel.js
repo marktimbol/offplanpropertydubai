@@ -1,7 +1,22 @@
 $(document).ready(function() {
-	$(".Carousel").owlCarousel({
+	// $(".Carousel").owlCarousel({
+	// 	pagination: false,
+	// 	autoPlay: true,
+	// });
+
+	var developers = $('.DeveloperListings');
+	developers.owlCarousel({
+		navigation: false, 
 		pagination: false,
-		autoPlay: true,
+		autoPlay: false
+	});
+
+	$('.next').click(function() {
+		developers.trigger('owl.next');
+	});
+
+	$('.prev').click(function() {
+		developers.trigger('owl.prev');
 	});
 
 	var floorplan = $('.Floorplans');
