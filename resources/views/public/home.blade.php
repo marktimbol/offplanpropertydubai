@@ -32,17 +32,19 @@
 					<div class="Row">
 						<div class="Column-6">
 							<div class="padding-10">
-								<img src="/images/real-estate-agent-and-customer.jpg" alt="" title="" class="img-responsive" />
+								<img src="/images/burj-khalifa-fountain.jpg" alt="Burj Khalifa Fountain" title="Burj Khalifa Fountain" class="img-responsive" />
 							</div>
 						</div>
 						<div class="Column-6">
 							<div class="padding-10">
 								<h3 class="Section__title">About Dubai Off Plan Projects</h3>
 								<p>
+									Property which is still in the process of construction or is yet to be constructed is called off plan property. Off plan properties play a major role in strengthening the real estate sector of Dubai. Almost all property developers of Dubai have off plan projects scattered across the Emirates.
+								</p>
+								<p>
 									When buying real estate in Dubai off Plan property is a highly successful option. We offer the most comprehensive and latest information about project developments and our off plan specialists give free property consultation services.
 								</p>
-								<p>&nbsp;</p>
-								<p>
+								<p class="mt-20">
 									<button class="btn btn-lg btn-primary" data-toggle="modal" data-target="#RegisterYourIntestForm">
 										Register your interest
 									</button>

@@ -7,11 +7,6 @@
 		<div class="row">
 			<div class="col-md-12">
 				<h1>Project Compares</h1>
-				<p class="lead">
-					Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-					tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-					quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-				</p>
 			</div>
 
 			<div class="col-md-12">
@@ -79,7 +74,7 @@
 							@endforeach
 						@else
 							<tr>
-								<td colspan="6">Please <a href="/projects">select a project to compare</a></td>
+								<td colspan="6">Please <a href="/projects">select projects to compare</a></td>
 							</tr>
 						@endif
 					</tbody>

@@ -12,15 +12,6 @@
 		?>
 			<div class="ProjectListing col-md-4">
 				<div class="ProjectListing__image">
-					<div class="ProjectListing_compare">
-						<form method="POST" action="{{ route('compares.store') }}">
-							{{ csrf_field() }}
-							<input type="hidden" name="project_id" value="{{ $project->id }}" />
-							<button type="submit" class="btn btn-link btn-heart">
-								<i class="fa fa-heart fa-2x"></i>
-							</button>
-						</form>
-					</div>
 					<a href="{{ route('developers.projects.show', [$project->developer->slug, $project->slug]) }}">
 						<img src="{{ $path }}" 
 							alt="{{ $project->name }}" 
