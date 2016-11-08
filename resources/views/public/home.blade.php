@@ -29,7 +29,7 @@
 		<div class="container">
 			<div class="row">
 				<div class="col-md-12">
-					<div class="Row">
+					<div class="Row Flex--center">
 						<div class="Column-6">
 							<div class="padding-20">
 								<img src="/images/burj-khalifa-fountain.jpg" alt="Burj Khalifa Fountain" title="Burj Khalifa Fountain" class="img-responsive" />
