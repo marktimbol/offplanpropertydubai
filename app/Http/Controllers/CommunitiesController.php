@@ -10,7 +10,7 @@ class CommunitiesController extends Controller
 {
     public function index()
     {
-    	$communities = Community::latest()->take(10)->get();
+    	$communities = Community::orderBy('name', 'asc')->take(10)->get();
     	return view('public.communities.index', compact('communities'));
     }
 
