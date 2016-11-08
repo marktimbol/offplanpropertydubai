@@ -4,7 +4,7 @@
 			<div class="col-md-12">
 				<div class="Flex Flex--center Space-between">
 					<h3 class="Invest__title Section__title">
-						Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+						The best investment on earth is earth.
 					</h3>
 					<div class="Invest__action">
 						<button class="btn btn-lg btn-primary" data-toggle="modal" data-target="#RegisterYourIntestForm">
