@@ -1,14 +1,9 @@
 $(document).ready(function() {
-	// $(".Carousel").owlCarousel({
-	// 	pagination: false,
-	// 	autoPlay: true,
-	// });
-
 	var developers = $('.DeveloperListings');
 	developers.owlCarousel({
 		navigation: false, 
 		pagination: false,
-		autoPlay: false
+		autoPlay: true
 	});
 
 	$('.next').click(function() {
