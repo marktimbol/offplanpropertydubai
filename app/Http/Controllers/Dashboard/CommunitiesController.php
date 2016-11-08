@@ -11,7 +11,7 @@ class CommunitiesController extends Controller
 {
     public function index($city)
     {
-    	$communities = $city->communities;
+    	$communities = $city->communities()->orderBy('name', 'asc')->get();
     	return view('dashboard.communities.index', compact('city', 'communities'));
     }
 
