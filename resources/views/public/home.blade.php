@@ -31,12 +31,12 @@
 				<div class="col-md-12">
 					<div class="Row">
 						<div class="Column-6">
-							<div class="padding-10">
+							<div class="padding-20">
 								<img src="/images/burj-khalifa-fountain.jpg" alt="Burj Khalifa Fountain" title="Burj Khalifa Fountain" class="img-responsive" />
 							</div>
 						</div>
 						<div class="Column-6">
-							<div class="padding-10">
+							<div class="padding-20">
 								<h3 class="Section__title">About Dubai Off Plan Projects</h3>
 								<p>
 									Property which is still in the process of construction or is yet to be constructed is called off plan property. Off plan properties play a major role in strengthening the real estate sector of Dubai. Almost all property developers of Dubai have off plan projects scattered across the Emirates.
