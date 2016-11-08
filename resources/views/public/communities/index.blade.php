@@ -29,6 +29,8 @@
 							@endif
 						</div>
 					@endforeach
+
+					{!! $communities->links() !!}
 				</div>
 			</div>
 		</div>
