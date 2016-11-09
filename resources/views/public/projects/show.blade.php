@@ -17,7 +17,7 @@
 					<img src="{{ $logo }}" alt="{{ $project->title }}" title="{{ $project->title }}" class="img-responsive" />
 				</div>
 			@endif
-			<div class="Project__carousel">
+			<div class="Project__carousel owl-carousel">
 				@forelse($project->photos as $photo)
 					<div>
 						<img src="{{ getPhotoPath($photo->photo) }}" 
@@ -25,9 +25,12 @@
 							title="{{ $project->name }}" 
 							class="img-responsive" />
 					</div>
+					<?php /*
+					<div class="item lazyOwl" data-src="{{ getPhotoPath($photo->photo) }}"></div>
+					*/ ?>
 				@empty
 					<div>
-						<img src="/images/header-bg.jpg" alt="" title="" />
+						<img src="/images/header-bg.jpg" alt="" title="" class="img-responsive" />
 					</div>		
 				@endforelse
 			</div>

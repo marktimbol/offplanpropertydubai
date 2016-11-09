@@ -34,10 +34,12 @@ $(document).ready(function() {
 
 	var projectCarousel = $('.Project__carousel');
 	projectCarousel.owlCarousel({
+		// lazyLoad: true
 		singleItem: true,
 		navigation: false, 
 		pagination: false,
-		autoPlay: false
+		autoHeight: true,
+		autoPlay: true
 	});
 
 	$('.next').click(function() {
