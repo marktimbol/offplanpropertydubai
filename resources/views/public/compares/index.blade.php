@@ -10,18 +10,18 @@
 			</div>
 
 			<div class="col-md-12">
-				<table class="table table-bordered table-striped">
-					<thead>
-						<th>Name</th>
-						<th>Developer</th>
-						<th>Location</th>
-						<th>Starting From</th>
-						<th>Payment Plan</th>
-						<th>Expected Completion Date</th>
-						<th>&nbsp;</th>
-					</thead>
-					<tbody>
-						@if( count($compares) > 0 )
+				@if( count($compares) > 0 )
+					<table class="table table-bordered table-striped">
+						<thead>
+							<th>Name</th>
+							<th>Developer</th>
+							<th>Location</th>
+							<th>Starting From</th>
+							<th>Payment Plan</th>
+							<th>Expected Completion Date</th>
+							<th>&nbsp;</th>
+						</thead>
+						<tbody>
 							@foreach( $compares as $compare )
 								<tr>
 									<td width="300">
@@ -72,13 +72,27 @@
 									</td>
 								</tr>
 							@endforeach
-						@else
-							<tr>
-								<td colspan="6">Please <a href="/projects">select projects to compare</a></td>
-							</tr>
-						@endif
-					</tbody>
-				</table>
+						</tbody>
+					</table>
+				@else
+					<div>
+						<form method="POST">
+							{{ csrf_field() }}						
+							@foreach( $projects as $project )
+								<div class="checkbox">
+									<label>
+										<input type="checkbox" name="project_ids[]" value="{{ $project->id }}" /> {{ $project->name }}
+									</label>
+								</div>
+							@endforeach
+							<div class="form-group">
+								<button class="btn btn-default">Compare selected projects</button>
+							</div>
+						</form>
+
+
+					</div>
+				@endif
 			</div>
 		</div>
 	</div>
