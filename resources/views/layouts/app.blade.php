@@ -7,7 +7,7 @@
     <meta name="google-site-verification" content="1XbV53OyHuAyPbbPAZsDF7kOfd-bBW2wy6gZ4XPFjUU" />
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
-
+    <meta name="description" content="Off Plan Property Dubai. The best investment on earth is earth.">
     <title>@yield('pageTitle') | {{ config('app.name') }}</title>
 
     <!-- Styles -->

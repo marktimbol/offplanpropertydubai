@@ -7,7 +7,7 @@
 
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
-
+    <meta name="description" content="{{ str_limit($project->description, 160) }}">
     <title>@yield('pageTitle') | {{ config('app.name') }}</title>
 
     <!-- Styles -->
