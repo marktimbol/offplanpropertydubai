@@ -11,6 +11,7 @@ class CommunitiesController extends Controller
     public function index()
     {
     	$communities = Community::has('projects')->orderBy('name', 'asc')->paginate(10);
+
     	return view('public.communities.index', compact('communities'));
     }
 

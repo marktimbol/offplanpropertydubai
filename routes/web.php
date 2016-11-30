@@ -48,6 +48,7 @@ Route::group(['middleware' => 'auth', 'prefix' => 'dashboard', 'as' => 'dashboar
 	Route::resource('countries', 'Dashboard\CountriesController');
 	Route::resource('countries.cities', 'Dashboard\CitiesController');
 	Route::resource('cities.communities', 'Dashboard\CommunitiesController');
+	Route::resource('communities.photos', 'Dashboard\CommunityPhotosController');
 	Route::resource('developers', 'Dashboard\DevelopersController');
 	Route::resource('developers.projects', 'Dashboard\DeveloperProjectsController');
 	Route::resource('developers.projects.payments', 'Dashboard\ProjectPaymentsController');

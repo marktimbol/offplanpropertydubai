@@ -19,6 +19,35 @@
 			<p>
 				{{ $community->description }}</p>
 			</p>
+
+			<h3>Photo <small>(710px &times; 414px)</small></h3>
+			<div class="row">
+				@if( getPhotoPath($community->photo) != '' )
+					<div class="col-md-6">
+						<div class="has-delete-icon">
+							<img src="{{ getPhotoPath($community->photo) }}" alt="{{ $community->name }}" title="{{ $community->title }}" class="img-responsive" />
+							<form 
+								method="POST" 
+								action="{{ route('dashboard.communities.photos.destroy', [$community->id, 1]) }}"
+							>
+								{{ csrf_field() }}
+								{{ method_field('DELETE') }}
+								<button class="btn btn-sm btn-danger">&times;</button>
+							</form>
+						</div>
+					</div>
+				@else			
+					<div class="col-md-6">	
+						<form 
+							method="POST" 
+							class="dropzone" 
+							action="{{ route('dashboard.communities.photos.store', $community->id) }}"
+						>
+							{{ csrf_field() }}
+						</form>
+					</div>
+				@endif
+			</div>
 		</div>
 	</div>
 @endsection

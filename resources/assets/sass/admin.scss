@@ -37,6 +37,16 @@ body {
 	}
 }
 
+.has-delete-icon {
+	position: relative;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	form {
+		position: absolute;
+	}
+}
+
 @import 'components/Grid';
 @import 'components/Dashboard';
 @import 'components/DashboardOverwrite';

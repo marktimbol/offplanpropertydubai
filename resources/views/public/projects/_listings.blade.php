@@ -1,4 +1,4 @@
-<div class="row ProjectListings">
+<div class="ProjectListings">
 	@foreach( $projects->chunk(3) as $chunks )
 		<div class="row">
 			@foreach( $chunks as $project )
