@@ -13,36 +13,38 @@
 				</p>
 			</div>
 			<div class="col-md-12">
-				<div class="row">
-					@foreach( $developers as $developer )
-						<?php
-							$photo = '/images/no-developer-image.jpg';
-							if( $developer->photo != '' ) {
-								$photo = getPhotoPath($developer->photo);
-							}
-						?>
-						<div class="DeveloperListing col-md-3">
-							<div class="DeveloperListing__image">
-								<a href="{{ route('developers.show', $developer->slug) }}">
-									<img src="{{ $photo }}" 
-										alt="{{ $developer->name }}" 
-										title="{{ $developer->name }}" 
-										class="img-responsive" />
-								</a>
+				@foreach( $developers->chunk(4) as $chunks )
+					<div class="row">
+						@foreach( $chunks as $developer)
+							<?php
+								$photo = '/images/no-developer-image.jpg';
+								if( $developer->photo != '' ) {
+									$photo = getPhotoPath($developer->photo);
+								}
+							?>		
+							<div class="DeveloperListing col-md-3">
+								<div class="DeveloperListing__image">
+									<a href="{{ route('developers.show', $developer->slug) }}">
+										<img src="{{ $photo }}" 
+											alt="{{ $developer->name }}" 
+											title="{{ $developer->name }}" 
+											class="img-responsive" />
+									</a>
+								</div>
+								<div class="DeveloperListing__content">
+									<h4 class="Flex Space-between">
+										<a href="{{ route('developers.show', $developer->slug) }}">{{ $developer->name }}</a>
+										<small>
+											{{ 
+												sprintf('%s %s', $developer->projects_count, str_plural('Project', $developer->projects_count))
+											}}
+										</small>
+									</h4>
+								</div>
 							</div>
-							<div class="DeveloperListing__content">
-								<h4 class="Flex Space-between">
-									<a href="{{ route('developers.show', $developer->slug) }}">{{ $developer->name }}</a>
-									<small>
-										{{ 
-											sprintf('%s %s', $developer->projects_count, str_plural('Project', $developer->projects_count))
-										}}
-									</small>
-								</h4>
-							</div>
-						</div>
-					@endforeach
-				</div>
+						@endforeach
+					</div>
+				@endforeach
 			</div>
 		</div>	
 	</div>
