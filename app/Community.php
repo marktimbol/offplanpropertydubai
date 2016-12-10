@@ -21,6 +21,7 @@ class Community extends Model
     
     public function projects()
     {
-    	return $this->belongsToMany(Project::class, 'community_projects');
-    }
+        return $this->belongsToMany(Project::class, 'community_projects', 'community_id', 'project_id');
+        // return $this->belongsToMany(Project::class, 'community_projects');
+    } 
 }

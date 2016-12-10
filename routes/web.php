@@ -26,6 +26,9 @@ Route::resource('developers', 'DevelopersController', [
 Route::resource('communities', 'CommunitiesController', [
 	'only' => ['index', 'show']
 ]);
+Route::resource('communities.projects', 'CommunityProjectsController', [
+	'only' => ['index']
+]);
 Route::resource('projects', 'ProjectsController', [
 	'only'	=> ['index']
 ]);

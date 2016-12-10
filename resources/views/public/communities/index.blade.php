@@ -61,6 +61,12 @@
 										'projects'	=> $community->projects->take(3)
 									])
 								</div>
+
+								<div class="col-md-12">
+									<p class="text-center">
+										<a href="/communities/{{ $community->slug }}/projects" class="btn btn-success">All Projects in {{ $community->name }}</a>
+									</p>
+								</div>
 							</div>
 						</div>
 					@empty
