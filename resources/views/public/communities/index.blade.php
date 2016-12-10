@@ -19,7 +19,9 @@
 							<select name="filter" id="filter" class="form-control">
 								<option value=""></option>
 								@foreach( $filters as $filter )
-									<option value="{{ $filter->slug }}">{{ $filter->name }}</option>
+									<option value="{{ $filter->slug }}">
+										{{ $filter->name }} ({{ $filter->projects->count() }} Projects)
+									</option>
 								@endforeach
 							</select>
 							<div class="form-group">

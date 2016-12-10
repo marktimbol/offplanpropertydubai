@@ -10,7 +10,7 @@ class CommunitiesController extends Controller
 {
     public function index()
     {
-        $filters = Community::orderBy('name', 'asc')->get();
+        $filters = Community::with('projects')->orderBy('name', 'asc')->get();
     	$communities = Community::has('projects')->orderBy('name', 'asc')->paginate(10);
 
         if( request()->has('filter') ) {
