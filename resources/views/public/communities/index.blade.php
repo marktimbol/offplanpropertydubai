@@ -11,9 +11,29 @@
 	<p>&nbsp;</p>
 	<div class="container">
 		<div class="row">
+			<div class="col-md-6">
+				<form method="GET" action="/communities">
+					<div class="form-group">
+						<div class="form-group__content Flex">
+							<label for="filter">By</label>
+							<select name="filter" id="filter" class="form-control">
+								<option value=""></option>
+								@foreach( $filters as $filter )
+									<option value="{{ $filter->slug }}">{{ $filter->name }}</option>
+								@endforeach
+							</select>
+							<div class="form-group">
+								<button type="submit" class="btn btn-primary">Filter</button>
+							</div>
+						</div>
+					</div>
+				</form>
+			</div>
+		</div>
+		<div class="row">
 			<div class="col-md-12">
 				<div class="Communities">
-					@foreach( $communities as $community )
+					@forelse( $communities as $community )
 						<div class="Community">
 							<div class="Flex Flex--center">
 								@if( $community->photo != '' )
@@ -41,7 +61,9 @@
 								</div>
 							</div>
 						</div>
-					@endforeach
+					@empty
+						<p class="lead">No community found.</p>
+					@endforelse
 					{!! $communities->links() !!}
 				</div>
 			</div>

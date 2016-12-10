@@ -12,7 +12,7 @@ class ComparesController extends Controller
 	public function index()
 	{
         $compares = Compare::all();
-		$projects = Project::latest()->get();
+		$projects = Project::with('developer')->latest()->get();
 
 		return view('public.compares.index', compact('compares', 'projects'));
 	}

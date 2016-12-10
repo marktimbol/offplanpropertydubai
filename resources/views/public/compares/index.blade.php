@@ -81,7 +81,7 @@
 							@foreach( $projects as $project )
 								<div class="checkbox">
 									<label>
-										<input type="checkbox" name="project_ids[]" value="{{ $project->id }}" /> {{ $project->name }}
+										<input type="checkbox" name="project_ids[]" value="{{ $project->id }}" /> {{ sprintf('%s - %s', $project->developer->name, $project->name) }}
 									</label>
 								</div>
 							@endforeach
