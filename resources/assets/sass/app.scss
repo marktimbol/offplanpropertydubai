@@ -212,6 +212,16 @@ footer {
 	}
 }
 
+.Community__content {
+	padding: 20px;
+}
+
+.Community--no-image {
+	.Community__content {
+		padding: 0;
+	}
+}
+
 .Floorplan--container {
 	position: relative;
 	display: flex;
