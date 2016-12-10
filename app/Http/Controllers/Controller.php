@@ -7,6 +7,7 @@ use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use Illuminate\Foundation\Bus\DispatchesJobs;
 use Illuminate\Foundation\Validation\ValidatesRequests;
 use Illuminate\Routing\Controller as BaseController;
+use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\View;
 
 class Controller extends BaseController
@@ -15,7 +16,10 @@ class Controller extends BaseController
 
     public function __construct()
     {
-    	$developers = Developer::latest()->get();
+    	$developers = Cache::remember('footer_developers', 30, function() {
+    		return Developer::latest()->get();
+    	});
+    	
     	View::share('developers', $developers);
     }
 }
