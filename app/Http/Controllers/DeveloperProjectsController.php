@@ -2,27 +2,32 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
-
-use JavaScript;
 use App\Http\Requests;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Cache;
+use JavaScript;
 
 class DeveloperProjectsController extends Controller
 {
     public function show($developer, $project)
     {
-    	$project->load(
-            'developer.projects.photos', 
-            'developer.projects.developer', 
-            'logo', 
-            'photos', 
-            'types', 
-            'videos', 
-            'floorplans', 
-            'brochure', 
-            'payments', 
-            'communities.city.country'
-        );
+        $projectKey = sprintf('%s-page', $project->slug);
+        $project = Cache::remember($projectKey, 30, function() use ($project) {
+            $project->load(
+                'developer.projects.photos', 
+                'developer.projects.developer', 
+                'logo', 
+                'photos', 
+                'types', 
+                'videos', 
+                'floorplans', 
+                'brochure', 
+                'payments', 
+                'communities.city.country'
+            );
+
+            return $project;    
+        });
 
     	$logo = '';
     	if( count($project->logo) > 0 ) {
