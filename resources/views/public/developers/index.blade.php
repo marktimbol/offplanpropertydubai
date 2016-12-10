@@ -3,7 +3,7 @@
 @section('pageTitle', 'Developers')
 
 @section('content')
-<div class="DeveloperListings is-gray-bg">
+<div class="is-gray-bg">
 	<div class="container">
 		<div class="row">
 			<div class="col-md-12">
@@ -22,7 +22,7 @@
 									$photo = getPhotoPath($developer->photo);
 								}
 							?>		
-							<div class="DeveloperListing col-md-3">
+							<div class="DeveloperListing col-xs-12 col-sm-6 col-md-3">
 								<div class="DeveloperListing__image">
 									<a href="{{ route('developers.show', $developer->slug) }}">
 										<img src="{{ $photo }}" 
