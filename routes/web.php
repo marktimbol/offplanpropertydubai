@@ -1,5 +1,6 @@
 
 <?php
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -10,6 +11,10 @@
 | to using a Closure or controller method. Build something great!
 |
 */
+
+Event::listen('Illuminate\Database\Events\QueryExecuted', function ($query) {
+    // var_dump($query->sql);
+});
 
 Route::get('/', ['as' => 'home', 'uses' => 'PagesController@home']);
 

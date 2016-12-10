@@ -35,7 +35,7 @@
 									<a href="{{ route('developers.show', $developer->slug) }}">{{ $developer->name }}</a>
 									<small>
 										{{ 
-											sprintf('%s %s', count($developer->projects), str_plural('Project', count($developer->projects)))
+											sprintf('%s %s', $developer->projects_count, str_plural('Project', $developer->projects_count))
 										}}
 									</small>
 								</h4>

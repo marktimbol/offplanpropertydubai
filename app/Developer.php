@@ -7,8 +7,6 @@ use Illuminate\Database\Eloquent\Model;
 class Developer extends Model
 {
     protected $fillable = ['country_id', 'name', 'slug', 'website', 'profile', 'photo'];
-
-    protected $with = ['projects', 'country'];
     
     public function getRouteKeyName() {
     	return 'slug';

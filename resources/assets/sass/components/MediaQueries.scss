@@ -37,7 +37,6 @@
 		}
 	}
 
-
 	.owl-wrapper {
 		.owl-item {
 			margin: 0px !important;
@@ -56,4 +55,7 @@
 		text-align: center;
 	}
 
+	.form-group__content {
+		flex-direction: row !important;
+	}
 }

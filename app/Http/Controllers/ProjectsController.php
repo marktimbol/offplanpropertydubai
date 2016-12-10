@@ -12,7 +12,7 @@ class ProjectsController extends Controller
 {
     public function index()
     {
-        $projects = Project::latest()->get();
+        $projects = Project::with('developer', 'photos')->latest()->get();
         
         return view('public.projects.index', compact('projects'));
     }

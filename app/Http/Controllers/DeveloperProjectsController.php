@@ -11,7 +11,18 @@ class DeveloperProjectsController extends Controller
 {
     public function show($developer, $project)
     {
-    	$project->load('communities.city.country');
+    	$project->load(
+            'developer.projects.photos', 
+            'developer.projects.developer', 
+            'logo', 
+            'photos', 
+            'types', 
+            'videos', 
+            'floorplans', 
+            'brochure', 
+            'payments', 
+            'communities.city.country'
+        );
 
     	$logo = '';
     	if( count($project->logo) > 0 ) {

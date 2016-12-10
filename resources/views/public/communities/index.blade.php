@@ -20,7 +20,7 @@
 								<option value=""></option>
 								@foreach( $filters as $filter )
 									<option value="{{ $filter->slug }}">
-										{{ $filter->name }} ({{ $filter->projects->count() }} Projects)
+										{{ $filter->name }} ({{ $filter->projects_count }} Projects)
 									</option>
 								@endforeach
 							</select>
