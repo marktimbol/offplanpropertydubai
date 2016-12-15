@@ -78,7 +78,7 @@
 				<div class="col-md-12">
 					<h2 class="text-center">Explore Communities</h2>
 					<p class="lead text-center">
-						Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+						
 					</p>
 				</div>
 				<div class="col-md-12">
