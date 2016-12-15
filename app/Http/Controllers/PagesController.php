@@ -19,6 +19,15 @@ class PagesController extends Controller
     	
     	return view('public.home', compact('projects'));
     }
+
+    public function testing()
+    {
+        $projects = Project::with('developer')->latest()->take(6)->get();
+        dd($projects->toArray());
+
+        
+        return view('public.home', compact('projects'));
+    }      
     
     public function contact()
     {

@@ -17,6 +17,7 @@ Event::listen('Illuminate\Database\Events\QueryExecuted', function ($query) {
 });
 
 Route::get('/', ['as' => 'home', 'uses' => 'PagesController@home']);
+Route::get('/testing', ['as' => 'testing', 'uses' => 'PagesController@testing']);
 
 Route::get('/contact', ['as' => 'contact', 'uses' => 'PagesController@contact']);
 Route::resource('contact', 'ContactsController', [
