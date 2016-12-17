@@ -7,13 +7,15 @@
 @section('content')
 	<div class="Hero--container Flex Flex--center">
 		<div class="Hero__carousel owl-carousel">
-			<div>
-				<img src="/images/slides/slide1.jpeg" alt="" title="" class="img-responsive" />
-			</div>	
-
-			<div>
-				<img src="/images/slides/slide2.jpeg" alt="" title="" class="img-responsive" />
-			</div>					
+			@forelse($slides as $slide)
+				<div>
+					<img src="{{ getPhotoPath($slide->path) }}" alt="" title="" class="img-responsive" />
+				</div>	
+			@empty
+				<div>
+					<img src="/images/header-bg.jpg" alt="" title="" class="img-responsive" />
+				</div>					
+			@endforelse
 		</div>
 
 		<div class="Hero__content">
