@@ -11,6 +11,7 @@
 			<th>Phone</th>
 			<th>Country</th>
 			<th>Project</th>
+			<th></th>
 		</thead>
 		<tbody>
 			@forelse( $inquiries as $inquiry )
@@ -21,6 +22,7 @@
 				<td>{{ $inquiry->phone }}</td>
 				<td>{{ $inquiry->country }}</td>
 				<td>{{ $inquiry->project }}</td>
+				<td>{{ $inquiry->created_at->diffForHumans() }}</td>
 			</tr>
 			@empty
 				<tr>
