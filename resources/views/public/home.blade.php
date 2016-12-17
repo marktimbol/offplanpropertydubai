@@ -5,11 +5,41 @@
 @section('bodyClass', 'Home')
 
 @section('content')
+	<div class="Hero--container Flex Flex--center">
+		<div class="Hero__carousel owl-carousel">
+			<div>
+				<img src="/images/slides/slide1.jpeg" alt="" title="" class="img-responsive" />
+			</div>	
 
-    <header>
+			<div>
+				<img src="/images/slides/slide2.jpeg" alt="" title="" class="img-responsive" />
+			</div>					
+		</div>
 
-    </header>
+		<div class="Hero__content">
+			<img src="/images/logo.png" alt="{{ config('app.name') }}" title="{{ config('app.name') }}" class="img-responsive" />
+			<form method="GET" action="{{ route('search') }}" class="Search">
+				<input type="text" 
+					name="query" 
+					class="form-control input-lg Search__input" 
+					placeholder="Search for a Project, Communities or Developer" />
+				<button type="submit" class="btn-link Search__button">
+					<i class="fa fa-search"></i>
+				</button>
+			</form>
+		</div>
 
+		<div class="Hero__carousel--nav">
+			<a class="Hero__prev">
+				<i class="fa fa-angle-left" aria-hidden="true"></i>
+			</a>
+			<a class="Hero__next">
+				<i class="fa fa-angle-right" aria-hidden="true"></i>
+			</a>
+		</div>
+	</div>
+
+	<?php /*
 	<div class="Slide Flex Flex--center">
 		<div class="Slide__content">
 			<img src="/images/logo.png" alt="{{ config('app.name') }}" title="{{ config('app.name') }}" class="img-responsive" />
@@ -24,6 +54,7 @@
 			</form>
 		</div>
 	</div>
+	*/ ?>
 
 	<section class="About">
 		<div class="container">

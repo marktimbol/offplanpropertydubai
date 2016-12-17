@@ -1,4 +1,24 @@
 $(document).ready(function() {
+
+	var Hero = $('.Hero__carousel');
+	Hero.owlCarousel({
+		singleItem: true,
+		navigation: false, 
+		pagination: false,
+		autoHeight: true,
+		autoPlay: false
+	});
+
+	$('.Hero__next').click(function() {
+		Hero.trigger('owl.next');
+	});
+
+	$('.Hero__prev').click(function() {
+		Hero.trigger('owl.prev');
+	});
+
+	//
+
 	var developers = $('.DeveloperListings');
 	developers.owlCarousel({
 		navigation: false, 

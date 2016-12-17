@@ -40,6 +40,9 @@
                         <a href="/dashboard/developers" class="list-group-item">Manage Developers</a>
                         <a href="/dashboard/countries" class="list-group-item">Manage Countries</a>
                         <a href="/dashboard/categories" class="list-group-item">Manage Categories</a>
+                        <?ph p/*
+                        <a href="/dashboard/slides" class="list-group-item">Manage Slides</a>
+                        */ ?>
                     </ul>
                     <ul class="list-group">
                         <a href="/dashboard/inquiries" class="list-group-item">Project Inquiries</a>
