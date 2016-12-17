@@ -14,11 +14,11 @@ class PagesController extends Controller
     public function home()
     {
     	// $projects = Project::with('developer')->latest()->take(6)->get();
-    	$projects = Cache::remember('home_projects', 15, function() {
+    	$projects = Cache::remember('home_projects', 60, function() {
             return Project::with('developer', 'photos')->latest()->take(6)->get();
         });
 
-        $slides = Cache::remember('home_slides', 15, function() {
+        $slides = Cache::remember('home_slides', 60, function() {
             return Slide::latest()->get();
         }); 
     	

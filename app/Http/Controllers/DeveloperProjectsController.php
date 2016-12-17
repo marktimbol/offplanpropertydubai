@@ -12,7 +12,7 @@ class DeveloperProjectsController extends Controller
     public function show($developer, $project)
     {
         $projectKey = sprintf('%s-page', $project->slug);
-        $project = Cache::remember($projectKey, 30, function() use ($project) {
+        $project = Cache::remember($projectKey, 60, function() use ($project) {
             $project->load(
                 'developer.projects.photos', 
                 'developer.projects.developer', 

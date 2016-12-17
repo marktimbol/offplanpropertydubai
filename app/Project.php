@@ -2,8 +2,9 @@
 
 namespace App;
 
-use Laravel\Scout\Searchable;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\Cache;
+use Laravel\Scout\Searchable;
 
 class Project extends Model
 {
@@ -31,6 +32,33 @@ class Project extends Model
     {
     	$this->attributes['name'] = $name;
     	$this->attributes['slug'] = str_slug($name);
+    }
+
+    public static function boot()
+    {
+        parent::boot();
+
+        static::saved(function($project) {
+            Cache::forget('projects');
+            Cache::forget('home_projects');
+            Cache::forget('filters');
+            Cache::forget('communities');
+        });
+
+        static::updated(function($project) {
+            Cache::forget('projects');
+            Cache::forget('home_projects');
+            Cache::forget('filters');
+            Cache::forget('communities');                
+            Cache::forget(sprintf('%s-page', $project->slug));        
+        });
+
+        static::deleted(function($project) {
+            Cache::forget('projects');
+            Cache::forget('home_projects');
+            Cache::forget('filters');
+            Cache::forget('communities');
+        });        
     }
 
     /**
