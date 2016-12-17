@@ -65,6 +65,7 @@ elixir(mix => {
       ], 'public/js/MapListings.js')
 
        .webpack('app.js')
+       .webpack('components/SearchProjects.js')
        .webpack('components/CreateProject.js', 'public/js/CreateProject.js')
 
        .webpack('admin.js', 'public/js/admin.js')

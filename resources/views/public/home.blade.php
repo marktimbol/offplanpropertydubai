@@ -2,6 +2,10 @@
 
 @section('pageTitle', 'Home')
 
+@section('header_styles')
+	<link rel="stylesheet" href="https://unpkg.com/react-instantsearch-theme-algolia@2.0.0/style.min.css" />
+@endsection
+
 @section('bodyClass', 'Home')
 
 @section('content')
@@ -20,15 +24,7 @@
 
 		<div class="Hero__content">
 			<img src="/images/logo.png" alt="{{ config('app.name') }}" title="{{ config('app.name') }}" class="img-responsive" />
-			<form method="GET" action="{{ route('search') }}" class="Search">
-				<input type="text" 
-					name="query" 
-					class="form-control input-lg Search__input" 
-					placeholder="Search for a Project, Communities or Developer" />
-				<button type="submit" class="btn-link Search__button">
-					<i class="fa fa-search"></i>
-				</button>
-			</form>
+			<div id="SearchProjects"></div>
 		</div>
 
 		<div class="Hero__carousel--nav">
@@ -173,4 +169,8 @@
 			</div>
 		</div>
 	</section>
+@endsection
+
+@section('footer_scripts')
+	<script src="/js/SearchProjects.js"></script>
 @endsection

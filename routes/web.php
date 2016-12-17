@@ -35,13 +35,14 @@ Route::resource('communities', 'CommunitiesController', [
 Route::resource('communities.projects', 'CommunityProjectsController', [
 	'only' => ['index']
 ]);
-Route::resource('projects', 'ProjectsController', [
-	'only'	=> ['index']
-]);
 
 Route::resource('inquiries', 'GeneralInquiriesController');
 Route::resource('projects.inquiries', 'InquiriesController');
 Route::resource('projects.brochures', 'ProjectBrochuresController');
+
+Route::resource('projects', 'ProjectsController', [
+	'only'	=> ['index', 'show']
+]);
 
 Route::resource('compares', 'ComparesController', [
 	'only' => ['index', 'store', 'destroy']
