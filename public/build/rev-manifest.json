@@ -1,11 +1,4 @@
 {
-  "css/admin.css": "css/admin-fc669bb698.css",
-  "css/app.css": "css/app-1ef8fcc30d.css",
-  "css/carousel.css": "css/carousel-65d6c1959e.css",
-  "css/editor.css": "css/editor-231bebbb25.css",
-  "js/CreateProject.js": "js/CreateProject-c8e6ebf119.js",
-  "js/admin.js": "js/admin-3c5a37ae1e.js",
-  "js/app.js": "js/app-45b61978ba.js",
-  "js/carousel.js": "js/carousel-5253d40851.js",
-  "js/editor.js": "js/editor-e656182f9e.js"
+  "css/editor.css": "css/editor-10b8ccf6d5.css",
+  "js/editor.js": "js/editor-95262ac4f1.js"
 }

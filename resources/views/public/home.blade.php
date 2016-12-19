@@ -24,7 +24,15 @@
 
 		<div class="Hero__content">
 			<img src="/images/logo.png" alt="{{ config('app.name') }}" title="{{ config('app.name') }}" class="img-responsive" />
-			<div id="SearchProjects"></div>
+				<form method="GET" action="{{ route('search') }}" class="Search">
+					<input type="text" 
+						name="query" 
+						class="form-control input-lg Search__input" 
+						placeholder="Search for a Project, Communities or Developer" />
+					<button type="submit" class="btn-link Search__button">
+						<i class="fa fa-search"></i>
+					</button>
+				</form>
 		</div>
 
 		<div class="Hero__carousel--nav">

@@ -25,6 +25,8 @@ elixir(mix => {
 
       .scripts([
         modulesPath + 'froala-editor/js/froala_editor.min.js',
+        // modulesPath + 'froala-editor/js/plugins/font_family.min.js',
+        // modulesPath + 'froala-editor/js/plugins/image.min.js',
         modulesPath + 'froala-editor/js/plugins/table.min.js',
         modulesPath + 'froala-editor/js/plugins/lists.min.js',
         modulesPath + 'froala-editor/js/plugins/paragraph_format.min.js',
@@ -73,8 +75,12 @@ elixir(mix => {
        .copy('node_modules/font-awesome/fonts', 'public/fonts')
        .copy('node_modules/bootstrap-sass/assets/fonts/bootstrap', 'public/fonts')
        .copy('node_modules/owlcarousel/owl-carousel/grabbing.png', 'public/css')
-       .copy('node_modules/owlcarousel/owl-carousel/AjaxLoader.gif', 'public/css');
+       .copy('node_modules/owlcarousel/owl-carousel/AjaxLoader.gif', 'public/css')
 
+        .version([
+          'public/css/editor.css',
+          'public/js/editor.js',
+        ]);
        // .version([
        //    'public/css/app.css',
        //    'public/js/app.js',
