@@ -3,7 +3,7 @@
 @section('pageTitle', 'Home')
 
 @section('header_styles')
-	<link rel="stylesheet" href="https://unpkg.com/react-instantsearch-theme-algolia@2.0.0/style.min.css" />
+{{-- 	<link rel="stylesheet" href="https://unpkg.com/react-instantsearch-theme-algolia@2.0.0/style.min.css" /> --}}
 @endsection
 
 @section('bodyClass', 'Home')
@@ -180,5 +180,5 @@
 @endsection
 
 @section('footer_scripts')
-	<script src="/js/SearchProjects.js"></script>
+	{{-- <script src="/js/SearchProjects.js"></script> --}}
 @endsection
