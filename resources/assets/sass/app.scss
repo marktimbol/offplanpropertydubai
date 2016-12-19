@@ -162,6 +162,18 @@ section {
 	}
 }
 
+.Hero__carousel {
+	.owl-item {
+		margin: 0 !important;
+		height: 70vh;
+		img {
+			width: 100vw;
+			height: 70vh;
+			object-fit: cover;
+		}
+	}	
+}
+
 .Search__input {
 	background: rgba(255,255,255,0.9);
 }
