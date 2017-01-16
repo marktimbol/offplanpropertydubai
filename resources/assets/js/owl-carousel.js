@@ -6,7 +6,7 @@ $(document).ready(function() {
 		navigation: false, 
 		pagination: false,
 		autoHeight: true,
-		autoPlay: true
+		autoplay: true
 	});
 
 	$('.Hero__next').click(function() {
@@ -23,7 +23,7 @@ $(document).ready(function() {
 	developers.owlCarousel({
 		navigation: false, 
 		pagination: false,
-		autoPlay: true
+		autoplay: true
 	});
 
 	$('.next').click(function() {
@@ -34,33 +34,6 @@ $(document).ready(function() {
 		developers.trigger('owl.prev');
 	});
 
-	// var floorplan = $('.Floorplans');
-	// floorplan.owlCarousel({
-	// 	singleItem: false,
-	// 	navigation: false, 
-	// 	pagination: false,
-	// 	autoPlay: false,
-	//     responsive:{
-	//         0: {
-	//             items:1
-	//         },
-	//         600: {
-	//             items:3
-	//         },
-	//         1000: {
-	//             items:5
-	//         }
-	//     }		
-	// });
-
-	// $('.next').click(function() {
-	// 	floorplan.trigger('owl.next');
-	// });
-
-	// $('.prev').click(function() {
-	// 	floorplan.trigger('owl.prev');
-	// });
-
 	//
 
 	var projectCarousel = $('.Project__carousel');
@@ -70,7 +43,7 @@ $(document).ready(function() {
 		navigation: false, 
 		pagination: false,
 		autoHeight: true,
-		autoPlay: true
+		autoplay: true
 	});
 
 	$('.next').click(function() {
@@ -86,6 +59,6 @@ $(document).ready(function() {
 		singleItem: true,
 		navigation: false, 
 		pagination: false,
-		autoPlay: false
+		autoplay: false
 	});
 });
