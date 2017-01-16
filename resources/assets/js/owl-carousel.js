@@ -6,7 +6,7 @@ $(document).ready(function() {
 		navigation: false, 
 		pagination: false,
 		autoHeight: true,
-		autoPlay: false
+		autoPlay: true
 	});
 
 	$('.Hero__next').click(function() {
@@ -34,21 +34,32 @@ $(document).ready(function() {
 		developers.trigger('owl.prev');
 	});
 
-	var floorplan = $('.Floorplans');
-	floorplan.owlCarousel({
-		singleItem: true,
-		navigation: false, 
-		pagination: false,
-		autoPlay: false
-	});
+	// var floorplan = $('.Floorplans');
+	// floorplan.owlCarousel({
+	// 	singleItem: false,
+	// 	navigation: false, 
+	// 	pagination: false,
+	// 	autoPlay: false,
+	//     responsive:{
+	//         0: {
+	//             items:1
+	//         },
+	//         600: {
+	//             items:3
+	//         },
+	//         1000: {
+	//             items:5
+	//         }
+	//     }		
+	// });
 
-	$('.next').click(function() {
-		floorplan.trigger('owl.next');
-	});
+	// $('.next').click(function() {
+	// 	floorplan.trigger('owl.next');
+	// });
 
-	$('.prev').click(function() {
-		floorplan.trigger('owl.prev');
-	});
+	// $('.prev').click(function() {
+	// 	floorplan.trigger('owl.prev');
+	// });
 
 	//
 

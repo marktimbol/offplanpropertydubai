@@ -10,37 +10,47 @@
 @section('pageTitle', sprintf('%s - %s', $project->name, $project->title))
 
 @section('content')
+
 	<div class="Project">
-		<div class="Project__carousel--container">
-			@if( $logo !== '' )
-				<div class="Project__logo--container">
-					<img src="{{ $logo }}" alt="{{ $project->title }}" title="{{ $project->title }}" class="img-responsive" />
-				</div>
-			@endif
-			<div class="Project__carousel owl-carousel">
-				@forelse($project->photos as $photo)
-					<div>
-						<img src="{{ getPhotoPath($photo->photo) }}" 
-							alt="{{ $project->name }}" 
-							title="{{ $project->name }}" 
-							class="img-responsive" />
+		<div class="container">
+			<div class="row">
+				<div class="col-md-12">				
+					<div class="Project__carousel--container">
+						@if( $logo !== '' )
+							<div class="Project__logo--container">
+								<img src="{{ $logo }}" alt="{{ $project->title }}" title="{{ $project->title }}" class="img-responsive" />
+							</div>
+						@endif
+						<div class="Project__carousel owl-carousel">
+							@forelse($project->photos as $photo)
+								<div>
+									<img src="{{ getPhotoPath($photo->photo) }}" 
+										alt="{{ $project->name }}" 
+										title="{{ $project->name }}" 
+										class="img-responsive" />
+								</div>
+								<?php /*
+								<div class="item lazyOwl" data-src="{{ getPhotoPath($photo->photo) }}"></div>
+								*/ ?>
+								<div>
+									<img src="/images/header-bg.jpg" alt="" title="" class="img-responsive" />
+								</div>									
+							@empty
+								<div>
+									<img src="/images/header-bg.jpg" alt="" title="" class="img-responsive" />
+								</div>		
+							@endforelse
+						</div>
+						<div class="Project__carousel--nav">
+							<a class="prev">
+								<i class="fa fa-angle-left" aria-hidden="true"></i>
+							</a>
+							<a class="next">
+								<i class="fa fa-angle-right" aria-hidden="true"></i>
+							</a>
+						</div>
 					</div>
-					<?php /*
-					<div class="item lazyOwl" data-src="{{ getPhotoPath($photo->photo) }}"></div>
-					*/ ?>
-				@empty
-					<div>
-						<img src="/images/header-bg.jpg" alt="" title="" class="img-responsive" />
-					</div>		
-				@endforelse
-			</div>
-			<div class="Project__carousel--nav">
-				<a class="prev">
-					<i class="fa fa-angle-left" aria-hidden="true"></i>
-				</a>
-				<a class="next">
-					<i class="fa fa-angle-right" aria-hidden="true"></i>
-				</a>
+				</div>
 			</div>
 		</div>
 
@@ -206,24 +216,22 @@
 						<h3>Floor Plan</h3>
 						<div class="Floorplan--container">
 							<div class="Floorplans">
-								@foreach( $project->floorplans as $floorplan )
-								<div class="Floorplan">
-									<h4 class="text-center">{{ $floorplan->title }}</h4>
-									<img src="{{ getPhotoPath($floorplan->photo) }}" 
-										alt="{{ $floorplan->title }}" 
-										title="{{ $floorplan->title }}" 
-										class="img-responsive" />
-								</div>
+								@foreach( $project->floorplans->chunk(4) as $chunks )
+									<div class="row">
+										@foreach( $chunks as $floorplan )
+											<div class="Floorplan col-md-3 col-xs-6">
+												<h4 class="text-center">
+													{{ $floorplan->title }}<br />
+													<small>{{ $floorplan->price }}</small>
+												</h4>
+												<img src="{{ getPhotoPath($floorplan->photo) }}" 
+													alt="{{ $floorplan->title }}" 
+													title="{{ $floorplan->title }}" 
+													class="img-responsive" />
+											</div>
+										@endforeach
+									</div>
 								@endforeach
-							</div>
-
-							<div class="Floorplan--nav">
-								<a class="prev">
-									<i class="fa fa-angle-left" aria-hidden="true"></i>
-								</a>
-								<a class="next">
-									<i class="fa fa-angle-right" aria-hidden="true"></i>
-								</a>
 							</div>
 						</div>
 					@endif

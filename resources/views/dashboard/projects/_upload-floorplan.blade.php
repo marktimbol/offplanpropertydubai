@@ -11,24 +11,25 @@
 				<div class="row">
 					<div class="col-md-12">
 						<table class="table table-bordered">
-							<thead>
-								<tr>
-									<th>Title</th>
-									<th>&nbsp;</th>
-								</tr>
-							</thead>
 							<tbody>
 								@foreach( $project->floorplans as $floorplan )
 									<?php $path = getPhotoPath($floorplan->photo); ?>
 									<tr>
 										<td>
-											<form method="POST" action="{{ route('dashboard.developers.projects.floorplans.update', [$developer->id, $project->id, $floorplan->id]) }}">
+											<form class="form-horizontal" method="POST" action="{{ route('dashboard.developers.projects.floorplans.update', [$developer->id, $project->id, $floorplan->id]) }}">
 												{{ csrf_field() }}
 												{{ method_field('PUT') }}
-												<div class="input-group">
-													<input type="text" name="title" value="{{ $floorplan->title }}" class="form-control" />
-													<div class="input-group-btn">
-														<button type="submit" class="btn btn-default">Update</button>
+												<div class="col-md-12">
+													<div class="form-group">
+														<label>Title</label>
+														<input type="text" name="title" value="{{ $floorplan->title }}" class="form-control" />
+													</div>
+													<div class="form-group">
+														<label>Price</label>
+														<input type="text" name="price" value="{{ $floorplan->price }}" class="form-control" />		
+													</div>
+													<div class="form-group">
+														<button type="submit" class="btn btn-primary">Update</button>
 													</div>
 												</div>
 											</form>

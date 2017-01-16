@@ -18,7 +18,10 @@
 			@empty
 				<div>
 					<img src="/images/header-bg.jpg" alt="" title="" class="img-responsive" />
-				</div>					
+				</div>
+				<div>
+					<img src="/images/header-bg.jpg" alt="" title="" class="img-responsive" />
+				</div>
 			@endforelse
 		</div>
 
@@ -103,6 +106,14 @@
 						@include('public.projects._listings', [
 							'projects' => $projects
 						])
+					</div>
+				</div>
+
+				<div class="row">
+					<div class="col-md-12">
+						<p class="text-center">
+							<a href="/projects" class="btn btn-default">See all Projects</a>
+						</p>
 					</div>
 				</div>
 			</div>
