@@ -28,10 +28,7 @@
 										alt="{{ $project->name }}" 
 										title="{{ $project->name }}" 
 										class="img-responsive" />
-								</div>
-								<?php /*
-								<div class="item lazyOwl" data-src="{{ getPhotoPath($photo->photo) }}"></div>
-								*/ ?>								
+								</div>					
 							@empty
 								<div>
 									<img src="/images/header-bg.jpg" alt="" title="" class="img-responsive" />

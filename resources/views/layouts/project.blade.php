@@ -33,7 +33,7 @@
 
     <!-- Scripts -->
     <script src="/js/app.js"></script>
-    <script src="/js/carousel.js"></script>
+    <script src="{{ elixir('js/carousel.js') }}"></script>
 
     @yield('footer_scripts')
 

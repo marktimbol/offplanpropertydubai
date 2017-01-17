@@ -81,5 +81,6 @@ elixir(mix => {
           'public/css/app.css',
           'public/css/editor.css',
           'public/js/editor.js',          
+          'public/js/carousel.js',          
        	]);
 });

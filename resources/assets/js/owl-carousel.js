@@ -6,7 +6,7 @@ $(document).ready(function() {
 		navigation: false, 
 		pagination: false,
 		autoHeight: true,
-		autoplay: true
+		autoPlay: true
 	});
 
 	$('.Hero__next').click(function() {
@@ -23,7 +23,7 @@ $(document).ready(function() {
 	developers.owlCarousel({
 		navigation: false, 
 		pagination: false,
-		autoplay: true
+		autoPlay: true
 	});
 
 	$('.next').click(function() {
@@ -43,7 +43,7 @@ $(document).ready(function() {
 		navigation: false, 
 		pagination: false,
 		autoHeight: true,
-		autoplay: true
+		autoPlay: true
 	});
 
 	$('.next').click(function() {
@@ -59,6 +59,6 @@ $(document).ready(function() {
 		singleItem: true,
 		navigation: false, 
 		pagination: false,
-		autoplay: false
+		autoPlay: false
 	});
 });
