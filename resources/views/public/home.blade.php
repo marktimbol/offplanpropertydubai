@@ -4,6 +4,7 @@
 
 @section('header_styles')
 {{-- 	<link rel="stylesheet" href="https://unpkg.com/react-instantsearch-theme-algolia@2.0.0/style.min.css" /> --}}
+	<link rel="stylesheet" href="/css/video.css" />
 @endsection
 
 @section('bodyClass', 'Home')
@@ -16,9 +17,6 @@
 					<img src="{{ getPhotoPath($slide->path) }}" alt="" title="" class="img-responsive" />
 				</div>	
 			@empty
-				<div>
-					<img src="/images/header-bg.jpg" alt="" title="" class="img-responsive" />
-				</div>
 				<div>
 					<img src="/images/header-bg.jpg" alt="" title="" class="img-responsive" />
 				</div>
@@ -72,7 +70,26 @@
 					<div class="Row Flex--center">
 						<div class="Column-6">
 							<div class="padding-20">
-								<img src="/images/burj-khalifa-fountain.jpg" alt="Burj Khalifa Fountain" title="Burj Khalifa Fountain" class="img-responsive" />
+								<div class="Home__video--container Flex Flex--center">
+									<video id="Home__video"
+										class="video-js" 
+										muted controls
+										preload="auto"
+										height="391"
+										{{-- poster="/images/burj-khalifa-fountain.jpg" --}}
+									>
+										<source src="http://pcasa.ae/pcasa/uploads/QaZeieDYLoeU3Mtn.mp4" type='video/mp4'>
+										<p class="vjs-no-js">
+											To view this video please enable JavaScript, and consider upgrading to a web browser that
+											<a href="http://videojs.com/html5-video-support/" target="_blank">supports HTML5 video</a>
+										</p>
+									</video>	
+									<button class="btn btn-link PlayButton">
+										<div class="play-video-icon Flex Flex--center">
+											<span></span>
+										</div>
+									</button>
+								</div>														
 							</div>
 						</div>
 						<div class="Column-6">
@@ -192,4 +209,5 @@
 
 @section('footer_scripts')
 	{{-- <script src="/js/SearchProjects.js"></script> --}}
+	<script src="{{ elixir('js/home-video.js') }}"></script>
 @endsection

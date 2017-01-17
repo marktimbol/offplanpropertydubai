@@ -268,7 +268,7 @@
 @endsection
 
 @section('footer_scripts')
-	<script src="/js/video.js"></script>
+	<script src="{{ elixir('js/video.js') }}"></script>
 	<script src="https://maps.googleapis.com/maps/api/js?key={{ config('services.googlemap.key') }}"></script>
 	<script src="/js/map.js"></script>
 @endsection

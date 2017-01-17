@@ -54,6 +54,12 @@ elixir(mix => {
         'video.js',
       ], 'public/js/video.js')
 
+      .scripts([
+        modulesPath + 'video.js/dist/ie8/videojs-ie8.js',
+        modulesPath + 'video.js/dist/video.js',
+        'home-video.js',
+      ], 'public/js/home-video.js')      
+
       .styles([
         'map.css'
       ], 'public/css/map.css')
@@ -82,5 +88,7 @@ elixir(mix => {
           'public/css/editor.css',
           'public/js/editor.js',          
           'public/js/carousel.js',          
+          'public/js/video.js',          
+          'public/js/home-video.js',          
        	]);
 });

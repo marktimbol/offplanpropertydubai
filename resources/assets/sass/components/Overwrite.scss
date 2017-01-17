@@ -69,3 +69,12 @@ h1, h2, h3, h4, h5, h6 {
     padding: 10px;	
     background: white;
 }
+
+.Home__video--container {
+	.video-js {
+		.vjs-tech {
+			position: relative !important;
+			// height: 391px;
+		}
+	}
+}

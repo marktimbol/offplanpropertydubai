@@ -1,6 +1,8 @@
 {
-  "css/app.css": "css/app-3d94ceaa88.css",
+  "css/app.css": "css/app-ae46b6327a.css",
   "css/editor.css": "css/editor-10b8ccf6d5.css",
   "js/carousel.js": "js/carousel-9772dd415d.js",
-  "js/editor.js": "js/editor-95262ac4f1.js"
+  "js/editor.js": "js/editor-95262ac4f1.js",
+  "js/home-video.js": "js/home-video-aa8fd0badd.js",
+  "js/video.js": "js/video-2cb049ef84.js"
 }
