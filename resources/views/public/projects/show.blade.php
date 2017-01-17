@@ -214,9 +214,9 @@
 						<div class="Floorplan--container">
 							<div class="Floorplans">
 								@foreach( $project->floorplans->chunk(4) as $chunks )
-									<div class="row">
+									<div class="Row">
 										@foreach( $chunks as $floorplan )
-											<div class="Floorplan col-md-3 col-xs-6">
+											<div class="Floorplan Column-3">
 												<h4 class="text-center">
 													{{ $floorplan->title }}<br />
 													<small>{{ $floorplan->price }}</small>
@@ -226,9 +226,9 @@
 													title="{{ $floorplan->title }}" 
 													class="img-responsive" />
 											</div>
-										@endforeach
+										@endforeach							
 									</div>
-								@endforeach
+								@endforeach													
 							</div>
 						</div>
 					@endif

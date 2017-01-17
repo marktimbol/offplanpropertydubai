@@ -11,7 +11,7 @@
     <title>@yield('pageTitle') | {{ config('app.name') }}</title>
 
     <!-- Styles -->
-    <link href="/css/app.css" rel="stylesheet">
+    <link href="{{ elixir('css/app.css') }}" rel="stylesheet">
 
     @yield('header_styles')
     <!-- Scripts -->

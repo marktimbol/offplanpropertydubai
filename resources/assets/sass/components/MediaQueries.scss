@@ -47,6 +47,10 @@
 		flex: 1;
 	}
 
+	.Row {
+		flex-direction: column;
+	}
+	
 	.Flex {
 		flex-direction: column;
 	}
@@ -57,5 +61,11 @@
 
 	.form-group__content {
 		flex-direction: row !important;
+	}
+
+	.Floorplans {
+		.Column-3 {
+			flex: .5;
+		}
 	}
 }

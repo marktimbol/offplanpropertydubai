@@ -77,19 +77,9 @@ elixir(mix => {
        .copy('node_modules/owlcarousel/owl-carousel/grabbing.png', 'public/css')
        .copy('node_modules/owlcarousel/owl-carousel/AjaxLoader.gif', 'public/css')
 
-        .version([
+       .version([
+          'public/css/app.css',
           'public/css/editor.css',
-          'public/js/editor.js',
-        ]);
-       // .version([
-       //    'public/css/app.css',
-       //    'public/js/app.js',
-       //    'public/css/admin.css',
-       //    'public/js/admin.js',
-       //    'public/js/CreateProject.js',
-       //    'public/css/editor.css',
-       //    'public/js/editor.js',
-       // 		'public/css/carousel.css',
-       // 		'public/js/carousel.js'
-       // 	]);
+          'public/js/editor.js',          
+       	]);
 });
