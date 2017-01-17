@@ -5,7 +5,8 @@
         <li><a href="{{ route('projects.index') }}">Dubai Off Plan Projects</a></li>
         <li><a href="/communities">Communities</a></li>
         <li><a href="/developers">Developers</a></li>
-        <li><a href="/compares">Compare Projects</span></a></li>
+        <li><a href="/compares">Compare Projects</a></li>
+        <li><a href="/floorplans">Floorplans</a></li>
         <li><a href="/contact">Contact Us</a></li>
     </ul>
 

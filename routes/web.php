@@ -17,7 +17,6 @@ Event::listen('Illuminate\Database\Events\QueryExecuted', function ($query) {
 });
 
 Route::get('/', ['as' => 'home', 'uses' => 'PagesController@home']);
-Route::get('/testing', ['as' => 'testing', 'uses' => 'PagesController@testing']);
 
 Route::get('/contact', ['as' => 'contact', 'uses' => 'PagesController@contact']);
 Route::resource('contact', 'ContactsController', [
@@ -43,6 +42,8 @@ Route::resource('projects.brochures', 'ProjectBrochuresController');
 Route::resource('projects', 'ProjectsController', [
 	'only'	=> ['index', 'show']
 ]);
+
+Route::get('floorplans', 'FloorplansController@index');
 
 Route::resource('compares', 'ComparesController', [
 	'only' => ['index', 'store', 'destroy']
@@ -83,6 +84,11 @@ Route::group(['middleware' => 'auth', 'prefix' => 'dashboard', 'as' => 'dashboar
 	Route::resource('categories.types', 'Dashboard\CategoryTypesController');
 	Route::resource('slides', 'Dashboard\SlidesController');
 });
+
+Route::get('/{developer}/{project}/floorplans', [
+	'as' => 'projects.floorplans.show', 
+	'uses' => 'ProjectFloorplansController@show'
+]);
 
 Route::get('/{developer}/{project}', [
 	'as' => 'developers.projects.show', 
