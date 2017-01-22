@@ -1,6 +1,7 @@
 @extends('layouts.project')
 
 @section('header_styles')
+	<link rel="stylesheet" href="{{ elixir('css/lightbox.css') }}" />
 	<link rel="stylesheet" href="/css/video.css" />
 	<link rel="stylesheet" href="/css/map.css" />
 @endsection
@@ -223,10 +224,15 @@
 													{{ $floorplan->title }}<br />
 													<small>{{ $floorplan->price }}</small>
 												</h4>
-												<img src="{{ getPhotoPath($floorplan->photo) }}" 
+												<a href="{{ getPhotoPath($floorplan->photo) }}"
+													data-lightbox="floorplans"
+													data-title="{{ $floorplan->title }} - {{ $floorplan->price }}"
+												>
+													<img src="{{ getPhotoPath($floorplan->photo) }}" 
 													alt="{{ $floorplan->title }}" 
 													title="{{ $floorplan->title }}" 
 													class="img-responsive" />
+												</a>
 											</div>
 										@endforeach							
 									</div>
@@ -273,6 +279,7 @@
 @endsection
 
 @section('footer_scripts')
+	<script src="{{ elixir('js/lightbox.js') }}"></script>
 	<script src="{{ elixir('js/video.js') }}"></script>
 	<script src="https://maps.googleapis.com/maps/api/js?key={{ config('services.googlemap.key') }}"></script>
 	<script src="/js/map.js"></script>

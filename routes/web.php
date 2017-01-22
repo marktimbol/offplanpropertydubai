@@ -90,7 +90,7 @@ Route::get('/{developer}/{project}/floorplans', [
 	'uses' => 'ProjectFloorplansController@show'
 ]);
 
-Route::get('/{developer}/{project}', [
+Route::get('project/{developer}/{project}', [
 	'as' => 'developers.projects.show', 
 	'uses' => 'DeveloperProjectsController@show'
 ]);

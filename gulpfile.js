@@ -16,6 +16,7 @@ elixir(mix => {
     mix.sass('app.scss')
 
       .sass('admin.scss', 'public/css/admin.css')
+      .sass('components/Lightbox.scss', 'resources/assets/css/lightbox.css')
 
       .styles([
         modulesPath + 'froala-editor/css/froala_editor.min.css',
@@ -72,6 +73,15 @@ elixir(mix => {
         'MapListings.js'
       ], 'public/js/MapListings.js')
 
+      .styles([
+        modulesPath + '/lightbox2/dist/css/lightbox.css',
+        'lightbox.css',
+      ], 'public/css/lightbox.css')
+
+      .scripts([
+        modulesPath + '/lightbox2/dist/js/lightbox.js',
+      ], 'public/js/lightbox.js')      
+
        .webpack('app.js')
        .webpack('components/SearchProjects.js')
        .webpack('components/CreateProject.js', 'public/js/CreateProject.js')
@@ -82,13 +92,16 @@ elixir(mix => {
        .copy('node_modules/bootstrap-sass/assets/fonts/bootstrap', 'public/fonts')
        .copy('node_modules/owlcarousel/owl-carousel/grabbing.png', 'public/css')
        .copy('node_modules/owlcarousel/owl-carousel/AjaxLoader.gif', 'public/css')
+       .copy('node_modules/lightbox2/dist/images', 'public/build/images')
 
        .version([
-          'public/css/app.css',
-          'public/css/editor.css',
-          'public/js/editor.js',          
-          'public/js/carousel.js',          
-          'public/js/video.js',          
-          'public/js/home-video.js',          
-       	]);
+        'public/css/app.css',
+        'public/css/editor.css',
+        'public/js/editor.js',          
+        'public/js/carousel.js',          
+        'public/js/video.js',          
+        'public/js/home-video.js',
+        'public/css/lightbox.css',       
+        'public/js/lightbox.js',       
+      ]);
 });
