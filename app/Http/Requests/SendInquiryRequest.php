@@ -27,6 +27,7 @@ class SendInquiryRequest extends FormRequest
             'name'  => 'required',
             'email' => 'required|email',
             'phone' => 'required',
+            'g-recaptcha-response'  => 'required'
         ];
     }
 }

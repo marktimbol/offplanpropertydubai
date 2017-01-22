@@ -50,7 +50,7 @@
 
 		<div class="container">
 			<div class="row">
-				<div class="col-md-9">
+				<div class="col-md-8">
 					<h1 class="Project__title">
 						{{ $project->name }} - {{ $project->title }}
 						<small>by {{ $project->developer->name }}</small>
@@ -111,7 +111,7 @@
 						</div>
 					</div>
 				</div>
-				<div class="col-md-3">
+				<div class="col-md-4">
 					<p>
 						@if( count($project->brochure) > 0 )
 							<button class="btn btn-block btn-lg btn-success" data-toggle="modal" data-target="#DownloadBrochureForm">
@@ -168,6 +168,11 @@
 								{{ old('message') }}
 							</textarea>
 						</div>
+
+						<div class="form-group">
+							<div class="g-recaptcha" data-sitekey="6LeKrhIUAAAAAASOmIxl4WVSzfHE4E1dooL8LuNy"></div>
+						</div>
+
 						<div class="form-group">
 							<button type="submit" class="btn btn-primary">
 								Send Inquiry

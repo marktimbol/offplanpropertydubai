@@ -65,6 +65,8 @@
 
 @include('public._register-your-interest')
 
+<script src='https://www.google.com/recaptcha/api.js?hl=en'></script>
+
 <footer></footer>
 
 
