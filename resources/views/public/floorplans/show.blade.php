@@ -4,6 +4,10 @@
 
 @section('pageTitle', sprintf('%s - %s', $project->name, $project->title))
 
+@section('header_styles')
+	<link rel="stylesheet" href="{{ elixir('css/lightbox.css') }}" />
+@endsection
+
 @section('content')
 
 	<div class="Project">
@@ -69,10 +73,15 @@
 													{{ $floorplan->title }}<br />
 													<small>{{ $floorplan->price }}</small>
 												</h4>
-												<img src="{{ getPhotoPath($floorplan->photo) }}" 
+												<a href="{{ getPhotoPath($floorplan->photo) }}"
+													data-lightbox="floorplans"
+													data-title="{{ $floorplan->title }} - {{ $floorplan->price }}"
+												>
+													<img src="{{ getPhotoPath($floorplan->photo) }}" 
 													alt="{{ $floorplan->title }}" 
 													title="{{ $floorplan->title }}" 
 													class="img-responsive" />
+												</a>
 											</div>
 										@endforeach							
 									</div>
@@ -101,4 +110,8 @@
 
 	@include('public.projects._download-brochure')
 	
+@endsection
+
+@section('footer_scripts')
+	<script src="{{ elixir('js/lightbox.js') }}"></script>
 @endsection
