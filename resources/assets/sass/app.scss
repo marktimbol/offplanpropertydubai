@@ -303,18 +303,19 @@ footer {
 		h4 {
 			padding: 10px;
 		}
-		
+
 		a {
-			display: block;
-			position: relative;
+			color: #333;
+			&:hover {
+				color: #333;
+				text-decoration: none;
+			}
 		}
 	}
 
 	.Floorplan__zoom-icon {
-		right: 10px;
-		bottom: 10px;
-		position: absolute;
-
+		padding: 10px;
+	    text-align: center;		
 		i {
 			color: #333;
 		}

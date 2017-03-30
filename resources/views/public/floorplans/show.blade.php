@@ -82,9 +82,9 @@
 													title="{{ $floorplan->title }}" 
 													class="img-responsive" />
 
-													<span class="Floorplan__zoom-icon">
-														<i class="fa fa-search"></i>
-													</span>
+													<div class="Floorplan__zoom-icon">
+														<i class="fa fa-search"></i> <small>Enlarge Photo</small>
+													</div>
 												</a>
 											</div>
 										@endforeach							
