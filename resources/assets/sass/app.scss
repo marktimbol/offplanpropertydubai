@@ -297,7 +297,27 @@ footer {
 	flex-direction: column;
 	
 	.Floorplan {
-		margin-bottom: 40px;
+		border: 1px solid #ddd;
+		margin: 0px 10px 10px 0px
+
+		h4 {
+			padding: 10px;
+		}
+		
+		a {
+			display: block;
+			position: relative;
+		}
+	}
+
+	.Floorplan__zoom-icon {
+		right: 10px;
+		bottom: 10px;
+		position: absolute;
+
+		i {
+			color: #333;
+		}
 	}
 }
 
