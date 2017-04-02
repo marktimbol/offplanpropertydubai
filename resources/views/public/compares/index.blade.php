@@ -98,6 +98,14 @@
 											<label>
 												<input type="checkbox" name="project_ids[]" value="{{ $project->id }}" /> 
 												{{ $project->name }}
+
+												<span>
+													<small>
+														@foreach( $project->types as $type )
+															<span class="label label-success">{{ $type->name }}</span>
+														@endforeach
+													</small>
+												</span>												
 											</label>
 										</div>										
 									</td>
