@@ -101,7 +101,11 @@
 											</label>
 										</div>										
 									</td>
-									<td>{{ $project->developer->name }}</td>
+									<td>
+										<a href="{{ route('developers.show', $project->developer->slug) }}">
+											{{ $project->developer->name }}
+										</a>									
+									</td>
 									<td>
 										@foreach( $project->communities as $community )
 											{{ $community->name }}
