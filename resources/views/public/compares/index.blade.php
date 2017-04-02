@@ -78,24 +78,50 @@
 					<form method="POST" action="/reset-compare">
 						{{ csrf_field() }}
 						{{ method_field('DELETE') }}
-						<button class="btn btn-danger">Reset Compares</button>
+						<button class="btn btn-danger"><i class="fa fa-refresh"></i> Reset Compares</button>
 					</form>					
 				@else
-					<div>
+					<table class="table table-bordered table-striped">
+						<thead>
+							<th>Name</th>
+							<th>Developer</th>
+							<th>Location</th>
+						</thead>
+
 						<form method="POST">
-							{{ csrf_field() }}						
-							@foreach( $projects as $project )
-								<div class="checkbox">
-									<label>
-										<input type="checkbox" name="project_ids[]" value="{{ $project->id }}" /> {{ sprintf('%s - %s', $project->developer->name, $project->name) }}
-									</label>
-								</div>
-							@endforeach
-							<div class="form-group">
-								<button class="btn btn-primary">Compare selected projects</button>
-							</div>
-						</form>
-					</div>
+							{{ csrf_field() }}
+							<tbody>
+								@foreach( $projects as $project )
+								<tr>
+									<td>
+										<div class="checkbox">
+											<label>
+												<input type="checkbox" name="project_ids[]" value="{{ $project->id }}" /> 
+												{{ $project->name }}
+											</label>
+										</div>										
+									</td>
+									<td>{{ $project->developer->name }}</td>
+									<td>
+										@foreach( $project->communities as $community )
+											{{ $community->name }}
+										@endforeach										
+									</td>
+								</tr>
+								@endforeach
+							</tbody>
+
+							<tfoot>
+								<tr>
+									<td colspan="3">
+										<div class="form-group">
+											<button class="btn btn-primary"><i class="fa fa-code-fork"></i> Compare selected projects</button>
+										</div>
+									</td>
+								</tr>
+							</tfoot>							
+						</form>						
+					</table>					
 				@endif
 			</div>
 		</div>
