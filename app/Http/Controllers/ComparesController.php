@@ -34,7 +34,6 @@ class ComparesController extends Controller
         }
 
     	return back();
-        
     }
 
     public function destroy($rowId)

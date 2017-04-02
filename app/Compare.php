@@ -20,6 +20,11 @@ class Compare
 		Cart::remove($rowId);
 	}
 
+	public static function destroy()
+	{
+		Cart::destroy();
+	}
+
 	public static function count()
 	{
 		return Cart::count();

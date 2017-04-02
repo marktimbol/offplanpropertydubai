@@ -49,6 +49,8 @@ Route::resource('compares', 'ComparesController', [
 	'only' => ['index', 'store', 'destroy']
 ]);
 
+Route::delete('reset-compare', 'ResetCompareController@destroy');
+
 Auth::routes();
 
 Route::group(['middleware' => 'auth', 'prefix' => 'dashboard', 'as' => 'dashboard.'], function() {

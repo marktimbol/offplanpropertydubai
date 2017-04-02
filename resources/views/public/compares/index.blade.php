@@ -74,6 +74,12 @@
 							@endforeach
 						</tbody>
 					</table>
+
+					<form method="POST" action="/reset-compare">
+						{{ csrf_field() }}
+						{{ method_field('DELETE') }}
+						<button class="btn btn-danger">Reset Compares</button>
+					</form>					
 				@else
 					<div>
 						<form method="POST">
@@ -86,11 +92,9 @@
 								</div>
 							@endforeach
 							<div class="form-group">
-								<button class="btn btn-default">Compare selected projects</button>
+								<button class="btn btn-primary">Compare selected projects</button>
 							</div>
 						</form>
-
-
 					</div>
 				@endif
 			</div>
