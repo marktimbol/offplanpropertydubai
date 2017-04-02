@@ -1,6 +1,11 @@
 
 <?php
 
+use App\Project;
+use App\ProjectTranslation;
+use Illuminate\Support\Facades\App;
+use Illuminate\Support\Facades\Config;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -11,6 +16,10 @@
 | to using a Closure or controller method. Build something great!
 |
 */
+
+Route::get('add-translations', function() {
+	config()->set('translatable.locale', 'ar');	
+});
 
 Event::listen('Illuminate\Database\Events\QueryExecuted', function ($query) {
     // var_dump($query->sql);

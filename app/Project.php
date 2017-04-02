@@ -2,13 +2,16 @@
 
 namespace App;
 
-use Illuminate\Database\Eloquent\Model;
-use Illuminate\Support\Facades\Cache;
 use Laravel\Scout\Searchable;
+use Dimsav\Translatable\Translatable;
+use Illuminate\Support\Facades\Cache;
+use Illuminate\Database\Eloquent\Model;
 
 class Project extends Model
 {
-    use Searchable;
+    use Searchable, Translatable;
+
+    public $translatedAttributes = ['name', 'title', 'expected_completion_date', 'description'];
 
     protected $fillable = [
         'developer_id', 
@@ -23,6 +26,7 @@ class Project extends Model
         'project_escrow_account_details_link',
         'description'
     ];
+
     
     public function getRouteKeyName() {
     	return 'slug';

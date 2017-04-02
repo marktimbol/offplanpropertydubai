@@ -171,6 +171,7 @@ return [
         Laravel\Scout\ScoutServiceProvider::class,
         Laracasts\Utilities\JavaScript\JavaScriptServiceProvider::class,
         Gloudemans\Shoppingcart\ShoppingcartServiceProvider::class,
+        Dimsav\Translatable\TranslatableServiceProvider::class,
         
         /*
          * Application Service Providers...
