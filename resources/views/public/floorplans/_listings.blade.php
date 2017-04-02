@@ -32,7 +32,7 @@
 					</div>
 					<div class="ProjectListing__description">
 						<h4 class="text-truncate">
-							<a href="{{ route('developers.projects.show', [$project->developer->slug, $project->slug]) }}">
+							<a href="{{ route('projects.floorplans.show', [$project->developer->slug, $project->slug]) }}">
 								{{ sprintf('%s: %s', $project->name, $project->title) }}
 							</a>
 						</h4>
