@@ -295,30 +295,29 @@ footer {
 .Floorplans {
 	display: flex;
 	flex-direction: column;
-	
-	.Floorplan {
-		border: 1px solid #ddd;
-		margin: 0px 10px 10px 0px
+}
 
-		h4 {
-			padding: 10px;
-		}
+.Floorplan {
+	border: 1px solid #ddd;
+	margin: 0px 10px 10px 0px;
 
-		a {
-			color: #333;
-			&:hover {
-				color: #333;
-				text-decoration: none;
-			}
-		}
-	}
-
-	.Floorplan__zoom-icon {
+	h4 {
 		padding: 10px;
-	    text-align: center;		
-		i {
+	}
+}
+
+.Floorplan__actions {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	padding: 10px 0px;
+	a {
+		margin: 0px 10px;
+		color: #333;
+		&:hover {
 			color: #333;
-		}
+			text-decoration: none;
+		}		
 	}
 }
 

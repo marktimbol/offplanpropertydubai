@@ -81,11 +81,18 @@
 													alt="{{ $floorplan->title }}" 
 													title="{{ $floorplan->title }}" 
 													class="img-responsive" />
-
-													<div class="Floorplan__zoom-icon">
-														<i class="fa fa-search"></i> <small>Enlarge Photo</small>
-													</div>
 												</a>
+												<div class="Floorplan__actions">
+													<a href="{{ getPhotoPath($floorplan->photo) }}"
+														data-lightbox="floorplans"
+														data-title="{{ $floorplan->title }} - {{ $floorplan->price }}"
+													>
+														<i class="fa fa-search"></i> <small>Enlarge Photo</small>
+													</a>
+													<a href="{{ getPhotoPath($floorplan->photo) }}">
+														<i class="fa fa-download"></i> <small>Download</small>
+													</a>
+												</div>
 											</div>
 										@endforeach							
 									</div>
