@@ -68,22 +68,20 @@ $factory->define(App\Developer::class, function (Faker\Generator $faker) {
 });
 
 $factory->define(App\Project::class, function (Faker\Generator $faker) {
-    $name = $faker->sentence;
-    $slug = str_slug($name);
-
     return [
         'developer_id'  => function() {
             return factory(App\Developer::class)->create()->id;
         },
-        'name' => $name,
+        'name' => $faker->sentence,
         'title' => $faker->sentence,
-        'slug' => $slug,
+        'slug' => $faker->slug,
+        'price' => 'AED 2,000',
         'latitude'  => $faker->latitude,
         'longitude' => $faker->longitude,
         'expected_completion_date'   => 'February 2019',
         'dld_project_completion_link'   => $faker->url,
         'project_escrow_account_details_link'   => $faker->url,
-        'description'   => $faker->realText,
+        'description'   => $faker->realText,       
     ];
 });
 
@@ -101,6 +99,7 @@ $factory->define(App\Payment::class, function (Faker\Generator $faker) {
 $factory->define(App\Category::class, function (Faker\Generator $faker) {
     return [
         'name' => $faker->word,
+        'description'   => $faker->paragraph
     ];
 });
 

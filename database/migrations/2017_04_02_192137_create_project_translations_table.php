@@ -20,6 +20,7 @@ class CreateProjectTranslationsTable extends Migration
             
             $table->string('name');
             $table->string('title');
+            $table->string('price');
             $table->string('expected_completion_date');
             $table->text('description');
 

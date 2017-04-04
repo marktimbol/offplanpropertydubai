@@ -1,5 +1,6 @@
 <?php
 
+use App\Project;
 use Illuminate\Foundation\Testing\WithoutMiddleware;
 use Illuminate\Foundation\Testing\DatabaseMigrations;
 use Illuminate\Foundation\Testing\DatabaseTransactions;
@@ -19,6 +20,7 @@ class AnAdminCanManageDeveloperProjectsTest extends TestCase
     	$developer = factory(App\Developer::class)->create([
     		'name'	=> 'Emaar'
     	]);
+
     	$project = factory(App\Project::class)->make([
     		'name'	=> 'Emaar Park Point'
     	]);
@@ -39,10 +41,11 @@ class AnAdminCanManageDeveloperProjectsTest extends TestCase
             'name'  => 'Emaar',
     	]);
 
-        $url = '/dashboard/developers/'.$developer->id.'/projects/';
+        $url = '/dashboard/developers/'.$developer->id.'/projects';
         $response = $this->post($url, [
             'community_id'  => $community->id,
             'name'  => 'Emaar Park Point',
+            'slug'  => 'emaar-park-point',
             'title' => 'The Famous Emaar Park Point',
             'price' => 'AED 2,000,000',
             'latitude'  => '3.1415',
@@ -52,20 +55,26 @@ class AnAdminCanManageDeveloperProjectsTest extends TestCase
             'project_escrow_account_details_link' => 'http://gmail.com',
             'description'   => 'The description'
         ]);
-        
+
 		$this->seeInDatabase('projects', [
             'developer_id'  => $developer->id,
-            'name'  => 'Emaar Park Point',
-            'title'  => 'The Famous Emaar Park Point',
             'slug'  => 'emaar-park-point',
-            'price' => 'AED 2,000,000',
             'latitude'  => '3.1415',
             'longitude' => '3.1416',
-            'expected_completion_date' => 'February 2019',
             'dld_project_completion_link' => 'http://google.com',
             'project_escrow_account_details_link'   => 'http://gmail.com',
-			'description'	=> 'The description'
 		])
+
+        ->seeInDatabase('project_translations', [
+            'project_id'    => 1,
+            'locale'    => 'en',
+            'name'  => 'Emaar Park Point',
+            'title' => 'The Famous Emaar Park Point',
+            'price' => 'AED 2,000,000',
+            'expected_completion_date'  => 'February 2019',
+            'description'   => 'The description'
+        ])
+
         ->seeInDatabase('community_projects', [
             'community_id'  => $community->id,
             'project_id'    => 1

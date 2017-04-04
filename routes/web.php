@@ -1,10 +1,7 @@
-
 <?php
 
 use App\Project;
 use App\ProjectTranslation;
-use Illuminate\Support\Facades\App;
-use Illuminate\Support\Facades\Config;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,12 +14,34 @@ use Illuminate\Support\Facades\Config;
 |
 */
 
-Route::get('add-translations', function() {
-	config()->set('translatable.locale', 'ar');	
-});
-
 Event::listen('Illuminate\Database\Events\QueryExecuted', function ($query) {
     // var_dump($query->sql);
+});
+
+Route::get('translations', function() {
+	$projects = Project::all();
+
+	foreach( $projects as $project )
+	{
+		ProjectTranslation::create([
+			'project_id'	=> $project->id,
+			'locale'	=> 'en',
+			'name'	=> $project->name,
+			'title'	=> $project->title,
+			'price'	=> $project->price,
+			'expected_completion_date'	=> $project->expected_completion_date,
+			'description'	=> $project->description,
+		]);
+		// $project->translateOrNew('en')->name = $project->name;
+		// $project->translateOrNew('en')->title = $project->title;
+		// $project->translateOrNew('en')->price = $project->price;
+		// $project->translateOrNew('en')->expected_completion_date = $project->expected_completion_date;
+		// $project->translateOrNew('en')->description = $project->description;
+		// $project->save();
+	}
+
+	return 'Done';
+
 });
 
 Route::get('/', ['as' => 'home', 'uses' => 'PagesController@home']);

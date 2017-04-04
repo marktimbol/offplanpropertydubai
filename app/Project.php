@@ -9,24 +9,19 @@ use Illuminate\Database\Eloquent\Model;
 
 class Project extends Model
 {
-    use Searchable, Translatable;
-
-    public $translatedAttributes = ['name', 'title', 'expected_completion_date', 'description'];
+    use Translatable;
+    // use Searchable, Translatable;
 
     protected $fillable = [
-        'developer_id', 
-        'name', 
-        'title', 
-        'slug',
-        'price',
-        'latitude',
-        'longitude',
-        'expected_completion_date',
-        'dld_project_completion_link',
-        'project_escrow_account_details_link',
-        'description'
+        'slug', 'latitude', 'longitude', 'dld_project_completion_link', 'project_escrow_account_details_link'
     ];
 
+    // protected $fillable = [
+    //     'name', 'title', 'price', 'latitude', 'longitude', 'expected_completion_date',
+    //     'dld_project_completion_link', 'project_escrow_account_details_link', 'description'
+    // ];    
+
+    public $translatedAttributes = ['name', 'title', 'price', 'expected_completion_date', 'description'];
     
     public function getRouteKeyName() {
     	return 'slug';
@@ -34,8 +29,9 @@ class Project extends Model
 
     public function setNameAttribute($name)
     {
-    	$this->attributes['name'] = $name;
-    	$this->attributes['slug'] = str_slug($name);
+        dd($name);
+    	// $this->attributes['name'] = $name;
+    	// $this->attributes['slug'] = str_slug($name);
     }
 
     public static function boot()
