@@ -10,10 +10,15 @@ class VisitorCanViewAllTheCommunitiesTest extends TestCase
 
     public function test_a_visitor_can_view_all_the_available_communities()
     {
-    	$community = factory(App\Community::class)->create();
-    	
+    	$community = factory(App\Community::class)->create([
+            'name'  => 'Dubai Marina'
+        ]);
+        $project = factory(App\Project::class)->create();
+
+        $community->projects()->attach($project);
+
     	$this->visit('/communities')
-    		->see($community->name);
+    		->see('Dubai Marina');
     }
 
     public function test_a_visitor_can_view_projects_per_community()

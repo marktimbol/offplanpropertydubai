@@ -102,6 +102,7 @@ class AnAdminCanManageDeveloperProjectsTest extends TestCase
         $url = sprintf('/dashboard/developers/%s/projects/%s', $developer->id, $project->id);
         $this->put($url, [
             'name'  => 'Emaar Park Point',
+            'slug'  => 'emaar-park-point',
             'title' => 'The Famous Emaar Park Point',
             'price' => 'AED 2,000,000',
             'latitude'  => '3.1415',
@@ -114,17 +115,26 @@ class AnAdminCanManageDeveloperProjectsTest extends TestCase
 
 		$this->seeInDatabase('projects', [
 			'id'	=> $project->id,
-            'name'  => 'Emaar Park Point',
-            'title'  => 'The Famous Emaar Park Point',
+            // 'name'  => 'Emaar Park Point',
+            // 'title'  => 'The Famous Emaar Park Point',
             'slug'  => 'emaar-park-point',
-            'price'  => 'AED 2,000,000',
+            // 'price'  => 'AED 2,000,000',
             'latitude'  => '3.1415',
             'longitude' => '3.1416',
-            'expected_completion_date' => 'February 2019',
+            // 'expected_completion_date' => 'February 2019',
             'dld_project_completion_link' => 'http://google.com',
             'project_escrow_account_details_link'   => 'http://gmail.com',
-            'description'   => 'The description'
-		]);	
+            // 'description'   => 'The description'
+		])
+            ->seeInDatabase('project_translations', [
+                'project_id'    => $project->id,
+                'locale'    => 'en',
+                'name'  => 'Emaar Park Point',
+                'title' => 'The Famous Emaar Park Point',
+                'price' => 'AED 2,000,000',
+                'expected_completion_date'  => 'February 2019',
+                'description'   => 'The description'
+            ]);
     }
 
     public function test_an_admin_can_remove_a_project_from_a_developer()

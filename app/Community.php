@@ -2,17 +2,21 @@
 
 namespace App;
 
+use Dimsav\Translatable\Translatable;
 use Illuminate\Database\Eloquent\Model;
 
 class Community extends Model
 {
-    protected $fillable = ['name', 'slug', 'description'];
+    use Translatable;
 
-    public function setNameAttribute($name)
-    {
-    	$this->attributes['name'] = $name;
-    	$this->attributes['slug'] = str_slug($name);
-    }
+    public $translatedAttributes = ['name', 'description'];
+    protected $fillable = ['slug'];
+
+    // public function setNameAttribute($name)
+    // {
+    // 	$this->attributes['name'] = $name;
+    // 	$this->attributes['slug'] = str_slug($name);
+    // }
 
     public function city()
     {

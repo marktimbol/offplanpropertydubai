@@ -2,21 +2,26 @@
 
 namespace App;
 
+use Dimsav\Translatable\Translatable;
 use Illuminate\Database\Eloquent\Model;
 
 class Developer extends Model
 {
-    protected $fillable = ['country_id', 'name', 'slug', 'website', 'profile', 'photo'];
+    use Translatable;
+
+    public $translatedAttributes = ['name', 'profile'];
+    
+    protected $fillable = ['country_id', 'slug', 'website', 'photo'];
     
     public function getRouteKeyName() {
     	return 'slug';
     }
 
-    public function setNameAttribute($name)
-    {
-    	$this->attributes['name'] = $name;
-    	$this->attributes['slug'] = str_slug($name);
-    }
+    // public function setNameAttribute($name)
+    // {
+    // 	$this->attributes['name'] = $name;
+    // 	$this->attributes['slug'] = str_slug($name);
+    // }
 
     public function projects()
     {

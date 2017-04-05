@@ -29,7 +29,7 @@ class Project extends Model
 
     public function setNameAttribute($name)
     {
-        dd($name);
+        // dd($name);
     	// $this->attributes['name'] = $name;
     	// $this->attributes['slug'] = str_slug($name);
     }
@@ -125,5 +125,10 @@ class Project extends Model
     public function communities()
     {
         return $this->belongsToMany(Community::class, 'community_projects', 'project_id', 'community_id');
+    }
+
+    public function translations()
+    {
+        return $this->hasMany(ProjectTranslation::class);
     }
 }

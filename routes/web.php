@@ -110,6 +110,7 @@ Route::group(['middleware' => 'auth', 'prefix' => 'dashboard', 'as' => 'dashboar
 		'only' => ['store', 'update', 'destroy']
 	]);
 	Route::resource('developers.photos', 'Dashboard\DeveloperPhotosController');
+	Route::resource('projects.translations', 'Dashboard\ProjectTranslationsController');
 	Route::resource('categories', 'Dashboard\CategoriesController');
 	Route::resource('categories.types', 'Dashboard\CategoryTypesController');
 	Route::resource('slides', 'Dashboard\SlidesController');

@@ -27,12 +27,12 @@ class DisplayAllTheProjectsOfTheDeveloperTest extends TestCase
     	$moreProjects = factory(App\Project::class, 5)->make([
             'developer_id'  => $developer->id,
         ]);
+
     	$developer->projects()->saveMany($moreProjects);
 
-        $this->visit('dubai-properties/villanova');
+        $this->visit('/project/dubai-properties/villanova');
 
-    	foreach( $moreProjects as $project )
-    	{
+    	foreach( $moreProjects as $project ) {
     		$this->see($project->name);
     	}
     }

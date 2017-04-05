@@ -18,29 +18,52 @@ class ProjectTranslationsTest extends TestCase
 
     public function test_create_project_details_translations()
     {
-        app()->setLocale('en');
+        $project = factory(App\Project::class)->create([
+            'name'  => 'The name',
+            'title' => 'The title',
+            'price' => 'AED 2,000,000',
+            'expected_completion_date'  => 'January 2019',
+            'description'   => 'The description'
+        ]);
 
-        $project = factory(App\Project::class)->create();
-    	// $project = new Project;
+        $this->seeInDatabase('project_translations', [
+            'project_id'    => $project->id,
+            'locale'    => 'en',
+            'name'  => 'The name',
+            'title' => 'The title',
+            'price' => 'AED 2,000,000',
+            'expected_completion_date'  => 'January 2019',
+            'description'   => 'The description'
+        ]);
 
-        dd($project);
+    	$endpoint = '/dashboard/projects/'.$project->id.'/translations';
+    	$response = $this->post($endpoint, [
+            'locale'    => 'ar',
+    		'name'	=> 'Arabic Name',
+    		'title'	=> 'Arabic Title',
+            'price' => 'AED 20,000',
+    		'expected_completion_date'	=> 'January 2019',
+    		'description'	=> 'Arabic Description'
+    	]);
 
-    	// $endpoint = '/dashboard/projects/'.$project->id.'/translations';
-    	// $this->post($endpoint, [
-    	// 	'locale'	=> 'ar',
-    	// 	'name'	=> 'Arabic Name',
-    	// 	'title'	=> 'Arabic Title',
-    	// 	'expected_completion_date'	=> 'Arabic Expected Completion Date',
-    	// 	'description'	=> 'Arabic Description'
-    	// ]);
+    	$this->seeInDatabase('project_translations', [
+            'project_id'    => 1,
+            'locale'    => 'ar',
+            'name'  => 'Arabic Name',
+            'title' => 'Arabic Title',
+            'price' => 'AED 20,000',
+            'expected_completion_date'  => 'January 2019',
+            'description'   => 'Arabic Description' 
+    	]);
 
-    	// $this->seeInDatabase('project_translations', [
-    	// 	'project_id'	=> $project->id,
-    	// 	'locale'	=> 'ar',
-    	// 	'name'	=> 'Arabic Name',
-    	// 	'title'	=> 'Arabic Title',
-    	// 	'expected_completion_date'	=> 'Arabic Expected Completion Date',
-    	// 	'description'	=> 'Arabic Description'
-    	// ]);
+        $this->seeInDatabase('project_translations', [
+            'project_id'    => $project->id,
+            'locale'    => 'en',
+            'name'  => 'The name',
+            'title' => 'The title',
+            'price' => 'AED 2,000,000',
+            'expected_completion_date'  => 'January 2019',
+            'description'   => 'The description'
+        ]);        
     }
 }

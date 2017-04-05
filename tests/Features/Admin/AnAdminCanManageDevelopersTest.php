@@ -25,20 +25,27 @@ class AnAdminCanManageDevelopersTest extends TestCase
     public function test_an_admin_can_add_a_developer()
     {
         $country = factory(App\Country::class)->create();
+        $response = $this->post('/dashboard/developers', [
+            'country_id'    => $country->id,
+            'name'  => 'Emaar',
+            'slug'  => 'emaar',
+            'profile'   => 'The profile',
+            'website'   => 'http://google.com'
+        ]);
 
-    	$this->visit('/dashboard/developers/create')
-            ->select($country->id, 'country_id')
-            ->type('Emaar', 'name')
-            ->type('The profile', 'profile')
-    		->type('http://google.com', 'website')
-    		->press('Save')
-
-    		->seeInDatabase('developers', [
-                'country_id'  => 1,
+		$this->seeInDatabase('developers', [
+            'country_id'  => 1,
+            // 'name'  => 'Emaar',
+            'slug'  => 'emaar',
+            'website'   => 'http://google.com',
+            // 'profile'   => 'The profile',
+		])
+            ->seeInDatabase('developer_translations', [
+                'developer_id'  => 1,
+                'locale'    => 'en',
                 'name'  => 'Emaar',
-                'website'   => 'http://google.com',
-                'profile'   => 'The profile',
-    		]);
+                'profile'   => 'The profile'
+            ]);
     }
 
     public function test_an_admin_can_update_a_developer_information()
@@ -46,6 +53,7 @@ class AnAdminCanManageDevelopersTest extends TestCase
         $uae = factory(App\Country::class)->create([
             'name'  => 'UAE'
         ]);
+        
         $usa = factory(App\Country::class)->create([
             'name'  => 'USA'
         ]);
@@ -66,10 +74,16 @@ class AnAdminCanManageDevelopersTest extends TestCase
             ->seeInDatabase('developers', [
                 'id'    => $developer->id,
                 'country_id'    => $usa->id,
-                'name'  => 'Emaar',
+                // 'name'  => 'Emaar',
                 'website'   => 'http://google.com',
-                'profile'   => 'New Profile',
-            ]);
+                // 'profile'   => 'New Profile',
+            ])
+                ->seeInDatabase('developer_translations', [
+                    'developer_id'  => $developer->id,
+                    'locale'    => 'en',
+                    'name'  => 'Emaar',
+                    'profile'   => 'New Profile'
+                ]);
     }
 
     public function test_an_admin_can_delete_a_developer()
