@@ -33,7 +33,7 @@ class DeveloperProjectsTableSeeder extends Seeder
             'slug'  => 'villanova'
         ]);
 
-        $project->searchable();
+        // $project->searchable();
 
         $community->projects()->attach($project);
 
