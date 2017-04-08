@@ -8,7 +8,7 @@
 			<div class="row">
 				<div class="col-md-12">
 					<h1 class="ProjectListings__title">
-						Dubai Off Plan Projects - Floor Plans
+						@lang('nav.floorplans')
 					</h1>
 				</div>
 			</div>

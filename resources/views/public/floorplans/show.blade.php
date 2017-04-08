@@ -62,7 +62,7 @@
 			<div class="row">
 				<div class="col-md-12">
 					@if( count($project->floorplans) > 0 )
-						<h3>Floor Plans</h3>
+						<h3>@lang('nav.floorplans')</h3>
 						<div class="Floorplan--container">
 							<div class="Floorplans">
 								@foreach( $project->floorplans->chunk(4) as $chunks )

@@ -6,7 +6,7 @@
 	<div class="container">
 		<div class="row">
 			<div class="col-md-12">
-				<h1>Project Compares</h1>
+				<h1>@lang('nav.compare-projects')</h1>
 			</div>
 
 			<div class="col-md-12">

@@ -5,7 +5,7 @@
 @section('content')
 	<div class="Communities">
 		<div class="Communities__bg Flex Flex--center Flex--column">
-			<h1 class="Communities__title is-white">Communities</h1>
+			<h1 class="Communities__title is-white">@lang('nav.communities')</h1>
 		</div>
 	</div>
 	<p>&nbsp;</p>

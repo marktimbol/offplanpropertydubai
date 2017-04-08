@@ -39,4 +39,21 @@ html[lang="ar"] {
 	.navbar-header {
 		float: right;
 	}
+
+	// Table
+	caption, th {
+		text-align: right;
+	}
+
+	// Form
+	.checkbox label, .radio label {
+		padding-right: 20px;
+	}
+
+	.checkbox input[type=checkbox], 
+	.checkbox-inline input[type=checkbox], 
+	.radio input[type=radio], 
+	.radio-inline input[type=radio] {
+		margin-right: -20px;
+	}
 }
