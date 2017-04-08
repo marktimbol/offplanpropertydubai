@@ -9,7 +9,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Project extends Model
 {
-    use Translatable;
+    // use Translatable;
     // use Searchable, Translatable;
 
     protected $fillable = [
