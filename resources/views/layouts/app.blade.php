@@ -7,7 +7,7 @@
     <meta name="google-site-verification" content="1XbV53OyHuAyPbbPAZsDF7kOfd-bBW2wy6gZ4XPFjUU" />
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
-    <meta name="description" content="Off Plan Property Dubai. The best investment on earth is earth.">
+    <meta name="description" content="Property which is still in the process of construction or is yet to be constructed is called off plan property. Off plan properties play a major role in strengthening the real estate sector of Dubai. Almost all property developers of Dubai have off plan projects scattered across the Emirates.">
     <title>@yield('pageTitle') | {{ config('app.name') }}</title>
 
     <!-- Styles -->
