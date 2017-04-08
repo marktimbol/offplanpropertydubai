@@ -9,8 +9,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Project extends Model
 {
-    use Translatable;
-    // use Searchable, Translatable;
+    use Searchable, Translatable;
 
     protected $fillable = [
         'slug', 'latitude', 'longitude', 'dld_project_completion_link', 'project_escrow_account_details_link'
