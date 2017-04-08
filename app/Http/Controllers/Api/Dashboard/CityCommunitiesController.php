@@ -11,6 +11,6 @@ class CityCommunitiesController extends Controller
 {
     public function index($city)
     {
-    	return $city->communities()->orderBy('name', 'asc')->get();
+    	return $city->communities()->orderBy('slug', 'asc')->get();
     }
 }

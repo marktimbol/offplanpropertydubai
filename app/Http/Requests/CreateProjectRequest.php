@@ -25,6 +25,7 @@ class CreateProjectRequest extends FormRequest
     {
         return [
             'name'  => 'required',
+            'slug'  => 'required',
             'title' => 'required',
         ];
     }

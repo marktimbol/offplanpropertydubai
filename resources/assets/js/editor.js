@@ -56,7 +56,17 @@ $(function() {
 		toolbarButtonsSM: froalaEditorStandardButtons,
 		// toolbarButtonsSM: ['undo', 'redo' , 'bold', 'formatOL', 'formatUL', 'rightToLeft', 'leftToRight'],
 		// toolbarButtonsMD: ['undo', 'redo' , 'bold', 'formatOL', 'formatUL', 'rightToLeft', 'leftToRight'],
-	})   	
+	});
+
+	$('#editor_ar').froalaEditor({
+		height: '600px',
+		direction: 'rtl',
+		toolbarButtons: froalaEditorStandardButtons,
+		toolbarButtonsMD: froalaEditorStandardButtons,
+		toolbarButtonsSM: froalaEditorStandardButtons,
+		// toolbarButtonsSM: ['undo', 'redo' , 'bold', 'formatOL', 'formatUL', 'rightToLeft', 'leftToRight'],
+		// toolbarButtonsMD: ['undo', 'redo' , 'bold', 'formatOL', 'formatUL', 'rightToLeft', 'leftToRight'],
+	})
 })
 
 

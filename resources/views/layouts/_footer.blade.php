@@ -4,11 +4,11 @@
 			<div class="col-md-12">
 				<div class="Flex Flex--center Space-between">
 					<h3 class="Invest__title Section__title">
-						The best investment on earth is earth.
+						@lang('messages.best-investment')
 					</h3>
 					<div class="Invest__action">
 						<button class="btn btn-lg btn-primary" data-toggle="modal" data-target="#RegisterYourIntestForm">
-							Register your interest
+							@lang('messages.register-your-interest')
 						</button>
 					</div>
 				</div>
@@ -23,10 +23,10 @@
 			<div class="container">
 				<div class="row">
 					<div class="col-md-12">
-						<h3 class="Section__title text-center">Developers</h3>
+						<h3 class="Section__title text-center">@lang('nav.developers')</h3>
 
 						<div class="DeveloperListings--container">
-							<div class="DeveloperListings">
+							<div class="DeveloperListings" data-locale="{{ app()->getLocale() }}">
 								@foreach( $developers as $developer )
 								<?php 
 									$path = '/images/no-developer-image.jpg';

@@ -115,16 +115,11 @@ class AnAdminCanManageDeveloperProjectsTest extends TestCase
 
 		$this->seeInDatabase('projects', [
 			'id'	=> $project->id,
-            // 'name'  => 'Emaar Park Point',
-            // 'title'  => 'The Famous Emaar Park Point',
             'slug'  => 'emaar-park-point',
-            // 'price'  => 'AED 2,000,000',
             'latitude'  => '3.1415',
             'longitude' => '3.1416',
-            // 'expected_completion_date' => 'February 2019',
             'dld_project_completion_link' => 'http://google.com',
             'project_escrow_account_details_link'   => 'http://gmail.com',
-            // 'description'   => 'The description'
 		])
             ->seeInDatabase('project_translations', [
                 'project_id'    => $project->id,

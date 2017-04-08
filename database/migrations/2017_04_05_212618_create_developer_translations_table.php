@@ -1,5 +1,7 @@
 <?php
 
+use App\Developer;
+use App\DeveloperTranslation;
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
@@ -23,6 +25,17 @@ class CreateDeveloperTranslationsTable extends Migration
             $table->foreign('developer_id')->references('id')->on('developers')->onDelete('cascade');
             $table->timestamps();
         });
+
+        $developers = Developer::all();
+        foreach( $developers as $developer )
+        {
+            DeveloperTranslation::create([
+                'developer_id'    => $developer->id,
+                'locale'    => 'en',
+                'name'  => $developer->name,
+                'profile'   => $developer->profile
+            ]);           
+        }        
     }
 
     /**

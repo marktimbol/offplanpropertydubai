@@ -11,7 +11,7 @@
 
 @section('content')
 	<div class="Hero--container Flex Flex--center">
-		<div class="Hero__carousel owl-carousel">
+		<div class="Hero__carousel owl-carousel" data-locale="{{ app()->getLocale() }}">
 			@forelse($slides as $slide)
 				<div>
 					<img src="{{ getPhotoPath($slide->path) }}" alt="" title="" class="img-responsive" />
@@ -29,7 +29,7 @@
 					<input type="text" 
 						name="query" 
 						class="form-control input-lg Search__input" 
-						placeholder="Search for a Project, Communities or Developer" />
+						placeholder="@lang('messages.search-project')" />
 					<button type="submit" class="btn-link Search__button">
 						<i class="fa fa-search"></i>
 					</button>
@@ -94,7 +94,7 @@
 						</div>
 						<div class="Column-6">
 							<div class="padding-20">
-								<h3 class="Section__title">About Dubai Off Plan Projects</h3>
+								<h3 class="Section__title">@lang('messages.about-dubai-offplan-projects')</h3>
 								<p>
 									Property which is still in the process of construction or is yet to be constructed is called off plan property. Off plan properties play a major role in strengthening the real estate sector of Dubai. Almost all property developers of Dubai have off plan projects scattered across the Emirates.
 								</p>
@@ -103,7 +103,7 @@
 								</p>
 								<p class="mt-20">
 									<button class="btn btn-lg btn-primary" data-toggle="modal" data-target="#RegisterYourIntestForm">
-										Register your interest
+										@lang('messages.register-your-interest')
 									</button>
 								</p>
 							</div>
@@ -119,7 +119,7 @@
 			<div class="container">
 				<div class="row">
 					<div class="col-md-12">
-						<h3 class="Section__title text-center">Latest Off Plan Projects</h3>
+						<h3 class="Section__title text-center">@lang('messages.latest-offplan-projects')</h3>
 						@include('public.projects._listings', [
 							'projects' => $projects
 						])
@@ -129,7 +129,7 @@
 				<div class="row">
 					<div class="col-md-12">
 						<p class="text-center">
-							<a href="/projects" class="btn btn-default">See all Projects</a>
+							<a href="/projects" class="btn btn-default">@lang('messages.see-all-projects')</a>
 						</p>
 					</div>
 				</div>
@@ -141,7 +141,7 @@
 		<div class="container">
 			<div class="row">
 				<div class="col-md-12">
-					<h2 class="text-center">Explore Communities</h2>
+					<h2 class="text-center">@lang('messages.explore-communities')</h2>
 					<p class="lead text-center">
 						
 					</p>

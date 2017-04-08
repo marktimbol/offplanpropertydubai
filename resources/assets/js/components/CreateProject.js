@@ -11,6 +11,7 @@ class CreateProject extends React.Component
 			buttonText: 'Save Project',
 			isSubmitted: false,
 			name: '',
+			slug: '',
 			title: '',
 			price: '',
 			expected_completion_date: '',
@@ -231,14 +232,24 @@ class CreateProject extends React.Component
 					</div>
 					<div className="col-md-6">
 						<div className="form-group">
-							<label>Marketing Title*</label>
+							<label>Slug*</label>
 							<input type="text" 
-								name="title" 
+								name="slug" 
 								className="form-control" 
+								placeholder="the-project-name"
 								onChange={this.handleChange}
-								value={this.state.title} />
+								value={this.state.slug} />
 						</div>
 					</div>
+				</div>
+
+				<div className="form-group">
+					<label>Marketing Title*</label>
+					<input type="text" 
+						name="title" 
+						className="form-control" 
+						onChange={this.handleChange}
+						value={this.state.title} />
 				</div>
 
 				<div className="row">

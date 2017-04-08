@@ -2,6 +2,7 @@ $(document).ready(function() {
 
 	var Hero = $('.Hero__carousel');
 	Hero.owlCarousel({
+		rtl: Hero.data('locale') == 'ar' ? true : false,
 		singleItem: true,
 		navigation: false, 
 		pagination: false,
@@ -19,8 +20,9 @@ $(document).ready(function() {
 
 	//
 
-	var developers = $('.DeveloperListings');
+	var developers = $('.DeveloperListings');	
 	developers.owlCarousel({
+		rtl: developers.data('locale') == 'ar' ? true : false,
 		navigation: false, 
 		pagination: false,
 		autoPlay: true
@@ -39,6 +41,7 @@ $(document).ready(function() {
 	var projectCarousel = $('.Project__carousel');
 	projectCarousel.owlCarousel({
 		// lazyLoad: true
+		rtl: projectCarousel.data('locale') == 'ar' ? true : false,
 		singleItem: true,
 		navigation: false, 
 		pagination: false,

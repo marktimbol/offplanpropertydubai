@@ -65,11 +65,14 @@ class DeveloperProjectsController extends Controller
     }
 
     public function update(Request $request, $developer, $project)
-    {
+    {        
         $this->validate($request, [
-            'name'  => 'required'
+            'en.name'  => 'required',
+            'ar.name'  => 'required',
+            'en.title'  => 'required',
+            'ar.title'  => 'required',            
         ]);
-        
+
         $project->update($request->all());
 
         flash()->success(sprintf('%s has been successfully saved.', $project->name));

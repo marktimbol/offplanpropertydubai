@@ -1,0 +1,42 @@
+html[lang="ar"] {
+	direction: rtl;
+
+	.owl-carousel {
+		direction: ltr;
+	}
+
+	.Hero__carousel--nav {
+		flex-direction: row-reverse;
+	}
+
+	.DeveloperListings--nav {
+		flex-direction: row-reverse;
+	}
+
+	.Project__carousel--nav {
+		flex-direction: row-reverse;
+	}
+
+	.Project__description {
+		ul.list-group {
+			padding-right: 0;
+		}
+	}
+
+	// Nav
+	.navbar-nav {
+		float: right;
+		padding-right: 0px;
+		li {
+			float: right;
+		}
+	}
+
+	.navbar-right {
+		float: left !important;
+	}
+
+	.navbar-header {
+		float: right;
+	}
+}

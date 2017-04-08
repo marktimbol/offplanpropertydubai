@@ -15,58 +15,44 @@
 		{{ csrf_field() }}
 		{!! method_field('PUT') !!}
 
-		<h3>Project Details</h3>
-
-		<div class="form-group">
-			<label class="control-label">Developer</label>
-			<input type="text" class="form-control" value="{{ $developer->name }}"  disabled />
-		</div>
-
 		<div class="row">
 			<div class="col-md-6">
-				<div class="form-group {{ $errors->has('name') ? 'has-error' : '' }}">
+				<h3>Project Details</h3>
+
+				<div class="form-group">
+					<label class="control-label">Developer</label>
+					<input type="text" class="form-control" value="{{ $developer->name }}"  disabled />
+				</div>
+
+				<div class="form-group {{ $errors->has('en.name') ? 'has-error' : '' }}">
 					<label for="name" class="control-label">Project Name*</label>
-					<input type="text" name="name" id="name" class="form-control" value="{{ $project->name }}" />
-					@if( $errors->has('name') )
+					<input type="text" name="en[name]" id="name" class="form-control" value="{{ $project->name }}" />
+					@if( $errors->has('en.name') )
 						<span class="help-block">
-							{{ $errors->first('name') }}
+							{{ $errors->first('en.name') }}
 						</span>
 					@endif
 				</div>
-			</div>
-			<div class="col-md-6">
-				<div class="form-group {{ $errors->has('title') ? 'has-error' : '' }}">
+				<div class="form-group {{ $errors->has('en.title') ? 'has-error' : '' }}">
 					<label for="title" class="control-label">Marketing Title*</label>
-					<input type="text" name="title" id="title" class="form-control" value="{{ $project->title }}" />
-					@if( $errors->has('title') )
+					<input type="text" name="en[title]" id="title" class="form-control" value="{{ $project->title }}" />
+					@if( $errors->has('en.title') )
 						<span class="help-block">
-							{{ $errors->first('title') }}
+							{{ $errors->first('en.title') }}
 						</span>
 					@endif
 				</div>
-			</div>
-		</div>
 
-		<div class="row">
-			<div class="col-md-6">
 				<div class="form-group">
 					<label for="price" class="control-label">Price</label>
-					<input type="text" name="price" id="price" class="form-control" value="{{ $project->price }}" />
+					<input type="text" name="en[price]" id="price" class="form-control" value="{{ $project->price }}" />
 				</div>
-			</div>
-
-			<div class="col-md-6">
 				<div class="form-group">
 					<label for="expected_completion_date" class="control-label">Expected Completion Date</label>
-					<input type="text" name="expected_completion_date" id="expected_completion_date" class="form-control" value="{{ $project->expected_completion_date }}" />
+					<input type="text" name="en[expected_completion_date]" id="expected_completion_date" class="form-control" value="{{ $project->expected_completion_date }}" />
 				</div>
-			</div>
-		</div>
 
-		<h3>Google Map</h3>
-
-		<div class="row">
-			<div class="col-md-6">
+				<h3>Google Map</h3>
 				<div class="form-group">
 					<label for="latitude" class="control-label">Latitude</label>
 					<input type="text" 
@@ -75,8 +61,6 @@
 						class="form-control" 
 						value="{{ $project->latitude }}" />
 				</div>
-			</div>
-			<div class="col-md-6">
 				<div class="form-group">
 					<label for="longitude" class="control-label">Longitude</label>
 					<input type="text" 
@@ -85,13 +69,8 @@
 						class="form-control" 
 						value="{{ $project->longitude }}" />
 				</div>
-			</div>
-		</div>
 
-		<h3>External Links</h3>
-		
-		<div class="row">
-			<div class="col-md-6">
+				<h3>External Links</h3>	
 				<div class="form-group">
 					<label for="dld_project_completion_link" class="control-label">DLD Project Completion %</label>
 					<input type="text" 
@@ -100,8 +79,6 @@
 						class="form-control" 
 						value="{{ $project->dld_project_completion_link }}" />
 				</div>
-			</div>
-			<div class="col-md-6">
 				<div class="form-group">
 					<label for="project_escrow_account_details_link" class="control-label">Escrow Account Details Link</label>
 					<input type="text" 
@@ -110,16 +87,66 @@
 						class="form-control" 
 						value="{{ $project->project_escrow_account_details_link }}" />
 				</div>
+
+				<h3>Project Description</h3>
+
+				<div class="form-group">
+					<label for="description">&nbsp;</label>
+					<textarea name="en[description]" id="editor" class="form-control">
+						{{ $project->description }}
+					</textarea>
+				</div>
 			</div>
-		</div>
 
-		<h3>Project Description</h3>
+			<div class="col-md-6 rtl">
+				<h3>Project Details</h3>
 
-		<div class="form-group">
-			<label for="description">&nbsp;</label>
-			<textarea name="description" id="editor" class="form-control">
-				{{ $project->description }}
-			</textarea>
+				<div class="form-group">
+					<label class="control-label">Developer</label>
+					<input type="text" class="form-control" value="{{ $developer->name }}"  disabled />
+				</div>
+
+				<div class="form-group {{ $errors->has('ar.name') ? 'has-error' : '' }}">
+					<label for="name" class="control-label">Project Name*</label>
+					<input type="text" 
+						name="ar[name]" 
+						id="name" 
+						class="form-control" 
+						value="{{ $project->hasTranslation('ar') ? $project->translate('ar')->name : '' }}" />
+					@if( $errors->has('ar.name') )
+						<span class="help-block">
+							{{ $errors->first('ar.name') }}
+						</span>
+					@endif
+				</div>
+				<div class="form-group {{ $errors->has('ar.title') ? 'has-error' : '' }}">
+					<label for="title" class="control-label">Marketing Title*</label>
+					<input type="text" name="ar[title]" id="title" class="form-control" value="{{ $project->hasTranslation('ar') ? $project->translate('ar')->title : '' }}" />
+					@if( $errors->has('ar.title') )
+						<span class="help-block">
+							{{ $errors->first('ar.title') }}
+						</span>
+					@endif
+				</div>
+
+				<div class="form-group">
+					<label for="price" class="control-label">Price</label>
+					<input type="text" name="ar[price]" id="price" class="form-control" value="{{ $project->hasTranslation('ar') ? $project->translate('ar')->price : old('ar.price') }}" />
+				</div>
+				<div class="form-group">
+					<label for="expected_completion_date" class="control-label">Expected Completion Date</label>
+					<input type="text" name="ar[expected_completion_date]" id="expected_completion_date" class="form-control" value="{{ $project->hasTranslation('ar') ? $project->translate('ar')->expected_completion_date : '' }}" />
+				</div>
+
+				<h3>Project Description</h3>
+
+				<div class="form-group">
+					<label for="description">&nbsp;</label>
+					<textarea name="ar[description]" id="editor_ar" class="form-control">
+						{{ $project->hasTranslation('ar') ? $project->translate('ar')->description : '' }}
+					</textarea>
+				</div>
+			</div>
 		</div>
 
 		<div class="form-group">

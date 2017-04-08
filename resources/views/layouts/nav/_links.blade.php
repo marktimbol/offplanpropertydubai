@@ -1,13 +1,13 @@
 <div class="collapse navbar-collapse" id="app-navbar-collapse">
     <!-- Left Side Of Navbar -->
     <ul class="nav navbar-nav">
-        <li><a href="/">Home</a></li>
-        <li><a href="{{ route('projects.index') }}">Dubai Off Plan Projects</a></li>
-        <li><a href="/communities">Communities</a></li>
-        <li><a href="/developers">Developers</a></li>
-        <li><a href="/compares">Compare Projects</a></li>
-        <li><a href="/floorplans">Floorplans</a></li>
-        <li><a href="/contact">Contact Us</a></li>
+        <li><a href="/">@lang('nav.home')</a></li>
+        <li><a href="{{ route('projects.index') }}">@lang('nav.projects')</a></li>
+        <li><a href="/communities">@lang('nav.communities')</a></li>
+        <li><a href="/developers">@lang('nav.developers')</a></li>
+        <li><a href="/compares">@lang('nav.compare-projects')</a></li>
+        <li><a href="/floorplans">@lang('nav.floorplans')</a></li>
+        <li><a href="/contact">@lang('nav.contact-us')</a></li>
     </ul>
 
     <!-- Right Side Of Navbar -->
@@ -15,12 +15,12 @@
 
         <li class="dropdown">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-                Language <span class="caret"></span>
+                @lang('nav.language') <span class="caret"></span>
             </a>
 
             <ul class="dropdown-menu" role="menu">
-                <li><a href="#">English</a></li>
-                <li><a href="#">Arabic</a></li>
+                <li><a href="/language/en">English</a></li>
+                <li><a href="/language/ar">Arabic</a></li>
             </ul>
         </li>
         

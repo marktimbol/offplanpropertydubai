@@ -6,5 +6,5 @@ use Illuminate\Database\Eloquent\Model;
 
 class CommunityTranslation extends Model
 {
-    protected $fillable = ['name', 'description'];
+    protected $fillable = ['community_id', 'locale', 'name', 'description'];
 }

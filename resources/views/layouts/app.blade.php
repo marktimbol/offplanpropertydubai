@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="{{ app()->getLocale() }}">
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -23,7 +23,6 @@
     </script>
 </head>
 <body class="@yield('bodyClass')">
-
     @include('layouts.nav._nav')
 
     @yield('content')

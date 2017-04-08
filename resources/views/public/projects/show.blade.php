@@ -22,7 +22,7 @@
 								<img src="{{ $logo }}" alt="{{ $project->title }}" title="{{ $project->title }}" class="img-responsive" />
 							</div>
 						@endif
-						<div class="Project__carousel owl-carousel">
+						<div class="Project__carousel owl-carousel" data-locale="{{ app()->getLocale() }}">
 							@forelse($project->photos as $photo)
 								<div>
 									<img src="{{ getPhotoPath($photo->photo) }}" 
@@ -120,7 +120,7 @@
 							</button>
 						@endif
 					</p>
-					<h3>Register your Interest</h3>
+					<h3>@lang('messages.register-your-interest')</h3>
 					<form method="POST" action="{{ route('projects.inquiries.store', $project->slug) }}">
 						{{ csrf_field() }}
 						<div class="form-group {{ $errors->has('name') ? 'has-error' : '' }}">
@@ -213,7 +213,7 @@
 			<div class="row">
 				<div class="col-md-12">
 					@if( count($project->floorplans) > 0 )
-						<h3>Floor Plan</h3>
+						<h3>@lang('nav.floorplans')</h3>
 						<div class="Floorplan--container">
 							<div class="Floorplans">
 								@foreach( $project->floorplans->chunk(4) as $chunks )
@@ -231,12 +231,19 @@
 													<img src="{{ getPhotoPath($floorplan->photo) }}" 
 													alt="{{ $floorplan->title }}" 
 													title="{{ $floorplan->title }}" 
-													class="img-responsive" />
-
-													<div class="Floorplan__zoom-icon">
-														<i class="fa fa-search"></i> <small>Enlarge Photo</small>
-													</div>											
+													class="img-responsive" />									
 												</a>
+												<div class="Floorplan__actions">
+													<a href="{{ getPhotoPath($floorplan->photo) }}"
+														data-lightbox="floorplans"
+														data-title="{{ $floorplan->title }} - {{ $floorplan->price }}"
+													>
+														<i class="fa fa-search"></i> <small>Enlarge Photo</small>
+													</a>
+													<a href="{{ getPhotoPath($floorplan->photo) }}">
+														<i class="fa fa-download"></i> <small>Download</small>
+													</a>
+												</div>												
 											</div>
 										@endforeach							
 									</div>

@@ -310,7 +310,9 @@ footer {
 	display: flex;
 	align-items: center;
 	justify-content: center;
-	padding: 10px 0px;
+    border-top: 1px solid #ddd;
+    padding: 10px 0px;
+    margin-top: 20px;	
 	a {
 		margin: 0px 10px;
 		color: #333;
@@ -350,4 +352,5 @@ footer {
 @import 'components/Developer';
 @import 'components/Communities';
 @import 'components/MediaQueries';
+@import 'components/Language';
 @import 'components/Overwrite';
