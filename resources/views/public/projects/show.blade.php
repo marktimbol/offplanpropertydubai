@@ -8,7 +8,7 @@
 
 @section('bodyClass', 'Single-project')
 
-@section('pageTitle', sprintf('%s - %s', $project->name, $project->title))
+@section('pageTitle', sprintf('%s - %s by %s', $project->name, $project->title, $project->developer->name))
 
 @section('content')
 
