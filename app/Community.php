@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Community extends Model
 {
-    // use Translatable;
+    use Translatable;
 
     public $translatedAttributes = ['name', 'description'];
     protected $fillable = ['slug'];

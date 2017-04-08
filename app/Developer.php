@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Developer extends Model
 {
-    // use Translatable;
+    use Translatable;
 
     public $translatedAttributes = ['name', 'profile'];
     
