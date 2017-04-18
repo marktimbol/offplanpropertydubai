@@ -26,6 +26,7 @@ class CreateDeveloperRequest extends FormRequest
         return [
             'country_id'  => 'required',
             'name'  => 'required',
+            'slug'  => 'required',
             'website'   => 'url'
         ];
     }

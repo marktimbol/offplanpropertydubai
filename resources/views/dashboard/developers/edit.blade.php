@@ -11,14 +11,29 @@
 		{{ csrf_field() }}
 		{!! method_field('PUT') !!}
 
-		<div class="form-group {{ $errors->has('name') ? 'has-error' : '' }}">
-			<label for="name" class="control-label">Developer Name</label>
-			<input type="text" name="name" id="name" class="form-control" value="{{ $developer->name }}" />
-			@if( $errors->has('name') )
-				<span class="help-block">
-					{{ $errors->first('name') }}
-				</span>
-			@endif
+		<div class="row">
+			<div class="col-md-6">
+				<div class="form-group {{ $errors->has('name') ? 'has-error' : '' }}">
+					<label for="name" class="control-label">Developer Name</label>
+					<input type="text" name="name" id="name" class="form-control" value="{{ $developer->name }}" />
+					@if( $errors->has('name') )
+						<span class="help-block">
+							{{ $errors->first('name') }}
+						</span>
+					@endif
+				</div>
+			</div>
+			<div class="col-md-6">
+				<div class="form-group {{ $errors->has('slug') ? 'has-error' : '' }}">
+					<label for="slug" class="control-label">Slug</label>
+					<input type="text" name="slug" id="slug" class="form-control" value="{{ $developer->slug }}" placeholder="developer-name" />
+					@if( $errors->has('slug') )
+						<span class="help-block">
+							{{ $errors->first('slug') }}
+						</span>
+					@endif
+				</div>
+			</div>
 		</div>
 
 		<div class="form-group {{ $errors->has('country_id') ? 'has-error' : '' }}">
