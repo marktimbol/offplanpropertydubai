@@ -73,15 +73,10 @@
 													{{ $floorplan->title }}<br />
 													<small>{{ $floorplan->price }}</small>
 												</h4>
-												<a href="{{ getPhotoPath($floorplan->photo) }}"
-													data-lightbox="floorplans"
-													data-title="{{ $floorplan->title }} - {{ $floorplan->price }}"
-												>
-													<img src="{{ getPhotoPath($floorplan->photo) }}" 
-													alt="{{ $floorplan->title }}" 
-													title="{{ $floorplan->title }}" 
-													class="img-responsive" />
-												</a>
+												<img src="{{ getPhotoPath($floorplan->photo) }}" 
+												alt="{{ $floorplan->title }}" 
+												title="{{ $floorplan->title }}" 
+												class="img-responsive" />
 												<div class="Floorplan__actions">
 													<a href="{{ getPhotoPath($floorplan->photo) }}"
 														data-lightbox="floorplans"
