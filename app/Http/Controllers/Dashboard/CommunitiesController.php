@@ -22,6 +22,10 @@ class CommunitiesController extends Controller
 
     public function store(Request $request, $city)
     {
+        $this->validate($request, [
+            'slug'  => 'required'
+        ]);
+        
     	$city->communities()->create($request->all());
 
     	flash()->success('Community has been successfully saved.');
