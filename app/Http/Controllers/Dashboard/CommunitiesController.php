@@ -25,7 +25,7 @@ class CommunitiesController extends Controller
         $this->validate($request, [
             'slug'  => 'required'
         ]);
-        
+
     	$city->communities()->create($request->all());
 
     	flash()->success('Community has been successfully saved.');
@@ -34,6 +34,10 @@ class CommunitiesController extends Controller
 
     public function update(Request $request, $city, $community)
     {
+        $this->validate($request, [
+            'slug'  => 'required'
+        ]);        
+        
         $community->update($request->all());
 
         flash()->success('Community has been successfully updated.');

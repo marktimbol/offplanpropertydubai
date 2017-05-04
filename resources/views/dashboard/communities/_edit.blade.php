@@ -11,6 +11,10 @@
 		<input type="text" name="name" id="name" class="form-control" value="{{ old('name', $community->name) }}" />
 	</div>
 	<div class="form-group">
+		<label for="slug">Slug</label>
+		<input type="text" name="slug" id="slug" class="form-control" value="{{ old('slug', $community->slug) }}" />
+	</div>	
+	<div class="form-group">
 		<label for="description">Description</label>
 		<textarea name="description" id="description" class="form-control" rows="5">
 			{{ old('description', $community->description) }}
