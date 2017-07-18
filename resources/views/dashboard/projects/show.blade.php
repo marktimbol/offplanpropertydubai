@@ -63,12 +63,15 @@
 					{{ $project->price }}
 				</li>
 
+
+				<?php /*
 				<li class="list-group-item">
 					Location: 
 					@foreach( $project->communities as $community )
 						{{ sprintf('%s %s %s, %s', $community->name, '-' , $community->city->name, $community->city->country->name) }}
 					@endforeach
 				</li>
+				*/ ?>
 				
 				<li class="list-group-item">
 					Expected Completion Date: {{ $project->expected_completion_date }}
