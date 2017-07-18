@@ -17,6 +17,7 @@ class CommunitiesController extends Controller
 
     public function show($city, $community)
     {
+        $community->load('projects');        
         return view('dashboard.communities.show', compact('city', 'community'));
     }
 

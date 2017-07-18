@@ -48,6 +48,28 @@
 					</div>
 				@endif
 			</div>
+
+			<h3>Projects in {{ $community->name }}</h3>
+			<table class="table table-bordered">
+				<thead>
+					<tr>
+						<th>Project Name</th>
+					</tr>
+				</thead>
+				<tbody>
+					@forelse( $community->projects as $project )
+					<tr>
+						<td>
+							<a href="{{ route('dashboard.developers.projects.show', [$project->developer->id, $project->id]) }}">{{ $project->name }}</a>
+						</td>
+					</tr>
+					@empty
+					<tr>
+						<td>No record yet.</td>
+					</tr>
+					@endforelse
+				</tbody>
+			</table>			
 		</div>
 	</div>
 @endsection
