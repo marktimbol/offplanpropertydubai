@@ -8,7 +8,6 @@
 		<thead>
 			<tr>
 				<th>Developer Name</th>
-				<th>Country</th>				
 				<th>Projects</th>
 			</tr>
 		</thead>
@@ -20,7 +19,6 @@
 							{{ $developer->name }}
 						</a>
 					</td>
-					<td width="200">{{ $developer->country->name }}</td>
 					<td>
 						<ul class="list-group">
 							@forelse( $developer->projects as $project )
