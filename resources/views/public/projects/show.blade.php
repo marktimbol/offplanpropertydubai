@@ -84,15 +84,13 @@
 									Escrow Account Details %
 								</a>
 							</li>
-							<?php /*
 							<li class="list-group-item">
 								<i class="fa fa-map-marker"></i> &nbsp; 
 								Location: 
 								@foreach( $project->communities as $community )
-									{{ sprintf('%s %s %s, %s', $community->name, '-' , $community->city->name, $community->city->country->name) }}
+									{{ sprintf('%s, %s', $community->name, $community->city->name) }}
 								@endforeach
 							</li>
-							*/ ?>
 						</ul>
 						{!! $project->description !!}
 					</div>

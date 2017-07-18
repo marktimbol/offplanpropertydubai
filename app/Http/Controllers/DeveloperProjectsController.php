@@ -10,7 +10,7 @@ use JavaScript;
 class DeveloperProjectsController extends Controller
 {
     public function show($developer, $project)
-    {
+    {        
         $projectKey = sprintf('%s-page', $project->slug);
         $project = Cache::remember($projectKey, 60, function() use ($project) {
             $project->load(
