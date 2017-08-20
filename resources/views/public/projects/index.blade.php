@@ -19,6 +19,10 @@
 			@include('public.projects._listings', [
 				'projects' => $projects
 			])
+
+			<div class="pagination-container">
+				{{ $projects->render() }}
+			</div>			
 		</div>
 	</div>
 @endsection

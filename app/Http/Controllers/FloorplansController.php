@@ -11,7 +11,7 @@ class FloorplansController extends Controller
     public function index()
     {
         $projects = Cache::remember('floorplans', 30, function() {
-        	return Project::with('developer', 'photos')->latest()->get();
+        	return Project::with('developer', 'photos')->latest()->paginate(12);
         });
         
         return view('public.floorplans.index', compact('projects'));

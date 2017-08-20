@@ -1,4 +1,4 @@
-<section class="is-gray-bg mt-20">
+<section class="_is-gray-bg mt-20">
 	<div class="container">
 		<div class="row">
 			<div class="col-md-12">
