@@ -12,6 +12,21 @@
 					Dubai real estate developers are not only outstanding when it comes to their craft, they are able to combine luxury and the intertwine it with the comforts of living by giving its residents all the best that Dubai life has to offer. These developers have shaped the city into a global once that is today, providing homes to families that are not only prestigious but complete amenities to cater to their wants and needs.
 				</p>
 			</div>
+		</div>
+		<div class="row Projects__search">
+			<div class="col-md-5">
+				<form method="GET" action="{{ route('search') }}" class="Search">
+					<label>@lang('messages.search-project')</label>
+					<div class="input-group">
+						<input type="text" name="query" class="form-control Search__input" />
+						<span class="input-group-btn">
+							<button type="submit" class="btn btn-primary">Search</button>
+						</span>
+					</div>
+				</form>
+			</div>
+		</div>		
+		<div class="row">
 			<div class="col-md-12">
 				@foreach( $developers->chunk(4) as $chunks )
 					<div class="row">
