@@ -96,7 +96,7 @@
 
 						<p>&nbsp;</p>
 						@if ($project->show_availability)
-							<p><a href="{{ $project->show_availability }}" class="btn btn-primary btn-lg">Show availabity</a></p>
+							<p><a href="{{ $project->show_availability }}" class="btn btn-primary btn-lg" target="_blank">Show Availabity</a></p>
 						@endif
 					</div>
 
