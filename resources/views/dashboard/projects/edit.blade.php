@@ -88,6 +88,11 @@
 						value="{{ $project->project_escrow_account_details_link }}" />
 				</div>
 
+				<div class="form-group">
+					<label class="control-label">Show Availability</label>
+					<input type="text" name="show_availability" class="form-control" value="{{ $project->show_availability }}" />
+				</div>	
+
 				<h3>Project Description</h3>
 
 				<div class="form-group">
@@ -95,7 +100,7 @@
 					<textarea name="en[description]" id="editor" class="form-control">
 						{{ $project->description }}
 					</textarea>
-				</div>
+				</div>			
 			</div>
 
 			<div class="col-md-6 rtl">

@@ -76,6 +76,10 @@
 				<li class="list-group-item">
 					Expected Completion Date: {{ $project->expected_completion_date }}
 				</li>
+
+				<li class="list-group-item">
+					Show Availability: <a href="{{ $project->show_availability }}" target="_blank">{{ $project->show_availability }}</a>
+				</li>				
 			</ul>
 		</div>
 	</div>

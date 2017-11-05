@@ -93,6 +93,11 @@
 							</li>
 						</ul>
 						{!! $project->description !!}
+
+						<p>&nbsp;</p>
+						@if ($project->show_availability)
+							<p><a href="{{ $project->show_availability }}" class="btn btn-primary btn-lg">Show availabity</a></p>
+						@endif
 					</div>
 
 					<div class="row">

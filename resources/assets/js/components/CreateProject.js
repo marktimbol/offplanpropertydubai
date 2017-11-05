@@ -22,6 +22,7 @@ class CreateProject extends React.Component
 			longitude: '',
 			dld_project_completion_link: '',
 			project_escrow_account_details_link: '',
+			show_availability: '',
 			description: '',
 			category_id: '',
 			types: [],
@@ -382,6 +383,15 @@ class CreateProject extends React.Component
 						</div>
 					</div>
 				</div>
+
+				<div className="form-group">
+					<label>Show Availability</label>
+					<input type="text" 
+						name="show_availability" 
+						className="form-control" 
+						onChange={this.handleChange}
+						value={this.state.show_availability} />
+				</div>				
 
 				<h3>Project Description</h3>
 
