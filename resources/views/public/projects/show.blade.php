@@ -176,7 +176,7 @@
 						</div>
 
 						<div class="form-group">
-							<div class="g-recaptcha" data-sitekey="6LeKrhIUAAAAAASOmIxl4WVSzfHE4E1dooL8LuNy"></div>
+							<div class="g-recaptcha" data-sitekey="{{ config('google.recaptcha.key') }}"></div>
 						</div>
 
 						<div class="form-group">
