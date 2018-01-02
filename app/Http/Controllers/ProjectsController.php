@@ -12,9 +12,9 @@ class ProjectsController extends Controller
 {
     public function index()
     {
-        $projects = Cache::remember('projects', 30, function() {
-            return Project::with('developer', 'photos')->latest()->paginate(12);
-        });
+        $projects =  Project::with('developer', 'photos')->latest()->paginate(12);
+        // $projects = Cache::remember('projects', 30, function() {
+        // });
         
         return view('public.projects.index', compact('projects'));
     }
